@@ -8,3 +8,6 @@ renders/
 video/snapshots/
 !whysplained/videos/*/input/*.mp4
 whysplained/videos/*/out/
+whysplained/videos/*/assets/
+whysplained/videos/*/snapshots/
+whysplained/videos/*/renders/

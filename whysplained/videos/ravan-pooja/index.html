@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #000; }
+      #punch, #zoom { position: absolute; inset: 0; width: 100%; height: 100%; transform-origin: 50% 50%; }
+      #fill { position: absolute; inset: 0; width: 100%; height: 100%; transform: scale(1.2587); transform-origin: 50% 50%; }
+      #raw { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #flash { position: absolute; inset: 0; width: 100%; height: 100%; background: #fff; opacity: 0; }
+
+      .capClip { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .capRow { position: absolute; left: 60px; right: 60px; top: 1190px; height: 0; display: flex; justify-content: center; align-items: center; }
+      .box { display: block; max-width: 900px; text-align: center; font-family: "Montserrat", sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1.12; transform-origin: 50% 50%; }
+      .w { display: inline-block; transform-origin: 50% 70%; }
+      .cap .box { font-size: 82px; color: #fff; -webkit-text-stroke: 8px #000; paint-order: stroke fill; text-shadow: 0 6px 14px rgba(0,0,0,.55); }
+      .cap .w.key { color: #ffd400; font-size: 1.15em; }
+      .hook .capRow { top: 960px; }
+      .hook .box { background: #000; color: #ffd400; font-size: 92px; font-weight: 900; padding: 30px 40px; border-radius: 26px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+      .hook .w.key { color: #fff; }
+      .cta .box { background: #ffd400; color: #000; font-size: 74px; font-weight: 900; padding: 26px 38px; border-radius: 24px; box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+      .cta .w.key { font-size: 1.12em; text-decoration: underline; text-decoration-thickness: 8px; text-underline-offset: 8px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="41.7" data-width="1080" data-height="1920">
+      <div id="punch"><div id="zoom"><div id="fill">
+        <video id="raw" class="clip" src="input/raw.mp4" playsinline data-has-audio="true" data-start="0" data-duration="41.7" data-track-index="0" data-volume="1"></video>
+      </div></div></div>
+      <div id="flash"></div>
+      <div id="cap-0" class="clip capClip hook" data-start="0.000" data-duration="0.920" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-0" class="w">Dussehre</span> <span id="w-1" class="w">par</span> <span id="w-2" class="w">poore</span> <span id="w-3" class="w">India</span> <span id="w-4" class="w">mein</span></div></div>
+      </div>
+      <div id="cap-1" class="clip capClip hook" data-start="0.920" data-duration="1.440" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-5" class="w">Ravan</span> <span id="w-6" class="w">ko</span> <span id="w-7" class="w">jalaya</span> <span id="w-8" class="w">jaata</span> <span id="w-9" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-2" class="clip capClip hook" data-start="2.360" data-duration="1.260" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-10" class="w">Par</span> <span id="w-11" class="w">kuch</span> <span id="w-12" class="w">jagah</span> <span id="w-13" class="w">unki</span> <span id="w-14" class="w key">aarti</span></div></div>
+      </div>
+      <div id="cap-3" class="clip capClip hook" data-start="3.620" data-duration="0.500" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-15" class="w">bhi</span> <span id="w-16" class="w">hoti</span> <span id="w-17" class="w">hai!</span></div></div>
+      </div>
+      <div id="cap-4" class="clip capClip cap" data-start="4.120" data-duration="1.300" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-18" class="w">Dussehra</span> <span id="w-19" class="w">matlab</span> <span id="w-20" class="w key">burai</span> <span id="w-21" class="w">par</span></div></div>
+      </div>
+      <div id="cap-5" class="clip capClip cap" data-start="5.420" data-duration="0.720" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-22" class="w key">achhai</span> <span id="w-23" class="w">ki</span> <span id="w-24" class="w">jeet.</span></div></div>
+      </div>
+      <div id="cap-6" class="clip capClip cap" data-start="6.140" data-duration="0.780" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-25" class="w">To</span> <span id="w-26" class="w">Ravan</span> <span id="w-27" class="w">ko</span> <span id="w-28" class="w">koi</span></div></div>
+      </div>
+      <div id="cap-7" class="clip capClip cap" data-start="6.920" data-duration="0.960" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-29" class="w">kaise</span> <span id="w-30" class="w key">pooj</span> <span id="w-31" class="w">sakta</span> <span id="w-32" class="w">hai?</span></div></div>
+      </div>
+      <div id="cap-8" class="clip capClip cap" data-start="7.880" data-duration="1.060" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-33" class="w">Noida</span> <span id="w-34" class="w">ke</span> <span id="w-35" class="w key">Bisrakh</span> <span id="w-36" class="w">ko</span></div></div>
+      </div>
+      <div id="cap-9" class="clip capClip cap" data-start="8.940" data-duration="1.100" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-37" class="w">Ravan</span> <span id="w-38" class="w">ka</span> <span id="w-39" class="w key">janmasthan</span> <span id="w-40" class="w">maana</span></div></div>
+      </div>
+      <div id="cap-10" class="clip capClip cap" data-start="10.040" data-duration="0.360" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-41" class="w">jaata</span> <span id="w-42" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-11" class="clip capClip cap" data-start="10.400" data-duration="0.900" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-43" class="w">Wahan</span> <span id="w-44" class="w">Ravan</span> <span id="w-45" class="w">ghar</span> <span id="w-46" class="w">ghar</span></div></div>
+      </div>
+      <div id="cap-12" class="clip capClip cap" data-start="11.300" data-duration="0.580" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-47" class="w">ka</span> <span id="w-48" class="w key">beta</span> <span id="w-49" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-13" class="clip capClip cap" data-start="11.880" data-duration="1.620" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-50" class="w key">Mandsaur</span> <span id="w-51" class="w">ko</span> <span id="w-52" class="w">Mandodari</span> <span id="w-53" class="w">ka</span></div></div>
+      </div>
+      <div id="cap-14" class="clip capClip cap" data-start="13.500" data-duration="1.100" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-54" class="w key">maayka</span> <span id="w-55" class="w">maana</span> <span id="w-56" class="w">jaata</span> <span id="w-57" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-15" class="clip capClip cap" data-start="14.600" data-duration="1.500" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-58" class="w">Matlab</span> <span id="w-59" class="w">Ravan</span> <span id="w-60" class="w">wahan</span> <span id="w-61" class="w">ka</span> <span id="w-62" class="w key">damaad!</span></div></div>
+      </div>
+      <div id="cap-16" class="clip capClip cap" data-start="16.100" data-duration="0.900" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-63" class="w">Aur</span> <span id="w-64" class="w">damaad</span> <span id="w-65" class="w">ko</span> <span id="w-66" class="w">koi</span></div></div>
+      </div>
+      <div id="cap-17" class="clip capClip cap" data-start="17.000" data-duration="0.880" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-67" class="w key">jalata</span> <span id="w-68" class="w">hai</span> <span id="w-69" class="w">kya?</span></div></div>
+      </div>
+      <div id="cap-18" class="clip capClip cap" data-start="17.880" data-duration="0.820" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-70" class="w">Aap</span> <span id="w-71" class="w">soch</span> <span id="w-72" class="w">rahe</span> <span id="w-73" class="w">ho</span></div></div>
+      </div>
+      <div id="cap-19" class="clip capClip cap" data-start="18.700" data-duration="0.660" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-74" class="w">bas</span> <span id="w-75" class="w">ek-do</span> <span id="w-76" class="w">gaon?</span></div></div>
+      </div>
+      <div id="cap-20" class="clip capClip cap" data-start="19.360" data-duration="1.440" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-77" class="w key">Galat.</span> <span id="w-78" class="w">List</span> <span id="w-79" class="w">lambi</span> <span id="w-80" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-21" class="clip capClip cap" data-start="20.800" data-duration="1.020" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-81" class="w key">Kanpur</span> <span id="w-82" class="w">mein</span> <span id="w-83" class="w">ek</span> <span id="w-84" class="w">mandir</span></div></div>
+      </div>
+      <div id="cap-22" class="clip capClip cap" data-start="21.820" data-duration="0.740" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-85" class="w">saal</span> <span id="w-86" class="w">mein</span> <span id="w-87" class="w">sirf</span> <span id="w-88" class="w key">ek</span></div></div>
+      </div>
+      <div id="cap-23" class="clip capClip cap" data-start="22.560" data-duration="0.540" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-89" class="w key">din</span> <span id="w-90" class="w">khulta</span> <span id="w-91" class="w">hai...</span></div></div>
+      </div>
+      <div id="cap-24" class="clip capClip cap" data-start="23.100" data-duration="0.800" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-92" class="w key">...Dussehre</span> <span id="w-93" class="w">ke</span> <span id="w-94" class="w">din.</span></div></div>
+      </div>
+      <div id="cap-25" class="clip capClip cap" data-start="23.900" data-duration="0.980" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-95" class="w">Wahan</span> <span id="w-96" class="w">Ravan</span> <span id="w-97" class="w">ko</span> <span id="w-98" class="w key">Shiv</span></div></div>
+      </div>
+      <div id="cap-26" class="clip capClip cap" data-start="24.880" data-duration="0.880" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-99" class="w key">bhakt</span> <span id="w-100" class="w">ki</span> <span id="w-101" class="w">tarah</span> <span id="w-102" class="w">pooja</span></div></div>
+      </div>
+      <div id="cap-27" class="clip capClip cap" data-start="25.760" data-duration="0.440" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-103" class="w">jaata</span> <span id="w-104" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-28" class="clip capClip cap" data-start="26.200" data-duration="1.360" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-105" class="w key">Baijnath</span> <span id="w-106" class="w">mein</span> <span id="w-107" class="w">maana</span> <span id="w-108" class="w">jaata</span></div></div>
+      </div>
+      <div id="cap-29" class="clip capClip cap" data-start="27.560" data-duration="0.880" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-109" class="w">hai,</span> <span id="w-110" class="w">Ravan</span> <span id="w-111" class="w">ne</span> <span id="w-112" class="w">yahin</span></div></div>
+      </div>
+      <div id="cap-30" class="clip capClip cap" data-start="28.440" data-duration="0.900" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-113" class="w">Shiv</span> <span id="w-114" class="w">ji</span> <span id="w-115" class="w">ki</span> <span id="w-116" class="w key">tapasya</span></div></div>
+      </div>
+      <div id="cap-31" class="clip capClip cap" data-start="29.340" data-duration="0.300" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-117" class="w">ki</span> <span id="w-118" class="w">thi.</span></div></div>
+      </div>
+      <div id="cap-32" class="clip capClip cap" data-start="29.640" data-duration="1.180" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-119" class="w">Par</span> <span id="w-120" class="w key">Gadchiroli</span> <span id="w-121" class="w">ke</span> <span id="w-122" class="w">kuch</span></div></div>
+      </div>
+      <div id="cap-33" class="clip capClip cap" data-start="30.820" data-duration="1.140" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-123" class="w">Gond</span> <span id="w-124" class="w">aadivasi</span> <span id="w-125" class="w">Ravan</span> <span id="w-126" class="w">ko</span></div></div>
+      </div>
+      <div id="cap-34" class="clip capClip cap" data-start="31.960" data-duration="1.080" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-127" class="w">apna</span> <span id="w-128" class="w key">purvaj</span> <span id="w-129" class="w">maante</span> <span id="w-130" class="w">hain.</span></div></div>
+      </div>
+      <div id="cap-35" class="clip capClip cap" data-start="33.040" data-duration="0.800" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-131" class="w">Ek</span> <span id="w-132" class="w">hi</span> <span id="w-133" class="w">kirdaar,</span></div></div>
+      </div>
+      <div id="cap-36" class="clip capClip cap" data-start="33.840" data-duration="0.500" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-134" class="w">alag</span> <span id="w-135" class="w">jagah,</span></div></div>
+      </div>
+      <div id="cap-37" class="clip capClip cap" data-start="34.340" data-duration="1.240" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-136" class="w">alag</span> <span id="w-137" class="w">parampara</span> <span id="w-138" class="w">yahi</span> <span id="w-139" class="w">India</span></div></div>
+      </div>
+      <div id="cap-38" class="clip capClip cap" data-start="35.580" data-duration="0.900" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-140" class="w">ki</span> <span id="w-141" class="w key">khoobsurti</span> <span id="w-142" class="w">hai.</span></div></div>
+      </div>
+      <div id="cap-39" class="clip capClip cta" data-start="36.480" data-duration="1.000" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-143" class="w">Dussehre</span> <span id="w-144" class="w">tak</span> <span id="w-145" class="w">ye</span> <span id="w-146" class="w">video</span></div></div>
+      </div>
+      <div id="cap-40" class="clip capClip cta" data-start="37.480" data-duration="0.780" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-147" class="w key">share</span> <span id="w-148" class="w">kar</span> <span id="w-149" class="w">do</span> <span id="w-150" class="w">taaki</span></div></div>
+      </div>
+      <div id="cap-41" class="clip capClip cta" data-start="38.260" data-duration="0.760" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-151" class="w">sabko</span> <span id="w-152" class="w">pata</span> <span id="w-153" class="w">chale</span></div></div>
+      </div>
+      <div id="cap-42" class="clip capClip cta" data-start="39.020" data-duration="0.940" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-154" class="w">aur</span> <span id="w-155" class="w">aise</span> <span id="w-156" class="w">hi</span> <span id="w-157" class="w">videos</span></div></div>
+      </div>
+      <div id="cap-43" class="clip capClip cta" data-start="39.960" data-duration="1.040" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-158" class="w">ke</span> <span id="w-159" class="w">liye</span> <span id="w-160" class="w key">subscribe</span> <span id="w-161" class="w">karo</span></div></div>
+      </div>
+      <div id="cap-44" class="clip capClip cta" data-start="41.000" data-duration="0.700" data-track-index="3">
+        <div class="capRow"><div class="box"><span id="w-162" class="w key">Whysplained</span> <span id="w-163" class="w">ko!</span></div></div>
+      </div>
+    </div>
+
+    <audio id="sfx-0" src="assets/sfx/whoosh.wav" data-start="2.750" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-1" src="assets/sfx/click.wav" data-start="3.260" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-2" src="assets/sfx/whoosh.wav" data-start="3.983" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-3" src="assets/sfx/click.wav" data-start="5.000" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-4" src="assets/sfx/click.wav" data-start="5.420" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-5" src="assets/sfx/whoosh.wav" data-start="5.883" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-6" src="assets/sfx/click.wav" data-start="7.260" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-7" src="assets/sfx/whoosh.wav" data-start="7.717" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-8" src="assets/sfx/click.wav" data-start="8.480" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-9" src="assets/sfx/click.wav" data-start="9.280" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-10" src="assets/sfx/whoosh.wav" data-start="10.183" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-11" src="assets/sfx/click.wav" data-start="11.340" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-12" src="assets/sfx/whoosh.wav" data-start="11.683" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-13" src="assets/sfx/click.wav" data-start="11.880" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-14" src="assets/sfx/click.wav" data-start="13.500" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-15" src="assets/sfx/whoosh.wav" data-start="14.417" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-16" src="assets/sfx/click.wav" data-start="15.640" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-17" src="assets/sfx/whoosh.wav" data-start="16.050" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-18" src="assets/sfx/click.wav" data-start="17.000" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-19" src="assets/sfx/whoosh.wav" data-start="17.683" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-20" src="assets/sfx/whoosh.wav" data-start="19.183" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-21" src="assets/sfx/click.wav" data-start="19.360" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-22" src="assets/sfx/whoosh.wav" data-start="19.683" data-duration="0.55" data-track-index="11" data-volume="0.263"></audio>
+    <audio id="sfx-23" src="assets/sfx/whoosh.wav" data-start="20.617" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-24" src="assets/sfx/click.wav" data-start="20.800" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-25" src="assets/sfx/click.wav" data-start="22.400" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-26" src="assets/sfx/whoosh.wav" data-start="22.517" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-27" src="assets/sfx/click.wav" data-start="23.100" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-28" src="assets/sfx/whoosh.wav" data-start="23.717" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-29" src="assets/sfx/click.wav" data-start="24.680" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-30" src="assets/sfx/whoosh.wav" data-start="26.017" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-31" src="assets/sfx/click.wav" data-start="26.200" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-32" src="assets/sfx/whoosh.wav" data-start="27.483" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-33" src="assets/sfx/click.wav" data-start="28.900" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-34" src="assets/sfx/whoosh.wav" data-start="29.450" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-35" src="assets/sfx/click.wav" data-start="29.900" data-duration="0.08" data-track-index="11" data-volume="0.132"></audio>
+    <audio id="sfx-36" src="assets/sfx/whoosh.wav" data-start="31.517" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-37" src="assets/sfx/click.wav" data-start="32.180" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-38" src="assets/sfx/whoosh.wav" data-start="32.850" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-39" src="assets/sfx/whoosh.wav" data-start="34.850" data-duration="0.55" data-track-index="10" data-volume="0.263"></audio>
+    <audio id="sfx-40" src="assets/sfx/click.wav" data-start="35.740" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-41" src="assets/sfx/click.wav" data-start="37.480" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-42" src="assets/sfx/click.wav" data-start="40.140" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+    <audio id="sfx-43" src="assets/sfx/click.wav" data-start="41.000" data-duration="0.08" data-track-index="10" data-volume="0.132"></audio>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 3.000, ease: "sine.inOut" }, 0.000);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.233, ease: "sine.inOut", immediateRender: false }, 3.000);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 1.900, ease: "sine.inOut", immediateRender: false }, 4.233);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.834, ease: "sine.inOut", immediateRender: false }, 6.133);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 2.466, ease: "sine.inOut", immediateRender: false }, 7.967);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.500, ease: "sine.inOut", immediateRender: false }, 10.433);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 2.734, ease: "sine.inOut", immediateRender: false }, 11.933);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.633, ease: "sine.inOut", immediateRender: false }, 14.667);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 1.633, ease: "sine.inOut", immediateRender: false }, 16.300);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.500, ease: "sine.inOut", immediateRender: false }, 17.933);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 0.500, ease: "sine.inOut", immediateRender: false }, 19.433);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 0.934, ease: "sine.inOut", immediateRender: false }, 19.933);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 1.900, ease: "sine.inOut", immediateRender: false }, 20.867);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.200, ease: "sine.inOut", immediateRender: false }, 22.767);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 2.300, ease: "sine.inOut", immediateRender: false }, 23.967);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 1.466, ease: "sine.inOut", immediateRender: false }, 26.267);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 1.967, ease: "sine.inOut", immediateRender: false }, 27.733);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 2.067, ease: "sine.inOut", immediateRender: false }, 29.700);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 1.333, ease: "sine.inOut", immediateRender: false }, 31.767);
+      tl.fromTo("#zoom", { scale: 1.12 }, { scale: 1, duration: 2.000, ease: "sine.inOut", immediateRender: false }, 33.100);
+      tl.fromTo("#zoom", { scale: 1 }, { scale: 1.12, duration: 6.600, ease: "sine.inOut", immediateRender: false }, 35.100);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in" }, 2.8667);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 3.0000);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out" }, 3.0000);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 4.0997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 4.2330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 4.2330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 5.9997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 6.1330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 6.1330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 7.8337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 7.9670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 7.9670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 10.2997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 10.4330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 10.4330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 11.7997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 11.9330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 11.9330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 14.5337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 14.6670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 14.6670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 16.1667);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 16.3000);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 16.3000);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 17.7997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 17.9330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 17.9330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 19.2997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 19.4330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 19.4330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 19.7997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 19.9330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 19.9330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 20.7337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 20.8670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 20.8670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 22.6337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 22.7670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 22.7670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 23.8337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 23.9670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 23.9670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 26.1337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 26.2670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 26.2670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 27.5997);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 27.7330);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 27.7330);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 29.5667);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 29.7000);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 29.7000);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 31.6337);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 31.7670);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 31.7670);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 32.9667);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 33.1000);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 33.1000);
+      tl.fromTo("#punch", { scale: 1 }, { scale: 1.06, duration: 0.1333, ease: "power2.in", immediateRender: false }, 34.9667);
+      tl.fromTo("#punch", { scale: 1.06 }, { scale: 1, duration: 0.1333, ease: "power2.out", immediateRender: false }, 35.1000);
+      tl.fromTo("#flash", { opacity: 0.22 }, { opacity: 0, duration: 0.1333, ease: "power1.out", immediateRender: false }, 35.1000);
+      tl.fromTo("#w-0", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.000);
+      tl.fromTo("#w-1", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.460);
+      tl.fromTo("#w-2", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.660);
+      tl.fromTo("#w-3", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.790);
+      tl.fromTo("#w-4", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.855);
+      tl.fromTo("#w-5", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 0.920);
+      tl.fromTo("#w-6", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 1.480);
+      tl.fromTo("#w-7", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 1.640);
+      tl.fromTo("#w-8", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.000);
+      tl.fromTo("#w-9", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.300);
+      tl.fromTo("#w-10", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.360);
+      tl.fromTo("#w-11", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.540);
+      tl.fromTo("#w-12", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.720);
+      tl.fromTo("#w-13", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 2.980);
+      tl.fromTo("#w-14", { opacity: 0.3, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 3.260);
+      tl.fromTo("#w-15", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 3.620);
+      tl.fromTo("#w-16", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 3.760);
+      tl.fromTo("#w-17", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 3.980);
+      tl.fromTo("#w-18", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 4.120);
+      tl.fromTo("#w-19", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 4.660);
+      tl.fromTo("#w-20", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 5.000);
+      tl.fromTo("#w-21", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 5.240);
+      tl.fromTo("#w-22", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 5.420);
+      tl.fromTo("#w-23", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 5.900);
+      tl.fromTo("#w-24", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.020);
+      tl.fromTo("#w-25", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.140);
+      tl.fromTo("#w-26", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.320);
+      tl.fromTo("#w-27", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.600);
+      tl.fromTo("#w-28", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.780);
+      tl.fromTo("#w-29", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 6.920);
+      tl.fromTo("#w-30", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 7.260);
+      tl.fromTo("#w-31", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 7.420);
+      tl.fromTo("#w-32", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 7.780);
+      tl.fromTo("#w-33", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 7.880);
+      tl.fromTo("#w-34", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 8.340);
+      tl.fromTo("#w-35", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 8.480);
+      tl.fromTo("#w-36", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 8.840);
+      tl.fromTo("#w-37", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 8.940);
+      tl.fromTo("#w-38", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 9.140);
+      tl.fromTo("#w-39", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 9.280);
+      tl.fromTo("#w-40", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 9.740);
+      tl.fromTo("#w-41", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 10.040);
+      tl.fromTo("#w-42", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 10.320);
+      tl.fromTo("#w-43", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 10.400);
+      tl.fromTo("#w-44", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 10.700);
+      tl.fromTo("#w-45", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 10.960);
+      tl.fromTo("#w-46", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 11.180);
+      tl.fromTo("#w-47", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 11.300);
+      tl.fromTo("#w-48", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 11.340);
+      tl.fromTo("#w-49", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 11.700);
+      tl.fromTo("#w-50", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 11.880);
+      tl.fromTo("#w-51", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 12.520);
+      tl.fromTo("#w-52", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 12.780);
+      tl.fromTo("#w-53", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 13.400);
+      tl.fromTo("#w-54", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 13.500);
+      tl.fromTo("#w-55", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 13.940);
+      tl.fromTo("#w-56", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 14.160);
+      tl.fromTo("#w-57", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 14.480);
+      tl.fromTo("#w-58", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 14.600);
+      tl.fromTo("#w-59", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 15.000);
+      tl.fromTo("#w-60", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 15.260);
+      tl.fromTo("#w-61", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 15.540);
+      tl.fromTo("#w-62", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 15.640);
+      tl.fromTo("#w-63", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 16.100);
+      tl.fromTo("#w-64", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 16.320);
+      tl.fromTo("#w-65", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 16.720);
+      tl.fromTo("#w-66", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 16.860);
+      tl.fromTo("#w-67", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 17.000);
+      tl.fromTo("#w-68", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 17.500);
+      tl.fromTo("#w-69", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 17.620);
+      tl.fromTo("#w-70", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 17.880);
+      tl.fromTo("#w-71", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 18.100);
+      tl.fromTo("#w-72", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 18.360);
+      tl.fromTo("#w-73", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 18.480);
+      tl.fromTo("#w-74", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 18.700);
+      tl.fromTo("#w-75", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 18.880);
+      tl.fromTo("#w-76", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 19.220);
+      tl.fromTo("#w-77", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 19.360);
+      tl.fromTo("#w-78", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 19.860);
+      tl.fromTo("#w-79", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 20.160);
+      tl.fromTo("#w-80", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 20.600);
+      tl.fromTo("#w-81", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 20.800);
+      tl.fromTo("#w-82", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 21.260);
+      tl.fromTo("#w-83", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 21.400);
+      tl.fromTo("#w-84", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 21.500);
+      tl.fromTo("#w-85", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 21.820);
+      tl.fromTo("#w-86", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 22.040);
+      tl.fromTo("#w-87", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 22.220);
+      tl.fromTo("#w-88", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 22.400);
+      tl.fromTo("#w-89", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 22.560);
+      tl.fromTo("#w-90", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 22.660);
+      tl.fromTo("#w-91", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 23.020);
+      tl.fromTo("#w-92", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 23.100);
+      tl.fromTo("#w-93", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 23.600);
+      tl.fromTo("#w-94", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 23.720);
+      tl.fromTo("#w-95", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 23.900);
+      tl.fromTo("#w-96", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 24.320);
+      tl.fromTo("#w-97", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 24.540);
+      tl.fromTo("#w-98", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 24.680);
+      tl.fromTo("#w-99", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 24.880);
+      tl.fromTo("#w-100", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 25.120);
+      tl.fromTo("#w-101", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 25.270);
+      tl.fromTo("#w-102", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 25.420);
+      tl.fromTo("#w-103", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 25.760);
+      tl.fromTo("#w-104", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 26.080);
+      tl.fromTo("#w-105", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 26.200);
+      tl.fromTo("#w-106", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 26.900);
+      tl.fromTo("#w-107", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 27.040);
+      tl.fromTo("#w-108", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 27.260);
+      tl.fromTo("#w-109", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 27.560);
+      tl.fromTo("#w-110", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 27.660);
+      tl.fromTo("#w-111", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 27.980);
+      tl.fromTo("#w-112", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 28.200);
+      tl.fromTo("#w-113", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 28.440);
+      tl.fromTo("#w-114", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 28.620);
+      tl.fromTo("#w-115", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 28.800);
+      tl.fromTo("#w-116", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 28.900);
+      tl.fromTo("#w-117", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 29.340);
+      tl.fromTo("#w-118", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 29.460);
+      tl.fromTo("#w-119", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 29.640);
+      tl.fromTo("#w-120", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 29.900);
+      tl.fromTo("#w-121", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 30.480);
+      tl.fromTo("#w-122", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 30.620);
+      tl.fromTo("#w-123", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 30.820);
+      tl.fromTo("#w-124", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 31.140);
+      tl.fromTo("#w-125", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 31.580);
+      tl.fromTo("#w-126", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 31.820);
+      tl.fromTo("#w-127", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 31.960);
+      tl.fromTo("#w-128", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 32.180);
+      tl.fromTo("#w-129", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 32.540);
+      tl.fromTo("#w-130", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 32.920);
+      tl.fromTo("#w-131", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 33.040);
+      tl.fromTo("#w-132", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 33.440);
+      tl.fromTo("#w-133", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 33.500);
+      tl.fromTo("#w-134", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 33.840);
+      tl.fromTo("#w-135", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 34.100);
+      tl.fromTo("#w-136", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 34.340);
+      tl.fromTo("#w-137", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 34.640);
+      tl.fromTo("#w-138", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 35.100);
+      tl.fromTo("#w-139", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 35.420);
+      tl.fromTo("#w-140", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 35.580);
+      tl.fromTo("#w-141", { opacity: 0, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 35.740);
+      tl.fromTo("#w-142", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 36.320);
+      tl.fromTo("#w-143", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 36.480);
+      tl.fromTo("#w-144", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 36.960);
+      tl.fromTo("#w-145", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 37.080);
+      tl.fromTo("#w-146", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 37.220);
+      tl.fromTo("#w-147", { opacity: 0.3, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 37.480);
+      tl.fromTo("#w-148", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 37.720);
+      tl.fromTo("#w-149", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 37.900);
+      tl.fromTo("#w-150", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 38.000);
+      tl.fromTo("#w-151", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 38.260);
+      tl.fromTo("#w-152", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 38.560);
+      tl.fromTo("#w-153", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 38.800);
+      tl.fromTo("#w-154", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 39.020);
+      tl.fromTo("#w-155", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 39.140);
+      tl.fromTo("#w-156", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 39.380);
+      tl.fromTo("#w-157", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 39.540);
+      tl.fromTo("#w-158", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 39.960);
+      tl.fromTo("#w-159", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 40.080);
+      tl.fromTo("#w-160", { opacity: 0.3, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 40.140);
+      tl.fromTo("#w-161", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 40.800);
+      tl.fromTo("#w-162", { opacity: 0.3, scale: 0.8 }, { keyframes: [{ opacity: 1, scale: 1.1, duration: 0.1 }, { scale: 1, duration: 0.08 }], ease: "power2.out" }, 41.000);
+      tl.fromTo("#w-163", { opacity: 0.3, y: 0 }, { opacity: 1, y: 0, duration: 0.09, ease: "power2.out" }, 41.360);
+      tl.fromTo("#cap-0 .box", { scale: 0.85 }, { scale: 1, duration: 0.25, ease: "back.out(2)" }, 0.000);
+      tl.fromTo("#cap-39 .box", { scale: 0.85 }, { scale: 1, duration: 0.25, ease: "back.out(2)" }, 36.480);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
