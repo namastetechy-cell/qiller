@@ -6,3 +6,5 @@ renders/
 !video/assets/**/*.webm
 .thumbnails/
 video/snapshots/
+!whysplained/videos/*/input/*.mp4
+whysplained/videos/*/out/

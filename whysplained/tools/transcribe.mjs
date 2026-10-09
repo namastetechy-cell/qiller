@@ -1,0 +1,11 @@
+import { pipeline, env } from "@huggingface/transformers";
+import { readFileSync, writeFileSync } from "node:fs";
+const [modelRoot, audioPath, lang, out] = process.argv.slice(2);
+env.allowRemoteModels = false;
+env.localModelPath = modelRoot;
+const buf = readFileSync(audioPath);
+const audio = new Float32Array(buf.buffer, buf.byteOffset, buf.byteLength / 4);
+const asr = await pipeline("automatic-speech-recognition", "Xenova/whisper-small", { dtype: "q8" });
+const res = await asr(audio, { language: lang, task: "transcribe", return_timestamps: "word", chunk_length_s: 30, stride_length_s: 5 });
+writeFileSync(out, JSON.stringify(res, null, 1));
+console.log(res.text);
