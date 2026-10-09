@@ -1,0 +1,7 @@
+node_modules/
+renders/
+*.mp4
+*.webm
+!video/assets/**/*.mp4
+!video/assets/**/*.webm
+.thumbnails/
