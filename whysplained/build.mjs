@@ -86,7 +86,8 @@ const captionHtml = timedChunks.map((c, n) => `
       </div>`).join("");
 
 const sfxCues = [
-  ...cuts.slice(1).map((t) => ["whoosh", t - SFX.whoosh.lead]),
+  // edit.json "whoosh": false turns off the cut whooshes
+  ...(edit.whoosh === false ? [] : cuts.slice(1).map((t) => ["whoosh", t - SFX.whoosh.lead])),
   ...words.filter((_, i) => isKey[i] && (i === 0 || !isKey[i - 1] || words[i - 1].line !== words[i].line)).map((w) => ["click", w.start]),
 ].sort((a, b) => a[1] - b[1]);
 const laneEnds = [];
