@@ -1,0 +1,55 @@
+1
+00:00:00,330 --> 00:00:02,630
+Tap your phone with a pen. Nothing.
+
+2
+00:00:02,660 --> 00:00:05,320
+Tap it with a finger, and it works. Why?
+
+3
+00:00:05,880 --> 00:00:09,090
+Under the glass sits an invisible grid of wires,
+
+4
+00:00:09,120 --> 00:00:11,700
+holding a tiny electric charge.
+
+5
+00:00:11,730 --> 00:00:14,080
+Your body is mostly salty water,
+
+6
+00:00:14,110 --> 00:00:15,800
+so your finger conducts.
+
+7
+00:00:15,830 --> 00:00:18,690
+Touch the glass, and it pulls a little charge away,
+
+8
+00:00:18,720 --> 00:00:20,100
+right at that spot.
+
+9
+00:00:20,130 --> 00:00:21,810
+The phone feels that dip,
+
+10
+00:00:21,840 --> 00:00:23,830
+and knows exactly where you are.
+
+11
+00:00:24,430 --> 00:00:28,200
+A plastic pen is an insulator. It takes no charge,
+
+12
+00:00:28,230 --> 00:00:30,500
+so the screen never notices it.
+
+13
+00:00:30,530 --> 00:00:33,700
+Give the pen a conductive tip, and suddenly,
+
+14
+00:00:33,730 --> 00:00:35,300
+it's a finger too.
