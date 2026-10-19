@@ -13,7 +13,7 @@ One tall board, top to bottom:
 6. The Roadster with the driver crossed out → "nobody inside!".
 7. A road in perspective, a "fly" arrow up from it, crossed out → "public roads".
 8. "flying car" struck through → a kangaroo with a hop arrow and "$$$".
-9. Whysplained, SUBSCRIBE, a calendar "2028" ("wait?"); an orange pin drops on the button; pull back to the whole board.
+9. SUBSCRIBE, a calendar "2028" ("wait?"); an orange pin drops on the button; pull back to the whole board.
 
 Colours: black cars & structure · blue compressed air · orange the Roadster and the answers.
 Sound: narrator; a soft original score (vibraphone bed, pizzicato, harp runs; D minor for the questions, F major for the
