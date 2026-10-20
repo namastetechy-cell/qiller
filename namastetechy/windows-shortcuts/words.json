@@ -1,0 +1,777 @@
+{
+ "lines": [
+  "Agar Windows ye 5 shortcuts nahi jaante, to roz time waste kar rahe ho.",
+  "Aur number 1 to sabse zyada useful hai.",
+  "Number 5: jab bhi seat chhodo, to Windows + L dabao aur laptop ko turant lock karo.",
+  "Number 4: Windows + dot dabane se PC par emoji keyboard open hota hai.",
+  "Number 3: browser mein galti se tab band ho gaye, to bhai Ctrl + Shift + T aur sab wapas.",
+  "Number 2: Windows + V, clipboard history. Jo bhi copy kiya, sab yahan.",
+  "Pehli baar ek click se on karo.",
+  "Aur number 1: Windows + Shift + S. Screen ka koi bhi hissa, ab tum screenshot le sakte ho.",
+  "Tumhe kaun sa pehle se pata tha? Comment karo aur subscribe karo Namaste Techy ko!"
+ ],
+ "words": [
+  {
+   "text": "Agar",
+   "line": 0,
+   "start": 0.0,
+   "end": 0.16
+  },
+  {
+   "text": "Windows",
+   "line": 0,
+   "start": 0.16,
+   "end": 0.5
+  },
+  {
+   "text": "ye",
+   "line": 0,
+   "start": 0.5,
+   "end": 0.64
+  },
+  {
+   "text": "5",
+   "line": 0,
+   "start": 0.64,
+   "end": 1.38
+  },
+  {
+   "text": "shortcuts",
+   "line": 0,
+   "start": 1.38,
+   "end": 1.58
+  },
+  {
+   "text": "nahi",
+   "line": 0,
+   "start": 1.58,
+   "end": 1.78
+  },
+  {
+   "text": "jaante,",
+   "line": 0,
+   "start": 1.78,
+   "end": 2.5
+  },
+  {
+   "text": "to",
+   "line": 0,
+   "start": 2.5,
+   "end": 2.66
+  },
+  {
+   "text": "roz",
+   "line": 0,
+   "start": 2.66,
+   "end": 2.92
+  },
+  {
+   "text": "time",
+   "line": 0,
+   "start": 2.92,
+   "end": 3.26
+  },
+  {
+   "text": "waste",
+   "line": 0,
+   "start": 3.38,
+   "end": 3.66
+  },
+  {
+   "text": "kar",
+   "line": 0,
+   "start": 3.66,
+   "end": 3.78
+  },
+  {
+   "text": "rahe",
+   "line": 0,
+   "start": 3.78,
+   "end": 3.95
+  },
+  {
+   "text": "ho.",
+   "line": 0,
+   "start": 3.95,
+   "end": 4.12
+  },
+  {
+   "text": "Aur",
+   "line": 1,
+   "start": 4.12,
+   "end": 4.4
+  },
+  {
+   "text": "number",
+   "line": 1,
+   "start": 4.4,
+   "end": 4.72
+  },
+  {
+   "text": "1",
+   "line": 1,
+   "start": 4.72,
+   "end": 4.84
+  },
+  {
+   "text": "to",
+   "line": 1,
+   "start": 4.84,
+   "end": 4.98
+  },
+  {
+   "text": "sabse",
+   "line": 1,
+   "start": 4.98,
+   "end": 5.22
+  },
+  {
+   "text": "zyada",
+   "line": 1,
+   "start": 5.22,
+   "end": 5.66
+  },
+  {
+   "text": "useful",
+   "line": 1,
+   "start": 5.66,
+   "end": 6.1
+  },
+  {
+   "text": "hai.",
+   "line": 1,
+   "start": 6.1,
+   "end": 6.24
+  },
+  {
+   "text": "Number",
+   "line": 2,
+   "start": 6.24,
+   "end": 7.0
+  },
+  {
+   "text": "5:",
+   "line": 2,
+   "start": 7.0,
+   "end": 7.28
+  },
+  {
+   "text": "jab",
+   "line": 2,
+   "start": 7.28,
+   "end": 7.8
+  },
+  {
+   "text": "bhi",
+   "line": 2,
+   "start": 7.8,
+   "end": 7.9
+  },
+  {
+   "text": "seat",
+   "line": 2,
+   "start": 7.9,
+   "end": 8.12
+  },
+  {
+   "text": "chhodo,",
+   "line": 2,
+   "start": 8.12,
+   "end": 8.44
+  },
+  {
+   "text": "to",
+   "line": 2,
+   "start": 8.44,
+   "end": 8.68
+  },
+  {
+   "text": "Windows",
+   "line": 2,
+   "start": 8.68,
+   "end": 9.02
+  },
+  {
+   "text": "+",
+   "line": 2,
+   "start": 9.02,
+   "end": 9.22
+  },
+  {
+   "text": "L",
+   "line": 2,
+   "start": 9.22,
+   "end": 9.52
+  },
+  {
+   "text": "dabao",
+   "line": 2,
+   "start": 9.52,
+   "end": 9.88
+  },
+  {
+   "text": "aur",
+   "line": 2,
+   "start": 9.88,
+   "end": 10.0
+  },
+  {
+   "text": "laptop",
+   "line": 2,
+   "start": 10.0,
+   "end": 10.44
+  },
+  {
+   "text": "ko",
+   "line": 2,
+   "start": 10.44,
+   "end": 10.6
+  },
+  {
+   "text": "turant",
+   "line": 2,
+   "start": 10.6,
+   "end": 10.92
+  },
+  {
+   "text": "lock",
+   "line": 2,
+   "start": 10.92,
+   "end": 11.2
+  },
+  {
+   "text": "karo.",
+   "line": 2,
+   "start": 11.2,
+   "end": 11.5
+  },
+  {
+   "text": "Number",
+   "line": 3,
+   "start": 11.5,
+   "end": 12.14
+  },
+  {
+   "text": "4:",
+   "line": 3,
+   "start": 12.14,
+   "end": 12.4
+  },
+  {
+   "text": "Windows",
+   "line": 3,
+   "start": 12.4,
+   "end": 12.98
+  },
+  {
+   "text": "+",
+   "line": 3,
+   "start": 12.98,
+   "end": 13.09
+  },
+  {
+   "text": "dot",
+   "line": 3,
+   "start": 13.09,
+   "end": 13.2
+  },
+  {
+   "text": "dabane",
+   "line": 3,
+   "start": 13.2,
+   "end": 13.8
+  },
+  {
+   "text": "se",
+   "line": 3,
+   "start": 13.8,
+   "end": 13.98
+  },
+  {
+   "text": "PC",
+   "line": 3,
+   "start": 13.98,
+   "end": 14.32
+  },
+  {
+   "text": "par",
+   "line": 3,
+   "start": 14.32,
+   "end": 14.54
+  },
+  {
+   "text": "emoji",
+   "line": 3,
+   "start": 14.54,
+   "end": 15.06
+  },
+  {
+   "text": "keyboard",
+   "line": 3,
+   "start": 15.06,
+   "end": 15.54
+  },
+  {
+   "text": "open",
+   "line": 3,
+   "start": 15.54,
+   "end": 15.96
+  },
+  {
+   "text": "hota",
+   "line": 3,
+   "start": 15.96,
+   "end": 16.36
+  },
+  {
+   "text": "hai.",
+   "line": 3,
+   "start": 16.36,
+   "end": 16.54
+  },
+  {
+   "text": "Number",
+   "line": 4,
+   "start": 16.54,
+   "end": 17.16
+  },
+  {
+   "text": "3:",
+   "line": 4,
+   "start": 17.16,
+   "end": 17.44
+  },
+  {
+   "text": "browser",
+   "line": 4,
+   "start": 17.44,
+   "end": 17.88
+  },
+  {
+   "text": "mein",
+   "line": 4,
+   "start": 17.88,
+   "end": 18.0
+  },
+  {
+   "text": "galti",
+   "line": 4,
+   "start": 18.0,
+   "end": 18.28
+  },
+  {
+   "text": "se",
+   "line": 4,
+   "start": 18.28,
+   "end": 18.64
+  },
+  {
+   "text": "tab",
+   "line": 4,
+   "start": 18.64,
+   "end": 18.72
+  },
+  {
+   "text": "band",
+   "line": 4,
+   "start": 18.72,
+   "end": 18.79
+  },
+  {
+   "text": "ho",
+   "line": 4,
+   "start": 18.79,
+   "end": 18.86
+  },
+  {
+   "text": "gaye,",
+   "line": 4,
+   "start": 18.86,
+   "end": 19.14
+  },
+  {
+   "text": "to",
+   "line": 4,
+   "start": 19.14,
+   "end": 19.46
+  },
+  {
+   "text": "bhai",
+   "line": 4,
+   "start": 19.46,
+   "end": 19.62
+  },
+  {
+   "text": "Ctrl",
+   "line": 4,
+   "start": 19.62,
+   "end": 20.16
+  },
+  {
+   "text": "+",
+   "line": 4,
+   "start": 20.16,
+   "end": 20.38
+  },
+  {
+   "text": "Shift",
+   "line": 4,
+   "start": 20.38,
+   "end": 20.64
+  },
+  {
+   "text": "+",
+   "line": 4,
+   "start": 20.64,
+   "end": 20.96
+  },
+  {
+   "text": "T",
+   "line": 4,
+   "start": 20.96,
+   "end": 21.26
+  },
+  {
+   "text": "aur",
+   "line": 4,
+   "start": 21.26,
+   "end": 21.66
+  },
+  {
+   "text": "sab",
+   "line": 4,
+   "start": 21.66,
+   "end": 21.98
+  },
+  {
+   "text": "wapas.",
+   "line": 4,
+   "start": 21.98,
+   "end": 22.72
+  },
+  {
+   "text": "Number",
+   "line": 5,
+   "start": 22.72,
+   "end": 23.26
+  },
+  {
+   "text": "2:",
+   "line": 5,
+   "start": 23.26,
+   "end": 23.42
+  },
+  {
+   "text": "Windows",
+   "line": 5,
+   "start": 23.42,
+   "end": 23.96
+  },
+  {
+   "text": "+",
+   "line": 5,
+   "start": 23.96,
+   "end": 24.18
+  },
+  {
+   "text": "V,",
+   "line": 5,
+   "start": 24.18,
+   "end": 24.4
+  },
+  {
+   "text": "clipboard",
+   "line": 5,
+   "start": 24.76,
+   "end": 24.96
+  },
+  {
+   "text": "history.",
+   "line": 5,
+   "start": 24.96,
+   "end": 25.32
+  },
+  {
+   "text": "Jo",
+   "line": 5,
+   "start": 25.3,
+   "end": 25.8
+  },
+  {
+   "text": "bhi",
+   "line": 5,
+   "start": 25.8,
+   "end": 25.96
+  },
+  {
+   "text": "copy",
+   "line": 5,
+   "start": 25.96,
+   "end": 26.28
+  },
+  {
+   "text": "kiya,",
+   "line": 5,
+   "start": 26.28,
+   "end": 26.52
+  },
+  {
+   "text": "sab",
+   "line": 5,
+   "start": 26.52,
+   "end": 26.82
+  },
+  {
+   "text": "yahan.",
+   "line": 5,
+   "start": 26.82,
+   "end": 27.18
+  },
+  {
+   "text": "Pehli",
+   "line": 6,
+   "start": 27.18,
+   "end": 27.52
+  },
+  {
+   "text": "baar",
+   "line": 6,
+   "start": 27.52,
+   "end": 27.76
+  },
+  {
+   "text": "ek",
+   "line": 6,
+   "start": 27.76,
+   "end": 28.08
+  },
+  {
+   "text": "click",
+   "line": 6,
+   "start": 28.08,
+   "end": 28.34
+  },
+  {
+   "text": "se",
+   "line": 6,
+   "start": 28.34,
+   "end": 28.48
+  },
+  {
+   "text": "on",
+   "line": 6,
+   "start": 28.48,
+   "end": 28.62
+  },
+  {
+   "text": "karo.",
+   "line": 6,
+   "start": 28.62,
+   "end": 28.9
+  },
+  {
+   "text": "Aur",
+   "line": 7,
+   "start": 28.9,
+   "end": 29.34
+  },
+  {
+   "text": "number",
+   "line": 7,
+   "start": 29.34,
+   "end": 29.66
+  },
+  {
+   "text": "1:",
+   "line": 7,
+   "start": 29.66,
+   "end": 30.02
+  },
+  {
+   "text": "Windows",
+   "line": 7,
+   "start": 30.02,
+   "end": 30.44
+  },
+  {
+   "text": "+",
+   "line": 7,
+   "start": 30.44,
+   "end": 30.66
+  },
+  {
+   "text": "Shift",
+   "line": 7,
+   "start": 30.66,
+   "end": 31.0
+  },
+  {
+   "text": "+",
+   "line": 7,
+   "start": 31.0,
+   "end": 31.22
+  },
+  {
+   "text": "S.",
+   "line": 7,
+   "start": 31.22,
+   "end": 31.6
+  },
+  {
+   "text": "Screen",
+   "line": 7,
+   "start": 31.6,
+   "end": 32.24
+  },
+  {
+   "text": "ka",
+   "line": 7,
+   "start": 32.24,
+   "end": 32.42
+  },
+  {
+   "text": "koi",
+   "line": 7,
+   "start": 32.42,
+   "end": 32.62
+  },
+  {
+   "text": "bhi",
+   "line": 7,
+   "start": 32.62,
+   "end": 32.74
+  },
+  {
+   "text": "hissa,",
+   "line": 7,
+   "start": 32.74,
+   "end": 33.12
+  },
+  {
+   "text": "ab",
+   "line": 7,
+   "start": 33.12,
+   "end": 33.54
+  },
+  {
+   "text": "tum",
+   "line": 7,
+   "start": 33.54,
+   "end": 33.76
+  },
+  {
+   "text": "screenshot",
+   "line": 7,
+   "start": 33.76,
+   "end": 34.16
+  },
+  {
+   "text": "le",
+   "line": 7,
+   "start": 34.36,
+   "end": 34.52
+  },
+  {
+   "text": "sakte",
+   "line": 7,
+   "start": 34.52,
+   "end": 34.86
+  },
+  {
+   "text": "ho.",
+   "line": 7,
+   "start": 34.86,
+   "end": 34.98
+  },
+  {
+   "text": "Tumhe",
+   "line": 8,
+   "start": 34.98,
+   "end": 35.32
+  },
+  {
+   "text": "kaun",
+   "line": 8,
+   "start": 35.32,
+   "end": 35.54
+  },
+  {
+   "text": "sa",
+   "line": 8,
+   "start": 35.54,
+   "end": 35.68
+  },
+  {
+   "text": "pehle",
+   "line": 8,
+   "start": 35.68,
+   "end": 35.94
+  },
+  {
+   "text": "se",
+   "line": 8,
+   "start": 35.94,
+   "end": 36.04
+  },
+  {
+   "text": "pata",
+   "line": 8,
+   "start": 36.04,
+   "end": 36.34
+  },
+  {
+   "text": "tha?",
+   "line": 8,
+   "start": 36.34,
+   "end": 36.56
+  },
+  {
+   "text": "Comment",
+   "line": 8,
+   "start": 36.56,
+   "end": 37.02
+  },
+  {
+   "text": "karo",
+   "line": 8,
+   "start": 37.02,
+   "end": 37.2
+  },
+  {
+   "text": "aur",
+   "line": 8,
+   "start": 37.2,
+   "end": 37.4
+  },
+  {
+   "text": "subscribe",
+   "line": 8,
+   "start": 37.4,
+   "end": 37.9
+  },
+  {
+   "text": "karo",
+   "line": 8,
+   "start": 37.9,
+   "end": 38.12
+  },
+  {
+   "text": "Namaste",
+   "line": 8,
+   "start": 38.12,
+   "end": 38.4
+  },
+  {
+   "text": "Techy",
+   "line": 8,
+   "start": 38.4,
+   "end": 38.54
+  },
+  {
+   "text": "ko!",
+   "line": 8,
+   "start": 38.98,
+   "end": 39.18
+  }
+ ]
+}

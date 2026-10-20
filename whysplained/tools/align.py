@@ -50,9 +50,15 @@ def translit(word):
     return "".join(out)
 
 
+# How caption tokens that aren't spelled out are actually said (digits in Hindi, symbols, key letters).
+SPOKEN = {"1": "ek", "2": "do", "3": "teen", "4": "chaar", "5": "paanch", "6": "chhe", "7": "saat", "8": "aath",
+          "9": "nau", "10": "das", "+": "plus", "ctrl": "control", "l": "el", "v": "vee", "s": "es", "t": "tee"}
+
+
 def skeleton(latin):
     """Consonant skeleton with sound-alike letters merged (v/w, ph/f, sh/s, z/j, aspirates)."""
     s = latin.lower()
+    s = SPOKEN.get(re.sub(r"[^a-z0-9+]", "", s), s)
     for a, b in (("chh", "c"), ("ch", "c"), ("sh", "s"), ("ph", "f"), ("kh", "k"), ("gh", "g"), ("jh", "j"),
                  ("th", "t"), ("dh", "d"), ("bh", "b"), ("w", "v"), ("z", "j"), ("q", "k"), ("x", "ks")):
         s = s.replace(a, b)
