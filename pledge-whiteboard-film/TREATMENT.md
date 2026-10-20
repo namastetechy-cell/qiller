@@ -9,7 +9,7 @@ One tall board, top to bottom:
 2. "1892"; a magazine, a stack of flags, an arrow to a schoolhouse; a minister ("Francis Bellamy") and a sheet "Pledge",
    "Columbus Day".
 3. Scattered small heads, arrows converging into one circle → "one nation".
-4. A figure with a stiff outstretched arm ("1892"), crossed out under "World War II"; an arrow to a figure with hand on heart
+4. A figure with a stiff outstretched arm ("1892"), crossed out under "World War 2"; an arrow to a figure with hand on heart
    ("1942") ✓.
 5. "1954": "one nation ^ indivisible" with "under God" inserted.
 6. A columned court building, "1943", a student → "your choice" ✓.
