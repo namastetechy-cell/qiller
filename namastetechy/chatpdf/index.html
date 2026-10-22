@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Shrikhand"; font-weight: 400; src: url("assets/fonts/shrikhand-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Libre Baskerville"; font-weight: 400; src: url("assets/fonts/libre-baskerville-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Space Grotesk"; font-weight: 600; src: url("assets/fonts/space-grotesk-latin-600-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFFFF; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #1C1410; font-family: "Libre Baskerville", serif; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .disp { font-family: "Shrikhand", serif; font-weight: 400; line-height: 1.08; white-space: nowrap; color: #1C1410; }
+      .disp.red { color: #D8000F; } .disp.white { color: #FFFFFF; } .shadow { text-shadow: 0.03em 0.03em 0 rgba(28,20,16,.25), 0.06em 0.06em 0 rgba(28,20,16,.2), 0.09em 0.09em 0 rgba(28,20,16,.15); }
+      .body { font-family: "Libre Baskerville", serif; font-size: 44px; line-height: 1.5; color: #1C1410; }
+      .body.light { color: #FFFFFF; }
+      .mask { position: absolute; overflow: hidden; }
+      .mask > div { display: block; }
+      .eyebrow { position: absolute; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 28px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; white-space: nowrap; }
+      .eyebrow.light { color: #FFFFFF; font-size: 34px; letter-spacing: 5px; }
+      .eyebrow.static { position: static; }
+      .tagline { position: absolute; padding-left: 20px; border-left: 4px solid #D8000F; font-family: "Libre Baskerville", serif; font-size: 40px; line-height: 1.45; color: #1C1410; }
+      .redPanel { background: #D8000F; }
+      .frameOuter { position: absolute; border: 3px solid #1C1410; background: #F5F2EF; }
+      .frame { position: absolute; overflow: hidden; outline: 1.5px solid #1C1410; background: #FFFFFF; }
+      .brWin { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+
+      /* hook page stack */
+      .stackWrap { position: absolute; left: 420px; top: 330px; width: 560px; height: 740px; transform-origin: 50% 100%; }
+      .sheet { position: absolute; inset: 0; width: 100%; height: 100%; background: #FFFFFF; border: 3px solid #1C1410; }
+      .sheet.top { padding: 90px 50px 0; }
+      .sheet.top .pdfTag { left: auto; right: 40px; }
+      .sheet .ln { height: 14px; margin: 0 0 30px; background: #F5F2EF; border: 1.5px solid #d9d2cc; }
+      .pdfTag { position: absolute; left: 50px; top: 26px; padding: 4px 14px 8px; background: #D8000F; color: #FFFFFF; font-family: "Shrikhand", serif; font-size: 34px; }
+      .pdfIcon { position: absolute; left: 450px; top: 1060px; width: 180px; height: 230px; background: #FFFFFF; border: 3px solid #1C1410; padding: 70px 20px 0; transform-origin: 50% 50%; }
+      .pdfIcon .pdfTag { left: 16px; top: 14px; font-size: 26px; }
+      .pdfIcon .ln { height: 10px; margin: 0 0 18px; background: #F5F2EF; border: 1.5px solid #d9d2cc; }
+
+      /* red panel pieces */
+      .strike { position: absolute; left: 170px; top: 425px; width: 740px; height: 16px; background: #1C1410; transform-origin: 0 50%; }
+      .keyRow { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 18px; }
+      .key { display: inline-block; padding: 10px 26px 16px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 5px; background: #FFFFFF; font-family: "Shrikhand", serif; font-size: 86px; line-height: 1.05; color: #1C1410; }
+      .plus { font-family: "Shrikhand", serif; font-size: 80px; color: #1C1410; }
+      .plus.onRed { color: #FFFFFF; }
+      .bigX { position: absolute; left: 330px; top: -40px; width: 420px; height: 220px; }
+
+      /* search bar */
+      .searchBar { position: absolute; left: 60px; top: 170px; width: 960px; height: 170px; display: flex; align-items: center; gap: 24px; padding: 0 36px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 6px; background: #FFFFFF; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 64px; color: #1C1410; white-space: nowrap; }
+      .mag { width: 60px; height: 60px; flex: none; }
+      .caret { display: inline-block; width: 5px; height: 70px; background: #D8000F; }
+
+      /* closing */
+      .brandCard { position: absolute; left: 60px; right: 60px; top: 700px; padding: 40px 0 50px; border: 3px solid #1C1410; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+      .urlChip { position: absolute; left: 60px; right: 60px; top: 1060px; padding: 22px 26px; border: 3px solid #1C1410; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 44px; color: #1C1410; }
+      .urlChip b { color: #D8000F; }
+
+      .capStage { position: absolute; left: 0; right: 0; top: 1372px; height: 160px; display: flex; align-items: center; justify-content: center; }
+      .capCard { max-width: 92%; padding: 14px 36px 18px; background: #FFFFFF; border: 1.5px solid #1C1410; border-left: 4px solid #D8000F; font-family: "Shrikhand", serif; font-size: 42px; line-height: 1.2; text-align: center; color: #1C1410; }
+      #footer { position: absolute; left: 60px; right: 60px; top: 1570px; display: flex; justify-content: space-between; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; color: #1C1410; }
+      #footer span:last-child { color: #D8000F; }
+      #progress { position: absolute; left: 0; bottom: 0; width: 100%; height: 12px; background: #D8000F; transform-origin: 0 50%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1080" data-height="1920">
+      <div id="s-hook" class="clip layer " data-start="0" data-duration="5.40" data-track-index="2">
+        <div id="hEye" class="eyebrow" style="left:60px;top:90px">Exams aane wale hain?</div>
+        <div id="hOffice" class="disp" style="position:absolute;left:60px;top:140px;font-size:84px">ya office mein…</div>
+        <div id="stack" class="stackWrap"><div class="sheet" style="transform:translate(0px,0px) rotate(-4.4deg)"></div><div class="sheet" style="transform:translate(14px,-14px) rotate(-2.2deg)"></div><div class="sheet" style="transform:translate(28px,-28px) rotate(0deg)"></div><div class="sheet" style="transform:translate(42px,-42px) rotate(2.2deg)"></div><div class="sheet" style="transform:translate(56px,-56px) rotate(4.4deg)"></div>
+          <div class="sheet top"><div class="pdfTag">PDF</div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div></div>
+        </div>
+        <div id="h100" class="disp red" style="position:absolute;left:70px;top:330px;font-size:330px;line-height:1;transform-origin:30% 60%">100</div>
+        <div id="hPages" class="eyebrow" style="left:110px;top:690px;font-size:34px">pages</div>
+        <div id="hCry" class="disp red" style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-size:104px;transform-origin:50% 60%">rona aa raha hai?</div>
+      </div>
+      <div id="s-stop" class="clip layer redPanel" data-start="5.4" data-duration="5.60" data-track-index="2">
+        <div id="sEye" class="eyebrow light" style="left:0;right:0;top:300px;text-align:center">Pura document padhna?</div>
+        <div id="sWaste" class="disp white" style="position:absolute;left:0;right:0;top:360px;text-align:center;font-size:104px">ghanton waste</div>
+        <div id="sStrike" class="strike"></div>
+        <div id="sBand" class="disp white shadow" style="position:absolute;left:0;right:0;top:580px;text-align:center;font-size:150px;transform-origin:50% 60%">BAND KARO!</div>
+        <div id="sKeys" class="keyRow" style="top:930px"><span class="key onRed">CTRL</span><span class="plus onRed">+</span><span class="key onRed">F</span><svg id="sX" viewBox="0 0 100 100" class="bigX"><path d="M10 10 L90 90 M90 10 L10 90" fill="none" stroke="#1C1410" stroke-width="12" stroke-linecap="square"/></svg></div>
+        <div id="sChhod" class="body light" style="position:absolute;left:0;right:0;top:1150px;text-align:center">par depend rehna chhod do!</div>
+      </div>
+      <div id="phone" class="clip layer" data-start="11" data-duration="17.80" data-track-index="1">
+        <div class="frameOuter" style="left:76px;top:436px;width:928px;height:908px"></div>
+        <div class="frame" style="left:90px;top:450px;width:900px;height:880px">
+          <div id="br-home" class="clip brWin" data-layout-allow-overflow data-start="11" data-duration="2.20" data-track-index="1"><img src="assets/broll/home.png" style="position:absolute;left:0;top:-40px;width:900px;height:auto"></div>
+          <div class="brWin" data-layout-allow-overflow><video id="br-upload" class="clip" src="assets/broll/upload.mp4" muted playsinline data-start="13.2" data-duration="4.60" data-track-index="1" style="position:absolute;left:0;top:0px;width:900px;height:1950px"></video></div>
+          <div class="brWin" data-layout-allow-overflow><video id="br-type" class="clip" src="assets/broll/type.mp4" muted playsinline data-start="17.8" data-duration="4.80" data-track-index="1" style="position:absolute;left:0;top:-1070px;width:900px;height:1950px"></video></div>
+          <div class="brWin" data-layout-allow-overflow><video id="br-answer" class="clip" src="assets/broll/answer.mp4" muted playsinline data-start="22.6" data-duration="2.40" data-track-index="1" style="position:absolute;left:0;top:0px;width:900px;height:1950px"></video></div>
+          <div class="brWin" data-layout-allow-overflow><video id="br-scroll" class="clip" src="assets/broll/scroll.mp4" muted playsinline data-start="25" data-duration="3.80" data-track-index="1" style="position:absolute;left:0;top:0px;width:900px;height:1950px"></video></div>
+        </div>
+        <div id="pdfIcon" class="pdfIcon"><div class="pdfTag">PDF</div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div></div>
+      </div>
+      <div id="h-search" class="clip layer " data-start="11" data-duration="2.20" data-track-index="3">
+        <div id="qEye" class="eyebrow" style="left:60px;top:110px">Step 1 · Google par search karo</div>
+        <div id="qBar" class="searchBar"><svg viewBox="0 0 40 40" class="mag"><circle cx="16" cy="16" r="11" fill="none" stroke="#1C1410" stroke-width="4.5"/><path d="M24 24 L36 36" stroke="#1C1410" stroke-width="5" stroke-linecap="square"/></svg><span><span id="q0">c</span><span id="q1">h</span><span id="q2">a</span><span id="q3">t</span><span id="q4">p</span><span id="q5">d</span><span id="q6">f</span><span id="q7">.</span><span id="q8">c</span><span id="q9">o</span><span id="q10">m</span></span><span id="qCaret" class="caret"></span></div>
+      </div>
+      <div id="h-drop" class="clip layer " data-start="13.2" data-duration="4.60" data-track-index="3">
+        <div id="dEye" class="eyebrow" style="left:60px;top:90px">Step 2</div>
+        <div class="mask" style="left:56px;top:126px"><div id="d1" class="disp" style="font-size:112px">Drag &amp; drop</div></div>
+        <div id="d2" class="disp red" style="position:absolute;left:640px;top:236px;font-size:130px;transform-origin:30% 60%">PDF</div>
+        <div id="d3" class="tagline" style="left:60px;top:282px;width:520px">aur AI se directly chat karo!</div>
+      </div>
+      <div id="h-type" class="clip layer " data-start="17.8" data-duration="4.80" data-track-index="3">
+        <div id="tEye" class="eyebrow" style="left:60px;top:90px">Step 3 · Type karo</div>
+        <div class="mask" style="left:56px;top:126px"><div id="t1" class="disp" style="font-size:104px">Summary +</div></div>
+        <div id="t2" class="disp red" style="position:absolute;left:150px;top:250px;font-size:100px;transform-origin:30% 60%">top 5 exam Qs</div>
+      </div>
+      <div id="h-ready" class="clip layer " data-start="22.6" data-duration="2.40" data-track-index="3">
+        <div id="rEye" class="eyebrow" style="left:60px;top:90px">Result</div>
+        <div class="mask" style="left:56px;top:126px"><div id="r1" class="disp" style="font-size:112px">Seconds mein</div></div>
+        <div id="r2" class="disp red" style="position:absolute;left:110px;top:250px;font-size:112px;transform-origin:30% 60%">answers ready!</div>
+      </div>
+      <div id="h-free" class="clip layer " data-start="25" data-duration="3.80" data-track-index="3">
+        <div id="fEye" class="eyebrow" style="left:60px;top:90px">Bilkul</div>
+        <div id="fFree" class="disp red" style="position:absolute;left:46px;top:120px;font-size:200px;line-height:1;transform-origin:30% 60%">FREE</div>
+        <div id="fLine" class="tagline" style="left:690px;top:170px;width:350px;font-size:36px">Kisi paid software ki zarurat nahi!</div>
+      </div>
+      <div id="s-cta" class="clip layer " data-start="28.8" data-duration="5.20" data-track-index="2">
+        <div id="cEye" class="eyebrow" style="left:60px;top:150px">Aise aur viral AI tools ke liye</div>
+        <div id="c1" class="disp red" style="position:absolute;left:40px;top:220px;font-size:176px;transform-origin:30% 60%">Subscribe</div>
+        <div id="c2" class="disp" style="position:absolute;left:420px;top:430px;font-size:150px;transform:rotate(2deg)">karo!</div>
+        <div id="cBrand" class="brandCard"><div class="eyebrow static">Channel</div><div class="disp red" style="font-size:118px;transform:rotate(-3deg)">NamasteTechy</div></div>
+        <div id="cTool" class="urlChip">Tool: <b>chatpdf.com</b></div>
+      </div>
+      <div id="cap-hook" class="clip layer " data-start="0" data-duration="5.40" data-track-index="5">
+        <div class="capStage"><div class="capCard">Exams aane wale hain ya office mein 100-page ki PDF dekh kar rona aa raha hai?</div></div>
+      </div>
+      <div id="cap-stop" class="clip layer " data-start="5.4" data-duration="5.60" data-track-index="5">
+        <div class="capStage"><div class="capCard">Pura document padhne mein ghanton waste karna BAND KARO, aur CTRL+F par depend rehna chhod do!</div></div>
+      </div>
+      <div id="cap-search" class="clip layer " data-start="11" data-duration="2.20" data-track-index="5">
+        <div class="capStage"><div class="capCard">Google par search karo ChatPDF.com.</div></div>
+      </div>
+      <div id="cap-drop" class="clip layer " data-start="13.2" data-duration="4.60" data-track-index="5">
+        <div class="capStage"><div class="capCard">Apni massive PDF drag-and-drop karo aur is AI se directly chat karo!</div></div>
+      </div>
+      <div id="cap-type" class="clip layer " data-start="17.8" data-duration="4.80" data-track-index="5">
+        <div class="capStage"><div class="capCard">Type karo: "Is pooray chapter ki summary aur top 5 exam questions batao."</div></div>
+      </div>
+      <div id="cap-ready" class="clip layer " data-start="22.6" data-duration="2.40" data-track-index="5">
+        <div class="capStage"><div class="capCard">Seconds mein exact answers ready!</div></div>
+      </div>
+      <div id="cap-free" class="clip layer " data-start="25" data-duration="3.80" data-track-index="5">
+        <div class="capStage"><div class="capCard">Bilkul FREE hai aur kisi paid software ki zarurat nahi!</div></div>
+      </div>
+      <div id="cap-cta" class="clip layer " data-start="28.8" data-duration="5.20" data-track-index="5">
+        <div class="capStage"><div class="capCard">Aise aur viral AI tools ke liye NamasteTechy ko abhi subscribe karo!</div></div>
+      </div>
+      <div id="footer"><span>Namaste Techy</span><span>AI tools · ChatPDF</span></div>
+      <div id="progress"></div>
+    </div>
+
+    <audio id="sfx-0" src="assets/sfx/click.wav" data-start="0.05" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-1" src="assets/sfx/click.wav" data-start="1.9" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-2" src="assets/sfx/click.wav" data-start="3.6" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-3" src="assets/sfx/click.wav" data-start="6.2" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-4" src="assets/sfx/click.wav" data-start="8" data-duration="0.08" data-track-index="10" data-volume="0.0832"></audio>
+    <audio id="sfx-5" src="assets/sfx/click.wav" data-start="9.2" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-6" src="assets/sfx/click.wav" data-start="9.7" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-7" src="assets/sfx/click.wav" data-start="11.45" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-8" src="assets/sfx/click.wav" data-start="11.63" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-9" src="assets/sfx/click.wav" data-start="11.81" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-10" src="assets/sfx/click.wav" data-start="11.99" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-11" src="assets/sfx/click.wav" data-start="12.17" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-12" src="assets/sfx/click.wav" data-start="12.35" data-duration="0.08" data-track-index="10" data-volume="0.0263"></audio>
+    <audio id="sfx-13" src="assets/sfx/click.wav" data-start="12.6" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-14" src="assets/sfx/click.wav" data-start="13.05" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-15" src="assets/sfx/click.wav" data-start="13.3" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-16" src="assets/sfx/click.wav" data-start="13.9" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-17" src="assets/sfx/click.wav" data-start="17.9" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-18" src="assets/sfx/click.wav" data-start="18" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-19" src="assets/sfx/click.wav" data-start="18.18" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-20" src="assets/sfx/click.wav" data-start="18.36" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-21" src="assets/sfx/click.wav" data-start="18.54" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-22" src="assets/sfx/click.wav" data-start="18.72" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-23" src="assets/sfx/click.wav" data-start="18.8" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-24" src="assets/sfx/click.wav" data-start="18.9" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-25" src="assets/sfx/click.wav" data-start="19.08" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-26" src="assets/sfx/click.wav" data-start="19.26" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-27" src="assets/sfx/click.wav" data-start="19.44" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-28" src="assets/sfx/click.wav" data-start="19.62" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-29" src="assets/sfx/click.wav" data-start="19.8" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-30" src="assets/sfx/click.wav" data-start="19.98" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-31" src="assets/sfx/click.wav" data-start="20.16" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-32" src="assets/sfx/click.wav" data-start="20.34" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-33" src="assets/sfx/click.wav" data-start="20.52" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-34" src="assets/sfx/click.wav" data-start="20.7" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-35" src="assets/sfx/click.wav" data-start="20.88" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-36" src="assets/sfx/click.wav" data-start="21.06" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-37" src="assets/sfx/click.wav" data-start="21.24" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-38" src="assets/sfx/click.wav" data-start="21.42" data-duration="0.08" data-track-index="10" data-volume="0.0209"></audio>
+    <audio id="sfx-39" src="assets/sfx/click.wav" data-start="21.7" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-40" src="assets/sfx/click.wav" data-start="22.7" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-41" src="assets/sfx/click.wav" data-start="23.5" data-duration="0.08" data-track-index="10" data-volume="0.0661"></audio>
+    <audio id="sfx-42" src="assets/sfx/click.wav" data-start="25.3" data-duration="0.08" data-track-index="10" data-volume="0.0832"></audio>
+    <audio id="sfx-43" src="assets/sfx/click.wav" data-start="30" data-duration="0.08" data-track-index="10" data-volume="0.0525"></audio>
+    <audio id="sfx-44" src="assets/sfx/click.wav" data-start="31.4" data-duration="0.08" data-track-index="10" data-volume="0.0832"></audio>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#hEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 0.050);
+      tl.fromTo("#hOffice", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 0.900);
+      tl.fromTo("#stack .sheet", { y: -600, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.07, ease: "power3.out" }, 1.2);
+      tl.fromTo("#h100", { scale: 2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.3, ease: "back.out(2)" }, 1.900);
+      tl.fromTo("#hPages", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 2.300);
+      tl.fromTo("#hCry", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.3, ease: "back.out(2)" }, 3.600);
+      tl.fromTo("#stack", { rotation: 0 }, { rotation: 2, duration: 5.4, ease: "sine.inOut" }, 0);
+      tl.fromTo("#s-stop", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.18, ease: "power3.out" }, 5.4);
+      tl.fromTo("#sEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 5.600);
+      tl.fromTo("#sWaste", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 6.200);
+      tl.fromTo("#sStrike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 7.00);
+      tl.fromTo("#sBand", { scale: 2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.3, ease: "back.out(2)" }, 8.000);
+      tl.fromTo("#sKeys .key, #sKeys .plus", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22, stagger: 0.07, ease: "power3.out" }, 9.20);
+      tl.fromTo("#sX", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 9.700);
+      tl.fromTo("#sChhod", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.out" }, 10.000);
+      tl.fromTo("#phone .frameOuter, #phone .frame", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 11);
+      tl.fromTo("#pdfIcon", { x: 520, y: -420, rotation: 14, opacity: 0 }, { x: 0, y: 0, rotation: -4, opacity: 1, duration: 0.7, ease: "power2.inOut" }, 12.30);
+      tl.to("#pdfIcon", { scale: 0.4, opacity: 0, duration: 0.25, ease: "power2.in" }, 13.05);
+      tl.fromTo("#qEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 11.050);
+      tl.fromTo("#qBar", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 11.1);
+      tl.fromTo("#q0", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.450);
+      tl.fromTo("#q1", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.540);
+      tl.fromTo("#q2", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.630);
+      tl.fromTo("#q3", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.720);
+      tl.fromTo("#q4", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.810);
+      tl.fromTo("#q5", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.900);
+      tl.fromTo("#q6", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 11.990);
+      tl.fromTo("#q7", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 12.080);
+      tl.fromTo("#q8", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 12.170);
+      tl.fromTo("#q9", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 12.260);
+      tl.fromTo("#q10", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 12.350);
+      tl.fromTo("#dEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 13.250);
+      tl.fromTo("#d1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 13.300);
+      tl.fromTo("#d2", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.3, ease: "back.out(2)" }, 13.900);
+      tl.fromTo("#d3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.out" }, 15.600);
+      tl.fromTo("#tEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 17.850);
+      tl.fromTo("#t1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 17.900);
+      tl.fromTo("#t2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.3, ease: "back.out(2)" }, 18.800);
+      tl.fromTo("#rEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 22.650);
+      tl.fromTo("#r1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "power3.out" }, 22.700);
+      tl.fromTo("#r2", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.3, ease: "back.out(2)" }, 23.500);
+      tl.fromTo("#fEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 25.050);
+      tl.fromTo("#fFree", { scale: 2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.3, ease: "back.out(2)" }, 25.300);
+      tl.fromTo("#fLine", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 26.500);
+      tl.fromTo("#cEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power2.out" }, 28.850);
+      tl.fromTo("#c1", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.3, ease: "back.out(2)" }, 31.400);
+      tl.fromTo("#c2", { yPercent: 80, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 31.80);
+      tl.fromTo("#cBrand", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 30.00);
+      tl.fromTo("#cTool", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.out" }, 32.400);
+      tl.fromTo("#cap-hook .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 0.02);
+      tl.fromTo("#cap-stop .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 5.42);
+      tl.fromTo("#cap-search .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 11.02);
+      tl.fromTo("#cap-drop .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 13.22);
+      tl.fromTo("#cap-type .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 17.82);
+      tl.fromTo("#cap-ready .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 22.62);
+      tl.fromTo("#cap-free .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 25.02);
+      tl.fromTo("#cap-cta .capCard", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: "power2.out" }, 28.82);
+      tl.set("#footer, #footer span:last-child", { color: "#FFFFFF" }, 5.4);
+      tl.set("#footer", { color: "#1C1410" }, 11);
+      tl.set("#footer span:last-child", { color: "#D8000F" }, 11);
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 34, ease: "none" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
