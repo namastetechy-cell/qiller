@@ -1,0 +1,85 @@
+/* Badlo design tokens. Light is the default; dark follows Windows unless the user picks one. */
+:root {
+  --indigo: #4f46e5;
+  --indigo-hover: #4338ca;
+  --indigo-soft: #eef2ff;
+  --lime: #a3e635;
+  --lime-ink: #365314;
+  --danger: #dc2626;
+
+  --surface: #ffffff;
+  --surface-2: #f6f7fb;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --shadow: 0 12px 32px rgba(17, 24, 39, 0.18), 0 2px 6px rgba(17, 24, 39, 0.08);
+
+  --radius-menu: 12px;
+  --radius-btn: 8px;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --indigo: #6366f1;
+    --indigo-hover: #818cf8;
+    --indigo-soft: #23233a;
+    --surface: #16161d;
+    --surface-2: #1e1e28;
+    --border: #2c2c3a;
+    --text: #f3f4f6;
+    --text-muted: #9ca3af;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --indigo: #6366f1;
+  --indigo-hover: #818cf8;
+  --indigo-soft: #23233a;
+  --surface: #16161d;
+  --surface-2: #1e1e28;
+  --border: #2c2c3a;
+  --text: #f3f4f6;
+  --text-muted: #9ca3af;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* The popup window is transparent; its card draws the rounded surface. */
+body.popup { background: transparent; }
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-btn);
+}
+
+:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 8px 14px;
+  font-weight: 500;
+}
+.btn:hover { background: var(--surface-2); }
+.btn-primary { background: var(--indigo); border-color: var(--indigo); color: #fff; }
+.btn-primary:hover { background: var(--indigo-hover); }

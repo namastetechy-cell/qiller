@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Badlo logo: two curved arrows forming a circle, lime dot at the centre -->
+  <path d="M60.45 167.00 A78 78 0 0 1 148.19 52.66" fill="none" stroke="#4F46E5" stroke-width="30" stroke-linecap="round"/>
+  <path d="M177.17 60.42 L156.99 19.82 L139.39 85.50 Z" fill="#4F46E5" stroke="#4F46E5" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M195.55 89.00 A78 78 0 0 1 107.81 203.34" fill="none" stroke="#4F46E5" stroke-width="30" stroke-linecap="round"/>
+  <path d="M78.83 195.58 L99.01 236.18 L116.61 170.50 Z" fill="#4F46E5" stroke="#4F46E5" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="128" cy="128" r="17" fill="#A3E635"/>
+</svg>
