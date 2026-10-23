@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Shrikhand"; font-weight: 400; src: url("assets/fonts/shrikhand-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Libre Baskerville"; font-weight: 400; src: url("assets/fonts/libre-baskerville-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Space Grotesk"; font-weight: 600; src: url("assets/fonts/space-grotesk-latin-600-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #FFFFFF; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #1C1410; font-family: "Libre Baskerville", serif; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .center { display: flex; align-items: center; justify-content: center; }
+      .col { display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 120px; }
+      .disp { font-family: "Shrikhand", serif; font-weight: 400; line-height: 1.1; white-space: nowrap; color: #1C1410; }
+      .disp.red, .red { color: #D8000F; } .disp.white { color: #FFFFFF; } .shadow { text-shadow: 0.03em 0.03em 0 rgba(28,20,16,.25), 0.06em 0.06em 0 rgba(28,20,16,.2), 0.09em 0.09em 0 rgba(28,20,16,.15); }
+      .body { font-size: 46px; line-height: 1.5; }
+      .mask { position: absolute; overflow: hidden; }
+      .mask > div { display: block; }
+      .eyebrow { position: absolute; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 26px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; white-space: nowrap; }
+      .eyebrow.static { position: static; margin-bottom: 8px; }
+      .eyebrow.light { color: #FFFFFF; font-size: 34px; letter-spacing: 6px; }
+      .tagline { position: absolute; padding-left: 20px; border-left: 4px solid #D8000F; font-size: 36px; line-height: 1.45; }
+      .redPanel { background: #D8000F; }
+      .frameOuter { position: absolute; border: 3px solid #1C1410; background: #F5F2EF; }
+      .frame { position: absolute; overflow: hidden; outline: 1.5px solid #1C1410; background: #FFFFFF; }
+      .mwin { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .mfill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .frameLabel { position: absolute; left: 770px; top: 762px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #1C1410; }
+      .cover { position: absolute; inset: 0; background: #FFFFFF; }
+      .fin { display: grid; border: 3px solid #1C1410; }
+      .fin .cell { border: 1.5px solid #1C1410; padding: 22px 30px; min-height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+      .fin.tall .cell { min-height: 260px; padding: 30px 44px; }
+      .fin.rows .cell { min-height: 106px; padding: 10px 28px; flex-direction: row; align-items: center; }
+      .num { font-family: "Shrikhand", serif; font-size: 84px; line-height: 1.05; color: #D8000F; }
+      .num.big { font-size: 150px; } .num.sm { font-size: 56px; } .num.ink { color: #1C1410; font-size: 110px; }
+      .lab { font-family: "Shrikhand", serif; font-size: 54px; line-height: 1.15; }
+      .lab2 { font-size: 30px; line-height: 1.4; }
+      .lab2 s { text-decoration-color: #D8000F; text-decoration-thickness: 4px; }
+      .per { font-size: 28px; margin-left: 10px; }
+      .tag { align-self: flex-start; padding: 6px 16px 8px; background: #D8000F; color: #FFFFFF; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; }
+      .tag.ink { background: #1C1410; }
+      .list { position: absolute; display: flex; flex-direction: column; gap: 20px; }
+      .list .li, .steps .st { display: flex; align-items: baseline; gap: 26px; font-family: "Shrikhand", serif; font-size: 44px; border-left: 4px solid #D8000F; padding-left: 22px; white-space: nowrap; }
+      .list .n, .steps .n { color: #D8000F; font-size: 40px; }
+      .steps { position: absolute; display: flex; flex-direction: column; gap: 26px; }
+      .steps.small .st { font-size: 42px; }
+      .steps.small { gap: 18px; }
+      .quote { position: absolute; font-family: "Libre Baskerville", serif; font-size: 36px; line-height: 1.45; padding: 20px 26px; border: 3px solid #1C1410; background: #F5F2EF; }
+      .bullets { position: absolute; display: flex; flex-direction: column; gap: 34px; }
+      .bullets .bl { font-family: "Shrikhand", serif; font-size: 110px; line-height: 1.1; white-space: nowrap; }
+      .bullets.small .bl { font-size: 58px; }
+      .bullets .dash { color: #D8000F; margin-right: 26px; }
+      .keyRow { position: absolute; display: flex; align-items: center; gap: 16px; }
+      .key { display: inline-block; padding: 8px 24px 14px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 5px; background: #FFFFFF; font-family: "Shrikhand", serif; font-size: 64px; line-height: 1.05; }
+      .plus { font-family: "Shrikhand", serif; font-size: 60px; color: #D8000F; }
+      .xmark { position: absolute; left: -10px; top: -30px; width: 420px; height: 170px; }
+      .strikeBar { position: absolute; left: -10px; right: -10px; top: 52%; height: 14px; background: #D8000F; transform-origin: 0 50%; }
+      .stackWrap { position: absolute; width: 470px; height: 620px; }
+      .sheet { position: absolute; inset: 0; width: 100%; height: 100%; background: #FFFFFF; border: 3px solid #1C1410; }
+      .sheet.top { padding: 90px 44px 0; }
+      .sheet .ln, .bMain .ln { height: 14px; margin: 0 0 28px; background: #F5F2EF; border: 1.5px solid #d9d2cc; }
+      .pdfTag { position: absolute; right: 36px; top: 24px; padding: 4px 14px 8px; background: #D8000F; color: #FFFFFF; font-family: "Shrikhand", serif; font-size: 32px; }
+      .wave { position: absolute; width: 900px; height: 420px; border: 3px solid #1C1410; display: flex; align-items: center; justify-content: center; gap: 10px; background: #F5F2EF; }
+      .wave .bar { width: 16px; background: #1C1410; transform-origin: 50% 50%; }
+      .wave .timer { position: absolute; right: 24px; bottom: 16px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 34px; color: #D8000F; letter-spacing: 3px; }
+      .ring { position: absolute; border: 6px solid #D8000F; border-radius: 50%; }
+      .mail { position: absolute; width: 960px; padding: 40px 48px; border: 3px solid #1C1410; border-left: 4px solid #D8000F; font-size: 40px; line-height: 1.6; background: #FFFFFF; }
+      .chips { position: absolute; display: flex; gap: 12px; }
+      .chips span { padding: 8px 18px 12px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 30px; }
+      .chips span:first-child { background: #D8000F; color: #FFFFFF; border-color: #D8000F; }
+      .chain { position: absolute; display: flex; align-items: center; gap: 14px; }
+      .chain .box { padding: 18px 20px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 34px; white-space: nowrap; background: #FFFFFF; }
+      .chain .arr { font-family: "Shrikhand", serif; font-size: 44px; color: #D8000F; }
+      .node { position: absolute; top: 260px; width: 460px; height: 330px; border: 3px solid #1C1410; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #FFFFFF; transform-origin: 50% 50%; }
+      .node .dot { width: 90px; height: 90px; border-radius: 50%; background: #D8000F; color: #FFFFFF; font-family: "Shrikhand", serif; font-size: 56px; display: flex; align-items: center; justify-content: center; }
+      .node .nl { font-family: "Shrikhand", serif; font-size: 46px; text-align: center; padding: 0 20px; }
+      .node .ns { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; }
+      .flowLine { position: absolute; left: 390px; top: 423px; width: 1120px; height: 8px; background: #1C1410; transform-origin: 0 50%; }
+      .flowDot { position: absolute; left: 380px; top: 412px; width: 30px; height: 30px; border-radius: 50%; background: #D8000F; opacity: 0; }
+      .browser { position: absolute; width: 960px; height: 640px; border: 3px solid #1C1410; background: #FFFFFF; overflow: hidden; }
+      .bTop { height: 56px; border-bottom: 3px solid #1C1410; display: flex; align-items: center; gap: 10px; padding: 0 18px; background: #F5F2EF; }
+      .bTop > span { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid #1C1410; }
+      .bUrl { margin-left: 20px; flex: 1; height: 34px; border: 2px solid #1C1410; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; padding: 3px 14px; }
+      .bSide { position: absolute; left: 0; top: 59px; bottom: 0; width: 110px; border-right: 3px solid #1C1410; display: flex; flex-direction: column; align-items: center; gap: 16px; padding-top: 20px; background: #FFFFFF; }
+      .sbIcon { width: 72px; height: 72px; border: 3px solid #1C1410; display: flex; align-items: center; justify-content: center; font-family: "Shrikhand", serif; font-size: 28px; }
+      .bPanel { position: absolute; left: 113px; top: 59px; bottom: 0; width: 520px; border-right: 3px solid #1C1410; overflow: hidden; background: #FFFFFF; }
+      .bPanel img { position: absolute; left: -200px; top: 0; height: 100%; }
+      .bMain { position: absolute; left: 670px; top: 110px; right: 40px; }
+      .downTag { position: absolute; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 24px; }
+      .arrow { width: 50px; height: 70px; }
+      .nums { position: absolute; display: flex; gap: 18px; }
+      .nums span { padding: 10px 26px 16px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 60px; color: #D8000F; }
+      .nums span.q { background: #D8000F; color: #FFFFFF; border-color: #D8000F; }
+      .nums.big span { font-size: 110px; color: #1C1410; }
+      .nums.big span.red { color: #D8000F; }
+      .brandCard { position: absolute; padding: 30px 0 40px; border: 3px solid #1C1410; display: flex; flex-direction: column; align-items: center; }
+      .bell { position: absolute; left: 1300px; top: 480px; width: 200px; height: 200px; transform-origin: 50% 15%; }
+      .capStage { position: absolute; left: 0; right: 0; top: 896px; height: 112px; display: flex; align-items: center; justify-content: center; }
+      .capCard { max-width: 1560px; padding: 10px 34px 14px; background: #FFFFFF; border: 1.5px solid #1C1410; border-left: 4px solid #D8000F; font-family: "Shrikhand", serif; font-size: 36px; line-height: 1.25; text-align: center; color: #1C1410; }
+      #footer { position: absolute; left: 60px; right: 60px; top: 1030px; height: 30px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #1C1410; }
+      #footer .brand { position: absolute; left: 0; top: 0; }
+      .chap { position: absolute; right: 60px; top: 1030px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; }
+      #progressTrack { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: #F5F2EF; }
+      #progress { position: absolute; left: 0; bottom: 0; width: 100%; height: 10px; background: #D8000F; transform-origin: 0 50%; }
+      .tick { position: absolute; bottom: 0; width: 4px; height: 18px; background: #1C1410; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="342.75" data-width="1920" data-height="1080">
+      <div id="footer"><span class="brand">Namaste Techy</span></div><div id="chap0" class="clip chap" data-start="0" data-duration="40.02" data-track-index="6">Intro</div><div id="chap1" class="clip chap" data-start="40.02" data-duration="51.87" data-track-index="6">Tool 01 · PDF Chat</div><div id="chap2" class="clip chap" data-start="91.89" data-duration="50.16" data-track-index="6">Tool 02 · Audio → Text</div><div id="chap3" class="clip chap" data-start="142.05" data-duration="51.31" data-track-index="6">Tool 03 · Photo Cleanup</div><div id="chap4" class="clip chap" data-start="193.36" data-duration="46.26" data-track-index="6">Tool 04 · Writing</div><div id="chap5" class="clip chap" data-start="239.62" data-duration="48.28" data-track-index="6">Tool 05 · Automation</div><div id="chap6" class="clip chap" data-start="287.9" data-duration="23.4" data-track-index="6">Pro tip</div><div id="chap7" class="clip chap" data-start="311.29" data-duration="31.46" data-track-index="6">Outro</div>
+      <div id="s-math" class="clip layer " data-start="0" data-duration="20.18" data-track-index="2">
+        <div id="mEye" class="eyebrow" style="left:120px;top:110px">Monthly subscriptions</div>
+        <div class="mask" style="left:116px;top:150px"><div id="m1" class="disp" style="font-size:120px">Thoda simple math</div></div>
+        <div id="mGrid" style="position:absolute;left:120px;top:360px;width:1000px"><div class="fin " style="grid-template-columns:560px 1fr"><div class="cell"><span class='lab'>PDF edit</span></div><div class="cell"><span class='num'>₹1,600</span><span class='per'>/ month</span></div><div class="cell"><span class='lab'>Grammar &amp; writing</span></div><div class="cell"><span class='num'>₹2,500</span></div><div class="cell"><span class='lab'>Audio transcription</span></div><div class="cell"><span class='num'>₹1,400</span></div></div></div>
+        <div id="mTotEye" class="eyebrow" style="left:1250px;top:380px">Har mahine waste</div>
+        <div id="mTot" class="disp red" style="position:absolute;left:1200px;top:430px;font-size:160px;line-height:1;transform-origin:30% 60%">₹8–10K</div>
+        <div id="mTotSub" class="tagline" style="left:1250px;top:680px;width:560px">subscription fees, sirf basic digital tasks ke liye.</div>
+      </div>
+      <div id="s-tax" class="clip layer redPanel center" data-start="20.18" data-duration="2.33" data-track-index="2">
+        <div class="col"><div id="xa" class="disp white shadow" style="font-size:210px;line-height:1;transform:rotate(-5deg)">Stop paying</div>
+        <div id="xb" class="disp white" style="font-size:110px;margin-top:20px">this subscription tax!</div></div>
+      </div>
+      <div id="s-five" class="clip layer " data-start="22.51" data-duration="11.04" data-track-index="2">
+        <div id="fEye" class="eyebrow" style="left:120px;top:150px">Aaj hum dekhenge</div>
+        <div class="mask" style="left:116px;top:190px"><div id="f1" class="disp" style="font-size:130px">5 powerful</div></div>
+        <div id="f2" class="disp red" style="position:absolute;left:116px;top:350px;font-size:140px;transform-origin:20% 60%">100% FREE</div>
+        <div class="mask" style="left:330px;top:550px"><div id="f3" class="disp" style="font-size:120px;transform:rotate(2deg)">AI tools</div></div>
+        <div id="fTag" class="tagline" style="left:120px;top:760px;width:640px">baap-level speed aur quality ke saath.</div>
+        <div id="fList" class="list" style="left:1060px;top:220px"><div class="li"><span class="n">01</span><span>NotebookLM / ChatPDF</span></div><div class="li"><span class="n">02</span><span>MacWhisper / Whisper Web</span></div><div class="li"><span class="n">03</span><span>Clipdrop Cleanup</span></div><div class="li"><span class="n">04</span><span>DeepL Write / LanguageTool</span></div><div class="li"><span class="n">05</span><span>Make.com / Activepieces</span></div></div>
+      </div>
+      <div id="s-spon" class="clip layer " data-start="33.55" data-duration="6.47" data-track-index="2">
+        <div class="bullets" style="left:160px;top:220px">
+          <div id="b1" class="bl"><span class="dash">—</span>Koi sponsor nahi</div>
+          <div id="b2" class="bl"><span class="dash">—</span>Koi faltu bakwaas nahi</div>
+          <div id="b3" class="bl"><span class="dash">—</span>Pure utility tools</div>
+        </div>
+        <div id="bGo" class="disp red" style="position:absolute;left:1120px;top:520px;font-size:190px;transform-origin:30% 60%">Chaliye!</div>
+      </div>
+      <div id="title0" class="clip layer redPanel center" data-start="40.02" data-duration="1.5" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Tool</div>
+          <div id="title0n" class="disp white shadow" style="font-size:330px;line-height:1">01</div>
+          <div id="title0t" class="disp white" style="font-size:84px;margin-top:-10px">PDF Chat</div></div>
+      </div>
+      <div id="t1-prob" class="clip layer " data-start="40.02" data-duration="15.61" data-track-index="2">
+        <div id="pEye" class="eyebrow" style="left:120px;top:150px">Office ya college</div>
+        <div id="p80" class="disp red" style="position:absolute;left:110px;top:190px;font-size:250px;line-height:1;transform-origin:30% 60%">80-page</div>
+        <div class="mask" style="left:120px;top:460px"><div id="pDoc" class="disp" style="font-size:96px">contract report</div></div>
+        <div id="pKeys" class="keyRow" style="left:120px;top:640px"><span class="key">CTRL</span><span class="plus">+</span><span class="key">F</span><svg id="pX" viewBox="0 0 100 100" class="xmark"><path d="M10 10 L90 90 M90 10 L10 90" fill="none" stroke="#D8000F" stroke-width="12" stroke-linecap="square"/></svg></div>
+        <div id="pMiss" class="tagline" style="left:620px;top:660px;width:520px">context hamesha miss.</div>
+        <div id="pStack" class="stackWrap" style="left:1260px;top:150px"><div class="sheet" style="transform:translate(0px,0px) rotate(-4deg)"></div><div class="sheet" style="transform:translate(14px,-14px) rotate(-2deg)"></div><div class="sheet" style="transform:translate(28px,-28px) rotate(0deg)"></div><div class="sheet" style="transform:translate(42px,-42px) rotate(2deg)"></div><div class="sheet" style="transform:translate(56px,-56px) rotate(4deg)"></div><div class="sheet top"><div class="pdfTag">PDF</div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div></div></div>
+      </div>
+      <div id="t1-sol" class="clip layer " data-start="55.63" data-duration="4.11" data-track-index="2">
+        <div id="sEye" class="eyebrow" style="left:120px;top:200px">Solution · Google</div>
+        <div class="mask" style="left:116px;top:240px"><div id="s1" class="disp" style="font-size:84px">NotebookLM</div></div>
+        <div id="s2" class="disp red" style="position:absolute;left:116px;top:360px;font-size:84px;transform-origin:20% 60%">ya ChatPDF</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div id="m1" class="clip mwin" data-start="55.63" data-duration="2.2" data-track-index="1"><img src="assets/broll/notebooklm_hero.png" class="mfill"></div>
+          <div id="m2" class="clip mwin" data-start="57.83" data-duration="1.91" data-track-index="1"><img src="assets/broll/chatpdf_home_hero.png" class="mfill"></div>
+        </div>
+      </div>
+      <div id="t1-demo" class="clip layer " data-start="59.74" data-duration="16.71" data-track-index="2">
+        <div class="steps" style="left:110px;top:150px">
+          <div id="d1" class="st"><span class="n">01</span><span>Drag &amp; drop PDF</span></div>
+          <div id="d2" class="st"><span class="n">02</span><span>Type karo</span></div>
+        </div>
+        <div id="dQ" class="quote" style="left:110px;top:400px;width:600px">“Is document mein key deadlines aur financial risks kya hain?”</div>
+        <div id="dBam" class="disp red" style="position:absolute;left:110px;top:620px;font-size:130px;transform-origin:30% 60%">BAM!</div>
+        <div id="dCite" class="tagline" style="left:120px;top:800px;width:620px;font-size:30px">exact page numbers + source citations</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v3" class="clip mfill" src="assets/broll/cp_upload.mp4" muted playsinline data-start="59.74" data-duration="3.3" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v4" class="clip mfill" src="assets/broll/cp_type.mp4" muted playsinline data-start="63.04" data-duration="5.16" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v5" class="clip mfill" src="assets/broll/cp_answer.mp4" muted playsinline data-start="68.2" data-duration="3.79" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v6" class="clip mfill" src="assets/broll/cp_scroll.mp4" muted playsinline data-start="71.99" data-duration="4.46" data-track-index="1"></video></div>
+        </div><div class="frameLabel">chatpdf.com</div>
+      </div>
+      <div id="t1-free" class="clip layer " data-start="76.45" data-duration="9.66" data-track-index="2">
+        <div id="nEye" class="eyebrow" style="left:120px;top:150px">Google NotebookLM · filhal</div>
+        <div id="nFree" class="disp red" style="position:absolute;left:110px;top:200px;font-size:100px;line-height:1;transform-origin:30% 60%">100% Free</div>
+        <div id="nGrid" style="position:absolute;left:120px;top:470px;width:600px"><div class="fin " style="grid-template-columns:250px 1fr"><div class="cell"><span class='num'>50</span></div><div class="cell"><span class='lab2'>sources / notebook</span></div><div class="cell"><span class='num'>5 lakh</span></div><div class="cell"><span class='lab2'>words / source</span></div></div></div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v7" class="clip mfill" src="assets/broll/notebooklm.mp4" muted playsinline data-start="76.45" data-duration="9.66" data-track-index="1"></video></div>
+        </div><div class="frameLabel">notebooklm.google</div>
+      </div>
+      <div id="t1-adobe" class="clip layer center" data-start="86.11" data-duration="5.78" data-track-index="2">
+        <div class="col">
+          <div id="aEye" class="eyebrow static">Iske baad zaroorat nahi</div>
+          <div style="position:relative;display:inline-block"><div id="aName" class="disp" style="font-size:150px">Adobe Acrobat Pro</div><div id="aStrike" class="strikeBar"></div></div>
+          <div id="aSub" class="body" style="margin-top:30px">ya kisi bhi paid PDF editor ki.</div>
+        </div>
+      </div>
+      <div id="title8" class="clip layer redPanel center" data-start="91.89" data-duration="1.5" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Tool</div>
+          <div id="title8n" class="disp white shadow" style="font-size:330px;line-height:1">02</div>
+          <div id="title8t" class="disp white" style="font-size:84px;margin-top:-10px">Audio → Text</div></div>
+      </div>
+      <div id="t2-prob" class="clip layer " data-start="91.89" data-duration="16.42" data-track-index="2">
+        <div id="qEye" class="eyebrow" style="left:120px;top:150px">Meeting ya lecture</div>
+        <div class="mask" style="left:116px;top:190px"><div id="q1" class="disp" style="font-size:84px">1 ghante ki</div></div>
+        <div id="q2" class="disp red" style="position:absolute;left:116px;top:310px;font-size:76px;transform-origin:20% 60%">raw recording</div>
+        <div id="qB1" class="tagline" style="left:120px;top:540px;width:600px">Paid tools: hazaron rupaye / month</div>
+        <div id="qB2" class="tagline" style="left:120px;top:660px;width:600px">aur aapka private audio cloud par.</div>
+        <div id="qWave" class="wave" style="left:930px;top:200px"><div class="bar" style="height:30px"></div><div class="bar" style="height:128px"></div><div class="bar" style="height:41px"></div><div class="bar" style="height:55px"></div><div class="bar" style="height:74px"></div><div class="bar" style="height:125px"></div><div class="bar" style="height:105px"></div><div class="bar" style="height:66px"></div><div class="bar" style="height:39px"></div><div class="bar" style="height:60px"></div><div class="bar" style="height:141px"></div><div class="bar" style="height:47px"></div><div class="bar" style="height:103px"></div><div class="bar" style="height:31px"></div><div class="bar" style="height:91px"></div><div class="bar" style="height:69px"></div><div class="bar" style="height:134px"></div><div class="bar" style="height:80px"></div><div class="bar" style="height:47px"></div><div class="bar" style="height:67px"></div><div class="bar" style="height:84px"></div><div class="bar" style="height:139px"></div><div class="bar" style="height:58px"></div><div class="bar" style="height:69px"></div><div class="bar" style="height:31px"></div><div class="bar" style="height:121px"></div><div class="bar" style="height:56px"></div><div class="bar" style="height:129px"></div><div class="bar" style="height:55px"></div><div class="bar" style="height:42px"></div><div class="bar" style="height:83px"></div><div class="bar" style="height:106px"></div><div class="bar" style="height:124px"></div><div class="bar" style="height:60px"></div><div class="bar" style="height:32px"></div><div class="bar" style="height:42px"></div><div class="timer">01:00:00</div></div>
+        <div id="qOtter" class="clip layer" data-start="102.12" data-duration="6.19" data-track-index="2">
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v9" class="clip mfill" src="assets/broll/otter.mp4" muted playsinline data-start="102.12" data-duration="6.19" data-track-index="1"></video></div>
+        </div><div class="frameLabel">paid transcription · pricing</div></div>
+      </div>
+      <div id="t2-sol" class="clip layer " data-start="108.31" data-duration="8.22" data-track-index="2">
+        <div id="wEye" class="eyebrow" style="left:120px;top:200px">Try karo</div>
+        <div class="mask" style="left:116px;top:240px"><div id="w1" class="disp" style="font-size:80px">MacWhisper</div></div>
+        <div id="w2" class="disp red" style="position:absolute;left:116px;top:360px;font-size:80px;transform-origin:20% 60%">Whisper Web</div>
+        <div id="wTag" class="tagline" style="left:120px;top:600px;width:600px">OpenAI ka open-source Whisper model</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v10" class="clip mfill" src="assets/broll/macwhisper.mp4" muted playsinline data-start="108.31" data-duration="2.98" data-track-index="1"></video></div>
+          <div id="m11" class="clip mwin" data-start="111.29" data-duration="5.24" data-track-index="1"><img src="assets/broll/whisperweb_hero.png" class="mfill"></div>
+        </div>
+      </div>
+      <div id="t2-demo" class="clip layer " data-start="116.53" data-duration="12.97" data-track-index="2">
+        <div class="steps" style="left:110px;top:170px">
+          <div id="e1" class="st"><span class="n">01</span><span>Audio / video drop</span></div>
+          <div id="e2" class="st"><span class="n">02</span><span>Word-for-word text</span></div>
+        </div>
+        <div id="eSec" class="disp red" style="position:absolute;left:110px;top:520px;font-size:84px;transform-origin:30% 60%">seconds mein</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v12" class="clip mfill" src="assets/broll/whisperweb.mp4" muted playsinline data-start="116.53" data-duration="12.97" data-track-index="1"></video></div>
+        </div><div class="frameLabel">whisper web · in-browser</div>
+      </div>
+      <div id="t2-local" class="clip layer " data-start="129.5" data-duration="12.55" data-track-index="2">
+        <div id="lEye" class="eyebrow" style="left:160px;top:150px">Sabse badi baat</div>
+        <div id="lGrid" style="position:absolute;left:160px;top:210px;width:1600px"><div class="fin tall" style="grid-template-columns:1fr 1fr"><div class="cell"><span class='num'>01</span><span class='lab'>Locally run</span></div><div class="cell"><span class='num'>02</span><span class='lab'>Data private</span></div><div class="cell"><span class='num'>03</span><span class='lab'>No minute limit</span></div><div class="cell"><span class='num'>04</span><span class='lab'>Unlimited · free</span></div></div></div>
+      </div>
+      <div id="title13" class="clip layer redPanel center" data-start="142.05" data-duration="1.5" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Tool</div>
+          <div id="title13n" class="disp white shadow" style="font-size:330px;line-height:1">03</div>
+          <div id="title13t" class="disp white" style="font-size:84px;margin-top:-10px">Photo Cleanup</div></div>
+      </div>
+      <div id="t3-prob" class="clip layer " data-start="142.05" data-duration="15.73" data-track-index="2">
+        <div id="cEye" class="eyebrow" style="left:120px;top:150px">Badhiya photo, lekin…</div>
+        <div class="bullets small" style="left:120px;top:210px">
+          <div id="c1" class="bl"><span class="dash">—</span>wires ka gucha</div>
+          <div id="c2" class="bl"><span class="dash">—</span>koi stranger</div>
+          <div id="c3" class="bl"><span class="dash">—</span>kachra</div>
+        </div>
+        <div style="position:absolute;left:120px;top:640px"><div id="cPs" class="disp" style="font-size:70px">Photoshop fill</div><div id="cPsX" class="strikeBar"></div></div>
+        <div id="cPaid" class="tagline" style="left:120px;top:770px;width:560px">aur paid tools mehange.</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div id="m14" class="clip mwin" data-start="142.05" data-duration="15.73" data-track-index="1"><img src="assets/broll/kitchen.png" class="mfill"></div>
+        </div><div class="frameLabel">aapki photo</div>
+        <div id="ring1" class="ring" style="left:1030px;top:530px;width:140px;height:140px"></div><div id="ring2" class="ring" style="left:830px;top:340px;width:180px;height:180px"></div><div id="ring3" class="ring" style="left:1550px;top:520px;width:160px;height:160px"></div>
+      </div>
+      <div id="t3-sol" class="clip layer " data-start="157.78" data-duration="18.62" data-track-index="2">
+        <div id="kEye" class="eyebrow" style="left:120px;top:150px">Tool ka naam</div>
+        <div class="mask" style="left:116px;top:190px"><div id="k1" class="disp red" style="font-size:120px">Clipdrop</div></div>
+        <div id="k2" class="disp" style="position:absolute;left:220px;top:320px;font-size:90px;transform:rotate(2deg)">Cleanup</div>
+        <div class="steps small" style="left:120px;top:440px">
+          <div id="k3" class="st"><span class="n">01</span><span>Upload</span></div>
+          <div id="k4" class="st"><span class="n">02</span><span>Brush se paint</span></div>
+          <div id="k5" class="st"><span class="n">03</span><span>Clean</span></div>
+        </div>
+        <div id="k3s" class="disp red" style="position:absolute;left:110px;top:760px;font-size:90px;transform-origin:30% 60%">3 sec magic</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v15" class="clip mfill" src="assets/broll/clipdrop.mp4" muted playsinline data-start="157.78" data-duration="3.58" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v16" class="clip mfill" src="assets/broll/cd_paint.mp4" muted playsinline data-start="161.36" data-duration="6.66" data-track-index="1"></video></div>
+          <div id="m17" class="clip mwin" data-start="168.02" data-duration="8.38" data-track-index="1"><img src="assets/broll/clipdrop_hero.png" class="mfill"></div>
+        </div><div class="frameLabel">clipdrop.co/cleanup</div>
+      </div>
+      <div id="t3-free" class="clip layer " data-start="176.4" data-duration="16.96" data-track-index="2">
+        <div id="gEye" class="eyebrow" style="left:160px;top:140px">Clipdrop free tier</div>
+        <div id="gGrid" style="position:absolute;left:160px;top:200px;width:1600px"><div class="fin tall" style="grid-template-columns:1fr 1fr"><div class="cell"><span class='tag'>Free</span><span class='lab'>Unlimited images</span><span class='lab2'>standard resolution · PPT, web, daily tasks</span></div><div class="cell"><span class='tag ink'>Paid</span><span class='lab'>High-res 4K export</span><span class='lab2'>normal use ke liye zaroorat nahi</span></div></div></div>
+      </div>
+      <div id="title18" class="clip layer redPanel center" data-start="193.36" data-duration="1.5" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Tool</div>
+          <div id="title18n" class="disp white shadow" style="font-size:330px;line-height:1">04</div>
+          <div id="title18t" class="disp white" style="font-size:84px;margin-top:-10px">Writing</div></div>
+      </div>
+      <div id="t4-prob" class="clip layer " data-start="193.36" data-duration="11.33" data-track-index="2">
+        <div id="hEye" class="eyebrow" style="left:120px;top:150px">Emails · LinkedIn posts</div>
+        <div class="mask" style="left:116px;top:190px"><div id="h1" class="disp" style="font-size:110px">Sahi tone</div></div>
+        <div id="h2" class="disp red" style="position:absolute;left:116px;top:330px;font-size:90px;transform-origin:20% 60%">thoda tricky</div>
+        <div id="hPay" class="tagline" style="left:120px;top:540px;width:600px">Grammarly: rewrites + tone = paywall</div>
+        <div id="hMail" class="mail" style="left:820px;top:200px"><div class="eyebrow static">Draft</div>Hi sir, i want to informed you that the report are not ready yet becuase we was waiting for client data.</div>
+        <div id="hGram" class="clip layer" data-start="199.81" data-duration="4.88" data-track-index="2">
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v19" class="clip mfill" src="assets/broll/grammarly.mp4" muted playsinline data-start="199.81" data-duration="4.88" data-track-index="1"></video></div>
+        </div><div class="frameLabel">grammarly · plans</div></div>
+      </div>
+      <div id="t4-sol" class="clip layer " data-start="204.69" data-duration="20.51" data-track-index="2">
+        <div id="jEye" class="eyebrow" style="left:120px;top:150px">Use karo</div>
+        <div class="mask" style="left:116px;top:190px"><div id="j1" class="disp" style="font-size:80px">DeepL Write</div></div>
+        <div id="j2" class="disp red" style="position:absolute;left:116px;top:310px;font-size:72px;transform-origin:20% 60%">LanguageTool</div>
+        <div id="jChips" class="chips" style="left:120px;top:530px"><span>Professional</span><span>Concise</span><span>Casual</span></div>
+        <div id="jTag" class="tagline" style="left:120px;top:680px;width:600px">natural, professional, bina robotic tone ke.</div>
+        
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div id="m20" class="clip mwin" data-start="204.69" data-duration="2.24" data-track-index="1"><img src="assets/broll/languagetool_hero.png" class="mfill"></div>
+          <div class="mwin"><video id="v21" class="clip mfill" src="assets/broll/lt_type.mp4" muted playsinline data-start="206.93" data-duration="18.27" data-track-index="1"></video></div>
+        </div><div class="frameLabel">languagetool.org</div>
+      </div>
+      <div id="t4-free" class="clip layer " data-start="225.2" data-duration="14.42" data-track-index="2">
+        <div id="oEye" class="eyebrow" style="left:160px;top:140px">Free tier limits</div>
+        <div id="oGrid" style="position:absolute;left:160px;top:200px;width:1600px"><div class="fin tall" style="grid-template-columns:520px 1fr"><div class="cell"><span class='lab'>DeepL Write</span></div><div class="cell"><span class='num'>1,500</span><span class='lab2'>characters / edit · unlimited queries</span></div><div class="cell"><span class='lab'>LanguageTool</span></div><div class="cell"><span class='num'>10,000</span><span class='lab2'>characters / check</span></div></div></div>
+        <div id="oOk" class="tagline" style="left:160px;top:760px;width:1100px">Daily emails aur reports ke liye zarurat se zyada.</div>
+      </div>
+      <div id="title22" class="clip layer redPanel center" data-start="239.62" data-duration="1.5" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Tool</div>
+          <div id="title22n" class="disp white shadow" style="font-size:330px;line-height:1">05</div>
+          <div id="title22t" class="disp white" style="font-size:84px;margin-top:-10px">Automation</div></div>
+      </div>
+      <div id="t5-prob" class="clip layer " data-start="239.62" data-duration="17.26" data-track-index="2">
+        <div id="uEye" class="eyebrow" style="left:120px;top:150px">Har din, same boring tasks</div>
+        <div id="uChain" class="chain" style="left:120px;top:230px"><div class="box">Email aayi</div><div class="arr">→</div><div class="box">Attachment download</div><div class="arr">→</div><div class="box">Drive mein save</div><div class="arr">→</div><div class="box">Team ko message</div></div>
+        <div id="uWaste" class="disp red" style="position:absolute;left:110px;top:470px;font-size:150px;transform-origin:30% 60%">ghante waste</div>
+        <div id="uZap" class="clip layer" data-start="251.4" data-duration="5.48" data-track-index="2">
+          <div class="cover"></div>
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v23" class="clip mfill" src="assets/broll/zapier.mp4" muted playsinline data-start="251.4" data-duration="5.48" data-track-index="1"></video></div>
+        </div><div class="frameLabel">zapier · pricing</div>
+          <div id="uZapT" class="tagline" style="left:120px;top:400px;width:560px">Zapier: bohot mehenga, free plan lagbhag useless.</div></div>
+      </div>
+      <div id="t5-sol" class="clip layer " data-start="256.88" data-duration="19.16" data-track-index="2">
+        <div id="vHead" class="clip layer" data-start="256.88" data-duration="7.99" data-track-index="3">
+        <div id="vEye" class="eyebrow" style="left:120px;top:150px">Solution</div>
+        <div class="mask" style="left:116px;top:190px"><div id="v1" class="disp" style="font-size:110px">Make.com</div></div>
+        <div id="v2" class="disp red" style="position:absolute;left:116px;top:330px;font-size:84px;transform-origin:20% 60%">Activepieces</div>
+        <div id="vOss" class="tagline" style="left:120px;top:500px;width:560px">open-source · drag-and-drop workflows</div>
+        </div>
+        <div id="vAp" class="clip layer" data-start="256.88" data-duration="7.99" data-track-index="2">
+        <div class="frameOuter" style="left:756px;top:116px;width:1108px;height:636px"></div>
+        <div class="frame" style="left:770px;top:130px;width:1080px;height:608px">
+          <div class="mwin"><video id="v24" class="clip mfill" src="assets/broll/activepieces.mp4" muted playsinline data-start="256.88" data-duration="7.99" data-track-index="1"></video></div>
+        </div><div class="frameLabel">activepieces.com</div></div>
+        <div id="vFlow" class="clip layer" data-start="264.87" data-duration="11.17" data-track-index="2">
+          <div class="cover"></div>
+          <div id="fEye2" class="eyebrow" style="left:160px;top:150px">Example workflow · ek baar setup</div>
+          <div class="flowLine" id="fl"></div><div class="flowDot" id="fdot"></div>
+          <div id="nd0" class="node" style="left:160px"><div class="dot">1</div><div class="nl">Client invoice email</div><div class="ns">trigger</div></div><div id="nd1" class="node" style="left:720px"><div class="dot">2</div><div class="nl">Google Drive folder</div><div class="ns">auto save</div></div><div id="nd2" class="node" style="left:1280px"><div class="dot">3</div><div class="nl">Notification</div><div class="ns">aapko alert</div></div>
+          <div id="vBhool" class="disp red" style="position:absolute;left:0;right:0;top:720px;text-align:center;font-size:110px;transform:rotate(-3deg)">setup karo, bhool jao</div>
+        </div>
+      </div>
+      <div id="t5-free" class="clip layer " data-start="276.04" data-duration="11.85" data-track-index="2">
+        <div id="yEye" class="eyebrow" style="left:160px;top:140px">Free plans compared</div>
+        <div id="yGrid" style="position:absolute;left:160px;top:200px;width:1600px"><div class="fin tall" style="grid-template-columns:1fr 1fr"><div class="cell"><span class='lab'>Zapier free</span><span class='num ink'>100</span><span class='lab2'>simple tasks / month</span></div><div class="cell"><span class='lab'>Make.com free</span><span class='num big'>1,000</span><span class='lab2'>operations / month · multi-step</span></div></div></div>
+      </div>
+      <div id="tip-slam" class="clip layer redPanel center" data-start="287.9" data-duration="1.5" data-track-index="4"><div class="col"><div class="eyebrow static light">Ek</div><div id="tipT" class="disp white shadow" style="font-size:260px;line-height:1">Pro tip</div></div>
+      </div>
+      <div id="tip" class="clip layer " data-start="287.9" data-duration="23.4" data-track-index="2">
+        <div style="position:absolute;left:120px;top:190px"><div id="tp1" class="disp" style="font-size:64px">Bookmark mat karo</div><div id="tp1x" class="strikeBar"></div></div>
+        <div id="tp2" class="disp red" style="position:absolute;left:116px;top:320px;font-size:72px;transform-origin:20% 60%">Sidebar mein pin</div>
+        <div id="tp3" class="tagline" style="left:120px;top:480px;width:640px">ya “Install as App”. Ek click, main window chhode bina.</div>
+        <div class="browser" style="left:880px;top:130px">
+          <div class="bTop"><span></span><span></span><span></span><div class="bUrl">Chrome · Edge</div></div>
+          <div class="bSide"><div class="sbIcon" id="ic0">NB</div><div class="sbIcon" id="ic1">CP</div><div class="sbIcon" id="ic2">WW</div><div class="sbIcon" id="ic3">CD</div><div class="sbIcon" id="ic4">LT</div></div>
+          <div id="bPanel" class="bPanel"><img src="assets/broll/chatpdf_home_hero.png"></div>
+          <div class="bMain"><div class="ln"></div><div class="ln"></div><div class="ln short"></div><div class="ln"></div><div class="ln short"></div></div>
+        </div>
+      </div>
+      <div id="recap" class="clip layer " data-start="311.29" data-duration="11.83" data-track-index="2">
+        <div id="rEye" class="eyebrow" style="left:160px;top:110px">Toh yeh the · 5 free AI tools</div>
+        <div id="rGrid" style="position:absolute;left:160px;top:160px;width:1600px"><div class="fin rows" style="grid-template-columns:140px 760px 1fr"><div class="cell"><span class='num sm'>01</span></div><div class="cell"><span class='lab'>NotebookLM / ChatPDF</span></div><div class="cell"><span class='lab2'>replaces <s>Acrobat Pro</s></span></div><div class="cell"><span class='num sm'>02</span></div><div class="cell"><span class='lab'>MacWhisper / Whisper Web</span></div><div class="cell"><span class='lab2'>replaces <s>paid transcription</s></span></div><div class="cell"><span class='num sm'>03</span></div><div class="cell"><span class='lab'>Clipdrop Cleanup</span></div><div class="cell"><span class='lab2'>replaces <s>Photoshop fill</s></span></div><div class="cell"><span class='num sm'>04</span></div><div class="cell"><span class='lab'>DeepL Write / LanguageTool</span></div><div class="cell"><span class='lab2'>replaces <s>Grammarly premium</s></span></div><div class="cell"><span class='num sm'>05</span></div><div class="cell"><span class='lab'>Make.com / Activepieces</span></div><div class="cell"><span class='lab2'>replaces <s>Zapier</s></span></div></div></div>
+        <div id="rDesc" class="downTag" style="top:770px"><span class="disp red" style="font-size:64px">links description mein</span><svg viewBox="0 0 60 80" class="arrow"><path d="M30 4 V66 M8 46 L30 70 L52 46" fill="none" stroke="#D8000F" stroke-width="9" stroke-linecap="square"/></svg><span class="eyebrow static">koi affiliate drama nahi</span></div>
+      </div>
+      <div id="ask" class="clip layer " data-start="323.12" data-duration="10.83" data-track-index="2">
+        <div id="zEye" class="eyebrow" style="left:120px;top:170px">Ab aap batao</div>
+        <div class="mask" style="left:116px;top:210px"><div id="z1" class="disp" style="font-size:110px">Sabse pehle kaunsa</div></div>
+        <div id="z2" class="disp red" style="position:absolute;left:116px;top:350px;font-size:150px;transform-origin:20% 60%">try karoge?</div>
+        <div id="zNums" class="nums" style="left:120px;top:600px"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span class="q">?</span></div>
+        <div id="zCom" class="disp red" style="position:absolute;left:1120px;top:600px;font-size:120px;transform:rotate(-5deg)">Comment!</div>
+      </div>
+      <div id="bye" class="clip layer " data-start="333.95" data-duration="8.8" data-track-index="2">
+        <div id="byEye" class="eyebrow" style="left:120px;top:150px">Video achhi lagi?</div>
+        <div id="byRow" class="nums big" style="left:120px;top:210px"><span>Like</span><span>Share</span><span class="red">Subscribe</span></div>
+        <div id="byCard" class="brandCard" style="left:120px;top:470px;width:1000px"><div class="eyebrow static">Channel</div><div class="disp red" style="font-size:130px;transform:rotate(-3deg)">NamasteTechy</div></div>
+        <svg id="bell" viewBox="0 0 100 100" class="bell"><path d="M50 12c-14 0-24 11-24 25v18l-8 12h64l-8-12V37c0-14-10-25-24-25z" fill="none" stroke="#1C1410" stroke-width="7"/><path d="M40 74a10 10 0 0 0 20 0" fill="none" stroke="#1C1410" stroke-width="7"/></svg>
+        <div id="byBye" class="disp" style="position:absolute;left:1240px;top:760px;font-size:70px;transform:rotate(2deg)">agli video mein!</div>
+      </div>
+      <div id="cap0" class="clip layer" data-start="0" data-duration="1.72" data-track-index="5"><div class="capStage"><div class="capCard">Thoda simple math karte hain.</div></div></div>
+      <div id="cap1" class="clip layer" data-start="1.72" data-duration="3.74" data-track-index="5"><div class="capStage"><div class="capCard">PDF edit karne ke liye ₹1,600 a month.</div></div></div>
+      <div id="cap2" class="clip layer" data-start="5.46" data-duration="3.16" data-track-index="5"><div class="capStage"><div class="capCard">Grammar and writing check ke liye ₹2,500.</div></div></div>
+      <div id="cap3" class="clip layer" data-start="9.14" data-duration="2.58" data-track-index="5"><div class="capStage"><div class="capCard">Audio transcription ke liye ₹1,400.</div></div></div>
+      <div id="cap4" class="clip layer" data-start="12.26" data-duration="3.5" data-track-index="5"><div class="capStage"><div class="capCard">Direct ya indirect, har mahine basic digital tasks</div></div></div>
+      <div id="cap5" class="clip layer" data-start="15.76" data-duration="2.25" data-track-index="5"><div class="capStage"><div class="capCard">ke liye hum aath se das hazar rupaye</div></div></div>
+      <div id="cap6" class="clip layer" data-start="18.01" data-duration="2.17" data-track-index="5"><div class="capStage"><div class="capCard">subscription fees mein waste kar dete hain.</div></div></div>
+      <div id="cap7" class="clip layer" data-start="20.18" data-duration="2.33" data-track-index="5"><div class="capStage"><div class="capCard">Stop paying this subscription tax!</div></div></div>
+      <div id="cap8" class="clip layer" data-start="22.51" data-duration="2.59" data-track-index="5"><div class="capStage"><div class="capCard">Aaj hum dekhenge 5 aisi powerful,</div></div></div>
+      <div id="cap9" class="clip layer" data-start="25.1" data-duration="3.23" data-track-index="5"><div class="capStage"><div class="capCard">100% free AI tools jo in mehange paid</div></div></div>
+      <div id="cap10" class="clip layer" data-start="28.33" data-duration="2.6" data-track-index="5"><div class="capStage"><div class="capCard">software ko instantly replace kar sakti hain —</div></div></div>
+      <div id="cap11" class="clip layer" data-start="30.93" data-duration="2.62" data-track-index="5"><div class="capStage"><div class="capCard">baap-level speed aur quality ke saath.</div></div></div>
+      <div id="cap12" class="clip layer" data-start="33.55" data-duration="2.51" data-track-index="5"><div class="capStage"><div class="capCard">Koi sponsor nahi, koi faltu ki bakwaas nahi</div></div></div>
+      <div id="cap13" class="clip layer" data-start="36.06" data-duration="1.54" data-track-index="5"><div class="capStage"><div class="capCard">— pure utility tools.</div></div></div>
+      <div id="cap14" class="clip layer" data-start="37.61" data-duration="2.41" data-track-index="5"><div class="capStage"><div class="capCard">Chaliye, directly start karte hain!</div></div></div>
+      <div id="cap15" class="clip layer" data-start="40.02" data-duration="2.25" data-track-index="5"><div class="capStage"><div class="capCard">Hum sab ke saath yeh hota hai.</div></div></div>
+      <div id="cap16" class="clip layer" data-start="42.27" data-duration="2.65" data-track-index="5"><div class="capStage"><div class="capCard">Office mein 80-page ki contract report aati hai</div></div></div>
+      <div id="cap17" class="clip layer" data-start="44.93" data-duration="2.59" data-track-index="5"><div class="capStage"><div class="capCard">ya college mein dense research paper milta hai.</div></div></div>
+      <div id="cap18" class="clip layer" data-start="47.52" data-duration="2.81" data-track-index="5"><div class="capStage"><div class="capCard">Ek specific answer dhoondne ke liye pura document</div></div></div>
+      <div id="cap19" class="clip layer" data-start="50.33" data-duration="4.32" data-track-index="5"><div class="capStage"><div class="capCard">padhna impossible hai, aur CTRL+F hamesha context miss</div></div></div>
+      <div id="cap20" class="clip layer" data-start="54.65" data-duration="0.98" data-track-index="5"><div class="capStage"><div class="capCard">kar deta hai.</div></div></div>
+      <div id="cap21" class="clip layer" data-start="55.63" data-duration="2.84" data-track-index="5"><div class="capStage"><div class="capCard">Solution hai Google NotebookLM ya ChatPDF.</div></div></div>
+      <div id="cap22" class="clip layer" data-start="58.47" data-duration="1.27" data-track-index="5"><div class="capStage"><div class="capCard">Yeh dekho.</div></div></div>
+      <div id="cap23" class="clip layer" data-start="59.74" data-duration="2.36" data-track-index="5"><div class="capStage"><div class="capCard">Bas apna PDF drag and drop karo.</div></div></div>
+      <div id="cap24" class="clip layer" data-start="62.1" data-duration="1.6" data-track-index="5"><div class="capStage"><div class="capCard">3 clicks ke andar type karo:</div></div></div>
+      <div id="cap25" class="clip layer" data-start="63.7" data-duration="3" data-track-index="5"><div class="capStage"><div class="capCard">&quot;Is document mein key deadlines aur financial risks</div></div></div>
+      <div id="cap26" class="clip layer" data-start="66.7" data-duration="1.8" data-track-index="5"><div class="capStage"><div class="capCard">kya hain?&quot; Aur BAM!</div></div></div>
+      <div id="cap27" class="clip layer" data-start="68.5" data-duration="2.53" data-track-index="5"><div class="capStage"><div class="capCard">Seconds mein aapko precise summary milti hai,</div></div></div>
+      <div id="cap28" class="clip layer" data-start="71.03" data-duration="2.82" data-track-index="5"><div class="capStage"><div class="capCard">woh bhi exact page numbers aur source citations</div></div></div>
+      <div id="cap29" class="clip layer" data-start="73.85" data-duration="2.6" data-track-index="5"><div class="capStage"><div class="capCard">ke saath, taaki aap cross-check kar sako.</div></div></div>
+      <div id="cap30" class="clip layer" data-start="76.45" data-duration="3.1" data-track-index="5"><div class="capStage"><div class="capCard">Google NotebookLM filhal 100% Free hai.</div></div></div>
+      <div id="cap31" class="clip layer" data-start="79.55" data-duration="2.36" data-track-index="5"><div class="capStage"><div class="capCard">Aap ek notebook mein 50 sources tak daal</div></div></div>
+      <div id="cap32" class="clip layer" data-start="81.91" data-duration="2.68" data-track-index="5"><div class="capStage"><div class="capCard">sakte ho aur har source 5 lakh words</div></div></div>
+      <div id="cap33" class="clip layer" data-start="84.59" data-duration="1.52" data-track-index="5"><div class="capStage"><div class="capCard">tak handle kar sakta hai!</div></div></div>
+      <div id="cap34" class="clip layer" data-start="86.11" data-duration="2.72" data-track-index="5"><div class="capStage"><div class="capCard">Iske baad aapko Adobe Acrobat Pro ya kisi</div></div></div>
+      <div id="cap35" class="clip layer" data-start="88.83" data-duration="3.06" data-track-index="5"><div class="capStage"><div class="capCard">paid PDF editor ki zaroorat kabhi nahi padegi.</div></div></div>
+      <div id="cap36" class="clip layer" data-start="91.89" data-duration="2.29" data-track-index="5"><div class="capStage"><div class="capCard">Client meeting chal rahi ho ya college ki</div></div></div>
+      <div id="cap37" class="clip layer" data-start="94.18" data-duration="3.33" data-track-index="5"><div class="capStage"><div class="capCard">lecture recording, live notes banana bahut distracting hota</div></div></div>
+      <div id="cap38" class="clip layer" data-start="97.51" data-duration="0.33" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap39" class="clip layer" data-start="97.84" data-duration="2.45" data-track-index="5"><div class="capStage"><div class="capCard">Aur baad mein 1 ghante ki raw recording</div></div></div>
+      <div id="cap40" class="clip layer" data-start="100.29" data-duration="1.83" data-track-index="5"><div class="capStage"><div class="capCard">sunna matlab time ki waste.</div></div></div>
+      <div id="cap41" class="clip layer" data-start="102.12" data-duration="3.28" data-track-index="5"><div class="capStage"><div class="capCard">Paid transcription tools mahine ke hazaron rupaye maangte</div></div></div>
+      <div id="cap42" class="clip layer" data-start="105.4" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">hain aur aapka private audio cloud par upload</div></div></div>
+      <div id="cap43" class="clip layer" data-start="107.78" data-duration="0.54" data-track-index="5"><div class="capStage"><div class="capCard">karte hain.</div></div></div>
+      <div id="cap44" class="clip layer" data-start="108.31" data-duration="1.74" data-track-index="5"><div class="capStage"><div class="capCard">Try karo MacWhisper Mac users ke liye,</div></div></div>
+      <div id="cap45" class="clip layer" data-start="110.05" data-duration="3.15" data-track-index="5"><div class="capStage"><div class="capCard">ya browser-based Whisper Web,</div></div></div>
+      <div id="cap46" class="clip layer" data-start="113.2" data-duration="3" data-track-index="5"><div class="capStage"><div class="capCard">jo OpenAI ke open-source Whisper model par chalta</div></div></div>
+      <div id="cap47" class="clip layer" data-start="116.2" data-duration="0.33" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap48" class="clip layer" data-start="116.53" data-duration="3.25" data-track-index="5"><div class="capStage"><div class="capCard">Step-by-step dekho: Apni audio ya video file ko</div></div></div>
+      <div id="cap49" class="clip layer" data-start="119.78" data-duration="0.88" data-track-index="5"><div class="capStage"><div class="capCard">drop karo.</div></div></div>
+      <div id="cap50" class="clip layer" data-start="120.66" data-duration="2.12" data-track-index="5"><div class="capStage"><div class="capCard">Kuch hi seconds mein yeh poori recording ko</div></div></div>
+      <div id="cap51" class="clip layer" data-start="122.78" data-duration="2.18" data-track-index="5"><div class="capStage"><div class="capCard">word-for-word transcribe kar deta hai —</div></div></div>
+      <div id="cap52" class="clip layer" data-start="124.96" data-duration="2.3" data-track-index="5"><div class="capStage"><div class="capCard">chahe background noise ho ya Indian accent,</div></div></div>
+      <div id="cap53" class="clip layer" data-start="127.26" data-duration="2.24" data-track-index="5"><div class="capStage"><div class="capCard">accuracy unmatched hai.</div></div></div>
+      <div id="cap54" class="clip layer" data-start="129.5" data-duration="0.82" data-track-index="5"><div class="capStage"><div class="capCard">Sabse badi baat —</div></div></div>
+      <div id="cap55" class="clip layer" data-start="130.32" data-duration="2.66" data-track-index="5"><div class="capStage"><div class="capCard">yeh aapke computer par locally run hota hai,</div></div></div>
+      <div id="cap56" class="clip layer" data-start="132.98" data-duration="3" data-track-index="5"><div class="capStage"><div class="capCard">toh aapka data bilkul safe aur private rehta</div></div></div>
+      <div id="cap57" class="clip layer" data-start="135.98" data-duration="0.48" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap58" class="clip layer" data-start="136.46" data-duration="2.07" data-track-index="5"><div class="capStage"><div class="capCard">Isme koi monthly minute limit nahi hai.</div></div></div>
+      <div id="cap59" class="clip layer" data-start="138.53" data-duration="2.07" data-track-index="5"><div class="capStage"><div class="capCard">Unlimited hours transcribe karo,</div></div></div>
+      <div id="cap60" class="clip layer" data-start="140.67" data-duration="1.38" data-track-index="5"><div class="capStage"><div class="capCard">bilkul free!</div></div></div>
+      <div id="cap61" class="clip layer" data-start="142.05" data-duration="2.14" data-track-index="5"><div class="capStage"><div class="capCard">Aapne presentation, social media,</div></div></div>
+      <div id="cap62" class="clip layer" data-start="144.19" data-duration="2.56" data-track-index="5"><div class="capStage"><div class="capCard">ya thumbnail ke liye ek badhiya photo kheechi.</div></div></div>
+      <div id="cap63" class="clip layer" data-start="146.75" data-duration="2.35" data-track-index="5"><div class="capStage"><div class="capCard">Lekin background mein ek wires ka gucha,</div></div></div>
+      <div id="cap64" class="clip layer" data-start="149.1" data-duration="2.29" data-track-index="5"><div class="capStage"><div class="capCard">koi stranger, ya kachra aa gaya.</div></div></div>
+      <div id="cap65" class="clip layer" data-start="151.39" data-duration="3.2" data-track-index="5"><div class="capStage"><div class="capCard">Photoshop kholkar content-aware fill karna har kisi ke</div></div></div>
+      <div id="cap66" class="clip layer" data-start="154.59" data-duration="2.12" data-track-index="5"><div class="capStage"><div class="capCard">bas ki baat nahi hai aur paid tools</div></div></div>
+      <div id="cap67" class="clip layer" data-start="156.71" data-duration="1.07" data-track-index="5"><div class="capStage"><div class="capCard">expensive hain.</div></div></div>
+      <div id="cap68" class="clip layer" data-start="157.78" data-duration="3.13" data-track-index="5"><div class="capStage"><div class="capCard">Tool ka naam hai Clipdrop Cleanup by Stability</div></div></div>
+      <div id="cap69" class="clip layer" data-start="160.91" data-duration="0.45" data-track-index="5"><div class="capStage"><div class="capCard">AI.</div></div></div>
+      <div id="cap70" class="clip layer" data-start="161.36" data-duration="2.94" data-track-index="5"><div class="capStage"><div class="capCard">Photo upload karo, unwanted object par brush se</div></div></div>
+      <div id="cap71" class="clip layer" data-start="164.3" data-duration="2.22" data-track-index="5"><div class="capStage"><div class="capCard">paint karo, aur &quot;Clean&quot; par click karo.</div></div></div>
+      <div id="cap72" class="clip layer" data-start="166.52" data-duration="3.43" data-track-index="5"><div class="capStage"><div class="capCard">AI surrounding textures aur lighting ko analyze karke</div></div></div>
+      <div id="cap73" class="clip layer" data-start="169.95" data-duration="2.1" data-track-index="5"><div class="capStage"><div class="capCard">us object ko aise gayab kar deta hai</div></div></div>
+      <div id="cap74" class="clip layer" data-start="172.05" data-duration="2.04" data-track-index="5"><div class="capStage"><div class="capCard">jaise woh wahan kabhi tha hi nahi.</div></div></div>
+      <div id="cap75" class="clip layer" data-start="174.09" data-duration="2.31" data-track-index="5"><div class="capStage"><div class="capCard">Pure magic in 3 seconds!</div></div></div>
+      <div id="cap76" class="clip layer" data-start="176.4" data-duration="3.51" data-track-index="5"><div class="capStage"><div class="capCard">Clipdrop ka free tier aapko unlimited images standard</div></div></div>
+      <div id="cap77" class="clip layer" data-start="179.91" data-duration="1.87" data-track-index="5"><div class="capStage"><div class="capCard">resolution mein edit karne deta hai,</div></div></div>
+      <div id="cap78" class="clip layer" data-start="181.78" data-duration="3" data-track-index="5"><div class="capStage"><div class="capCard">jo PPTs, Web, aur Daily tasks ke liye</div></div></div>
+      <div id="cap79" class="clip layer" data-start="184.78" data-duration="1.44" data-track-index="5"><div class="capStage"><div class="capCard">perfectly crisp hai.</div></div></div>
+      <div id="cap80" class="clip layer" data-start="186.22" data-duration="2.78" data-track-index="5"><div class="capStage"><div class="capCard">High-res 4K export ke liye paid plan hota</div></div></div>
+      <div id="cap81" class="clip layer" data-start="189" data-duration="2.3" data-track-index="5"><div class="capStage"><div class="capCard">hai, lekin normal use ke liye free version</div></div></div>
+      <div id="cap82" class="clip layer" data-start="191.3" data-duration="2.06" data-track-index="5"><div class="capStage"><div class="capCard">se kaam perfectly ho jata hai.</div></div></div>
+      <div id="cap83" class="clip layer" data-start="193.36" data-duration="3.26" data-track-index="5"><div class="capStage"><div class="capCard">Professional emails ya LinkedIn posts likhte waqt sahi</div></div></div>
+      <div id="cap84" class="clip layer" data-start="196.62" data-duration="2.84" data-track-index="5"><div class="capStage"><div class="capCard">tone aur vocabulary set karna thoda tricky hota</div></div></div>
+      <div id="cap85" class="clip layer" data-start="199.46" data-duration="0.35" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap86" class="clip layer" data-start="199.81" data-duration="2.76" data-track-index="5"><div class="capStage"><div class="capCard">Grammarly jaise tools advanced sentence rewrites aur tone</div></div></div>
+      <div id="cap87" class="clip layer" data-start="202.57" data-duration="2.11" data-track-index="5"><div class="capStage"><div class="capCard">adjustment ke liye turant paywall laga dete hain.</div></div></div>
+      <div id="cap88" class="clip layer" data-start="204.69" data-duration="2.24" data-track-index="5"><div class="capStage"><div class="capCard">Use karo DeepL Write ya free LanguageTool extension.</div></div></div>
+      <div id="cap89" class="clip layer" data-start="206.93" data-duration="2.03" data-track-index="5"><div class="capStage"><div class="capCard">Apne kisi bhi rough sentence ko highlight karo,</div></div></div>
+      <div id="cap90" class="clip layer" data-start="208.96" data-duration="1.9" data-track-index="5"><div class="capStage"><div class="capCard">rephrase click karo, aur Style select karo —</div></div></div>
+      <div id="cap91" class="clip layer" data-start="210.87" data-duration="1.44" data-track-index="5"><div class="capStage"><div class="capCard">Professional, Concise, ya Casual.</div></div></div>
+      <div id="cap92" class="clip layer" data-start="212.3" data-duration="1.4" data-track-index="5"><div class="capStage"><div class="capCard">Yeh sirf spelling nahi sudharta,</div></div></div>
+      <div id="cap93" class="clip layer" data-start="213.7" data-duration="9.24" data-track-index="5"><div class="capStage"><div class="capCard">aapke poore sentence structure ko natural aur professional</div></div></div>
+      <div id="cap94" class="clip layer" data-start="222.94" data-duration="2.26" data-track-index="5"><div class="capStage"><div class="capCard">bana deta hai bina kisi robotic tone ke.</div></div></div>
+      <div id="cap95" class="clip layer" data-start="225.2" data-duration="2.53" data-track-index="5"><div class="capStage"><div class="capCard">DeepL Write ka free tier per-edit 1,500 characters</div></div></div>
+      <div id="cap96" class="clip layer" data-start="227.73" data-duration="3.97" data-track-index="5"><div class="capStage"><div class="capCard">allow karta hai with unlimited queries,</div></div></div>
+      <div id="cap97" class="clip layer" data-start="231.7" data-duration="3.98" data-track-index="5"><div class="capStage"><div class="capCard">aur LanguageTool per-check 10,000 characters support karta hai.</div></div></div>
+      <div id="cap98" class="clip layer" data-start="235.68" data-duration="2.4" data-track-index="5"><div class="capStage"><div class="capCard">Daily emails aur reports ke liye yeh limits</div></div></div>
+      <div id="cap99" class="clip layer" data-start="238.08" data-duration="1.54" data-track-index="5"><div class="capStage"><div class="capCard">zarurat se zyada hain.</div></div></div>
+      <div id="cap100" class="clip layer" data-start="239.62" data-duration="3.99" data-track-index="5"><div class="capStage"><div class="capCard">Har din same boring computer tasks repeat karna:</div></div></div>
+      <div id="cap101" class="clip layer" data-start="243.61" data-duration="2.34" data-track-index="5"><div class="capStage"><div class="capCard">Email aayi → attachment download ki → Google</div></div></div>
+      <div id="cap102" class="clip layer" data-start="245.95" data-duration="2.18" data-track-index="5"><div class="capStage"><div class="capCard">Drive mein save ki → team ko message</div></div></div>
+      <div id="cap103" class="clip layer" data-start="248.13" data-duration="0.8" data-track-index="5"><div class="capStage"><div class="capCard">bheja.</div></div></div>
+      <div id="cap104" class="clip layer" data-start="248.93" data-duration="2.47" data-track-index="5"><div class="capStage"><div class="capCard">Is manual kaam mein ghante waste hote hain.</div></div></div>
+      <div id="cap105" class="clip layer" data-start="251.4" data-duration="3.1" data-track-index="5"><div class="capStage"><div class="capCard">Zapier jaise automation tools bohot mehange hain aur</div></div></div>
+      <div id="cap106" class="clip layer" data-start="254.5" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">unka free plan lagbhag useless hai.</div></div></div>
+      <div id="cap107" class="clip layer" data-start="256.88" data-duration="3.85" data-track-index="5"><div class="capStage"><div class="capCard">Iska solution hai Make.com ya open-source Activepieces.</div></div></div>
+      <div id="cap108" class="clip layer" data-start="260.73" data-duration="3.23" data-track-index="5"><div class="capStage"><div class="capCard">Make ke visual builder par aap drag-and-drop workflows</div></div></div>
+      <div id="cap109" class="clip layer" data-start="263.96" data-duration="0.91" data-track-index="5"><div class="capStage"><div class="capCard">bana sakte ho.</div></div></div>
+      <div id="cap110" class="clip layer" data-start="264.87" data-duration="3.08" data-track-index="5"><div class="capStage"><div class="capCard">Example: Jaise hi koi important client invoice email</div></div></div>
+      <div id="cap111" class="clip layer" data-start="267.95" data-duration="3.44" data-track-index="5"><div class="capStage"><div class="capCard">kare, woh automatically aapke Google Drive folder mein</div></div></div>
+      <div id="cap112" class="clip layer" data-start="271.39" data-duration="2.62" data-track-index="5"><div class="capStage"><div class="capCard">save ho jaye aur aapko notification mil jaye.</div></div></div>
+      <div id="cap113" class="clip layer" data-start="274.01" data-duration="2.03" data-track-index="5"><div class="capStage"><div class="capCard">Ek baar setup karo aur bhool jao.</div></div></div>
+      <div id="cap114" class="clip layer" data-start="276.04" data-duration="1.75" data-track-index="5"><div class="capStage"><div class="capCard">Zapier ke free tier mein sirf 100 simple</div></div></div>
+      <div id="cap115" class="clip layer" data-start="277.79" data-duration="4.2" data-track-index="5"><div class="capStage"><div class="capCard">tasks milte hain, jabki Make.com ke free plan</div></div></div>
+      <div id="cap116" class="clip layer" data-start="281.99" data-duration="3.51" data-track-index="5"><div class="capStage"><div class="capCard">mein aapko 1,000 operations per month milte hain,</div></div></div>
+      <div id="cap117" class="clip layer" data-start="285.5" data-duration="2.4" data-track-index="5"><div class="capStage"><div class="capCard">wo bhi multi-step workflows ke saath!</div></div></div>
+      <div id="cap118" class="clip layer" data-start="287.9" data-duration="2.64" data-track-index="5"><div class="capStage"><div class="capCard">Ek pro-tip jo aapka real time bachayegi:</div></div></div>
+      <div id="cap119" class="clip layer" data-start="290.54" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">In tools ko bookmark karke mat chhodo,</div></div></div>
+      <div id="cap120" class="clip layer" data-start="292.92" data-duration="1.43" data-track-index="5"><div class="capStage"><div class="capCard">warna aap inhein bhool jaoge.</div></div></div>
+      <div id="cap121" class="clip layer" data-start="294.35" data-duration="3.08" data-track-index="5"><div class="capStage"><div class="capCard">Apne Chrome ya Edge browser ke Sidebar mein</div></div></div>
+      <div id="cap122" class="clip layer" data-start="297.43" data-duration="1.95" data-track-index="5"><div class="capStage"><div class="capCard">in 5 tools ko pin kar lo ya</div></div></div>
+      <div id="cap123" class="clip layer" data-start="299.38" data-duration="2.13" data-track-index="5"><div class="capStage"><div class="capCard">&quot;Install as App&quot; select kar lo.</div></div></div>
+      <div id="cap124" class="clip layer" data-start="301.52" data-duration="2.8" data-track-index="5"><div class="capStage"><div class="capCard">Aise jab bhi aapko PDF summarize karna ho</div></div></div>
+      <div id="cap125" class="clip layer" data-start="304.32" data-duration="2.04" data-track-index="5"><div class="capStage"><div class="capCard">ya audio transcribe karna ho,</div></div></div>
+      <div id="cap126" class="clip layer" data-start="306.36" data-duration="2.14" data-track-index="5"><div class="capStage"><div class="capCard">bas side panel par ek click karo —</div></div></div>
+      <div id="cap127" class="clip layer" data-start="308.5" data-duration="2.79" data-track-index="5"><div class="capStage"><div class="capCard">bina main window chode aapka kaam ho jayega.</div></div></div>
+      <div id="cap128" class="clip layer" data-start="311.29" data-duration="2.63" data-track-index="5"><div class="capStage"><div class="capCard">Toh yeh the 5 free AI tools jo</div></div></div>
+      <div id="cap129" class="clip layer" data-start="313.92" data-duration="3.12" data-track-index="5"><div class="capStage"><div class="capCard">aapke har mahine hazaron rupaye aur ghanton ka</div></div></div>
+      <div id="cap130" class="clip layer" data-start="317.04" data-duration="1.04" data-track-index="5"><div class="capStage"><div class="capCard">time bachayenge.</div></div></div>
+      <div id="cap131" class="clip layer" data-start="318.08" data-duration="1.14" data-track-index="5"><div class="capStage"><div class="capCard">Sabhi tools ke direct,</div></div></div>
+      <div id="cap132" class="clip layer" data-start="319.22" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">clean links neeche description mein hain —</div></div></div>
+      <div id="cap133" class="clip layer" data-start="321.6" data-duration="1.52" data-track-index="5"><div class="capStage"><div class="capCard">koi affiliate drama nahi!</div></div></div>
+      <div id="cap134" class="clip layer" data-start="323.12" data-duration="2" data-track-index="5"><div class="capStage"><div class="capCard">Ab aap mujhe comment karke batao:</div></div></div>
+      <div id="cap135" class="clip layer" data-start="325.12" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">In 5 mein se aap sabse pehle kaunsa</div></div></div>
+      <div id="cap136" class="clip layer" data-start="327.5" data-duration="1.48" data-track-index="5"><div class="capStage"><div class="capCard">tool try karne wale ho?</div></div></div>
+      <div id="cap137" class="clip layer" data-start="328.98" data-duration="2.26" data-track-index="5"><div class="capStage"><div class="capCard">Ya aapke paas koi aur secret free AI</div></div></div>
+      <div id="cap138" class="clip layer" data-start="331.24" data-duration="0.61" data-track-index="5"><div class="capStage"><div class="capCard">tool hai?</div></div></div>
+      <div id="cap139" class="clip layer" data-start="331.85" data-duration="2.1" data-track-index="5"><div class="capStage"><div class="capCard">Comment section mein zaroor share karo!</div></div></div>
+      <div id="cap140" class="clip layer" data-start="333.95" data-duration="1.72" data-track-index="5"><div class="capStage"><div class="capCard">Video achhi lagi toh Like karo,</div></div></div>
+      <div id="cap141" class="clip layer" data-start="335.67" data-duration="1.61" data-track-index="5"><div class="capStage"><div class="capCard">doston ke saath share karo,</div></div></div>
+      <div id="cap142" class="clip layer" data-start="337.29" data-duration="3.2" data-track-index="5"><div class="capStage"><div class="capCard">aur NamasteTechy ko subscribe karke bell icon zaroor</div></div></div>
+      <div id="cap143" class="clip layer" data-start="340.49" data-duration="0.72" data-track-index="5"><div class="capStage"><div class="capCard">daba do.</div></div></div>
+      <div id="cap144" class="clip layer" data-start="341.21" data-duration="1.54" data-track-index="5"><div class="capStage"><div class="capCard">Milte hain agli video mein!</div></div></div>
+      <div id="progressTrack"></div><div id="progress"></div><div class="tick" style="left:11.68%"></div><div class="tick" style="left:26.81%"></div><div class="tick" style="left:41.44%"></div><div class="tick" style="left:56.41%"></div><div class="tick" style="left:69.91%"></div>
+    </div>
+
+    <audio id="vo" src="input/voiceover.mp3" data-start="0" data-duration="342.75" data-track-index="9" data-volume="1"></audio>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#mEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 0.05);
+      tl.fromTo("#m1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+      tl.fromTo("#mGrid .cell:nth-child(1), #mGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 1.82);
+      tl.fromTo("#mGrid .cell:nth-child(3), #mGrid .cell:nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 5.56);
+      tl.fromTo("#mGrid .cell:nth-child(5), #mGrid .cell:nth-child(6)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 9.24);
+      tl.fromTo("#mTotEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 12.26);
+      tl.fromTo("#mTot", { scale: 2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 16.5);
+      tl.fromTo("#mTotSub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 18.01);
+      tl.fromTo("#s-tax", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 20.18);
+      tl.fromTo("#xa", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 20.28);
+      tl.fromTo("#xb", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.out" }, 20.98);
+      tl.fromTo("#fEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 22.51);
+      tl.fromTo("#f1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 23.65);
+      tl.fromTo("#f2", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 25.1);
+      tl.fromTo("#f3", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 23.91);
+      tl.fromTo("#fList .li", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.25 }, 27.03);
+      tl.fromTo("#fTag", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 30.93);
+      tl.fromTo("#b1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 33.55);
+      tl.fromTo("#b2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 34.85);
+      tl.fromTo("#b3", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 36.22);
+      tl.fromTo("#bGo", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 37.61);
+      tl.fromTo("#title0", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 40.02);
+      tl.fromTo("#title0n", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 40.14);
+      tl.fromTo("#title0t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 40.42);
+      tl.to("#title0", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 41.32);
+      tl.fromTo("#pEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 41.37);
+      tl.fromTo("#p80", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 43.18);
+      tl.fromTo("#pDoc", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 43.64);
+      tl.fromTo("#pStack .sheet", { y: -500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.07, ease: "power3.out" }, 41.67);
+      tl.fromTo("#pKeys .key, #pKeys .plus", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.07 }, 52.09);
+      tl.fromTo("#pX", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 53.25);
+      tl.fromTo("#pMiss", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 53.89);
+      tl.fromTo("#sEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 55.63);
+      tl.fromTo("#s1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 56.65);
+      tl.fromTo("#s2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 57.83);
+      tl.fromTo("#d1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 59.84);
+      tl.fromTo("#d2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 63.04);
+      tl.fromTo("#dQ", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.out" }, 63.44);
+      tl.fromTo("#dBam", { scale: 2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 67.72);
+      tl.fromTo("#dCite", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 71.99);
+      tl.fromTo("#nEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 76.45);
+      tl.fromTo("#nFree", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 77.98);
+      tl.fromTo("#nGrid .cell:nth-child(1), #nGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 80.68);
+      tl.fromTo("#nGrid .cell:nth-child(3), #nGrid .cell:nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 83.83);
+      tl.fromTo("#aEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 86.11);
+      tl.fromTo("#aName", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 87.07);
+      tl.fromTo("#aStrike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 90.21);
+      tl.fromTo("#aSub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 88.83);
+      tl.fromTo("#title8", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 91.89);
+      tl.fromTo("#title8n", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 92.01);
+      tl.fromTo("#title8t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 92.29);
+      tl.to("#title8", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 93.19);
+      tl.fromTo("#qEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 93.24);
+      tl.fromTo("#q1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 98.83);
+      tl.fromTo("#q2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 99.63);
+      tl.fromTo("#qWave .bar", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.02 }, 93.44);
+      tl.fromTo("#qWave .bar", { scaleY: 1 }, { scaleY: 0.35, duration: 0.4, yoyo: true, repeat: 15, stagger: { each: 0.03, from: "center" }, ease: "sine.inOut", immediateRender: false }, 94.24);
+      tl.fromTo("#qB1", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 104.35);
+      tl.fromTo("#qB2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 106.33);
+      tl.fromTo("#wEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 108.31);
+      tl.fromTo("#w1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 108.71);
+      tl.fromTo("#w2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 114.94);
+      tl.fromTo("#wTag", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 113.5);
+      tl.fromTo("#e1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 116.63);
+      tl.fromTo("#e2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 122.78);
+      tl.fromTo("#eSec", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 121.01);
+      tl.fromTo("#lEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 129.5);
+      tl.fromTo("#lGrid .cell:nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 131.8);
+      tl.fromTo("#lGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 135.22);
+      tl.fromTo("#lGrid .cell:nth-child(3)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 136.46);
+      tl.fromTo("#lGrid .cell:nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 138.53);
+      tl.fromTo("#title13", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 142.05);
+      tl.fromTo("#title13n", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 142.17);
+      tl.fromTo("#title13t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 142.45);
+      tl.to("#title13", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 143.35);
+      tl.fromTo("#cEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 143.4);
+      tl.fromTo("#c1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 148.1);
+      tl.fromTo("#c2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 149.51);
+      tl.fromTo("#c3", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 150.43);
+      tl.fromTo("#ring1", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 148.1);
+      tl.fromTo("#ring2", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 149.51);
+      tl.fromTo("#ring3", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 150.43);
+      tl.fromTo("#cPs", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 151.39);
+      tl.fromTo("#cPsX", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 154.59);
+      tl.fromTo("#cPaid", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 155.86);
+      tl.fromTo("#kEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 157.78);
+      tl.fromTo("#k1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 158.91);
+      tl.fromTo("#k2", { scale: 1.5, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 2, duration: 0.32, ease: "back.out(2)" }, 159.51);
+      tl.fromTo("#k3", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 161.67);
+      tl.fromTo("#k4", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 163.78);
+      tl.fromTo("#k5", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 165.38);
+      tl.fromTo("#k3s", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 174.09);
+      tl.fromTo("#gEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 176.4);
+      tl.fromTo("#gGrid .cell:nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 178.32);
+      tl.fromTo("#gGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 186.22);
+      tl.fromTo("#title18", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 193.36);
+      tl.fromTo("#title18n", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 193.48);
+      tl.fromTo("#title18t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 193.76);
+      tl.to("#title18", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 194.66);
+      tl.fromTo("#hEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 194.71);
+      tl.fromTo("#h1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 196.26);
+      tl.fromTo("#h2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 198.76);
+      tl.fromTo("#hMail", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 195.21);
+      tl.fromTo("#hPay", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 203.67);
+      tl.fromTo("#jEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 204.69);
+      tl.fromTo("#j1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 205.07);
+      tl.fromTo("#j2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 205.91);
+      tl.fromTo("#jChips span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.2 }, 210.02);
+      tl.fromTo("#jTag", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 221.54);
+      tl.fromTo("#oEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 225.2);
+      tl.fromTo("#oGrid .cell:nth-child(1), #oGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 226.88);
+      tl.fromTo("#oGrid .cell:nth-child(3), #oGrid .cell:nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 232.16);
+      tl.fromTo("#oOk", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 235.68);
+      tl.fromTo("#title22", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 239.62);
+      tl.fromTo("#title22n", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 239.74);
+      tl.fromTo("#title22t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 240.02);
+      tl.to("#title22", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 240.92);
+      tl.fromTo("#uEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 240.97);
+      tl.fromTo("#uChain > :nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 243.61);
+      tl.fromTo("#uChain > :nth-child(3), #uChain > :nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 244.27);
+      tl.fromTo("#uChain > :nth-child(5), #uChain > :nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 245.95);
+      tl.fromTo("#uChain > :nth-child(7), #uChain > :nth-child(6)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 247.08);
+      tl.fromTo("#uWaste", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 249.99);
+      tl.fromTo("#uZapT", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.out" }, 253.07);
+      tl.fromTo("#vEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 256.88);
+      tl.fromTo("#v1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 257.8);
+      tl.fromTo("#v2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 259.8);
+      tl.fromTo("#vOss", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 260.73);
+      tl.fromTo("#fEye2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 264.87);
+      tl.fromTo("#nd0", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 267.32);
+      tl.fromTo("#fl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 268.42);
+      tl.fromTo("#nd1", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 270.49);
+      tl.fromTo("#nd2", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 272.71);
+      tl.fromTo("#fdot", { x: 0, opacity: 1 }, { x: 1120, duration: 1.6, repeat: 2, ease: "power1.inOut", immediateRender: false }, 273.11);
+      tl.fromTo("#vBhool", { scale: 1.6, opacity: 0, rotation: -11 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.32, ease: "back.out(2)" }, 274.01);
+      tl.fromTo("#yEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 276.04);
+      tl.fromTo("#yGrid .cell:nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 277.32);
+      tl.fromTo("#yGrid .cell:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 282.8);
+      tl.fromTo("#tip-slam", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 287.9);
+      tl.fromTo("#tipT", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 288.02);
+      tl.to("#tip-slam", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 289.2);
+      tl.fromTo("#tp1", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 289.3);
+      tl.fromTo("#tp1x", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 292.92);
+      tl.fromTo("#tp2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 296.65);
+      tl.fromTo("#tip .sbIcon", { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, stagger: 0.12, ease: "back.out(2)" }, 298.45);
+      tl.fromTo("#tp3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 299.38);
+      tl.fromTo("#ic1", { backgroundColor: "#FFFFFF", color: "#1C1410" }, { backgroundColor: "#D8000F", color: "#FFFFFF", duration: 0.15 }, 306.63);
+      tl.fromTo("#bPanel", { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 306.78);
+      tl.fromTo("#rEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 311.29);
+      tl.fromTo("#rGrid .cell", { opacity: 0 }, { opacity: 1, duration: 0.15, stagger: 0.07, ease: "none" }, 311.59);
+      tl.fromTo("#rDesc", { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, 318.08);
+      tl.fromTo("#zEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 323.12);
+      tl.fromTo("#z1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 325.32);
+      tl.fromTo("#z2", { scale: 1.7, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 327.78);
+      tl.fromTo("#zNums span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.1 }, 328.18);
+      tl.fromTo("#zCom", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 331.85);
+      tl.fromTo("#byEye", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 333.95);
+      tl.fromTo("#byRow span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.35 }, 334.15);
+      tl.fromTo("#byCard", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 337.55);
+      tl.fromTo("#bell", { rotation: 0, opacity: 0 }, { keyframes: [{ opacity: 1, rotation: -18, duration: 0.12 }, { rotation: 16, duration: 0.12 }, { rotation: -10, duration: 0.1 }, { rotation: 0, duration: 0.1 }] }, 339.25);
+      tl.fromTo("#byBye", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 341.21);
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 342.75, ease: "none" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -167,7 +167,12 @@ def main():
             times[k] = [lo + step * (k - i), lo + step * (k - i + 1)]
         i = j
 
-    words = [{"text": w, "line": li, "start": round(t[0], 3), "end": round(t[1], 3)} for (w, li), t in zip(cap, times)]
+    sims = [0.0] * len(cap)
+    for ci, aj, s in pairs:
+        if aj is not None:
+            sims[ci] = s
+    words = [{"text": w, "line": li, "start": round(t[0], 3), "end": round(t[1], 3), "sim": round(sims[k], 2)}
+             for k, ((w, li), t) in enumerate(zip(cap, times))]
     json.dump({"lines": lines, "words": words}, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     weak = [r for r in report if r[2] < args.min_sim]

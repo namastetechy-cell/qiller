@@ -1,0 +1,16 @@
+[
+ {"name":"notebooklm","url":"https://notebooklm.google/","scroll":1600},
+ {"name":"chatpdf_home","url":"https://www.chatpdf.com/","scroll":1200},
+ {"name":"macwhisper","url":"https://goodsnooze.gumroad.com/l/macwhisper","scroll":1600},
+ {"name":"whisperweb","url":"https://huggingface.co/spaces/Xenova/whisper-web","scroll":0,"wait":8000},
+ {"name":"clipdrop","url":"https://clipdrop.co/cleanup","scroll":1600,"wait":4000},
+ {"name":"deepl_write","url":"https://www.deepl.com/write","scroll":0,"wait":4000},
+ {"name":"languagetool","url":"https://languagetool.org/","scroll":1200},
+ {"name":"make","url":"https://www.make.com/en","scroll":1600,"wait":4000},
+ {"name":"make_pricing","url":"https://www.make.com/en/pricing","scroll":1400,"wait":4000},
+ {"name":"activepieces","url":"https://www.activepieces.com/","scroll":1600},
+ {"name":"zapier_pricing","url":"https://zapier.com/pricing","scroll":1400},
+ {"name":"acrobat_pricing","url":"https://www.adobe.com/in/acrobat/pricing.html","scroll":1200,"wait":4000},
+ {"name":"grammarly_plans","url":"https://www.grammarly.com/plans","scroll":1200},
+ {"name":"otter_pricing","url":"https://otter.ai/pricing","scroll":1200}
+]

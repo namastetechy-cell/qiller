@@ -1,0 +1,6522 @@
+{
+ "lines": [
+  "Thoda simple math karte hain.",
+  "PDF edit karne ke liye ₹1,600 a month.",
+  "Grammar and writing check ke liye ₹2,500.",
+  "Audio transcription ke liye ₹1,400.",
+  "Direct ya indirect, har mahine basic digital tasks ke liye hum aath se das hazar rupaye subscription fees mein waste kar dete hain.",
+  "Stop paying this subscription tax!",
+  "Aaj hum dekhenge 5 aisi powerful, 100% free AI tools jo in mehange paid software ko instantly replace kar sakti hain — baap-level speed aur quality ke saath.",
+  "Koi sponsor nahi, koi faltu ki bakwaas nahi — pure utility tools.",
+  "Chaliye, directly start karte hain!",
+  "Hum sab ke saath yeh hota hai.",
+  "Office mein 80-page ki contract report aati hai ya college mein dense research paper milta hai.",
+  "Ek specific answer dhoondne ke liye pura document padhna impossible hai, aur CTRL+F hamesha context miss kar deta hai.",
+  "Solution hai Google NotebookLM ya ChatPDF.",
+  "Yeh dekho.",
+  "Bas apna PDF drag and drop karo. 3 clicks ke andar type karo: \"Is document mein key deadlines aur financial risks kya hain?\" Aur BAM!",
+  "Seconds mein aapko precise summary milti hai, woh bhi exact page numbers aur source citations ke saath, taaki aap cross-check kar sako.",
+  "Google NotebookLM filhal 100% Free hai.",
+  "Aap ek notebook mein 50 sources tak daal sakte ho aur har source 5 lakh words tak handle kar sakta hai!",
+  "Iske baad aapko Adobe Acrobat Pro ya kisi paid PDF editor ki zaroorat kabhi nahi padegi.",
+  "Client meeting chal rahi ho ya college ki lecture recording, live notes banana bahut distracting hota hai.",
+  "Aur baad mein 1 ghante ki raw recording sunna matlab time ki waste.",
+  "Paid transcription tools mahine ke hazaron rupaye maangte hain aur aapka private audio cloud par upload karte hain.",
+  "Try karo MacWhisper Mac users ke liye, ya browser-based Whisper Web, jo OpenAI ke open-source Whisper model par chalta hai.",
+  "Step-by-step dekho: Apni audio ya video file ko drop karo.",
+  "Kuch hi seconds mein yeh poori recording ko word-for-word transcribe kar deta hai — chahe background noise ho ya Indian accent, accuracy unmatched hai.",
+  "Sabse badi baat — yeh aapke computer par locally run hota hai, toh aapka data bilkul safe aur private rehta hai.",
+  "Isme koi monthly minute limit nahi hai.",
+  "Unlimited hours transcribe karo, bilkul free!",
+  "Aapne presentation, social media, ya thumbnail ke liye ek badhiya photo kheechi.",
+  "Lekin background mein ek wires ka gucha, koi stranger, ya kachra aa gaya.",
+  "Photoshop kholkar content-aware fill karna har kisi ke bas ki baat nahi hai aur paid tools expensive hain.",
+  "Tool ka naam hai Clipdrop Cleanup by Stability AI.",
+  "Photo upload karo, unwanted object par brush se paint karo, aur \"Clean\" par click karo.",
+  "AI surrounding textures aur lighting ko analyze karke us object ko aise gayab kar deta hai jaise woh wahan kabhi tha hi nahi.",
+  "Pure magic in 3 seconds!",
+  "Clipdrop ka free tier aapko unlimited images standard resolution mein edit karne deta hai, jo PPTs, Web, aur Daily tasks ke liye perfectly crisp hai.",
+  "High-res 4K export ke liye paid plan hota hai, lekin normal use ke liye free version se kaam perfectly ho jata hai.",
+  "Professional emails ya LinkedIn posts likhte waqt sahi tone aur vocabulary set karna thoda tricky hota hai.",
+  "Grammarly jaise tools advanced sentence rewrites aur tone adjustment ke liye turant paywall laga dete hain.",
+  "Use karo DeepL Write ya free LanguageTool extension.",
+  "Apne kisi bhi rough sentence ko highlight karo, rephrase click karo, aur Style select karo — Professional, Concise, ya Casual.",
+  "Yeh sirf spelling nahi sudharta, aapke poore sentence structure ko natural aur professional bana deta hai bina kisi robotic tone ke.",
+  "DeepL Write ka free tier per-edit 1,500 characters allow karta hai with unlimited queries, aur LanguageTool per-check 10,000 characters support karta hai.",
+  "Daily emails aur reports ke liye yeh limits zarurat se zyada hain.",
+  "Har din same boring computer tasks repeat karna: Email aayi → attachment download ki → Google Drive mein save ki → team ko message bheja.",
+  "Is manual kaam mein ghante waste hote hain.",
+  "Zapier jaise automation tools bohot mehange hain aur unka free plan lagbhag useless hai.",
+  "Iska solution hai Make.com ya open-source Activepieces.",
+  "Make ke visual builder par aap drag-and-drop workflows bana sakte ho.",
+  "Example: Jaise hi koi important client invoice email kare, woh automatically aapke Google Drive folder mein save ho jaye aur aapko notification mil jaye.",
+  "Ek baar setup karo aur bhool jao.",
+  "Zapier ke free tier mein sirf 100 simple tasks milte hain, jabki Make.com ke free plan mein aapko 1,000 operations per month milte hain, wo bhi multi-step workflows ke saath!",
+  "Ek pro-tip jo aapka real time bachayegi: In tools ko bookmark karke mat chhodo, warna aap inhein bhool jaoge.",
+  "Apne Chrome ya Edge browser ke Sidebar mein in 5 tools ko pin kar lo ya \"Install as App\" select kar lo.",
+  "Aise jab bhi aapko PDF summarize karna ho ya audio transcribe karna ho, bas side panel par ek click karo — bina main window chode aapka kaam ho jayega.",
+  "Toh yeh the 5 free AI tools jo aapke har mahine hazaron rupaye aur ghanton ka time bachayenge.",
+  "Sabhi tools ke direct, clean links neeche description mein hain — koi affiliate drama nahi!",
+  "Ab aap mujhe comment karke batao: In 5 mein se aap sabse pehle kaunsa tool try karne wale ho?",
+  "Ya aapke paas koi aur secret free AI tool hai?",
+  "Comment section mein zaroor share karo!",
+  "Video achhi lagi toh Like karo, doston ke saath share karo, aur NamasteTechy ko subscribe karke bell icon zaroor daba do.",
+  "Milte hain agli video mein!"
+ ],
+ "words": [
+  {
+   "text": "Thoda",
+   "line": 0,
+   "start": 0.0,
+   "end": 0.3,
+   "sim": 1.0
+  },
+  {
+   "text": "simple",
+   "line": 0,
+   "start": 0.3,
+   "end": 0.72,
+   "sim": 0.86
+  },
+  {
+   "text": "math",
+   "line": 0,
+   "start": 0.72,
+   "end": 1.0,
+   "sim": 1.0
+  },
+  {
+   "text": "karte",
+   "line": 0,
+   "start": 1.0,
+   "end": 1.34,
+   "sim": 1.0
+  },
+  {
+   "text": "hain.",
+   "line": 0,
+   "start": 1.34,
+   "end": 1.72,
+   "sim": 1.0
+  },
+  {
+   "text": "PDF",
+   "line": 1,
+   "start": 1.72,
+   "end": 2.4,
+   "sim": 1.0
+  },
+  {
+   "text": "edit",
+   "line": 1,
+   "start": 2.4,
+   "end": 2.62,
+   "sim": 1.0
+  },
+  {
+   "text": "karne",
+   "line": 1,
+   "start": 2.62,
+   "end": 3.46,
+   "sim": 0.86
+  },
+  {
+   "text": "ke",
+   "line": 1,
+   "start": 3.54,
+   "end": 3.78,
+   "sim": 0.67
+  },
+  {
+   "text": "liye",
+   "line": 1,
+   "start": 3.78,
+   "end": 4.39,
+   "sim": 0.0
+  },
+  {
+   "text": "₹1,600",
+   "line": 1,
+   "start": 4.39,
+   "end": 5.0,
+   "sim": 0.0
+  },
+  {
+   "text": "a",
+   "line": 1,
+   "start": 5.0,
+   "end": 5.06,
+   "sim": 1.0
+  },
+  {
+   "text": "month.",
+   "line": 1,
+   "start": 5.06,
+   "end": 5.32,
+   "sim": 1.0
+  },
+  {
+   "text": "Grammar",
+   "line": 2,
+   "start": 5.82,
+   "end": 6.28,
+   "sim": 1.0
+  },
+  {
+   "text": "and",
+   "line": 2,
+   "start": 6.28,
+   "end": 6.4,
+   "sim": 1.0
+  },
+  {
+   "text": "writing",
+   "line": 2,
+   "start": 6.4,
+   "end": 6.62,
+   "sim": 1.0
+  },
+  {
+   "text": "check",
+   "line": 2,
+   "start": 6.62,
+   "end": 7.02,
+   "sim": 0.8
+  },
+  {
+   "text": "ke",
+   "line": 2,
+   "start": 7.02,
+   "end": 7.36,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 2,
+   "start": 7.36,
+   "end": 8.25,
+   "sim": 0.0
+  },
+  {
+   "text": "₹2,500.",
+   "line": 2,
+   "start": 8.25,
+   "end": 9.14,
+   "sim": 0.0
+  },
+  {
+   "text": "Audio",
+   "line": 3,
+   "start": 9.14,
+   "end": 9.46,
+   "sim": 1.0
+  },
+  {
+   "text": "transcription",
+   "line": 3,
+   "start": 9.46,
+   "end": 10.12,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 3,
+   "start": 10.12,
+   "end": 10.62,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 3,
+   "start": 10.62,
+   "end": 11.44,
+   "sim": 0.0
+  },
+  {
+   "text": "₹1,400.",
+   "line": 3,
+   "start": 11.44,
+   "end": 12.26,
+   "sim": 0.0
+  },
+  {
+   "text": "Direct",
+   "line": 4,
+   "start": 12.26,
+   "end": 12.65,
+   "sim": 0.57
+  },
+  {
+   "text": "ya",
+   "line": 4,
+   "start": 12.65,
+   "end": 13.04,
+   "sim": 0.0
+  },
+  {
+   "text": "indirect,",
+   "line": 4,
+   "start": 13.04,
+   "end": 13.6,
+   "sim": 0.55
+  },
+  {
+   "text": "har",
+   "line": 4,
+   "start": 13.8,
+   "end": 14.06,
+   "sim": 1.0
+  },
+  {
+   "text": "mahine",
+   "line": 4,
+   "start": 14.06,
+   "end": 14.56,
+   "sim": 0.8
+  },
+  {
+   "text": "basic",
+   "line": 4,
+   "start": 14.56,
+   "end": 14.94,
+   "sim": 0.67
+  },
+  {
+   "text": "digital",
+   "line": 4,
+   "start": 14.94,
+   "end": 15.32,
+   "sim": 0.75
+  },
+  {
+   "text": "tasks",
+   "line": 4,
+   "start": 15.32,
+   "end": 15.76,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 4,
+   "start": 15.76,
+   "end": 15.9,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 4,
+   "start": 15.9,
+   "end": 16.12,
+   "sim": 1.0
+  },
+  {
+   "text": "hum",
+   "line": 4,
+   "start": 16.12,
+   "end": 16.5,
+   "sim": 1.0
+  },
+  {
+   "text": "aath",
+   "line": 4,
+   "start": 16.5,
+   "end": 16.86,
+   "sim": 1.0
+  },
+  {
+   "text": "se",
+   "line": 4,
+   "start": 16.86,
+   "end": 17.04,
+   "sim": 1.0
+  },
+  {
+   "text": "das",
+   "line": 4,
+   "start": 17.04,
+   "end": 17.3,
+   "sim": 1.0
+  },
+  {
+   "text": "hazar",
+   "line": 4,
+   "start": 17.3,
+   "end": 17.7,
+   "sim": 0.33
+  },
+  {
+   "text": "rupaye",
+   "line": 4,
+   "start": 17.7,
+   "end": 17.96,
+   "sim": 1.0
+  },
+  {
+   "text": "subscription",
+   "line": 4,
+   "start": 17.96,
+   "end": 18.41,
+   "sim": 0.5
+  },
+  {
+   "text": "fees",
+   "line": 4,
+   "start": 18.41,
+   "end": 18.86,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 4,
+   "start": 18.86,
+   "end": 19.02,
+   "sim": 1.0
+  },
+  {
+   "text": "waste",
+   "line": 4,
+   "start": 19.02,
+   "end": 19.34,
+   "sim": 1.0
+  },
+  {
+   "text": "kar",
+   "line": 4,
+   "start": 19.34,
+   "end": 19.5,
+   "sim": 1.0
+  },
+  {
+   "text": "dete",
+   "line": 4,
+   "start": 19.5,
+   "end": 19.78,
+   "sim": 1.0
+  },
+  {
+   "text": "hain.",
+   "line": 4,
+   "start": 19.78,
+   "end": 20.06,
+   "sim": 1.0
+  },
+  {
+   "text": "Stop",
+   "line": 5,
+   "start": 20.06,
+   "end": 20.55,
+   "sim": 0.0
+  },
+  {
+   "text": "paying",
+   "line": 5,
+   "start": 20.55,
+   "end": 21.04,
+   "sim": 0.0
+  },
+  {
+   "text": "this",
+   "line": 5,
+   "start": 21.04,
+   "end": 21.53,
+   "sim": 0.0
+  },
+  {
+   "text": "subscription",
+   "line": 5,
+   "start": 21.53,
+   "end": 22.02,
+   "sim": 0.0
+  },
+  {
+   "text": "tax!",
+   "line": 5,
+   "start": 22.02,
+   "end": 22.51,
+   "sim": 0.0
+  },
+  {
+   "text": "Aaj",
+   "line": 6,
+   "start": 22.51,
+   "end": 23.01,
+   "sim": 1.0
+  },
+  {
+   "text": "hum",
+   "line": 6,
+   "start": 23.01,
+   "end": 23.15,
+   "sim": 1.0
+  },
+  {
+   "text": "dekhenge",
+   "line": 6,
+   "start": 23.15,
+   "end": 23.65,
+   "sim": 1.0
+  },
+  {
+   "text": "5",
+   "line": 6,
+   "start": 23.65,
+   "end": 23.91,
+   "sim": 1.0
+  },
+  {
+   "text": "aisi",
+   "line": 6,
+   "start": 23.91,
+   "end": 24.43,
+   "sim": 1.0
+  },
+  {
+   "text": "powerful,",
+   "line": 6,
+   "start": 24.43,
+   "end": 24.97,
+   "sim": 0.89
+  },
+  {
+   "text": "100%",
+   "line": 6,
+   "start": 24.97,
+   "end": 25.79,
+   "sim": 0.0
+  },
+  {
+   "text": "free",
+   "line": 6,
+   "start": 25.79,
+   "end": 26.31,
+   "sim": 1.0
+  },
+  {
+   "text": "AI",
+   "line": 6,
+   "start": 26.31,
+   "end": 26.65,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 6,
+   "start": 26.65,
+   "end": 26.8,
+   "sim": 1.0
+  },
+  {
+   "text": "jo",
+   "line": 6,
+   "start": 26.8,
+   "end": 26.95,
+   "sim": 0.0
+  },
+  {
+   "text": "in",
+   "line": 6,
+   "start": 26.95,
+   "end": 27.41,
+   "sim": 0.5
+  },
+  {
+   "text": "mehange",
+   "line": 6,
+   "start": 27.41,
+   "end": 28.03,
+   "sim": 1.0
+  },
+  {
+   "text": "paid",
+   "line": 6,
+   "start": 28.03,
+   "end": 28.33,
+   "sim": 1.0
+  },
+  {
+   "text": "software",
+   "line": 6,
+   "start": 28.33,
+   "end": 28.77,
+   "sim": 0.8
+  },
+  {
+   "text": "ko",
+   "line": 6,
+   "start": 28.77,
+   "end": 28.99,
+   "sim": 1.0
+  },
+  {
+   "text": "instantly",
+   "line": 6,
+   "start": 28.99,
+   "end": 29.63,
+   "sim": 0.8
+  },
+  {
+   "text": "replace",
+   "line": 6,
+   "start": 29.63,
+   "end": 30.03,
+   "sim": 0.33
+  },
+  {
+   "text": "kar",
+   "line": 6,
+   "start": 30.03,
+   "end": 30.15,
+   "sim": 1.0
+  },
+  {
+   "text": "sakti",
+   "line": 6,
+   "start": 30.15,
+   "end": 30.49,
+   "sim": 1.0
+  },
+  {
+   "text": "hain",
+   "line": 6,
+   "start": 30.49,
+   "end": 30.85,
+   "sim": 1.0
+  },
+  {
+   "text": "—",
+   "line": 6,
+   "start": 30.85,
+   "end": 31.39,
+   "sim": 0.0
+  },
+  {
+   "text": "baap-level",
+   "line": 6,
+   "start": 31.39,
+   "end": 31.63,
+   "sim": 0.75
+  },
+  {
+   "text": "speed",
+   "line": 6,
+   "start": 31.63,
+   "end": 32.03,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 6,
+   "start": 32.03,
+   "end": 32.25,
+   "sim": 1.0
+  },
+  {
+   "text": "quality",
+   "line": 6,
+   "start": 32.25,
+   "end": 32.69,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 6,
+   "start": 32.69,
+   "end": 32.85,
+   "sim": 1.0
+  },
+  {
+   "text": "saath.",
+   "line": 6,
+   "start": 32.85,
+   "end": 33.13,
+   "sim": 1.0
+  },
+  {
+   "text": "Koi",
+   "line": 7,
+   "start": 33.55,
+   "end": 33.73,
+   "sim": 1.0
+  },
+  {
+   "text": "sponsor",
+   "line": 7,
+   "start": 33.73,
+   "end": 34.15,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi,",
+   "line": 7,
+   "start": 34.15,
+   "end": 34.41,
+   "sim": 0.67
+  },
+  {
+   "text": "koi",
+   "line": 7,
+   "start": 34.67,
+   "end": 34.85,
+   "sim": 1.0
+  },
+  {
+   "text": "faltu",
+   "line": 7,
+   "start": 34.85,
+   "end": 35.23,
+   "sim": 0.67
+  },
+  {
+   "text": "ki",
+   "line": 7,
+   "start": 35.23,
+   "end": 35.31,
+   "sim": 1.0
+  },
+  {
+   "text": "bakwaas",
+   "line": 7,
+   "start": 35.31,
+   "end": 35.73,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi",
+   "line": 7,
+   "start": 35.73,
+   "end": 36.01,
+   "sim": 0.67
+  },
+  {
+   "text": "—",
+   "line": 7,
+   "start": 36.01,
+   "end": 36.22,
+   "sim": 0.0
+  },
+  {
+   "text": "pure",
+   "line": 7,
+   "start": 36.22,
+   "end": 36.7,
+   "sim": 1.0
+  },
+  {
+   "text": "utility",
+   "line": 7,
+   "start": 36.76,
+   "end": 37.24,
+   "sim": 0.75
+  },
+  {
+   "text": "tools.",
+   "line": 7,
+   "start": 37.24,
+   "end": 37.64,
+   "sim": 1.0
+  },
+  {
+   "text": "Chaliye,",
+   "line": 8,
+   "start": 37.96,
+   "end": 38.34,
+   "sim": 1.0
+  },
+  {
+   "text": "directly",
+   "line": 8,
+   "start": 38.34,
+   "end": 38.6,
+   "sim": 0.0
+  },
+  {
+   "text": "start",
+   "line": 8,
+   "start": 38.6,
+   "end": 38.86,
+   "sim": 0.29
+  },
+  {
+   "text": "karte",
+   "line": 8,
+   "start": 38.86,
+   "end": 38.96,
+   "sim": 0.8
+  },
+  {
+   "text": "hain!",
+   "line": 8,
+   "start": 39.14,
+   "end": 39.86,
+   "sim": 1.0
+  },
+  {
+   "text": "Hum",
+   "line": 9,
+   "start": 40.02,
+   "end": 40.68,
+   "sim": 1.0
+  },
+  {
+   "text": "sab",
+   "line": 9,
+   "start": 40.68,
+   "end": 40.98,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 9,
+   "start": 40.98,
+   "end": 41.16,
+   "sim": 1.0
+  },
+  {
+   "text": "saath",
+   "line": 9,
+   "start": 41.16,
+   "end": 41.38,
+   "sim": 1.0
+  },
+  {
+   "text": "yeh",
+   "line": 9,
+   "start": 41.38,
+   "end": 41.56,
+   "sim": 1.0
+  },
+  {
+   "text": "hota",
+   "line": 9,
+   "start": 41.56,
+   "end": 41.947,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 9,
+   "start": 41.947,
+   "end": 42.333,
+   "sim": 0.0
+  },
+  {
+   "text": "Office",
+   "line": 10,
+   "start": 42.333,
+   "end": 42.72,
+   "sim": 0.29
+  },
+  {
+   "text": "mein",
+   "line": 10,
+   "start": 42.72,
+   "end": 42.92,
+   "sim": 1.0
+  },
+  {
+   "text": "80-page",
+   "line": 10,
+   "start": 43.18,
+   "end": 43.5,
+   "sim": 0.8
+  },
+  {
+   "text": "ki",
+   "line": 10,
+   "start": 43.5,
+   "end": 43.68,
+   "sim": 0.0
+  },
+  {
+   "text": "contract",
+   "line": 10,
+   "start": 43.68,
+   "end": 44.02,
+   "sim": 1.0
+  },
+  {
+   "text": "report",
+   "line": 10,
+   "start": 44.02,
+   "end": 44.38,
+   "sim": 1.0
+  },
+  {
+   "text": "aati",
+   "line": 10,
+   "start": 44.38,
+   "end": 44.72,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 10,
+   "start": 44.72,
+   "end": 45.12,
+   "sim": 0.67
+  },
+  {
+   "text": "ya",
+   "line": 10,
+   "start": 45.12,
+   "end": 45.28,
+   "sim": 1.0
+  },
+  {
+   "text": "college",
+   "line": 10,
+   "start": 45.28,
+   "end": 45.5,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 10,
+   "start": 45.5,
+   "end": 45.76,
+   "sim": 1.0
+  },
+  {
+   "text": "dense",
+   "line": 10,
+   "start": 45.9,
+   "end": 46.06,
+   "sim": 1.0
+  },
+  {
+   "text": "research",
+   "line": 10,
+   "start": 46.06,
+   "end": 46.5,
+   "sim": 1.0
+  },
+  {
+   "text": "paper",
+   "line": 10,
+   "start": 46.5,
+   "end": 46.78,
+   "sim": 1.0
+  },
+  {
+   "text": "milta",
+   "line": 10,
+   "start": 46.9,
+   "end": 47.2,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 10,
+   "start": 47.2,
+   "end": 47.34,
+   "sim": 1.0
+  },
+  {
+   "text": "Ek",
+   "line": 11,
+   "start": 47.55,
+   "end": 47.89,
+   "sim": 0.5
+  },
+  {
+   "text": "specific",
+   "line": 11,
+   "start": 47.89,
+   "end": 48.39,
+   "sim": 0.44
+  },
+  {
+   "text": "answer",
+   "line": 11,
+   "start": 48.39,
+   "end": 48.73,
+   "sim": 0.44
+  },
+  {
+   "text": "dhoondne",
+   "line": 11,
+   "start": 48.73,
+   "end": 49.15,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 11,
+   "start": 49.15,
+   "end": 49.43,
+   "sim": 0.67
+  },
+  {
+   "text": "liye",
+   "line": 11,
+   "start": 49.43,
+   "end": 49.67,
+   "sim": 0.0
+  },
+  {
+   "text": "pura",
+   "line": 11,
+   "start": 49.67,
+   "end": 49.95,
+   "sim": 0.5
+  },
+  {
+   "text": "document",
+   "line": 11,
+   "start": 49.95,
+   "end": 50.33,
+   "sim": 0.8
+  },
+  {
+   "text": "padhna",
+   "line": 11,
+   "start": 50.33,
+   "end": 50.73,
+   "sim": 0.67
+  },
+  {
+   "text": "impossible",
+   "line": 11,
+   "start": 50.73,
+   "end": 51.35,
+   "sim": 0.4
+  },
+  {
+   "text": "hai,",
+   "line": 11,
+   "start": 51.35,
+   "end": 51.63,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 11,
+   "start": 51.93,
+   "end": 52.09,
+   "sim": 1.0
+  },
+  {
+   "text": "CTRL+F",
+   "line": 11,
+   "start": 52.09,
+   "end": 52.71,
+   "sim": 0.8
+  },
+  {
+   "text": "hamesha",
+   "line": 11,
+   "start": 53.25,
+   "end": 53.89,
+   "sim": 0.8
+  },
+  {
+   "text": "context",
+   "line": 11,
+   "start": 53.89,
+   "end": 54.37,
+   "sim": 0.83
+  },
+  {
+   "text": "miss",
+   "line": 11,
+   "start": 54.37,
+   "end": 54.65,
+   "sim": 0.5
+  },
+  {
+   "text": "kar",
+   "line": 11,
+   "start": 54.65,
+   "end": 54.83,
+   "sim": 1.0
+  },
+  {
+   "text": "deta",
+   "line": 11,
+   "start": 54.83,
+   "end": 55.11,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 11,
+   "start": 55.11,
+   "end": 55.27,
+   "sim": 1.0
+  },
+  {
+   "text": "Solution",
+   "line": 12,
+   "start": 55.63,
+   "end": 56.15,
+   "sim": 0.67
+  },
+  {
+   "text": "hai",
+   "line": 12,
+   "start": 56.15,
+   "end": 56.31,
+   "sim": 1.0
+  },
+  {
+   "text": "Google",
+   "line": 12,
+   "start": 56.31,
+   "end": 56.65,
+   "sim": 1.0
+  },
+  {
+   "text": "NotebookLM",
+   "line": 12,
+   "start": 56.65,
+   "end": 57.17,
+   "sim": 0.8
+  },
+  {
+   "text": "ya",
+   "line": 12,
+   "start": 57.63,
+   "end": 57.89,
+   "sim": 1.0
+  },
+  {
+   "text": "ChatPDF.",
+   "line": 12,
+   "start": 58.15,
+   "end": 58.47,
+   "sim": 0.75
+  },
+  {
+   "text": "Yeh",
+   "line": 13,
+   "start": 58.47,
+   "end": 59.25,
+   "sim": 1.0
+  },
+  {
+   "text": "dekho.",
+   "line": 13,
+   "start": 59.25,
+   "end": 59.53,
+   "sim": 1.0
+  },
+  {
+   "text": "Bas",
+   "line": 14,
+   "start": 59.74,
+   "end": 60.1,
+   "sim": 1.0
+  },
+  {
+   "text": "apna",
+   "line": 14,
+   "start": 60.1,
+   "end": 60.38,
+   "sim": 1.0
+  },
+  {
+   "text": "PDF",
+   "line": 14,
+   "start": 60.38,
+   "end": 60.74,
+   "sim": 1.0
+  },
+  {
+   "text": "drag",
+   "line": 14,
+   "start": 60.74,
+   "end": 61.04,
+   "sim": 1.0
+  },
+  {
+   "text": "and",
+   "line": 14,
+   "start": 61.04,
+   "end": 61.22,
+   "sim": 0.0
+  },
+  {
+   "text": "drop",
+   "line": 14,
+   "start": 61.22,
+   "end": 61.46,
+   "sim": 1.0
+  },
+  {
+   "text": "karo.",
+   "line": 14,
+   "start": 61.46,
+   "end": 61.72,
+   "sim": 1.0
+  },
+  {
+   "text": "3",
+   "line": 14,
+   "start": 62.1,
+   "end": 62.3,
+   "sim": 1.0
+  },
+  {
+   "text": "clicks",
+   "line": 14,
+   "start": 62.3,
+   "end": 62.46,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 14,
+   "start": 62.46,
+   "end": 62.62,
+   "sim": 0.0
+  },
+  {
+   "text": "andar",
+   "line": 14,
+   "start": 62.62,
+   "end": 63.04,
+   "sim": 0.55
+  },
+  {
+   "text": "type",
+   "line": 14,
+   "start": 63.04,
+   "end": 63.34,
+   "sim": 1.0
+  },
+  {
+   "text": "karo:",
+   "line": 14,
+   "start": 63.34,
+   "end": 63.64,
+   "sim": 1.0
+  },
+  {
+   "text": "\"Is",
+   "line": 14,
+   "start": 64.0,
+   "end": 64.12,
+   "sim": 1.0
+  },
+  {
+   "text": "document",
+   "line": 14,
+   "start": 64.12,
+   "end": 64.48,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 14,
+   "start": 64.48,
+   "end": 64.8,
+   "sim": 1.0
+  },
+  {
+   "text": "key",
+   "line": 14,
+   "start": 64.8,
+   "end": 65.02,
+   "sim": 1.0
+  },
+  {
+   "text": "deadlines",
+   "line": 14,
+   "start": 65.02,
+   "end": 65.42,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 14,
+   "start": 65.42,
+   "end": 65.82,
+   "sim": 1.0
+  },
+  {
+   "text": "financial",
+   "line": 14,
+   "start": 65.82,
+   "end": 66.1,
+   "sim": 1.0
+  },
+  {
+   "text": "risks",
+   "line": 14,
+   "start": 66.1,
+   "end": 66.7,
+   "sim": 1.0
+  },
+  {
+   "text": "kya",
+   "line": 14,
+   "start": 66.7,
+   "end": 67.02,
+   "sim": 1.0
+  },
+  {
+   "text": "hain?\"",
+   "line": 14,
+   "start": 67.02,
+   "end": 67.18,
+   "sim": 0.67
+  },
+  {
+   "text": "Aur",
+   "line": 14,
+   "start": 67.48,
+   "end": 67.72,
+   "sim": 0.4
+  },
+  {
+   "text": "BAM!",
+   "line": 14,
+   "start": 67.72,
+   "end": 68.14,
+   "sim": 1.0
+  },
+  {
+   "text": "Seconds",
+   "line": 15,
+   "start": 68.5,
+   "end": 69.08,
+   "sim": 0.75
+  },
+  {
+   "text": "mein",
+   "line": 15,
+   "start": 69.08,
+   "end": 69.18,
+   "sim": 1.0
+  },
+  {
+   "text": "aapko",
+   "line": 15,
+   "start": 69.18,
+   "end": 69.48,
+   "sim": 1.0
+  },
+  {
+   "text": "precise",
+   "line": 15,
+   "start": 69.48,
+   "end": 70.04,
+   "sim": 1.0
+  },
+  {
+   "text": "summary",
+   "line": 15,
+   "start": 70.04,
+   "end": 70.4,
+   "sim": 1.0
+  },
+  {
+   "text": "milti",
+   "line": 15,
+   "start": 70.4,
+   "end": 70.74,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 15,
+   "start": 70.74,
+   "end": 70.86,
+   "sim": 1.0
+  },
+  {
+   "text": "woh",
+   "line": 15,
+   "start": 71.03,
+   "end": 71.24,
+   "sim": 0.67
+  },
+  {
+   "text": "bhi",
+   "line": 15,
+   "start": 71.24,
+   "end": 71.55,
+   "sim": 0.0
+  },
+  {
+   "text": "exact",
+   "line": 15,
+   "start": 71.55,
+   "end": 71.99,
+   "sim": 1.0
+  },
+  {
+   "text": "page",
+   "line": 15,
+   "start": 71.99,
+   "end": 72.33,
+   "sim": 1.0
+  },
+  {
+   "text": "numbers",
+   "line": 15,
+   "start": 72.33,
+   "end": 72.71,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 15,
+   "start": 72.71,
+   "end": 73.03,
+   "sim": 0.5
+  },
+  {
+   "text": "source",
+   "line": 15,
+   "start": 73.03,
+   "end": 73.31,
+   "sim": 1.0
+  },
+  {
+   "text": "citations",
+   "line": 15,
+   "start": 73.31,
+   "end": 73.85,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 15,
+   "start": 73.85,
+   "end": 74.07,
+   "sim": 1.0
+  },
+  {
+   "text": "saath,",
+   "line": 15,
+   "start": 74.07,
+   "end": 74.31,
+   "sim": 1.0
+  },
+  {
+   "text": "taaki",
+   "line": 15,
+   "start": 74.63,
+   "end": 74.85,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 15,
+   "start": 74.85,
+   "end": 75.11,
+   "sim": 1.0
+  },
+  {
+   "text": "cross-check",
+   "line": 15,
+   "start": 75.11,
+   "end": 75.41,
+   "sim": 0.73
+  },
+  {
+   "text": "kar",
+   "line": 15,
+   "start": 75.63,
+   "end": 75.83,
+   "sim": 1.0
+  },
+  {
+   "text": "sako.",
+   "line": 15,
+   "start": 75.83,
+   "end": 76.09,
+   "sim": 1.0
+  },
+  {
+   "text": "Google",
+   "line": 16,
+   "start": 76.45,
+   "end": 76.77,
+   "sim": 1.0
+  },
+  {
+   "text": "NotebookLM",
+   "line": 16,
+   "start": 76.77,
+   "end": 77.25,
+   "sim": 0.8
+  },
+  {
+   "text": "filhal",
+   "line": 16,
+   "start": 77.51,
+   "end": 78.07,
+   "sim": 0.67
+  },
+  {
+   "text": "100%",
+   "line": 16,
+   "start": 78.07,
+   "end": 78.59,
+   "sim": 0.0
+  },
+  {
+   "text": "Free",
+   "line": 16,
+   "start": 78.59,
+   "end": 79.15,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 16,
+   "start": 79.15,
+   "end": 79.35,
+   "sim": 1.0
+  },
+  {
+   "text": "Aap",
+   "line": 17,
+   "start": 79.55,
+   "end": 79.81,
+   "sim": 0.8
+  },
+  {
+   "text": "ek",
+   "line": 17,
+   "start": 79.81,
+   "end": 80.07,
+   "sim": 0.0
+  },
+  {
+   "text": "notebook",
+   "line": 17,
+   "start": 80.07,
+   "end": 80.35,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 17,
+   "start": 80.35,
+   "end": 80.69,
+   "sim": 1.0
+  },
+  {
+   "text": "50",
+   "line": 17,
+   "start": 80.69,
+   "end": 81.01,
+   "sim": 0.0
+  },
+  {
+   "text": "sources",
+   "line": 17,
+   "start": 81.01,
+   "end": 81.39,
+   "sim": 0.86
+  },
+  {
+   "text": "tak",
+   "line": 17,
+   "start": 81.77,
+   "end": 81.83,
+   "sim": 0.67
+  },
+  {
+   "text": "daal",
+   "line": 17,
+   "start": 81.83,
+   "end": 81.91,
+   "sim": 1.0
+  },
+  {
+   "text": "sakte",
+   "line": 17,
+   "start": 81.91,
+   "end": 82.25,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 17,
+   "start": 82.25,
+   "end": 82.43,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 17,
+   "start": 82.65,
+   "end": 82.79,
+   "sim": 1.0
+  },
+  {
+   "text": "har",
+   "line": 17,
+   "start": 82.79,
+   "end": 83.05,
+   "sim": 1.0
+  },
+  {
+   "text": "source",
+   "line": 17,
+   "start": 83.05,
+   "end": 83.29,
+   "sim": 1.0
+  },
+  {
+   "text": "5",
+   "line": 17,
+   "start": 83.29,
+   "end": 83.83,
+   "sim": 1.0
+  },
+  {
+   "text": "lakh",
+   "line": 17,
+   "start": 83.83,
+   "end": 84.21,
+   "sim": 1.0
+  },
+  {
+   "text": "words",
+   "line": 17,
+   "start": 84.21,
+   "end": 84.59,
+   "sim": 1.0
+  },
+  {
+   "text": "tak",
+   "line": 17,
+   "start": 84.59,
+   "end": 84.83,
+   "sim": 1.0
+  },
+  {
+   "text": "handle",
+   "line": 17,
+   "start": 84.83,
+   "end": 85.13,
+   "sim": 1.0
+  },
+  {
+   "text": "kar",
+   "line": 17,
+   "start": 85.13,
+   "end": 85.27,
+   "sim": 1.0
+  },
+  {
+   "text": "sakta",
+   "line": 17,
+   "start": 85.27,
+   "end": 85.61,
+   "sim": 1.0
+  },
+  {
+   "text": "hai!",
+   "line": 17,
+   "start": 85.61,
+   "end": 85.77,
+   "sim": 1.0
+  },
+  {
+   "text": "Iske",
+   "line": 18,
+   "start": 86.11,
+   "end": 86.27,
+   "sim": 0.8
+  },
+  {
+   "text": "baad",
+   "line": 18,
+   "start": 86.41,
+   "end": 86.67,
+   "sim": 1.0
+  },
+  {
+   "text": "aapko",
+   "line": 18,
+   "start": 86.67,
+   "end": 87.07,
+   "sim": 1.0
+  },
+  {
+   "text": "Adobe",
+   "line": 18,
+   "start": 87.07,
+   "end": 87.43,
+   "sim": 1.0
+  },
+  {
+   "text": "Acrobat",
+   "line": 18,
+   "start": 87.43,
+   "end": 87.99,
+   "sim": 1.0
+  },
+  {
+   "text": "Pro",
+   "line": 18,
+   "start": 87.99,
+   "end": 88.31,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 18,
+   "start": 88.31,
+   "end": 88.63,
+   "sim": 1.0
+  },
+  {
+   "text": "kisi",
+   "line": 18,
+   "start": 88.63,
+   "end": 88.83,
+   "sim": 1.0
+  },
+  {
+   "text": "paid",
+   "line": 18,
+   "start": 88.83,
+   "end": 89.21,
+   "sim": 1.0
+  },
+  {
+   "text": "PDF",
+   "line": 18,
+   "start": 89.21,
+   "end": 89.61,
+   "sim": 1.0
+  },
+  {
+   "text": "editor",
+   "line": 18,
+   "start": 89.61,
+   "end": 90.03,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 18,
+   "start": 90.03,
+   "end": 90.21,
+   "sim": 1.0
+  },
+  {
+   "text": "zaroorat",
+   "line": 18,
+   "start": 90.21,
+   "end": 90.61,
+   "sim": 0.75
+  },
+  {
+   "text": "kabhi",
+   "line": 18,
+   "start": 90.61,
+   "end": 90.97,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi",
+   "line": 18,
+   "start": 90.97,
+   "end": 91.15,
+   "sim": 0.67
+  },
+  {
+   "text": "padegi.",
+   "line": 18,
+   "start": 91.15,
+   "end": 91.89,
+   "sim": 0.33
+  },
+  {
+   "text": "Client",
+   "line": 19,
+   "start": 91.89,
+   "end": 92.51,
+   "sim": 0.75
+  },
+  {
+   "text": "meeting",
+   "line": 19,
+   "start": 92.51,
+   "end": 92.73,
+   "sim": 0.57
+  },
+  {
+   "text": "chal",
+   "line": 19,
+   "start": 92.73,
+   "end": 92.97,
+   "sim": 1.0
+  },
+  {
+   "text": "rahi",
+   "line": 19,
+   "start": 92.97,
+   "end": 93.23,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 19,
+   "start": 93.23,
+   "end": 93.43,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 19,
+   "start": 93.43,
+   "end": 93.65,
+   "sim": 1.0
+  },
+  {
+   "text": "college",
+   "line": 19,
+   "start": 93.65,
+   "end": 94.01,
+   "sim": 0.29
+  },
+  {
+   "text": "ki",
+   "line": 19,
+   "start": 94.01,
+   "end": 94.15,
+   "sim": 1.0
+  },
+  {
+   "text": "lecture",
+   "line": 19,
+   "start": 94.15,
+   "end": 94.51,
+   "sim": 0.5
+  },
+  {
+   "text": "recording,",
+   "line": 19,
+   "start": 94.51,
+   "end": 95.23,
+   "sim": 0.2
+  },
+  {
+   "text": "live",
+   "line": 19,
+   "start": 95.23,
+   "end": 95.67,
+   "sim": 0.5
+  },
+  {
+   "text": "notes",
+   "line": 19,
+   "start": 95.67,
+   "end": 95.81,
+   "sim": 0.8
+  },
+  {
+   "text": "banana",
+   "line": 19,
+   "start": 95.91,
+   "end": 96.25,
+   "sim": 1.0
+  },
+  {
+   "text": "bahut",
+   "line": 19,
+   "start": 96.25,
+   "end": 96.65,
+   "sim": 0.5
+  },
+  {
+   "text": "distracting",
+   "line": 19,
+   "start": 96.65,
+   "end": 97.23,
+   "sim": 0.93
+  },
+  {
+   "text": "hota",
+   "line": 19,
+   "start": 97.23,
+   "end": 97.51,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 19,
+   "start": 97.51,
+   "end": 97.69,
+   "sim": 1.0
+  },
+  {
+   "text": "Aur",
+   "line": 20,
+   "start": 98.03,
+   "end": 98.19,
+   "sim": 1.0
+  },
+  {
+   "text": "baad",
+   "line": 20,
+   "start": 98.19,
+   "end": 98.53,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 20,
+   "start": 98.53,
+   "end": 98.83,
+   "sim": 1.0
+  },
+  {
+   "text": "1",
+   "line": 20,
+   "start": 98.83,
+   "end": 99.11,
+   "sim": 1.0
+  },
+  {
+   "text": "ghante",
+   "line": 20,
+   "start": 99.11,
+   "end": 99.49,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 20,
+   "start": 99.49,
+   "end": 99.63,
+   "sim": 1.0
+  },
+  {
+   "text": "raw",
+   "line": 20,
+   "start": 99.63,
+   "end": 99.91,
+   "sim": 0.5
+  },
+  {
+   "text": "recording",
+   "line": 20,
+   "start": 99.91,
+   "end": 100.29,
+   "sim": 0.5
+  },
+  {
+   "text": "sunna",
+   "line": 20,
+   "start": 100.29,
+   "end": 100.67,
+   "sim": 1.0
+  },
+  {
+   "text": "matlab",
+   "line": 20,
+   "start": 100.87,
+   "end": 101.21,
+   "sim": 0.75
+  },
+  {
+   "text": "time",
+   "line": 20,
+   "start": 101.21,
+   "end": 101.63,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 20,
+   "start": 101.63,
+   "end": 101.77,
+   "sim": 1.0
+  },
+  {
+   "text": "waste.",
+   "line": 20,
+   "start": 101.77,
+   "end": 102.13,
+   "sim": 1.0
+  },
+  {
+   "text": "Paid",
+   "line": 21,
+   "start": 102.13,
+   "end": 102.37,
+   "sim": 0.0
+  },
+  {
+   "text": "transcription",
+   "line": 21,
+   "start": 102.37,
+   "end": 103.39,
+   "sim": 0.56
+  },
+  {
+   "text": "tools",
+   "line": 21,
+   "start": 103.39,
+   "end": 103.75,
+   "sim": 0.8
+  },
+  {
+   "text": "mahine",
+   "line": 21,
+   "start": 103.75,
+   "end": 104.21,
+   "sim": 0.8
+  },
+  {
+   "text": "ke",
+   "line": 21,
+   "start": 104.21,
+   "end": 104.33,
+   "sim": 1.0
+  },
+  {
+   "text": "hazaron",
+   "line": 21,
+   "start": 104.33,
+   "end": 104.67,
+   "sim": 0.4
+  },
+  {
+   "text": "rupaye",
+   "line": 21,
+   "start": 104.81,
+   "end": 105.05,
+   "sim": 0.5
+  },
+  {
+   "text": "maangte",
+   "line": 21,
+   "start": 105.05,
+   "end": 105.43,
+   "sim": 0.86
+  },
+  {
+   "text": "hain",
+   "line": 21,
+   "start": 105.43,
+   "end": 105.61,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 21,
+   "start": 105.61,
+   "end": 105.79,
+   "sim": 0.0
+  },
+  {
+   "text": "aapka",
+   "line": 21,
+   "start": 105.79,
+   "end": 106.33,
+   "sim": 1.0
+  },
+  {
+   "text": "private",
+   "line": 21,
+   "start": 106.33,
+   "end": 106.75,
+   "sim": 1.0
+  },
+  {
+   "text": "audio",
+   "line": 21,
+   "start": 106.75,
+   "end": 107.15,
+   "sim": 1.0
+  },
+  {
+   "text": "cloud",
+   "line": 21,
+   "start": 107.15,
+   "end": 107.55,
+   "sim": 0.33
+  },
+  {
+   "text": "par",
+   "line": 21,
+   "start": 107.55,
+   "end": 107.67,
+   "sim": 1.0
+  },
+  {
+   "text": "upload",
+   "line": 21,
+   "start": 107.67,
+   "end": 108.01,
+   "sim": 0.0
+  },
+  {
+   "text": "karte",
+   "line": 21,
+   "start": 108.01,
+   "end": 108.35,
+   "sim": 0.22
+  },
+  {
+   "text": "hain.",
+   "line": 21,
+   "start": 108.35,
+   "end": 108.63,
+   "sim": 1.0
+  },
+  {
+   "text": "Try",
+   "line": 22,
+   "start": 108.63,
+   "end": 109.13,
+   "sim": 0.8
+  },
+  {
+   "text": "karo",
+   "line": 22,
+   "start": 109.13,
+   "end": 109.22,
+   "sim": 0.5
+  },
+  {
+   "text": "MacWhisper",
+   "line": 22,
+   "start": 109.22,
+   "end": 109.31,
+   "sim": 0.0
+  },
+  {
+   "text": "Mac",
+   "line": 22,
+   "start": 109.31,
+   "end": 109.67,
+   "sim": 0.5
+  },
+  {
+   "text": "users",
+   "line": 22,
+   "start": 109.67,
+   "end": 109.797,
+   "sim": 0.29
+  },
+  {
+   "text": "ke",
+   "line": 22,
+   "start": 109.797,
+   "end": 109.923,
+   "sim": 0.0
+  },
+  {
+   "text": "liye,",
+   "line": 22,
+   "start": 109.923,
+   "end": 110.05,
+   "sim": 0.0
+  },
+  {
+   "text": "ya",
+   "line": 22,
+   "start": 110.05,
+   "end": 111.29,
+   "sim": 1.0
+  },
+  {
+   "text": "browser-based",
+   "line": 22,
+   "start": 111.29,
+   "end": 112.11,
+   "sim": 0.67
+  },
+  {
+   "text": "Whisper",
+   "line": 22,
+   "start": 112.59,
+   "end": 112.87,
+   "sim": 1.0
+  },
+  {
+   "text": "Web,",
+   "line": 22,
+   "start": 112.87,
+   "end": 113.2,
+   "sim": 0.0
+  },
+  {
+   "text": "jo",
+   "line": 22,
+   "start": 113.2,
+   "end": 113.5,
+   "sim": 1.0
+  },
+  {
+   "text": "OpenAI",
+   "line": 22,
+   "start": 113.5,
+   "end": 113.8,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 22,
+   "start": 114.06,
+   "end": 114.36,
+   "sim": 1.0
+  },
+  {
+   "text": "open-source",
+   "line": 22,
+   "start": 114.36,
+   "end": 114.66,
+   "sim": 0.67
+  },
+  {
+   "text": "Whisper",
+   "line": 22,
+   "start": 114.94,
+   "end": 115.4,
+   "sim": 1.0
+  },
+  {
+   "text": "model",
+   "line": 22,
+   "start": 115.4,
+   "end": 115.64,
+   "sim": 1.0
+  },
+  {
+   "text": "par",
+   "line": 22,
+   "start": 115.64,
+   "end": 115.86,
+   "sim": 1.0
+  },
+  {
+   "text": "chalta",
+   "line": 22,
+   "start": 115.86,
+   "end": 116.2,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 22,
+   "start": 116.2,
+   "end": 116.36,
+   "sim": 1.0
+  },
+  {
+   "text": "Step-by-step",
+   "line": 23,
+   "start": 116.76,
+   "end": 116.98,
+   "sim": 0.44
+  },
+  {
+   "text": "dekho:",
+   "line": 23,
+   "start": 117.56,
+   "end": 117.8,
+   "sim": 1.0
+  },
+  {
+   "text": "Apni",
+   "line": 23,
+   "start": 118.12,
+   "end": 118.46,
+   "sim": 1.0
+  },
+  {
+   "text": "audio",
+   "line": 23,
+   "start": 118.46,
+   "end": 118.78,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 23,
+   "start": 118.78,
+   "end": 119.02,
+   "sim": 0.0
+  },
+  {
+   "text": "video",
+   "line": 23,
+   "start": 119.02,
+   "end": 119.32,
+   "sim": 1.0
+  },
+  {
+   "text": "file",
+   "line": 23,
+   "start": 119.32,
+   "end": 119.6,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 23,
+   "start": 119.6,
+   "end": 119.78,
+   "sim": 1.0
+  },
+  {
+   "text": "drop",
+   "line": 23,
+   "start": 119.78,
+   "end": 120.06,
+   "sim": 1.0
+  },
+  {
+   "text": "karo.",
+   "line": 23,
+   "start": 120.06,
+   "end": 120.36,
+   "sim": 1.0
+  },
+  {
+   "text": "Kuch",
+   "line": 24,
+   "start": 120.66,
+   "end": 120.82,
+   "sim": 0.67
+  },
+  {
+   "text": "hi",
+   "line": 24,
+   "start": 120.82,
+   "end": 120.98,
+   "sim": 0.0
+  },
+  {
+   "text": "seconds",
+   "line": 24,
+   "start": 120.98,
+   "end": 121.29,
+   "sim": 0.44
+  },
+  {
+   "text": "mein",
+   "line": 24,
+   "start": 121.29,
+   "end": 121.6,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 24,
+   "start": 121.6,
+   "end": 121.76,
+   "sim": 1.0
+  },
+  {
+   "text": "poori",
+   "line": 24,
+   "start": 121.76,
+   "end": 122.14,
+   "sim": 1.0
+  },
+  {
+   "text": "recording",
+   "line": 24,
+   "start": 122.14,
+   "end": 122.58,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 24,
+   "start": 122.58,
+   "end": 122.78,
+   "sim": 1.0
+  },
+  {
+   "text": "word-for-word",
+   "line": 24,
+   "start": 122.78,
+   "end": 123.14,
+   "sim": 0.55
+  },
+  {
+   "text": "transcribe",
+   "line": 24,
+   "start": 123.6,
+   "end": 124.12,
+   "sim": 1.0
+  },
+  {
+   "text": "kar",
+   "line": 24,
+   "start": 124.12,
+   "end": 124.36,
+   "sim": 1.0
+  },
+  {
+   "text": "deta",
+   "line": 24,
+   "start": 124.36,
+   "end": 124.64,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 24,
+   "start": 124.64,
+   "end": 124.8,
+   "sim": 1.0
+  },
+  {
+   "text": "—",
+   "line": 24,
+   "start": 124.8,
+   "end": 124.96,
+   "sim": 0.0
+  },
+  {
+   "text": "chahe",
+   "line": 24,
+   "start": 124.96,
+   "end": 125.4,
+   "sim": 1.0
+  },
+  {
+   "text": "background",
+   "line": 24,
+   "start": 125.44,
+   "end": 125.82,
+   "sim": 1.0
+  },
+  {
+   "text": "noise",
+   "line": 24,
+   "start": 125.82,
+   "end": 126.08,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 24,
+   "start": 126.08,
+   "end": 126.34,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 24,
+   "start": 126.34,
+   "end": 126.6,
+   "sim": 1.0
+  },
+  {
+   "text": "Indian",
+   "line": 24,
+   "start": 126.6,
+   "end": 126.96,
+   "sim": 1.0
+  },
+  {
+   "text": "accent,",
+   "line": 24,
+   "start": 126.96,
+   "end": 127.26,
+   "sim": 1.0
+  },
+  {
+   "text": "accuracy",
+   "line": 24,
+   "start": 127.26,
+   "end": 128.02,
+   "sim": 1.0
+  },
+  {
+   "text": "unmatched",
+   "line": 24,
+   "start": 128.58,
+   "end": 128.88,
+   "sim": 0.8
+  },
+  {
+   "text": "hai.",
+   "line": 24,
+   "start": 128.88,
+   "end": 129.1,
+   "sim": 1.0
+  },
+  {
+   "text": "Sabse",
+   "line": 25,
+   "start": 129.5,
+   "end": 129.88,
+   "sim": 1.0
+  },
+  {
+   "text": "badi",
+   "line": 25,
+   "start": 129.88,
+   "end": 130.06,
+   "sim": 0.5
+  },
+  {
+   "text": "baat",
+   "line": 25,
+   "start": 130.06,
+   "end": 130.19,
+   "sim": 1.0
+  },
+  {
+   "text": "—",
+   "line": 25,
+   "start": 130.19,
+   "end": 130.32,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 25,
+   "start": 130.32,
+   "end": 130.8,
+   "sim": 1.0
+  },
+  {
+   "text": "aapke",
+   "line": 25,
+   "start": 130.8,
+   "end": 131.16,
+   "sim": 1.0
+  },
+  {
+   "text": "computer",
+   "line": 25,
+   "start": 131.16,
+   "end": 131.54,
+   "sim": 1.0
+  },
+  {
+   "text": "par",
+   "line": 25,
+   "start": 131.54,
+   "end": 131.8,
+   "sim": 0.67
+  },
+  {
+   "text": "locally",
+   "line": 25,
+   "start": 131.8,
+   "end": 132.26,
+   "sim": 1.0
+  },
+  {
+   "text": "run",
+   "line": 25,
+   "start": 132.26,
+   "end": 132.54,
+   "sim": 1.0
+  },
+  {
+   "text": "hota",
+   "line": 25,
+   "start": 132.54,
+   "end": 132.84,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 25,
+   "start": 132.84,
+   "end": 132.98,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 25,
+   "start": 132.98,
+   "end": 133.28,
+   "sim": 1.0
+  },
+  {
+   "text": "aapka",
+   "line": 25,
+   "start": 133.28,
+   "end": 133.72,
+   "sim": 1.0
+  },
+  {
+   "text": "data",
+   "line": 25,
+   "start": 133.72,
+   "end": 133.94,
+   "sim": 1.0
+  },
+  {
+   "text": "bilkul",
+   "line": 25,
+   "start": 133.94,
+   "end": 134.62,
+   "sim": 0.75
+  },
+  {
+   "text": "safe",
+   "line": 25,
+   "start": 134.62,
+   "end": 134.9,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 25,
+   "start": 134.9,
+   "end": 135.22,
+   "sim": 1.0
+  },
+  {
+   "text": "private",
+   "line": 25,
+   "start": 135.22,
+   "end": 135.56,
+   "sim": 1.0
+  },
+  {
+   "text": "rehta",
+   "line": 25,
+   "start": 135.56,
+   "end": 135.98,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 25,
+   "start": 135.98,
+   "end": 136.14,
+   "sim": 1.0
+  },
+  {
+   "text": "Isme",
+   "line": 26,
+   "start": 136.46,
+   "end": 136.62,
+   "sim": 0.8
+  },
+  {
+   "text": "koi",
+   "line": 26,
+   "start": 136.82,
+   "end": 137.12,
+   "sim": 1.0
+  },
+  {
+   "text": "monthly",
+   "line": 26,
+   "start": 137.12,
+   "end": 137.5,
+   "sim": 0.86
+  },
+  {
+   "text": "minute",
+   "line": 26,
+   "start": 137.5,
+   "end": 137.72,
+   "sim": 1.0
+  },
+  {
+   "text": "limit",
+   "line": 26,
+   "start": 137.72,
+   "end": 137.92,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi",
+   "line": 26,
+   "start": 138.04,
+   "end": 138.32,
+   "sim": 0.67
+  },
+  {
+   "text": "hai.",
+   "line": 26,
+   "start": 138.32,
+   "end": 138.44,
+   "sim": 1.0
+  },
+  {
+   "text": "Unlimited",
+   "line": 27,
+   "start": 138.63,
+   "end": 139.15,
+   "sim": 0.62
+  },
+  {
+   "text": "hours",
+   "line": 27,
+   "start": 139.15,
+   "end": 139.41,
+   "sim": 0.0
+  },
+  {
+   "text": "transcribe",
+   "line": 27,
+   "start": 139.41,
+   "end": 139.67,
+   "sim": 0.0
+  },
+  {
+   "text": "karo,",
+   "line": 27,
+   "start": 139.67,
+   "end": 139.83,
+   "sim": 0.67
+  },
+  {
+   "text": "bilkul",
+   "line": 27,
+   "start": 140.67,
+   "end": 141.19,
+   "sim": 1.0
+  },
+  {
+   "text": "free!",
+   "line": 27,
+   "start": 141.19,
+   "end": 141.45,
+   "sim": 1.0
+  },
+  {
+   "text": "Aapne",
+   "line": 28,
+   "start": 142.05,
+   "end": 142.43,
+   "sim": 1.0
+  },
+  {
+   "text": "presentation,",
+   "line": 28,
+   "start": 142.43,
+   "end": 143.21,
+   "sim": 0.86
+  },
+  {
+   "text": "social",
+   "line": 28,
+   "start": 143.41,
+   "end": 143.73,
+   "sim": 0.67
+  },
+  {
+   "text": "media,",
+   "line": 28,
+   "start": 143.73,
+   "end": 144.19,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 28,
+   "start": 144.19,
+   "end": 144.41,
+   "sim": 1.0
+  },
+  {
+   "text": "thumbnail",
+   "line": 28,
+   "start": 144.41,
+   "end": 144.87,
+   "sim": 0.89
+  },
+  {
+   "text": "ke",
+   "line": 28,
+   "start": 144.87,
+   "end": 145.03,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 28,
+   "start": 145.03,
+   "end": 145.25,
+   "sim": 1.0
+  },
+  {
+   "text": "ek",
+   "line": 28,
+   "start": 145.25,
+   "end": 145.47,
+   "sim": 1.0
+  },
+  {
+   "text": "badhiya",
+   "line": 28,
+   "start": 145.47,
+   "end": 145.67,
+   "sim": 1.0
+  },
+  {
+   "text": "photo",
+   "line": 28,
+   "start": 145.67,
+   "end": 145.87,
+   "sim": 0.0
+  },
+  {
+   "text": "kheechi.",
+   "line": 28,
+   "start": 145.87,
+   "end": 146.23,
+   "sim": 1.0
+  },
+  {
+   "text": "Lekin",
+   "line": 29,
+   "start": 146.75,
+   "end": 147.21,
+   "sim": 1.0
+  },
+  {
+   "text": "background",
+   "line": 29,
+   "start": 147.21,
+   "end": 147.69,
+   "sim": 0.73
+  },
+  {
+   "text": "mein",
+   "line": 29,
+   "start": 147.69,
+   "end": 147.93,
+   "sim": 1.0
+  },
+  {
+   "text": "ek",
+   "line": 29,
+   "start": 147.93,
+   "end": 148.11,
+   "sim": 1.0
+  },
+  {
+   "text": "wires",
+   "line": 29,
+   "start": 148.31,
+   "end": 148.51,
+   "sim": 1.0
+  },
+  {
+   "text": "ka",
+   "line": 29,
+   "start": 148.51,
+   "end": 148.63,
+   "sim": 1.0
+  },
+  {
+   "text": "gucha,",
+   "line": 29,
+   "start": 148.63,
+   "end": 149.13,
+   "sim": 0.8
+  },
+  {
+   "text": "koi",
+   "line": 29,
+   "start": 149.37,
+   "end": 149.51,
+   "sim": 1.0
+  },
+  {
+   "text": "stranger,",
+   "line": 29,
+   "start": 149.51,
+   "end": 150.13,
+   "sim": 0.73
+  },
+  {
+   "text": "ya",
+   "line": 29,
+   "start": 150.13,
+   "end": 150.43,
+   "sim": 1.0
+  },
+  {
+   "text": "kachra",
+   "line": 29,
+   "start": 150.43,
+   "end": 150.81,
+   "sim": 1.0
+  },
+  {
+   "text": "aa",
+   "line": 29,
+   "start": 150.81,
+   "end": 151.17,
+   "sim": 0.67
+  },
+  {
+   "text": "gaya.",
+   "line": 29,
+   "start": 151.17,
+   "end": 151.6,
+   "sim": 0.0
+  },
+  {
+   "text": "Photoshop",
+   "line": 30,
+   "start": 151.6,
+   "end": 152.03,
+   "sim": 0.0
+  },
+  {
+   "text": "kholkar",
+   "line": 30,
+   "start": 152.03,
+   "end": 152.53,
+   "sim": 1.0
+  },
+  {
+   "text": "content-aware",
+   "line": 30,
+   "start": 152.63,
+   "end": 153.05,
+   "sim": 0.67
+  },
+  {
+   "text": "fill",
+   "line": 30,
+   "start": 153.31,
+   "end": 153.51,
+   "sim": 0.8
+  },
+  {
+   "text": "karna",
+   "line": 30,
+   "start": 153.51,
+   "end": 153.89,
+   "sim": 1.0
+  },
+  {
+   "text": "har",
+   "line": 30,
+   "start": 153.89,
+   "end": 154.19,
+   "sim": 1.0
+  },
+  {
+   "text": "kisi",
+   "line": 30,
+   "start": 154.19,
+   "end": 154.39,
+   "sim": 0.8
+  },
+  {
+   "text": "ke",
+   "line": 30,
+   "start": 154.39,
+   "end": 154.59,
+   "sim": 0.0
+  },
+  {
+   "text": "bas",
+   "line": 30,
+   "start": 154.59,
+   "end": 154.75,
+   "sim": 0.8
+  },
+  {
+   "text": "ki",
+   "line": 30,
+   "start": 154.75,
+   "end": 154.91,
+   "sim": 0.0
+  },
+  {
+   "text": "baat",
+   "line": 30,
+   "start": 154.91,
+   "end": 155.13,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi",
+   "line": 30,
+   "start": 155.13,
+   "end": 155.47,
+   "sim": 0.67
+  },
+  {
+   "text": "hai",
+   "line": 30,
+   "start": 155.47,
+   "end": 155.59,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 30,
+   "start": 155.59,
+   "end": 156.01,
+   "sim": 1.0
+  },
+  {
+   "text": "paid",
+   "line": 30,
+   "start": 156.01,
+   "end": 156.31,
+   "sim": 0.5
+  },
+  {
+   "text": "tools",
+   "line": 30,
+   "start": 156.31,
+   "end": 156.67,
+   "sim": 1.0
+  },
+  {
+   "text": "expensive",
+   "line": 30,
+   "start": 156.67,
+   "end": 156.93,
+   "sim": 0.0
+  },
+  {
+   "text": "hain.",
+   "line": 30,
+   "start": 156.93,
+   "end": 157.19,
+   "sim": 0.0
+  },
+  {
+   "text": "Tool",
+   "line": 31,
+   "start": 157.19,
+   "end": 157.45,
+   "sim": 0.0
+  },
+  {
+   "text": "ka",
+   "line": 31,
+   "start": 157.45,
+   "end": 157.71,
+   "sim": 0.0
+  },
+  {
+   "text": "naam",
+   "line": 31,
+   "start": 157.71,
+   "end": 157.97,
+   "sim": 0.0
+  },
+  {
+   "text": "hai",
+   "line": 31,
+   "start": 157.97,
+   "end": 158.23,
+   "sim": 0.0
+  },
+  {
+   "text": "Clipdrop",
+   "line": 31,
+   "start": 158.23,
+   "end": 159.35,
+   "sim": 0.4
+  },
+  {
+   "text": "Cleanup",
+   "line": 31,
+   "start": 159.35,
+   "end": 159.733,
+   "sim": 0.0
+  },
+  {
+   "text": "by",
+   "line": 31,
+   "start": 159.733,
+   "end": 160.117,
+   "sim": 0.0
+  },
+  {
+   "text": "Stability",
+   "line": 31,
+   "start": 160.117,
+   "end": 160.5,
+   "sim": 0.29
+  },
+  {
+   "text": "AI.",
+   "line": 31,
+   "start": 160.5,
+   "end": 160.64,
+   "sim": 0.4
+  },
+  {
+   "text": "Photo",
+   "line": 32,
+   "start": 161.36,
+   "end": 161.78,
+   "sim": 1.0
+  },
+  {
+   "text": "upload",
+   "line": 32,
+   "start": 161.78,
+   "end": 162.04,
+   "sim": 0.75
+  },
+  {
+   "text": "karo,",
+   "line": 32,
+   "start": 162.04,
+   "end": 162.34,
+   "sim": 1.0
+  },
+  {
+   "text": "unwanted",
+   "line": 32,
+   "start": 162.96,
+   "end": 163.08,
+   "sim": 0.36
+  },
+  {
+   "text": "object",
+   "line": 32,
+   "start": 163.08,
+   "end": 163.2,
+   "sim": 0.0
+  },
+  {
+   "text": "par",
+   "line": 32,
+   "start": 163.2,
+   "end": 163.78,
+   "sim": 1.0
+  },
+  {
+   "text": "brush",
+   "line": 32,
+   "start": 163.78,
+   "end": 164.2,
+   "sim": 0.86
+  },
+  {
+   "text": "se",
+   "line": 32,
+   "start": 164.2,
+   "end": 164.3,
+   "sim": 1.0
+  },
+  {
+   "text": "paint",
+   "line": 32,
+   "start": 164.3,
+   "end": 164.64,
+   "sim": 1.0
+  },
+  {
+   "text": "karo,",
+   "line": 32,
+   "start": 164.64,
+   "end": 164.98,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 32,
+   "start": 165.26,
+   "end": 165.38,
+   "sim": 1.0
+  },
+  {
+   "text": "\"Clean\"",
+   "line": 32,
+   "start": 165.38,
+   "end": 165.74,
+   "sim": 0.67
+  },
+  {
+   "text": "par",
+   "line": 32,
+   "start": 165.74,
+   "end": 165.92,
+   "sim": 1.0
+  },
+  {
+   "text": "click",
+   "line": 32,
+   "start": 165.92,
+   "end": 166.14,
+   "sim": 0.57
+  },
+  {
+   "text": "karo.",
+   "line": 32,
+   "start": 166.14,
+   "end": 166.44,
+   "sim": 1.0
+  },
+  {
+   "text": "AI",
+   "line": 33,
+   "start": 166.62,
+   "end": 167.68,
+   "sim": 0.5
+  },
+  {
+   "text": "surrounding",
+   "line": 33,
+   "start": 167.68,
+   "end": 167.86,
+   "sim": 0.2
+  },
+  {
+   "text": "textures",
+   "line": 33,
+   "start": 167.86,
+   "end": 168.04,
+   "sim": 0.29
+  },
+  {
+   "text": "aur",
+   "line": 33,
+   "start": 168.04,
+   "end": 168.22,
+   "sim": 0.0
+  },
+  {
+   "text": "lighting",
+   "line": 33,
+   "start": 168.22,
+   "end": 169.32,
+   "sim": 0.5
+  },
+  {
+   "text": "ko",
+   "line": 33,
+   "start": 169.32,
+   "end": 169.53,
+   "sim": 0.0
+  },
+  {
+   "text": "analyze",
+   "line": 33,
+   "start": 169.53,
+   "end": 169.74,
+   "sim": 0.33
+  },
+  {
+   "text": "karke",
+   "line": 33,
+   "start": 169.74,
+   "end": 169.95,
+   "sim": 0.0
+  },
+  {
+   "text": "us",
+   "line": 33,
+   "start": 169.95,
+   "end": 170.21,
+   "sim": 1.0
+  },
+  {
+   "text": "object",
+   "line": 33,
+   "start": 170.21,
+   "end": 170.65,
+   "sim": 0.44
+  },
+  {
+   "text": "ko",
+   "line": 33,
+   "start": 170.65,
+   "end": 170.85,
+   "sim": 1.0
+  },
+  {
+   "text": "aise",
+   "line": 33,
+   "start": 170.85,
+   "end": 171.17,
+   "sim": 0.5
+  },
+  {
+   "text": "gayab",
+   "line": 33,
+   "start": 171.17,
+   "end": 171.47,
+   "sim": 1.0
+  },
+  {
+   "text": "kar",
+   "line": 33,
+   "start": 171.47,
+   "end": 171.67,
+   "sim": 1.0
+  },
+  {
+   "text": "deta",
+   "line": 33,
+   "start": 171.67,
+   "end": 171.97,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 33,
+   "start": 171.97,
+   "end": 172.11,
+   "sim": 1.0
+  },
+  {
+   "text": "jaise",
+   "line": 33,
+   "start": 172.33,
+   "end": 172.59,
+   "sim": 1.0
+  },
+  {
+   "text": "woh",
+   "line": 33,
+   "start": 172.59,
+   "end": 172.66,
+   "sim": 1.0
+  },
+  {
+   "text": "wahan",
+   "line": 33,
+   "start": 172.66,
+   "end": 172.73,
+   "sim": 0.0
+  },
+  {
+   "text": "kabhi",
+   "line": 33,
+   "start": 172.73,
+   "end": 172.99,
+   "sim": 0.67
+  },
+  {
+   "text": "tha",
+   "line": 33,
+   "start": 172.99,
+   "end": 173.34,
+   "sim": 1.0
+  },
+  {
+   "text": "hi",
+   "line": 33,
+   "start": 173.34,
+   "end": 173.69,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi.",
+   "line": 33,
+   "start": 173.69,
+   "end": 174.01,
+   "sim": 0.67
+  },
+  {
+   "text": "Pure",
+   "line": 34,
+   "start": 175.42,
+   "end": 175.62,
+   "sim": 0.5
+  },
+  {
+   "text": "magic",
+   "line": 34,
+   "start": 175.62,
+   "end": 175.56,
+   "sim": 0.0
+  },
+  {
+   "text": "in",
+   "line": 34,
+   "start": 175.56,
+   "end": 175.5,
+   "sim": 0.0
+  },
+  {
+   "text": "3",
+   "line": 34,
+   "start": 175.5,
+   "end": 175.8,
+   "sim": 1.0
+  },
+  {
+   "text": "seconds!",
+   "line": 34,
+   "start": 175.8,
+   "end": 176.28,
+   "sim": 0.75
+  },
+  {
+   "text": "Clipdrop",
+   "line": 35,
+   "start": 176.66,
+   "end": 177.16,
+   "sim": 0.4
+  },
+  {
+   "text": "ka",
+   "line": 35,
+   "start": 177.16,
+   "end": 177.36,
+   "sim": 1.0
+  },
+  {
+   "text": "free",
+   "line": 35,
+   "start": 177.36,
+   "end": 177.62,
+   "sim": 0.8
+  },
+  {
+   "text": "tier",
+   "line": 35,
+   "start": 177.62,
+   "end": 177.88,
+   "sim": 0.0
+  },
+  {
+   "text": "aapko",
+   "line": 35,
+   "start": 177.88,
+   "end": 178.32,
+   "sim": 1.0
+  },
+  {
+   "text": "unlimited",
+   "line": 35,
+   "start": 178.32,
+   "end": 179.02,
+   "sim": 0.83
+  },
+  {
+   "text": "images",
+   "line": 35,
+   "start": 179.02,
+   "end": 179.46,
+   "sim": 0.75
+  },
+  {
+   "text": "standard",
+   "line": 35,
+   "start": 179.52,
+   "end": 179.96,
+   "sim": 0.83
+  },
+  {
+   "text": "resolution",
+   "line": 35,
+   "start": 179.96,
+   "end": 180.42,
+   "sim": 0.5
+  },
+  {
+   "text": "mein",
+   "line": 35,
+   "start": 180.42,
+   "end": 180.6,
+   "sim": 1.0
+  },
+  {
+   "text": "edit",
+   "line": 35,
+   "start": 180.6,
+   "end": 180.9,
+   "sim": 1.0
+  },
+  {
+   "text": "karne",
+   "line": 35,
+   "start": 180.9,
+   "end": 181.16,
+   "sim": 1.0
+  },
+  {
+   "text": "deta",
+   "line": 35,
+   "start": 181.16,
+   "end": 181.46,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 35,
+   "start": 181.46,
+   "end": 181.62,
+   "sim": 1.0
+  },
+  {
+   "text": "jo",
+   "line": 35,
+   "start": 181.78,
+   "end": 182.1,
+   "sim": 1.0
+  },
+  {
+   "text": "PPTs,",
+   "line": 35,
+   "start": 182.1,
+   "end": 182.8,
+   "sim": 0.75
+  },
+  {
+   "text": "Web,",
+   "line": 35,
+   "start": 183.0,
+   "end": 183.22,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 35,
+   "start": 183.22,
+   "end": 183.66,
+   "sim": 0.4
+  },
+  {
+   "text": "Daily",
+   "line": 35,
+   "start": 183.66,
+   "end": 183.96,
+   "sim": 1.0
+  },
+  {
+   "text": "tasks",
+   "line": 35,
+   "start": 183.96,
+   "end": 184.36,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 35,
+   "start": 184.36,
+   "end": 184.6,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 35,
+   "start": 184.6,
+   "end": 184.78,
+   "sim": 1.0
+  },
+  {
+   "text": "perfectly",
+   "line": 35,
+   "start": 184.78,
+   "end": 185.26,
+   "sim": 1.0
+  },
+  {
+   "text": "crisp",
+   "line": 35,
+   "start": 185.26,
+   "end": 185.8,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 35,
+   "start": 185.8,
+   "end": 186.0,
+   "sim": 1.0
+  },
+  {
+   "text": "High-res",
+   "line": 36,
+   "start": 186.22,
+   "end": 186.88,
+   "sim": 0.57
+  },
+  {
+   "text": "4K",
+   "line": 36,
+   "start": 186.88,
+   "end": 187.34,
+   "sim": 1.0
+  },
+  {
+   "text": "export",
+   "line": 36,
+   "start": 187.34,
+   "end": 187.52,
+   "sim": 0.5
+  },
+  {
+   "text": "ke",
+   "line": 36,
+   "start": 187.7,
+   "end": 187.82,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 36,
+   "start": 187.82,
+   "end": 188.06,
+   "sim": 1.0
+  },
+  {
+   "text": "paid",
+   "line": 36,
+   "start": 188.06,
+   "end": 188.44,
+   "sim": 0.5
+  },
+  {
+   "text": "plan",
+   "line": 36,
+   "start": 188.44,
+   "end": 188.66,
+   "sim": 1.0
+  },
+  {
+   "text": "hota",
+   "line": 36,
+   "start": 188.66,
+   "end": 189.0,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 36,
+   "start": 189.0,
+   "end": 189.14,
+   "sim": 1.0
+  },
+  {
+   "text": "lekin",
+   "line": 36,
+   "start": 189.14,
+   "end": 189.78,
+   "sim": 0.0
+  },
+  {
+   "text": "normal",
+   "line": 36,
+   "start": 189.78,
+   "end": 190.02,
+   "sim": 1.0
+  },
+  {
+   "text": "use",
+   "line": 36,
+   "start": 190.02,
+   "end": 190.3,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 36,
+   "start": 190.3,
+   "end": 190.5,
+   "sim": 0.67
+  },
+  {
+   "text": "liye",
+   "line": 36,
+   "start": 190.5,
+   "end": 190.7,
+   "sim": 0.0
+  },
+  {
+   "text": "free",
+   "line": 36,
+   "start": 190.7,
+   "end": 190.96,
+   "sim": 1.0
+  },
+  {
+   "text": "version",
+   "line": 36,
+   "start": 190.96,
+   "end": 191.3,
+   "sim": 1.0
+  },
+  {
+   "text": "se",
+   "line": 36,
+   "start": 191.3,
+   "end": 191.58,
+   "sim": 1.0
+  },
+  {
+   "text": "kaam",
+   "line": 36,
+   "start": 191.58,
+   "end": 191.82,
+   "sim": 1.0
+  },
+  {
+   "text": "perfectly",
+   "line": 36,
+   "start": 191.82,
+   "end": 192.34,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 36,
+   "start": 192.34,
+   "end": 192.6,
+   "sim": 0.5
+  },
+  {
+   "text": "jata",
+   "line": 36,
+   "start": 192.6,
+   "end": 192.86,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 36,
+   "start": 192.86,
+   "end": 192.98,
+   "sim": 1.0
+  },
+  {
+   "text": "Professional",
+   "line": 37,
+   "start": 193.36,
+   "end": 193.92,
+   "sim": 1.0
+  },
+  {
+   "text": "emails",
+   "line": 37,
+   "start": 193.92,
+   "end": 194.38,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 37,
+   "start": 194.38,
+   "end": 194.68,
+   "sim": 1.0
+  },
+  {
+   "text": "LinkedIn",
+   "line": 37,
+   "start": 194.68,
+   "end": 195.1,
+   "sim": 0.8
+  },
+  {
+   "text": "posts",
+   "line": 37,
+   "start": 195.1,
+   "end": 195.42,
+   "sim": 1.0
+  },
+  {
+   "text": "likhte",
+   "line": 37,
+   "start": 195.42,
+   "end": 195.88,
+   "sim": 1.0
+  },
+  {
+   "text": "waqt",
+   "line": 37,
+   "start": 195.88,
+   "end": 196.26,
+   "sim": 0.33
+  },
+  {
+   "text": "sahi",
+   "line": 37,
+   "start": 196.26,
+   "end": 196.62,
+   "sim": 1.0
+  },
+  {
+   "text": "tone",
+   "line": 37,
+   "start": 196.62,
+   "end": 196.9,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 37,
+   "start": 196.9,
+   "end": 197.18,
+   "sim": 1.0
+  },
+  {
+   "text": "vocabulary",
+   "line": 37,
+   "start": 197.18,
+   "end": 197.6,
+   "sim": 1.0
+  },
+  {
+   "text": "set",
+   "line": 37,
+   "start": 197.6,
+   "end": 197.94,
+   "sim": 1.0
+  },
+  {
+   "text": "karna",
+   "line": 37,
+   "start": 197.94,
+   "end": 198.32,
+   "sim": 1.0
+  },
+  {
+   "text": "thoda",
+   "line": 37,
+   "start": 198.32,
+   "end": 198.76,
+   "sim": 1.0
+  },
+  {
+   "text": "tricky",
+   "line": 37,
+   "start": 198.76,
+   "end": 199.08,
+   "sim": 1.0
+  },
+  {
+   "text": "hota",
+   "line": 37,
+   "start": 199.08,
+   "end": 199.46,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 37,
+   "start": 199.46,
+   "end": 199.62,
+   "sim": 1.0
+  },
+  {
+   "text": "Grammarly",
+   "line": 38,
+   "start": 199.81,
+   "end": 200.53,
+   "sim": 0.73
+  },
+  {
+   "text": "jaise",
+   "line": 38,
+   "start": 200.53,
+   "end": 200.83,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 38,
+   "start": 200.91,
+   "end": 201.05,
+   "sim": 1.0
+  },
+  {
+   "text": "advanced",
+   "line": 38,
+   "start": 201.05,
+   "end": 201.87,
+   "sim": 1.0
+  },
+  {
+   "text": "sentence",
+   "line": 38,
+   "start": 201.87,
+   "end": 202.29,
+   "sim": 1.0
+  },
+  {
+   "text": "rewrites",
+   "line": 38,
+   "start": 202.59,
+   "end": 203.07,
+   "sim": 0.67
+  },
+  {
+   "text": "aur",
+   "line": 38,
+   "start": 203.07,
+   "end": 203.17,
+   "sim": 0.4
+  },
+  {
+   "text": "tone",
+   "line": 38,
+   "start": 203.17,
+   "end": 203.45,
+   "sim": 1.0
+  },
+  {
+   "text": "adjustment",
+   "line": 38,
+   "start": 203.45,
+   "end": 203.89,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 38,
+   "start": 203.89,
+   "end": 204.17,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 38,
+   "start": 204.17,
+   "end": 204.45,
+   "sim": 0.0
+  },
+  {
+   "text": "turant",
+   "line": 38,
+   "start": 204.45,
+   "end": 204.83,
+   "sim": 1.0
+  },
+  {
+   "text": "paywall",
+   "line": 38,
+   "start": 204.83,
+   "end": 205.11,
+   "sim": 0.67
+  },
+  {
+   "text": "laga",
+   "line": 38,
+   "start": 205.21,
+   "end": 205.45,
+   "sim": 0.5
+  },
+  {
+   "text": "dete",
+   "line": 38,
+   "start": 205.45,
+   "end": 205.75,
+   "sim": 1.0
+  },
+  {
+   "text": "hain.",
+   "line": 38,
+   "start": 205.75,
+   "end": 206.09,
+   "sim": 1.0
+  },
+  {
+   "text": "Use",
+   "line": 39,
+   "start": 206.25,
+   "end": 206.51,
+   "sim": 1.0
+  },
+  {
+   "text": "karo",
+   "line": 39,
+   "start": 206.51,
+   "end": 206.81,
+   "sim": 1.0
+  },
+  {
+   "text": "DeepL",
+   "line": 39,
+   "start": 206.81,
+   "end": 207.29,
+   "sim": 1.0
+  },
+  {
+   "text": "Write",
+   "line": 39,
+   "start": 207.29,
+   "end": 207.57,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 39,
+   "start": 207.57,
+   "end": 207.93,
+   "sim": 0.0
+  },
+  {
+   "text": "free",
+   "line": 39,
+   "start": 207.93,
+   "end": 208.23,
+   "sim": 1.0
+  },
+  {
+   "text": "LanguageTool",
+   "line": 39,
+   "start": 208.23,
+   "end": 208.59,
+   "sim": 0.8
+  },
+  {
+   "text": "extension.",
+   "line": 39,
+   "start": 208.89,
+   "end": 209.37,
+   "sim": 1.0
+  },
+  {
+   "text": "Apne",
+   "line": 40,
+   "start": 209.85,
+   "end": 210.17,
+   "sim": 0.8
+  },
+  {
+   "text": "kisi",
+   "line": 40,
+   "start": 210.17,
+   "end": 210.51,
+   "sim": 0.67
+  },
+  {
+   "text": "bhi",
+   "line": 40,
+   "start": 210.51,
+   "end": 210.65,
+   "sim": 1.0
+  },
+  {
+   "text": "rough",
+   "line": 40,
+   "start": 210.65,
+   "end": 210.85,
+   "sim": 1.0
+  },
+  {
+   "text": "sentence",
+   "line": 40,
+   "start": 210.85,
+   "end": 211.17,
+   "sim": 0.91
+  },
+  {
+   "text": "ko",
+   "line": 40,
+   "start": 211.17,
+   "end": 211.43,
+   "sim": 1.0
+  },
+  {
+   "text": "highlight",
+   "line": 40,
+   "start": 211.43,
+   "end": 211.79,
+   "sim": 1.0
+  },
+  {
+   "text": "karo,",
+   "line": 40,
+   "start": 211.79,
+   "end": 212.11,
+   "sim": 1.0
+  },
+  {
+   "text": "rephrase",
+   "line": 40,
+   "start": 212.43,
+   "end": 212.97,
+   "sim": 1.0
+  },
+  {
+   "text": "click",
+   "line": 40,
+   "start": 212.97,
+   "end": 213.17,
+   "sim": 1.0
+  },
+  {
+   "text": "karo,",
+   "line": 40,
+   "start": 213.17,
+   "end": 213.36,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 40,
+   "start": 213.36,
+   "end": 213.384,
+   "sim": 0.0
+  },
+  {
+   "text": "Style",
+   "line": 40,
+   "start": 213.384,
+   "end": 213.409,
+   "sim": 0.0
+  },
+  {
+   "text": "select",
+   "line": 40,
+   "start": 213.409,
+   "end": 213.433,
+   "sim": 0.0
+  },
+  {
+   "text": "karo",
+   "line": 40,
+   "start": 213.433,
+   "end": 213.457,
+   "sim": 0.0
+  },
+  {
+   "text": "—",
+   "line": 40,
+   "start": 213.457,
+   "end": 213.481,
+   "sim": 0.0
+  },
+  {
+   "text": "Professional,",
+   "line": 40,
+   "start": 213.481,
+   "end": 213.506,
+   "sim": 0.0
+  },
+  {
+   "text": "Concise,",
+   "line": 40,
+   "start": 213.506,
+   "end": 213.53,
+   "sim": 0.0
+  },
+  {
+   "text": "ya",
+   "line": 40,
+   "start": 213.53,
+   "end": 213.554,
+   "sim": 0.0
+  },
+  {
+   "text": "Casual.",
+   "line": 40,
+   "start": 213.554,
+   "end": 213.579,
+   "sim": 0.0
+  },
+  {
+   "text": "Yeh",
+   "line": 41,
+   "start": 213.579,
+   "end": 213.603,
+   "sim": 0.0
+  },
+  {
+   "text": "sirf",
+   "line": 41,
+   "start": 213.603,
+   "end": 213.627,
+   "sim": 0.0
+  },
+  {
+   "text": "spelling",
+   "line": 41,
+   "start": 213.627,
+   "end": 213.651,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi",
+   "line": 41,
+   "start": 213.651,
+   "end": 213.676,
+   "sim": 0.0
+  },
+  {
+   "text": "sudharta,",
+   "line": 41,
+   "start": 213.676,
+   "end": 213.7,
+   "sim": 0.0
+  },
+  {
+   "text": "aapke",
+   "line": 41,
+   "start": 213.7,
+   "end": 220.02,
+   "sim": 1.0
+  },
+  {
+   "text": "poore",
+   "line": 41,
+   "start": 220.02,
+   "end": 220.48,
+   "sim": 0.5
+  },
+  {
+   "text": "sentence",
+   "line": 41,
+   "start": 220.48,
+   "end": 220.86,
+   "sim": 0.73
+  },
+  {
+   "text": "structure",
+   "line": 41,
+   "start": 220.86,
+   "end": 221.24,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 41,
+   "start": 221.24,
+   "end": 221.54,
+   "sim": 1.0
+  },
+  {
+   "text": "natural",
+   "line": 41,
+   "start": 221.54,
+   "end": 222.16,
+   "sim": 0.75
+  },
+  {
+   "text": "aur",
+   "line": 41,
+   "start": 222.16,
+   "end": 222.38,
+   "sim": 1.0
+  },
+  {
+   "text": "professional",
+   "line": 41,
+   "start": 222.38,
+   "end": 222.94,
+   "sim": 0.77
+  },
+  {
+   "text": "bana",
+   "line": 41,
+   "start": 222.94,
+   "end": 223.16,
+   "sim": 1.0
+  },
+  {
+   "text": "deta",
+   "line": 41,
+   "start": 223.16,
+   "end": 223.46,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 41,
+   "start": 223.46,
+   "end": 223.64,
+   "sim": 1.0
+  },
+  {
+   "text": "bina",
+   "line": 41,
+   "start": 223.98,
+   "end": 224.22,
+   "sim": 1.0
+  },
+  {
+   "text": "kisi",
+   "line": 41,
+   "start": 224.22,
+   "end": 224.5,
+   "sim": 0.67
+  },
+  {
+   "text": "robotic",
+   "line": 41,
+   "start": 224.5,
+   "end": 225.0,
+   "sim": 0.75
+  },
+  {
+   "text": "tone",
+   "line": 41,
+   "start": 225.0,
+   "end": 225.13,
+   "sim": 1.0
+  },
+  {
+   "text": "ke.",
+   "line": 41,
+   "start": 225.13,
+   "end": 225.2,
+   "sim": 0.0
+  },
+  {
+   "text": "DeepL",
+   "line": 42,
+   "start": 225.2,
+   "end": 226.24,
+   "sim": 1.0
+  },
+  {
+   "text": "Write",
+   "line": 42,
+   "start": 226.24,
+   "end": 226.52,
+   "sim": 0.8
+  },
+  {
+   "text": "ka",
+   "line": 42,
+   "start": 226.52,
+   "end": 226.64,
+   "sim": 1.0
+  },
+  {
+   "text": "free",
+   "line": 42,
+   "start": 226.64,
+   "end": 226.92,
+   "sim": 1.0
+  },
+  {
+   "text": "tier",
+   "line": 42,
+   "start": 226.92,
+   "end": 227.26,
+   "sim": 1.0
+  },
+  {
+   "text": "per-edit",
+   "line": 42,
+   "start": 227.42,
+   "end": 227.52,
+   "sim": 0.67
+  },
+  {
+   "text": "1,500",
+   "line": 42,
+   "start": 227.52,
+   "end": 227.667,
+   "sim": 0.0
+  },
+  {
+   "text": "characters",
+   "line": 42,
+   "start": 227.667,
+   "end": 227.813,
+   "sim": 0.22
+  },
+  {
+   "text": "allow",
+   "line": 42,
+   "start": 227.813,
+   "end": 227.96,
+   "sim": 0.0
+  },
+  {
+   "text": "karta",
+   "line": 42,
+   "start": 227.96,
+   "end": 228.32,
+   "sim": 0.4
+  },
+  {
+   "text": "hai",
+   "line": 42,
+   "start": 228.32,
+   "end": 228.6,
+   "sim": 0.67
+  },
+  {
+   "text": "with",
+   "line": 42,
+   "start": 229.8,
+   "end": 230.14,
+   "sim": 0.67
+  },
+  {
+   "text": "unlimited",
+   "line": 42,
+   "start": 230.14,
+   "end": 230.92,
+   "sim": 0.25
+  },
+  {
+   "text": "queries,",
+   "line": 42,
+   "start": 230.92,
+   "end": 231.7,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 42,
+   "start": 231.7,
+   "end": 232.16,
+   "sim": 1.0
+  },
+  {
+   "text": "LanguageTool",
+   "line": 42,
+   "start": 232.16,
+   "end": 232.62,
+   "sim": 0.8
+  },
+  {
+   "text": "per-check",
+   "line": 42,
+   "start": 232.76,
+   "end": 233.22,
+   "sim": 0.57
+  },
+  {
+   "text": "10,000",
+   "line": 42,
+   "start": 233.22,
+   "end": 234.24,
+   "sim": 0.0
+  },
+  {
+   "text": "characters",
+   "line": 42,
+   "start": 234.24,
+   "end": 234.72,
+   "sim": 0.55
+  },
+  {
+   "text": "support",
+   "line": 42,
+   "start": 234.72,
+   "end": 235.08,
+   "sim": 0.5
+  },
+  {
+   "text": "karta",
+   "line": 42,
+   "start": 235.08,
+   "end": 235.44,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 42,
+   "start": 235.44,
+   "end": 235.58,
+   "sim": 1.0
+  },
+  {
+   "text": "Daily",
+   "line": 43,
+   "start": 235.58,
+   "end": 236.17,
+   "sim": 0.0
+  },
+  {
+   "text": "emails",
+   "line": 43,
+   "start": 236.17,
+   "end": 236.76,
+   "sim": 0.25
+  },
+  {
+   "text": "aur",
+   "line": 43,
+   "start": 236.76,
+   "end": 236.84,
+   "sim": 1.0
+  },
+  {
+   "text": "reports",
+   "line": 43,
+   "start": 236.84,
+   "end": 237.28,
+   "sim": 0.6
+  },
+  {
+   "text": "ke",
+   "line": 43,
+   "start": 237.28,
+   "end": 237.36,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 43,
+   "start": 237.36,
+   "end": 237.4,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 43,
+   "start": 237.4,
+   "end": 237.44,
+   "sim": 0.0
+  },
+  {
+   "text": "limits",
+   "line": 43,
+   "start": 237.44,
+   "end": 238.08,
+   "sim": 0.86
+  },
+  {
+   "text": "zarurat",
+   "line": 43,
+   "start": 238.08,
+   "end": 238.6,
+   "sim": 1.0
+  },
+  {
+   "text": "se",
+   "line": 43,
+   "start": 238.6,
+   "end": 238.8,
+   "sim": 1.0
+  },
+  {
+   "text": "zyada",
+   "line": 43,
+   "start": 238.8,
+   "end": 239.2,
+   "sim": 1.0
+  },
+  {
+   "text": "hain.",
+   "line": 43,
+   "start": 239.2,
+   "end": 239.62,
+   "sim": 1.0
+  },
+  {
+   "text": "Har",
+   "line": 44,
+   "start": 239.62,
+   "end": 240.14,
+   "sim": 1.0
+  },
+  {
+   "text": "din",
+   "line": 44,
+   "start": 240.14,
+   "end": 240.36,
+   "sim": 1.0
+  },
+  {
+   "text": "same",
+   "line": 44,
+   "start": 240.36,
+   "end": 240.88,
+   "sim": 1.0
+  },
+  {
+   "text": "boring",
+   "line": 44,
+   "start": 240.88,
+   "end": 241.5,
+   "sim": 1.0
+  },
+  {
+   "text": "computer",
+   "line": 44,
+   "start": 241.5,
+   "end": 241.9,
+   "sim": 0.8
+  },
+  {
+   "text": "tasks",
+   "line": 44,
+   "start": 241.9,
+   "end": 242.32,
+   "sim": 1.0
+  },
+  {
+   "text": "repeat",
+   "line": 44,
+   "start": 242.32,
+   "end": 242.66,
+   "sim": 1.0
+  },
+  {
+   "text": "karna:",
+   "line": 44,
+   "start": 242.65,
+   "end": 243.03,
+   "sim": 1.0
+  },
+  {
+   "text": "Email",
+   "line": 44,
+   "start": 243.61,
+   "end": 243.75,
+   "sim": 0.8
+  },
+  {
+   "text": "aayi",
+   "line": 44,
+   "start": 243.75,
+   "end": 244.01,
+   "sim": 0.33
+  },
+  {
+   "text": "→",
+   "line": 44,
+   "start": 244.01,
+   "end": 244.27,
+   "sim": 0.0
+  },
+  {
+   "text": "attachment",
+   "line": 44,
+   "start": 244.27,
+   "end": 244.75,
+   "sim": 0.77
+  },
+  {
+   "text": "download",
+   "line": 44,
+   "start": 244.75,
+   "end": 245.15,
+   "sim": 0.75
+  },
+  {
+   "text": "ki",
+   "line": 44,
+   "start": 245.15,
+   "end": 245.45,
+   "sim": 1.0
+  },
+  {
+   "text": "→",
+   "line": 44,
+   "start": 245.45,
+   "end": 245.73,
+   "sim": 0.0
+  },
+  {
+   "text": "Google",
+   "line": 44,
+   "start": 245.73,
+   "end": 245.95,
+   "sim": 1.0
+  },
+  {
+   "text": "Drive",
+   "line": 44,
+   "start": 245.95,
+   "end": 246.25,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 44,
+   "start": 246.25,
+   "end": 246.47,
+   "sim": 0.67
+  },
+  {
+   "text": "save",
+   "line": 44,
+   "start": 246.47,
+   "end": 246.75,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 44,
+   "start": 246.75,
+   "end": 247.01,
+   "sim": 1.0
+  },
+  {
+   "text": "→",
+   "line": 44,
+   "start": 247.01,
+   "end": 247.43,
+   "sim": 0.0
+  },
+  {
+   "text": "team",
+   "line": 44,
+   "start": 247.43,
+   "end": 247.57,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 44,
+   "start": 247.57,
+   "end": 247.77,
+   "sim": 1.0
+  },
+  {
+   "text": "message",
+   "line": 44,
+   "start": 247.77,
+   "end": 248.13,
+   "sim": 0.57
+  },
+  {
+   "text": "bheja.",
+   "line": 44,
+   "start": 248.13,
+   "end": 248.53,
+   "sim": 1.0
+  },
+  {
+   "text": "Is",
+   "line": 45,
+   "start": 248.93,
+   "end": 249.07,
+   "sim": 1.0
+  },
+  {
+   "text": "manual",
+   "line": 45,
+   "start": 249.07,
+   "end": 249.51,
+   "sim": 0.5
+  },
+  {
+   "text": "kaam",
+   "line": 45,
+   "start": 249.51,
+   "end": 249.83,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 45,
+   "start": 249.83,
+   "end": 249.99,
+   "sim": 1.0
+  },
+  {
+   "text": "ghante",
+   "line": 45,
+   "start": 249.99,
+   "end": 250.49,
+   "sim": 1.0
+  },
+  {
+   "text": "waste",
+   "line": 45,
+   "start": 250.49,
+   "end": 250.77,
+   "sim": 0.67
+  },
+  {
+   "text": "hote",
+   "line": 45,
+   "start": 250.77,
+   "end": 251.05,
+   "sim": 1.0
+  },
+  {
+   "text": "hain.",
+   "line": 45,
+   "start": 251.05,
+   "end": 251.25,
+   "sim": 1.0
+  },
+  {
+   "text": "Zapier",
+   "line": 46,
+   "start": 251.4,
+   "end": 252.04,
+   "sim": 1.0
+  },
+  {
+   "text": "jaise",
+   "line": 46,
+   "start": 252.04,
+   "end": 252.36,
+   "sim": 1.0
+  },
+  {
+   "text": "automation",
+   "line": 46,
+   "start": 252.44,
+   "end": 252.78,
+   "sim": 0.89
+  },
+  {
+   "text": "tools",
+   "line": 46,
+   "start": 252.78,
+   "end": 253.16,
+   "sim": 0.67
+  },
+  {
+   "text": "bohot",
+   "line": 46,
+   "start": 253.16,
+   "end": 253.3,
+   "sim": 0.29
+  },
+  {
+   "text": "mehange",
+   "line": 46,
+   "start": 253.3,
+   "end": 253.44,
+   "sim": 0.0
+  },
+  {
+   "text": "hain",
+   "line": 46,
+   "start": 253.44,
+   "end": 254.18,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 46,
+   "start": 254.18,
+   "end": 254.5,
+   "sim": 1.0
+  },
+  {
+   "text": "unka",
+   "line": 46,
+   "start": 254.5,
+   "end": 254.64,
+   "sim": 0.8
+  },
+  {
+   "text": "free",
+   "line": 46,
+   "start": 254.8,
+   "end": 255.06,
+   "sim": 1.0
+  },
+  {
+   "text": "plan",
+   "line": 46,
+   "start": 255.06,
+   "end": 255.36,
+   "sim": 1.0
+  },
+  {
+   "text": "lagbhag",
+   "line": 46,
+   "start": 255.36,
+   "end": 255.88,
+   "sim": 0.75
+  },
+  {
+   "text": "useless",
+   "line": 46,
+   "start": 255.88,
+   "end": 256.38,
+   "sim": 0.5
+  },
+  {
+   "text": "hai.",
+   "line": 46,
+   "start": 256.38,
+   "end": 256.54,
+   "sim": 1.0
+  },
+  {
+   "text": "Iska",
+   "line": 47,
+   "start": 256.88,
+   "end": 257.18,
+   "sim": 1.0
+  },
+  {
+   "text": "solution",
+   "line": 47,
+   "start": 257.18,
+   "end": 257.38,
+   "sim": 0.67
+  },
+  {
+   "text": "hai",
+   "line": 47,
+   "start": 257.6,
+   "end": 257.8,
+   "sim": 1.0
+  },
+  {
+   "text": "Make.com",
+   "line": 47,
+   "start": 257.8,
+   "end": 258.22,
+   "sim": 0.67
+  },
+  {
+   "text": "ya",
+   "line": 47,
+   "start": 258.76,
+   "end": 259.08,
+   "sim": 1.0
+  },
+  {
+   "text": "open-source",
+   "line": 47,
+   "start": 259.08,
+   "end": 259.44,
+   "sim": 0.67
+  },
+  {
+   "text": "Activepieces.",
+   "line": 47,
+   "start": 259.8,
+   "end": 260.24,
+   "sim": 0.55
+  },
+  {
+   "text": "Make",
+   "line": 48,
+   "start": 260.72,
+   "end": 261.34,
+   "sim": 0.5
+  },
+  {
+   "text": "ke",
+   "line": 48,
+   "start": 261.34,
+   "end": 261.54,
+   "sim": 1.0
+  },
+  {
+   "text": "visual",
+   "line": 48,
+   "start": 261.54,
+   "end": 261.9,
+   "sim": 0.8
+  },
+  {
+   "text": "builder",
+   "line": 48,
+   "start": 261.9,
+   "end": 262.24,
+   "sim": 0.86
+  },
+  {
+   "text": "par",
+   "line": 48,
+   "start": 262.24,
+   "end": 262.48,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 48,
+   "start": 262.48,
+   "end": 262.72,
+   "sim": 1.0
+  },
+  {
+   "text": "drag-and-drop",
+   "line": 48,
+   "start": 262.72,
+   "end": 263.1,
+   "sim": 0.55
+  },
+  {
+   "text": "workflows",
+   "line": 48,
+   "start": 263.4,
+   "end": 263.96,
+   "sim": 0.62
+  },
+  {
+   "text": "bana",
+   "line": 48,
+   "start": 263.96,
+   "end": 264.2,
+   "sim": 1.0
+  },
+  {
+   "text": "sakte",
+   "line": 48,
+   "start": 264.2,
+   "end": 264.54,
+   "sim": 1.0
+  },
+  {
+   "text": "ho.",
+   "line": 48,
+   "start": 264.54,
+   "end": 264.68,
+   "sim": 1.0
+  },
+  {
+   "text": "Example:",
+   "line": 49,
+   "start": 264.87,
+   "end": 265.53,
+   "sim": 0.55
+  },
+  {
+   "text": "Jaise",
+   "line": 49,
+   "start": 265.95,
+   "end": 266.25,
+   "sim": 1.0
+  },
+  {
+   "text": "hi",
+   "line": 49,
+   "start": 266.25,
+   "end": 266.41,
+   "sim": 1.0
+  },
+  {
+   "text": "koi",
+   "line": 49,
+   "start": 266.41,
+   "end": 266.59,
+   "sim": 1.0
+  },
+  {
+   "text": "important",
+   "line": 49,
+   "start": 266.59,
+   "end": 267.11,
+   "sim": 0.73
+  },
+  {
+   "text": "client",
+   "line": 49,
+   "start": 267.11,
+   "end": 267.51,
+   "sim": 0.5
+  },
+  {
+   "text": "invoice",
+   "line": 49,
+   "start": 267.51,
+   "end": 267.67,
+   "sim": 0.33
+  },
+  {
+   "text": "email",
+   "line": 49,
+   "start": 267.67,
+   "end": 268.29,
+   "sim": 1.0
+  },
+  {
+   "text": "kare,",
+   "line": 49,
+   "start": 268.29,
+   "end": 268.57,
+   "sim": 1.0
+  },
+  {
+   "text": "woh",
+   "line": 49,
+   "start": 268.57,
+   "end": 268.82,
+   "sim": 0.0
+  },
+  {
+   "text": "automatically",
+   "line": 49,
+   "start": 268.82,
+   "end": 269.07,
+   "sim": 0.22
+  },
+  {
+   "text": "aapke",
+   "line": 49,
+   "start": 269.07,
+   "end": 269.83,
+   "sim": 1.0
+  },
+  {
+   "text": "Google",
+   "line": 49,
+   "start": 269.83,
+   "end": 270.49,
+   "sim": 0.0
+  },
+  {
+   "text": "Drive",
+   "line": 49,
+   "start": 270.49,
+   "end": 270.83,
+   "sim": 1.0
+  },
+  {
+   "text": "folder",
+   "line": 49,
+   "start": 270.83,
+   "end": 271.21,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 49,
+   "start": 271.21,
+   "end": 271.39,
+   "sim": 1.0
+  },
+  {
+   "text": "save",
+   "line": 49,
+   "start": 271.39,
+   "end": 271.67,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 49,
+   "start": 271.67,
+   "end": 271.81,
+   "sim": 1.0
+  },
+  {
+   "text": "jaye",
+   "line": 49,
+   "start": 271.81,
+   "end": 272.05,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 49,
+   "start": 272.23,
+   "end": 272.43,
+   "sim": 0.5
+  },
+  {
+   "text": "aapko",
+   "line": 49,
+   "start": 272.43,
+   "end": 272.71,
+   "sim": 0.5
+  },
+  {
+   "text": "notification",
+   "line": 49,
+   "start": 272.71,
+   "end": 273.41,
+   "sim": 0.55
+  },
+  {
+   "text": "mil",
+   "line": 49,
+   "start": 273.41,
+   "end": 273.61,
+   "sim": 1.0
+  },
+  {
+   "text": "jaye.",
+   "line": 49,
+   "start": 273.61,
+   "end": 273.81,
+   "sim": 1.0
+  },
+  {
+   "text": "Ek",
+   "line": 50,
+   "start": 274.13,
+   "end": 274.43,
+   "sim": 0.5
+  },
+  {
+   "text": "baar",
+   "line": 50,
+   "start": 274.43,
+   "end": 274.61,
+   "sim": 1.0
+  },
+  {
+   "text": "setup",
+   "line": 50,
+   "start": 274.61,
+   "end": 274.89,
+   "sim": 0.67
+  },
+  {
+   "text": "karo",
+   "line": 50,
+   "start": 274.89,
+   "end": 275.21,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 50,
+   "start": 275.21,
+   "end": 275.55,
+   "sim": 1.0
+  },
+  {
+   "text": "bhool",
+   "line": 50,
+   "start": 275.67,
+   "end": 275.83,
+   "sim": 1.0
+  },
+  {
+   "text": "jao.",
+   "line": 50,
+   "start": 275.83,
+   "end": 276.11,
+   "sim": 1.0
+  },
+  {
+   "text": "Zapier",
+   "line": 51,
+   "start": 276.27,
+   "end": 276.89,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 51,
+   "start": 276.89,
+   "end": 277.11,
+   "sim": 1.0
+  },
+  {
+   "text": "free",
+   "line": 51,
+   "start": 277.11,
+   "end": 277.29,
+   "sim": 1.0
+  },
+  {
+   "text": "tier",
+   "line": 51,
+   "start": 277.29,
+   "end": 277.55,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 51,
+   "start": 277.55,
+   "end": 277.67,
+   "sim": 1.0
+  },
+  {
+   "text": "sirf",
+   "line": 51,
+   "start": 277.67,
+   "end": 277.71,
+   "sim": 0.0
+  },
+  {
+   "text": "100",
+   "line": 51,
+   "start": 277.71,
+   "end": 277.75,
+   "sim": 0.0
+  },
+  {
+   "text": "simple",
+   "line": 51,
+   "start": 277.75,
+   "end": 277.79,
+   "sim": 0.0
+  },
+  {
+   "text": "tasks",
+   "line": 51,
+   "start": 277.79,
+   "end": 279.39,
+   "sim": 0.8
+  },
+  {
+   "text": "milte",
+   "line": 51,
+   "start": 279.39,
+   "end": 279.69,
+   "sim": 1.0
+  },
+  {
+   "text": "hain,",
+   "line": 51,
+   "start": 279.69,
+   "end": 279.91,
+   "sim": 1.0
+  },
+  {
+   "text": "jabki",
+   "line": 51,
+   "start": 280.13,
+   "end": 280.37,
+   "sim": 0.8
+  },
+  {
+   "text": "Make.com",
+   "line": 51,
+   "start": 280.55,
+   "end": 280.81,
+   "sim": 0.67
+  },
+  {
+   "text": "ke",
+   "line": 51,
+   "start": 281.29,
+   "end": 281.39,
+   "sim": 1.0
+  },
+  {
+   "text": "free",
+   "line": 51,
+   "start": 281.39,
+   "end": 281.49,
+   "sim": 0.0
+  },
+  {
+   "text": "plan",
+   "line": 51,
+   "start": 281.49,
+   "end": 281.99,
+   "sim": 0.75
+  },
+  {
+   "text": "mein",
+   "line": 51,
+   "start": 281.99,
+   "end": 282.41,
+   "sim": 1.0
+  },
+  {
+   "text": "aapko",
+   "line": 51,
+   "start": 282.41,
+   "end": 282.79,
+   "sim": 1.0
+  },
+  {
+   "text": "1,000",
+   "line": 51,
+   "start": 282.79,
+   "end": 283.49,
+   "sim": 0.0
+  },
+  {
+   "text": "operations",
+   "line": 51,
+   "start": 283.49,
+   "end": 283.89,
+   "sim": 1.0
+  },
+  {
+   "text": "per",
+   "line": 51,
+   "start": 283.89,
+   "end": 284.41,
+   "sim": 1.0
+  },
+  {
+   "text": "month",
+   "line": 51,
+   "start": 284.41,
+   "end": 284.77,
+   "sim": 0.8
+  },
+  {
+   "text": "milte",
+   "line": 51,
+   "start": 284.77,
+   "end": 285.13,
+   "sim": 1.0
+  },
+  {
+   "text": "hain,",
+   "line": 51,
+   "start": 285.13,
+   "end": 285.29,
+   "sim": 0.8
+  },
+  {
+   "text": "wo",
+   "line": 51,
+   "start": 285.29,
+   "end": 285.87,
+   "sim": 0.0
+  },
+  {
+   "text": "bhi",
+   "line": 51,
+   "start": 285.87,
+   "end": 286.45,
+   "sim": 0.0
+  },
+  {
+   "text": "multi-step",
+   "line": 51,
+   "start": 286.45,
+   "end": 286.75,
+   "sim": 0.67
+  },
+  {
+   "text": "workflows",
+   "line": 51,
+   "start": 286.95,
+   "end": 287.21,
+   "sim": 0.73
+  },
+  {
+   "text": "ke",
+   "line": 51,
+   "start": 287.21,
+   "end": 287.43,
+   "sim": 1.0
+  },
+  {
+   "text": "saath!",
+   "line": 51,
+   "start": 287.43,
+   "end": 287.67,
+   "sim": 1.0
+  },
+  {
+   "text": "Ek",
+   "line": 52,
+   "start": 287.67,
+   "end": 288.62,
+   "sim": 0.0
+  },
+  {
+   "text": "pro-tip",
+   "line": 52,
+   "start": 288.62,
+   "end": 288.86,
+   "sim": 0.67
+  },
+  {
+   "text": "jo",
+   "line": 52,
+   "start": 288.86,
+   "end": 289.16,
+   "sim": 1.0
+  },
+  {
+   "text": "aapka",
+   "line": 52,
+   "start": 289.16,
+   "end": 289.46,
+   "sim": 1.0
+  },
+  {
+   "text": "real",
+   "line": 52,
+   "start": 289.46,
+   "end": 289.72,
+   "sim": 1.0
+  },
+  {
+   "text": "time",
+   "line": 52,
+   "start": 289.72,
+   "end": 289.98,
+   "sim": 1.0
+  },
+  {
+   "text": "bachayegi:",
+   "line": 52,
+   "start": 289.98,
+   "end": 290.54,
+   "sim": 1.0
+  },
+  {
+   "text": "In",
+   "line": 52,
+   "start": 290.54,
+   "end": 291.1,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 52,
+   "start": 291.1,
+   "end": 291.32,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 52,
+   "start": 291.32,
+   "end": 291.58,
+   "sim": 1.0
+  },
+  {
+   "text": "bookmark",
+   "line": 52,
+   "start": 291.58,
+   "end": 292.02,
+   "sim": 1.0
+  },
+  {
+   "text": "karke",
+   "line": 52,
+   "start": 292.02,
+   "end": 292.38,
+   "sim": 1.0
+  },
+  {
+   "text": "mat",
+   "line": 52,
+   "start": 292.38,
+   "end": 292.6,
+   "sim": 0.5
+  },
+  {
+   "text": "chhodo,",
+   "line": 52,
+   "start": 292.6,
+   "end": 292.92,
+   "sim": 1.0
+  },
+  {
+   "text": "warna",
+   "line": 52,
+   "start": 292.92,
+   "end": 293.5,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 52,
+   "start": 293.5,
+   "end": 293.68,
+   "sim": 1.0
+  },
+  {
+   "text": "inhein",
+   "line": 52,
+   "start": 293.68,
+   "end": 293.9,
+   "sim": 1.0
+  },
+  {
+   "text": "bhool",
+   "line": 52,
+   "start": 293.9,
+   "end": 294.16,
+   "sim": 1.0
+  },
+  {
+   "text": "jaoge.",
+   "line": 52,
+   "start": 294.16,
+   "end": 294.55,
+   "sim": 0.0
+  },
+  {
+   "text": "Apne",
+   "line": 53,
+   "start": 294.55,
+   "end": 294.59,
+   "sim": 1.0
+  },
+  {
+   "text": "Chrome",
+   "line": 53,
+   "start": 294.59,
+   "end": 295.63,
+   "sim": 0.67
+  },
+  {
+   "text": "ya",
+   "line": 53,
+   "start": 295.63,
+   "end": 295.79,
+   "sim": 1.0
+  },
+  {
+   "text": "Edge",
+   "line": 53,
+   "start": 295.79,
+   "end": 296.03,
+   "sim": 0.4
+  },
+  {
+   "text": "browser",
+   "line": 53,
+   "start": 296.03,
+   "end": 296.47,
+   "sim": 0.8
+  },
+  {
+   "text": "ke",
+   "line": 53,
+   "start": 296.47,
+   "end": 296.63,
+   "sim": 1.0
+  },
+  {
+   "text": "Sidebar",
+   "line": 53,
+   "start": 296.89,
+   "end": 297.13,
+   "sim": 0.67
+  },
+  {
+   "text": "mein",
+   "line": 53,
+   "start": 297.13,
+   "end": 297.43,
+   "sim": 1.0
+  },
+  {
+   "text": "in",
+   "line": 53,
+   "start": 297.43,
+   "end": 297.59,
+   "sim": 1.0
+  },
+  {
+   "text": "5",
+   "line": 53,
+   "start": 297.59,
+   "end": 297.89,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 53,
+   "start": 297.89,
+   "end": 298.33,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 53,
+   "start": 298.33,
+   "end": 298.45,
+   "sim": 1.0
+  },
+  {
+   "text": "pin",
+   "line": 53,
+   "start": 298.45,
+   "end": 298.93,
+   "sim": 0.67
+  },
+  {
+   "text": "kar",
+   "line": 53,
+   "start": 298.93,
+   "end": 299.461,
+   "sim": 0.0
+  },
+  {
+   "text": "lo",
+   "line": 53,
+   "start": 299.461,
+   "end": 299.992,
+   "sim": 0.0
+  },
+  {
+   "text": "ya",
+   "line": 53,
+   "start": 299.992,
+   "end": 300.523,
+   "sim": 0.0
+  },
+  {
+   "text": "\"Install",
+   "line": 53,
+   "start": 300.523,
+   "end": 301.053,
+   "sim": 0.0
+  },
+  {
+   "text": "as",
+   "line": 53,
+   "start": 301.053,
+   "end": 301.584,
+   "sim": 0.0
+  },
+  {
+   "text": "App\"",
+   "line": 53,
+   "start": 301.584,
+   "end": 302.115,
+   "sim": 0.0
+  },
+  {
+   "text": "select",
+   "line": 53,
+   "start": 302.115,
+   "end": 302.646,
+   "sim": 0.0
+  },
+  {
+   "text": "kar",
+   "line": 53,
+   "start": 302.646,
+   "end": 303.177,
+   "sim": 0.0
+  },
+  {
+   "text": "lo.",
+   "line": 53,
+   "start": 303.177,
+   "end": 303.707,
+   "sim": 0.0
+  },
+  {
+   "text": "Aise",
+   "line": 54,
+   "start": 303.707,
+   "end": 304.238,
+   "sim": 0.0
+  },
+  {
+   "text": "jab",
+   "line": 54,
+   "start": 304.238,
+   "end": 304.769,
+   "sim": 0.0
+  },
+  {
+   "text": "bhi",
+   "line": 54,
+   "start": 304.769,
+   "end": 305.3,
+   "sim": 0.0
+  },
+  {
+   "text": "aapko",
+   "line": 54,
+   "start": 305.3,
+   "end": 305.41,
+   "sim": 0.8
+  },
+  {
+   "text": "PDF",
+   "line": 54,
+   "start": 305.41,
+   "end": 305.465,
+   "sim": 0.0
+  },
+  {
+   "text": "summarize",
+   "line": 54,
+   "start": 305.465,
+   "end": 305.52,
+   "sim": 0.0
+  },
+  {
+   "text": "karna",
+   "line": 54,
+   "start": 305.52,
+   "end": 305.78,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 54,
+   "start": 305.78,
+   "end": 305.89,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 54,
+   "start": 305.89,
+   "end": 305.984,
+   "sim": 0.0
+  },
+  {
+   "text": "audio",
+   "line": 54,
+   "start": 305.984,
+   "end": 306.078,
+   "sim": 0.0
+  },
+  {
+   "text": "transcribe",
+   "line": 54,
+   "start": 306.078,
+   "end": 306.172,
+   "sim": 0.0
+  },
+  {
+   "text": "karna",
+   "line": 54,
+   "start": 306.172,
+   "end": 306.266,
+   "sim": 0.0
+  },
+  {
+   "text": "ho,",
+   "line": 54,
+   "start": 306.266,
+   "end": 306.36,
+   "sim": 0.0
+  },
+  {
+   "text": "bas",
+   "line": 54,
+   "start": 306.36,
+   "end": 306.56,
+   "sim": 1.0
+  },
+  {
+   "text": "side",
+   "line": 54,
+   "start": 306.56,
+   "end": 307.08,
+   "sim": 0.5
+  },
+  {
+   "text": "panel",
+   "line": 54,
+   "start": 307.08,
+   "end": 307.38,
+   "sim": 1.0
+  },
+  {
+   "text": "par",
+   "line": 54,
+   "start": 307.38,
+   "end": 307.62,
+   "sim": 1.0
+  },
+  {
+   "text": "ek",
+   "line": 54,
+   "start": 307.62,
+   "end": 307.94,
+   "sim": 1.0
+  },
+  {
+   "text": "click",
+   "line": 54,
+   "start": 307.94,
+   "end": 308.12,
+   "sim": 0.57
+  },
+  {
+   "text": "karo",
+   "line": 54,
+   "start": 308.12,
+   "end": 308.38,
+   "sim": 1.0
+  },
+  {
+   "text": "—",
+   "line": 54,
+   "start": 308.38,
+   "end": 308.72,
+   "sim": 0.0
+  },
+  {
+   "text": "bina",
+   "line": 54,
+   "start": 308.72,
+   "end": 308.98,
+   "sim": 1.0
+  },
+  {
+   "text": "main",
+   "line": 54,
+   "start": 308.98,
+   "end": 309.16,
+   "sim": 1.0
+  },
+  {
+   "text": "window",
+   "line": 54,
+   "start": 309.16,
+   "end": 309.42,
+   "sim": 0.86
+  },
+  {
+   "text": "chode",
+   "line": 54,
+   "start": 309.42,
+   "end": 309.8,
+   "sim": 1.0
+  },
+  {
+   "text": "aapka",
+   "line": 54,
+   "start": 309.8,
+   "end": 310.3,
+   "sim": 1.0
+  },
+  {
+   "text": "kaam",
+   "line": 54,
+   "start": 310.3,
+   "end": 310.54,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 54,
+   "start": 310.54,
+   "end": 310.76,
+   "sim": 1.0
+  },
+  {
+   "text": "jayega.",
+   "line": 54,
+   "start": 310.76,
+   "end": 311.18,
+   "sim": 1.0
+  },
+  {
+   "text": "Toh",
+   "line": 55,
+   "start": 311.74,
+   "end": 311.92,
+   "sim": 0.67
+  },
+  {
+   "text": "yeh",
+   "line": 55,
+   "start": 311.92,
+   "end": 312.04,
+   "sim": 0.0
+  },
+  {
+   "text": "the",
+   "line": 55,
+   "start": 312.04,
+   "end": 312.16,
+   "sim": 0.0
+  },
+  {
+   "text": "5",
+   "line": 55,
+   "start": 312.16,
+   "end": 312.56,
+   "sim": 1.0
+  },
+  {
+   "text": "free",
+   "line": 55,
+   "start": 312.56,
+   "end": 312.96,
+   "sim": 1.0
+  },
+  {
+   "text": "AI",
+   "line": 55,
+   "start": 312.96,
+   "end": 313.32,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 55,
+   "start": 313.32,
+   "end": 313.68,
+   "sim": 1.0
+  },
+  {
+   "text": "jo",
+   "line": 55,
+   "start": 313.68,
+   "end": 314.32,
+   "sim": 0.0
+  },
+  {
+   "text": "aapke",
+   "line": 55,
+   "start": 314.32,
+   "end": 314.54,
+   "sim": 1.0
+  },
+  {
+   "text": "har",
+   "line": 55,
+   "start": 314.54,
+   "end": 314.84,
+   "sim": 1.0
+  },
+  {
+   "text": "mahine",
+   "line": 55,
+   "start": 314.84,
+   "end": 315.26,
+   "sim": 1.0
+  },
+  {
+   "text": "hazaron",
+   "line": 55,
+   "start": 315.44,
+   "end": 315.8,
+   "sim": 0.57
+  },
+  {
+   "text": "rupaye",
+   "line": 55,
+   "start": 315.8,
+   "end": 316.18,
+   "sim": 0.67
+  },
+  {
+   "text": "aur",
+   "line": 55,
+   "start": 316.18,
+   "end": 316.42,
+   "sim": 1.0
+  },
+  {
+   "text": "ghanton",
+   "line": 55,
+   "start": 316.42,
+   "end": 316.9,
+   "sim": 0.86
+  },
+  {
+   "text": "ka",
+   "line": 55,
+   "start": 316.9,
+   "end": 317.04,
+   "sim": 1.0
+  },
+  {
+   "text": "time",
+   "line": 55,
+   "start": 317.04,
+   "end": 317.3,
+   "sim": 0.67
+  },
+  {
+   "text": "bachayenge.",
+   "line": 55,
+   "start": 317.38,
+   "end": 317.84,
+   "sim": 1.0
+  },
+  {
+   "text": "Sabhi",
+   "line": 56,
+   "start": 318.08,
+   "end": 318.36,
+   "sim": 1.0
+  },
+  {
+   "text": "tools",
+   "line": 56,
+   "start": 318.36,
+   "end": 318.72,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 56,
+   "start": 318.72,
+   "end": 318.88,
+   "sim": 1.0
+  },
+  {
+   "text": "direct,",
+   "line": 56,
+   "start": 318.88,
+   "end": 319.22,
+   "sim": 1.0
+  },
+  {
+   "text": "clean",
+   "line": 56,
+   "start": 319.22,
+   "end": 319.76,
+   "sim": 1.0
+  },
+  {
+   "text": "links",
+   "line": 56,
+   "start": 319.76,
+   "end": 320.12,
+   "sim": 1.0
+  },
+  {
+   "text": "neeche",
+   "line": 56,
+   "start": 320.12,
+   "end": 320.54,
+   "sim": 1.0
+  },
+  {
+   "text": "description",
+   "line": 56,
+   "start": 320.54,
+   "end": 320.98,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 56,
+   "start": 320.98,
+   "end": 321.26,
+   "sim": 1.0
+  },
+  {
+   "text": "hain",
+   "line": 56,
+   "start": 321.26,
+   "end": 321.58,
+   "sim": 1.0
+  },
+  {
+   "text": "—",
+   "line": 56,
+   "start": 321.58,
+   "end": 321.8,
+   "sim": 0.0
+  },
+  {
+   "text": "koi",
+   "line": 56,
+   "start": 321.8,
+   "end": 322.02,
+   "sim": 1.0
+  },
+  {
+   "text": "affiliate",
+   "line": 56,
+   "start": 322.02,
+   "end": 322.28,
+   "sim": 1.0
+  },
+  {
+   "text": "drama",
+   "line": 56,
+   "start": 322.28,
+   "end": 322.72,
+   "sim": 0.8
+  },
+  {
+   "text": "nahi!",
+   "line": 56,
+   "start": 322.72,
+   "end": 322.96,
+   "sim": 0.67
+  },
+  {
+   "text": "Ab",
+   "line": 57,
+   "start": 323.12,
+   "end": 323.48,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 57,
+   "start": 323.48,
+   "end": 323.76,
+   "sim": 1.0
+  },
+  {
+   "text": "mujhe",
+   "line": 57,
+   "start": 323.76,
+   "end": 324.0,
+   "sim": 1.0
+  },
+  {
+   "text": "comment",
+   "line": 57,
+   "start": 324.0,
+   "end": 324.34,
+   "sim": 0.67
+  },
+  {
+   "text": "karke",
+   "line": 57,
+   "start": 324.34,
+   "end": 324.56,
+   "sim": 1.0
+  },
+  {
+   "text": "batao:",
+   "line": 57,
+   "start": 324.56,
+   "end": 324.84,
+   "sim": 1.0
+  },
+  {
+   "text": "In",
+   "line": 57,
+   "start": 325.12,
+   "end": 325.3,
+   "sim": 1.0
+  },
+  {
+   "text": "5",
+   "line": 57,
+   "start": 325.3,
+   "end": 325.7,
+   "sim": 0.4
+  },
+  {
+   "text": "mein",
+   "line": 57,
+   "start": 325.7,
+   "end": 325.88,
+   "sim": 0.67
+  },
+  {
+   "text": "se",
+   "line": 57,
+   "start": 325.88,
+   "end": 326.14,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 57,
+   "start": 326.14,
+   "end": 326.42,
+   "sim": 0.5
+  },
+  {
+   "text": "sabse",
+   "line": 57,
+   "start": 326.42,
+   "end": 326.78,
+   "sim": 1.0
+  },
+  {
+   "text": "pehle",
+   "line": 57,
+   "start": 326.78,
+   "end": 327.1,
+   "sim": 0.5
+  },
+  {
+   "text": "kaunsa",
+   "line": 57,
+   "start": 327.1,
+   "end": 327.6,
+   "sim": 0.8
+  },
+  {
+   "text": "tool",
+   "line": 57,
+   "start": 327.6,
+   "end": 327.78,
+   "sim": 1.0
+  },
+  {
+   "text": "try",
+   "line": 57,
+   "start": 327.78,
+   "end": 327.98,
+   "sim": 0.67
+  },
+  {
+   "text": "karne",
+   "line": 57,
+   "start": 327.98,
+   "end": 328.28,
+   "sim": 1.0
+  },
+  {
+   "text": "wale",
+   "line": 57,
+   "start": 328.28,
+   "end": 328.54,
+   "sim": 1.0
+  },
+  {
+   "text": "ho?",
+   "line": 57,
+   "start": 328.54,
+   "end": 328.7,
+   "sim": 1.0
+  },
+  {
+   "text": "Ya",
+   "line": 58,
+   "start": 328.98,
+   "end": 329.22,
+   "sim": 1.0
+  },
+  {
+   "text": "aapke",
+   "line": 58,
+   "start": 329.54,
+   "end": 329.7,
+   "sim": 0.67
+  },
+  {
+   "text": "paas",
+   "line": 58,
+   "start": 329.7,
+   "end": 329.94,
+   "sim": 1.0
+  },
+  {
+   "text": "koi",
+   "line": 58,
+   "start": 329.94,
+   "end": 330.12,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 58,
+   "start": 330.12,
+   "end": 330.44,
+   "sim": 1.0
+  },
+  {
+   "text": "secret",
+   "line": 58,
+   "start": 330.44,
+   "end": 330.84,
+   "sim": 0.75
+  },
+  {
+   "text": "free",
+   "line": 58,
+   "start": 330.84,
+   "end": 331.04,
+   "sim": 1.0
+  },
+  {
+   "text": "AI",
+   "line": 58,
+   "start": 331.04,
+   "end": 331.28,
+   "sim": 1.0
+  },
+  {
+   "text": "tool",
+   "line": 58,
+   "start": 331.28,
+   "end": 331.6,
+   "sim": 0.5
+  },
+  {
+   "text": "hai?",
+   "line": 58,
+   "start": 331.6,
+   "end": 331.76,
+   "sim": 1.0
+  },
+  {
+   "text": "Comment",
+   "line": 59,
+   "start": 332.14,
+   "end": 332.48,
+   "sim": 0.44
+  },
+  {
+   "text": "section",
+   "line": 59,
+   "start": 332.48,
+   "end": 332.78,
+   "sim": 0.57
+  },
+  {
+   "text": "mein",
+   "line": 59,
+   "start": 332.78,
+   "end": 332.92,
+   "sim": 0.67
+  },
+  {
+   "text": "zaroor",
+   "line": 59,
+   "start": 332.92,
+   "end": 333.34,
+   "sim": 1.0
+  },
+  {
+   "text": "share",
+   "line": 59,
+   "start": 333.34,
+   "end": 333.56,
+   "sim": 1.0
+  },
+  {
+   "text": "karo!",
+   "line": 59,
+   "start": 333.56,
+   "end": 333.84,
+   "sim": 1.0
+  },
+  {
+   "text": "Video",
+   "line": 60,
+   "start": 333.95,
+   "end": 334.41,
+   "sim": 0.8
+  },
+  {
+   "text": "achhi",
+   "line": 60,
+   "start": 334.41,
+   "end": 334.67,
+   "sim": 0.67
+  },
+  {
+   "text": "lagi",
+   "line": 60,
+   "start": 334.67,
+   "end": 334.97,
+   "sim": 0.0
+  },
+  {
+   "text": "toh",
+   "line": 60,
+   "start": 334.97,
+   "end": 335.05,
+   "sim": 1.0
+  },
+  {
+   "text": "Like",
+   "line": 60,
+   "start": 335.05,
+   "end": 335.35,
+   "sim": 1.0
+  },
+  {
+   "text": "karo,",
+   "line": 60,
+   "start": 335.35,
+   "end": 335.65,
+   "sim": 1.0
+  },
+  {
+   "text": "doston",
+   "line": 60,
+   "start": 335.87,
+   "end": 336.19,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 60,
+   "start": 336.19,
+   "end": 336.33,
+   "sim": 1.0
+  },
+  {
+   "text": "saath",
+   "line": 60,
+   "start": 336.33,
+   "end": 336.53,
+   "sim": 1.0
+  },
+  {
+   "text": "share",
+   "line": 60,
+   "start": 336.53,
+   "end": 336.89,
+   "sim": 1.0
+  },
+  {
+   "text": "karo,",
+   "line": 60,
+   "start": 336.89,
+   "end": 337.21,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 60,
+   "start": 337.45,
+   "end": 337.55,
+   "sim": 1.0
+  },
+  {
+   "text": "NamasteTechy",
+   "line": 60,
+   "start": 337.55,
+   "end": 337.99,
+   "sim": 0.8
+  },
+  {
+   "text": "ko",
+   "line": 60,
+   "start": 338.25,
+   "end": 338.39,
+   "sim": 1.0
+  },
+  {
+   "text": "subscribe",
+   "line": 60,
+   "start": 338.39,
+   "end": 338.85,
+   "sim": 0.4
+  },
+  {
+   "text": "karke",
+   "line": 60,
+   "start": 338.85,
+   "end": 339.31,
+   "sim": 1.0
+  },
+  {
+   "text": "bell",
+   "line": 60,
+   "start": 339.53,
+   "end": 339.67,
+   "sim": 0.8
+  },
+  {
+   "text": "icon",
+   "line": 60,
+   "start": 339.67,
+   "end": 340.05,
+   "sim": 0.67
+  },
+  {
+   "text": "zaroor",
+   "line": 60,
+   "start": 340.05,
+   "end": 340.49,
+   "sim": 1.0
+  },
+  {
+   "text": "daba",
+   "line": 60,
+   "start": 340.49,
+   "end": 340.93,
+   "sim": 0.8
+  },
+  {
+   "text": "do.",
+   "line": 60,
+   "start": 340.93,
+   "end": 341.21,
+   "sim": 0.0
+  },
+  {
+   "text": "Milte",
+   "line": 61,
+   "start": 341.21,
+   "end": 341.49,
+   "sim": 1.0
+  },
+  {
+   "text": "hain",
+   "line": 61,
+   "start": 341.49,
+   "end": 341.67,
+   "sim": 0.67
+  },
+  {
+   "text": "agli",
+   "line": 61,
+   "start": 341.81,
+   "end": 342.07,
+   "sim": 0.8
+  },
+  {
+   "text": "video",
+   "line": 61,
+   "start": 342.07,
+   "end": 342.35,
+   "sim": 0.67
+  },
+  {
+   "text": "mein!",
+   "line": 61,
+   "start": 342.35,
+   "end": 342.57,
+   "sim": 1.0
+  }
+ ]
+}
