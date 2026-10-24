@@ -1,0 +1,55 @@
+1
+00:00:00,400 --> 00:00:02,990
+Petrol ka price hamesha paise mein kyun hota hai?
+
+2
+00:00:03,010 --> 00:00:05,560
+Kabhi ₹100 ya ₹102 jaisa round amount kyun nahi?
+
+3
+00:00:05,580 --> 00:00:08,090
+Delhi mein aaj ₹102.12. Chalo, isko todte hain.
+
+4
+00:00:08,110 --> 00:00:10,220
+Tel company ka hissa: lagbhag ₹61.80.
+
+5
+00:00:10,240 --> 00:00:12,030
+Centre sarkar ka tax: ₹19.90.
+
+6
+00:00:12,050 --> 00:00:14,000
+Pump wale bhaiya ki kamai: ₹3.83.
+
+7
+00:00:14,020 --> 00:00:15,600
+Itna samajh gaye?
+
+8
+00:00:15,620 --> 00:00:18,610
+Ab state ka tax. Yahi hissa price ko round nahi rehne deta.
+
+9
+00:00:18,630 --> 00:00:21,460
+Yeh percent mein lagta hai, lagbhag 19%, matlab ₹16.59.
+
+10
+00:00:21,480 --> 00:00:23,630
+Ab sirf paise jodo: 80, 90, 83 aur 59.
+
+11
+00:00:23,650 --> 00:00:25,840
+Total 312 paise, yaani ₹3 aur 12 paise.
+
+12
+00:00:25,860 --> 00:00:28,890
+Isliye petrol hamesha paise mein hota hai, kabhi round nahi.
+
+13
+00:00:28,910 --> 00:00:31,220
+Aapke shehar mein aaj petrol kitne ka hai?
+
+14
+00:00:31,240 --> 00:00:33,750
+Comment karo aur subscribe karo Whysplained ko!

@@ -1,0 +1,39 @@
+1
+00:00:00,500 --> 00:00:04,648
+Agar Windows 11 ki ye 5 shortkeys nahi jaante, to roz time hi waste kar rahe ho.
+
+2
+00:00:04,678 --> 00:00:07,044
+Aur number 1 to sabse jyada useful hai.
+
+3
+00:00:07,074 --> 00:00:11,353
+Number 5: jab bhi seat chhodo, to Windows + L dabao aur laptop ko turant lock karo.
+
+4
+00:00:11,383 --> 00:00:14,661
+Number 4: Windows + dot. PC se emoji keyboard open hota hai.
+
+5
+00:00:14,691 --> 00:00:19,231
+Number 3: browser mein galti se tab band ho gaye to bhai Ctrl + Shift + T, aur sab wapas.
+
+6
+00:00:19,261 --> 00:00:21,713
+Number 2: Windows + V. Clipboard history.
+
+7
+00:00:21,743 --> 00:00:25,022
+Jo bhi copy kiya, sab yahan. Pehli baar ek click se on karo.
+
+8
+00:00:25,052 --> 00:00:27,200
+Aur number 1: Windows + Shift + S.
+
+9
+00:00:27,230 --> 00:00:29,727
+Screen ka koi bhi hissa, screenshot le lo.
+
+10
+00:00:29,757 --> 00:00:33,905
+Tumhe kaunsa pehle se pata tha? Comment karo aur subscribe karo namastetechy ko.
