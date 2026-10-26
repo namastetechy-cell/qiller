@@ -1,0 +1,377 @@
+{
+ "duration": 140.578,
+ "segments": [
+  {
+   "para": 0,
+   "text": "You'd never call a 30-year-old tree a failure.",
+   "start": 0.15,
+   "end": 2.627
+  },
+  {
+   "para": 0,
+   "text": "So why do you feel like you're losing at 30?",
+   "start": 2.767,
+   "end": 4.823
+  },
+  {
+   "para": 0,
+   "text": "Nobody tells you the real reason.",
+   "start": 4.963,
+   "end": 6.609
+  },
+  {
+   "para": 1,
+   "text": "Let me tell you about Mike.",
+   "start": 6.949,
+   "end": 8.065
+  },
+  {
+   "para": 2,
+   "text": "Mike is turning 30 tonight.",
+   "start": 8.405,
+   "end": 9.893
+  },
+  {
+   "para": 2,
+   "text": "His friends are inside the restaurant, waiting with a cake.",
+   "start": 10.033,
+   "end": 12.866
+  },
+  {
+   "para": 2,
+   "text": "And Mike?",
+   "start": 13.006,
+   "end": 13.642
+  },
+  {
+   "para": 2,
+   "text": "He's sitting in his car in the parking lot, scrolling.",
+   "start": 13.742,
+   "end": 16.217
+  },
+  {
+   "para": 3,
+   "text": "Old college roommate: just bought a house.",
+   "start": 16.557,
+   "end": 18.66
+  },
+  {
+   "para": 3,
+   "text": "Girl from his first job: engaged, in Italy, holding a ring the size of a golf ball.",
+   "start": 18.8,
+   "end": 23.545
+  },
+  {
+   "para": 3,
+   "text": "A guy he used to beat at Mario Kart: \"Thrilled to announce I'm now a VP.\"",
+   "start": 23.685,
+   "end": 27.584
+  },
+  {
+   "para": 4,
+   "text": "And Mike looks at his own life.",
+   "start": 27.924,
+   "end": 29.33
+  },
+  {
+   "para": 4,
+   "text": "Decent job.",
+   "start": 29.47,
+   "end": 30.327
+  },
+  {
+   "para": 4,
+   "text": "Small apartment.",
+   "start": 30.427,
+   "end": 31.388
+  },
+  {
+   "para": 4,
+   "text": "A plant he's kept alive for three whole weeks.",
+   "start": 31.488,
+   "end": 33.761
+  },
+  {
+   "para": 4,
+   "text": "And he thinks: \"I'm behind.\"",
+   "start": 33.901,
+   "end": 35.404
+  },
+  {
+   "para": 5,
+   "text": "Here's what nobody told Mike.",
+   "start": 35.744,
+   "end": 37.306
+  },
+  {
+   "para": 5,
+   "text": "In 1954, a psychologist named Leon Festinger described something called social comparison.",
+   "start": 37.446,
+   "end": 43.319
+  },
+  {
+   "para": 5,
+   "text": "We figure out how we're doing by comparing ourselves to other people.",
+   "start": 43.459,
+   "end": 46.964
+  },
+  {
+   "para": 5,
+   "text": "That's normal.",
+   "start": 47.104,
+   "end": 47.812
+  },
+  {
+   "para": 5,
+   "text": "That's human.",
+   "start": 47.912,
+   "end": 48.631
+  },
+  {
+   "para": 6,
+   "text": "But here's the problem.",
+   "start": 48.931,
+   "end": 50.054
+  },
+  {
+   "para": 6,
+   "text": "Mike isn't comparing his life to their lives.",
+   "start": 50.154,
+   "end": 52.393
+  },
+  {
+   "para": 6,
+   "text": "He's comparing his behind-the-scenes to their highlight reel.",
+   "start": 52.533,
+   "end": 55.606
+  },
+  {
+   "para": 6,
+   "text": "Nobody posts \"Sat in my car and cried a little.\"",
+   "start": 55.746,
+   "end": 58.32
+  },
+  {
+   "para": 6,
+   "text": "Nobody announces \"Still renting.",
+   "start": 58.46,
+   "end": 60.338
+  },
+  {
+   "para": 6,
+   "text": "Doing fine.\"",
+   "start": 60.478,
+   "end": 61.227
+  },
+  {
+   "para": 7,
+   "text": "So Mike loses that game every single time.",
+   "start": 61.527,
+   "end": 63.868
+  },
+  {
+   "para": 7,
+   "text": "Not because he's failing.",
+   "start": 64.008,
+   "end": 65.187
+  },
+  {
+   "para": 7,
+   "text": "Because the game is rigged.",
+   "start": 65.327,
+   "end": 66.553
+  },
+  {
+   "para": 8,
+   "text": "And that's only the first half.",
+   "start": 66.893,
+   "end": 68.3
+  },
+  {
+   "para": 8,
+   "text": "Because there's a second reason you feel like a failure at 30.",
+   "start": 68.44,
+   "end": 71.683
+  },
+  {
+   "para": 8,
+   "text": "It's a deadline.",
+   "start": 71.823,
+   "end": 72.692
+  },
+  {
+   "para": 8,
+   "text": "And here's the twist: nobody actually wrote it.",
+   "start": 72.792,
+   "end": 75.337
+  },
+  {
+   "para": 9,
+   "text": "Think about it.",
+   "start": 75.677,
+   "end": 76.456
+  },
+  {
+   "para": 9,
+   "text": "Who decided you needed the house, the spouse, and the corner office by 30?",
+   "start": 76.556,
+   "end": 80.476
+  },
+  {
+   "para": 9,
+   "text": "There's no law.",
+   "start": 80.616,
+   "end": 81.42
+  },
+  {
+   "para": 9,
+   "text": "No official rulebook.",
+   "start": 81.52,
+   "end": 82.673
+  },
+  {
+   "para": 9,
+   "text": "It's just a timeline we all quietly agreed to, then forgot we made up.",
+   "start": 82.773,
+   "end": 86.523
+  },
+  {
+   "para": 10,
+   "text": "And real life?",
+   "start": 86.863,
+   "end": 87.746
+  },
+  {
+   "para": 10,
+   "text": "It ignores that timeline all the time.",
+   "start": 87.846,
+   "end": 89.787
+  },
+  {
+   "para": 11,
+   "text": "Julia Child published her first cookbook at 49.",
+   "start": 90.127,
+   "end": 93.086
+  },
+  {
+   "para": 12,
+   "text": "Vera Wang started designing wedding dresses at 40.",
+   "start": 93.426,
+   "end": 96.278
+  },
+  {
+   "para": 13,
+   "text": "Colonel Sanders started franchising his chicken in his 60s.",
+   "start": 96.618,
+   "end": 99.875
+  },
+  {
+   "para": 14,
+   "text": "If any of them had quit at 30 because they felt \"behind,\" the world would have less butter, fewer gowns, and way less fried chicken.",
+   "start": 100.215,
+   "end": 106.537
+  },
+  {
+   "para": 14,
+   "text": "And honestly?",
+   "start": 106.677,
+   "end": 107.423
+  },
+  {
+   "para": 14,
+   "text": "That's a tragedy.",
+   "start": 107.523,
+   "end": 108.433
+  },
+  {
+   "para": 15,
+   "text": "So back to Mike in the parking lot.",
+   "start": 108.733,
+   "end": 110.521
+  },
+  {
+   "para": 15,
+   "text": "He puts the phone down.",
+   "start": 110.661,
+   "end": 111.828
+  },
+  {
+   "para": 15,
+   "text": "He walks inside.",
+   "start": 111.928,
+   "end": 112.886
+  },
+  {
+   "para": 15,
+   "text": "His friends yell \"Surprise!\" even though he saw them through the window ten minutes ago.",
+   "start": 112.986,
+   "end": 117.264
+  },
+  {
+   "para": 15,
+   "text": "He laughs.",
+   "start": 117.404,
+   "end": 118.036
+  },
+  {
+   "para": 15,
+   "text": "He eats too much cake.",
+   "start": 118.136,
+   "end": 119.32
+  },
+  {
+   "para": 15,
+   "text": "And for one night, he's not behind anyone.",
+   "start": 119.42,
+   "end": 121.595
+  },
+  {
+   "para": 16,
+   "text": "Because at 30, you're not late.",
+   "start": 121.935,
+   "end": 123.531
+  },
+  {
+   "para": 16,
+   "text": "You're just early in a story that's longer than you think.",
+   "start": 123.671,
+   "end": 126.238
+  },
+  {
+   "para": 17,
+   "text": "Oh, and Mike's plant?",
+   "start": 126.578,
+   "end": 127.742
+  },
+  {
+   "para": 17,
+   "text": "Died the next morning.",
+   "start": 127.842,
+   "end": 128.871
+  },
+  {
+   "para": 17,
+   "text": "Some timelines are real.",
+   "start": 128.971,
+   "end": 130.334
+  },
+  {
+   "para": 18,
+   "text": "Here's the lesson: stop comparing your chapter 3 to someone else's chapter 20.",
+   "start": 130.634,
+   "end": 134.991
+  },
+  {
+   "para": 18,
+   "text": "And if this helped even a little, subscribe to Mojo Mike Lessons.",
+   "start": 135.131,
+   "end": 138.533
+  },
+  {
+   "para": 18,
+   "text": "We're right on time.",
+   "start": 138.673,
+   "end": 139.678
+  }
+ ]
+}
