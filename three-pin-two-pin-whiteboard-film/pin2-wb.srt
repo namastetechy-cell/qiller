@@ -1,0 +1,35 @@
+1
+00:00:00,290 --> 00:00:03,290
+Iron mein 3 pin, par charger mein sirf 2.
+
+2
+00:00:03,290 --> 00:00:06,080
+Kya ye shock ka khatra hai? Ek pin gayab kyun?
+
+3
+00:00:06,080 --> 00:00:10,480
+Teesra pin earth pin hai, jo metal body wali cheezon ko shock se bachata hai.
+
+4
+00:00:10,480 --> 00:00:12,170
+Poori kahani linked video mein hai.
+
+5
+00:00:12,170 --> 00:00:17,760
+Par charger mein taar ke upar insulation ki do parat hoti hai. Ise kehte hain double insulation.
+
+6
+00:00:17,760 --> 00:00:21,680
+Isliye current aap tak pahunchta hi nahi, aur earth pin ki zaroorat nahi.
+
+7
+00:00:21,680 --> 00:00:28,640
+Kai chargers ke label pe square ke andar square hota hai. Yahi iski nishaani hai, par har charger pe ho, zaroori nahi.
+
+8
+00:00:28,640 --> 00:00:32,960
+Simple rule: metal body, 3 pin. Double insulation, 2 pin.
+
+9
+00:00:32,960 --> 00:00:37,450
+Aise roz ke "kyun" ke liye Whysplained ko subscribe karo!
