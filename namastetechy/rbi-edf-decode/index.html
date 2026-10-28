@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 500; src: url("assets/fonts/montserrat-500.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-700.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-800.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; src: url("assets/fonts/montserrat-900.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F1ECE4; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #F1ECE4; font-family: "Montserrat", sans-serif; color: #1E1B1A; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .abs { position: absolute; } .abs svg, .bzIco svg { display: block; width: 100%; height: auto; }
+      .bg { position: absolute; inset: 0; }
+      .cream .bg { background: radial-gradient(ellipse 75% 70% at 50% 45%, #F7F3EC 0%, #F1ECE4 55%, #DCD3C6 100%); }
+      .night .bg { background: radial-gradient(ellipse 60% 70% at 50% 60%, #222634 0%, #1B1B23 60%, #121218 100%); }
+      .dark .bg { background: radial-gradient(ellipse 70% 70% at 50% 50%, #2E2925 0%, #221E1B 70%, #171412 100%); }
+      .spot { position: absolute; left: 50%; top: 52%; width: 900px; height: 700px; margin: -350px 0 0 -450px; border-radius: 50%; background: radial-gradient(ellipse, rgba(44,62,120,.55), rgba(44,62,120,0) 70%); }
+      .lab { position: absolute; font-weight: 700; font-size: 20px; letter-spacing: .28em; text-transform: uppercase; color: #756E66; white-space: nowrap; }
+      .big { position: absolute; font-weight: 900; line-height: 1.02; letter-spacing: -0.01em; white-space: nowrap; color: #1E1B1A; }
+      .big.or, .or { color: #E8612C; } .big.light { color: #F4EFE8; }
+      .quote { font-weight: 800; font-style: italic; line-height: 1.2; }
+      .odo { display: inline-flex; align-items: flex-start; line-height: 1; }
+      .odo .dg { display: inline-block; height: 1em; overflow: hidden; width: .72em; text-align: center; }
+      .odo .dcol { display: block; } .odo .dcol span { display: block; height: 1em; line-height: 1; }
+      .odo .sep { display: inline-block; line-height: 1; }
+      .date { position: absolute; width: 230px; background: #FBF8F3; border-radius: 18px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.25); text-align: center; }
+      .date .dM { background: #E8612C; color: #fff; font-weight: 800; font-size: 28px; letter-spacing: .2em; padding: 10px 0; }
+      .date .dD { font-weight: 900; font-size: 130px; line-height: 1.1; }
+      .date .dY { font-weight: 700; font-size: 16px; letter-spacing: .2em; color: #756E66; padding: 0 10px 18px; }
+      .date.big2 { width: 300px; } .date.big2 .dD { font-size: 180px; }
+      .shot { position: absolute; padding: 16px 16px 0; background: #FBF8F3; box-shadow: 0 24px 40px rgba(0,0,0,.25); transform-origin: 50% 0%; }
+      .shot .shImg { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+      .shot .shImg img { width: 100%; display: block; }
+      .shot .shCap { font-weight: 700; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: #756E66; padding: 14px 4px 18px; }
+      .pin { position: absolute; left: 50%; top: -14px; width: 28px; height: 28px; margin-left: -14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FF9A6A, #E8612C 60%, #A9431C); box-shadow: 0 6px 8px rgba(0,0,0,.3); z-index: 2; }
+      .real { position: absolute; right: -24px; bottom: 30px; padding: 6px 18px; border: 5px solid #E8612C; color: #E8612C; font-weight: 900; font-size: 34px; letter-spacing: .08em; transform: rotate(-10deg); background: rgba(251,248,243,.85); }
+      .stamp { position: absolute; padding: 10px 26px; border: 6px solid #E8612C; color: #E8612C; font-weight: 900; font-size: 44px; letter-spacing: .04em; white-space: nowrap; background: rgba(251,248,243,.6); transform-origin: 50% 50%; }
+      .bubble { position: absolute; padding: 22px 30px; background: #FBF8F3; border-radius: 26px; font-weight: 700; font-size: 34px; line-height: 1.3; box-shadow: 0 14px 26px rgba(0,0,0,.18); transform-origin: 0% 100%; }
+      .bubble::after { content: ""; position: absolute; left: 40px; bottom: -22px; border-top: 24px solid #FBF8F3; border-right: 26px solid transparent; }
+      .bubble b { color: #E8612C; font-weight: 800; }
+      .chipRow { position: absolute; display: flex; gap: 16px; } .chipRow.col { flex-direction: column; align-items: flex-start; } .chipRow.cen { justify-content: center; }
+      .chip { display: inline-block; padding: 12px 24px; border-radius: 999px; background: #FBF8F3; border: 3px solid #1E1B1A; font-weight: 800; font-size: 26px; letter-spacing: .06em; white-space: nowrap; }
+      .chip.or { background: #E8612C; border-color: #E8612C; color: #fff; } .chip.lg { font-size: 40px; padding: 18px 40px; }
+      .night .lab, .dark .lab { color: #9B958E; }
+      .flow { position: absolute; display: flex; align-items: center; gap: 18px; } .flow .arr { font-weight: 900; font-size: 48px; color: #E8612C; }
+      .acro { position: absolute; font-weight: 900; font-size: 112px; line-height: 1.04; letter-spacing: -0.01em; } .acro b { color: #E8612C; font-weight: 900; }
+      .seesaw { position: absolute; width: 640px; height: 220px; } .seesaw.sm { width: 400px; transform: scale(.8); transform-origin: 0 0; }
+      .seesaw .beam { position: absolute; left: 0; right: 0; top: 90px; height: 14px; background: #1E1B1A; border-radius: 7px; transform-origin: 50% 50%; }
+      .seesaw .pan { position: absolute; bottom: 14px; } .seesaw .pan.l { left: 10px; } .seesaw .pan.r { right: 10px; }
+      .seesaw .fulcrum { position: absolute; left: 50%; top: 104px; margin-left: -40px; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 80px solid #1E1B1A; }
+      .dash { position: absolute; height: 0; border-top: 8px dashed #1E1B1A; transform-origin: 0 50%; }
+      .phone { position: absolute; width: 520px; height: 820px; border-radius: 56px; background: #15151B; border: 10px solid #2E2E38; padding: 90px 36px 0; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+      .phone .notch { position: absolute; left: 50%; top: 18px; width: 140px; height: 30px; margin-left: -70px; border-radius: 16px; background: #000; }
+      .phone .phT { font-weight: 700; font-size: 18px; letter-spacing: .25em; color: #8E8A99; margin-bottom: 26px; }
+      .phRow { position: relative; padding: 24px 26px; margin-bottom: 18px; border-radius: 20px; background: #24242E; color: #EDE9F2; font-size: 30px; }
+      .phRow b { font-weight: 800; } .phRow .amt { position: absolute; right: 26px; top: 24px; font-weight: 900; color: #9FE3B4; } .phRow .amt.or { color: #E8612C; }
+      .phRow i { display: block; font-style: normal; font-weight: 700; font-size: 16px; letter-spacing: .22em; color: #8E8A99; margin-top: 8px; }
+      .meter { position: absolute; width: 760px; height: 46px; border-radius: 23px; background: #2A2C38; overflow: hidden; }
+      .meter .mFill { position: absolute; inset: 0; background: #E8612C; transform-origin: 0 50%; border-radius: 23px; }
+      .dayRow { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 20px; }
+      .day { width: 150px; height: 170px; border-radius: 18px; background: #FBF8F3; border: 3px solid #D2C9BC; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 80px; }
+      .twist { position: absolute; padding: 18px 34px; border-radius: 999px; background: #1E1B1A; color: #fff; font-weight: 700; font-size: 32px; letter-spacing: .08em; white-space: nowrap; }
+      .twist b { color: #E8612C; font-weight: 900; } .twist.dk { background: #2E2A35; }
+      .lvBar { position: absolute; left: 50%; width: 300px; margin-left: -150px; height: 8px; border-radius: 4px; background: #34343F; }
+      .lvBar .lvFill { position: absolute; inset: 0; background: #E8612C; border-radius: 4px; transform-origin: 0 50%; }
+      .agRow { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 30px; }
+      .agBox { width: 330px; height: 330px; border-radius: 26px; background: #FBF8F3; border: 4px solid #1E1B1A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; transform-origin: 50% 50%; }
+      .agN { font-weight: 900; font-size: 96px; line-height: 1; } .agLock { width: 44px; } .agLock svg { display: block; width: 100%; }
+      .agT { font-weight: 800; font-size: 24px; letter-spacing: .1em; padding: 0 20px; }
+      .pieKey { position: absolute; display: flex; flex-direction: column; gap: 10px; } .pieKey div { font-weight: 800; font-size: 22px; letter-spacing: .12em; color: #A39B91; } .pieKey div.on { color: #E8612C; }
+      .verdict { position: absolute; display: flex; flex-direction: column; } .vLab { font-weight: 700; font-size: 20px; letter-spacing: .28em; color: #756E66; } .vBig { font-weight: 900; font-size: 64px; }
+      .bizRow { position: absolute; display: flex; gap: 26px; }
+      .biz { width: 240px; padding: 26px 0 22px; border-radius: 22px; background: #FBF8F3; border: 3px solid #1E1B1A; text-align: center; font-weight: 900; font-size: 30px; letter-spacing: .06em; }
+      .bzIco { width: 100px; margin: 0 auto 14px; }
+      .card { position: absolute; padding: 30px 36px; border-radius: 26px; background: #FBF8F3; box-shadow: 0 20px 36px rgba(0,0,0,.18); }
+      .card .cBig { font-weight: 900; font-size: 70px; line-height: 1.05; margin: 14px 0; } .card .cSub { display: flex; align-items: center; gap: 16px; font-weight: 700; font-size: 26px; color: #756E66; }
+      .spinner { width: 34px; height: 34px; border-radius: 50%; border: 6px solid #D9D1C6; border-top-color: #E8612C; display: inline-block; }
+      .stepBar { position: absolute; left: 160px; top: 110px; display: flex; gap: 12px; }
+      .stepBar .sb { width: 54px; height: 54px; border-radius: 12px; border: 3px solid #1E1B1A; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 26px; background: #FBF8F3; }
+      .stepBar .sb.done { background: #1E1B1A; color: #fff; } .stepBar .sb.now { background: #E8612C; border-color: #E8612C; color: #fff; }
+      .paperCard { position: absolute; width: 280px; padding: 34px 26px 26px; background: #FBF8F3; box-shadow: 0 20px 34px rgba(0,0,0,.22); }
+      .paperCard .pcT { font-weight: 900; font-size: 44px; color: #E8612C; } .paperCard .pcL { font-weight: 700; font-size: 22px; margin-top: 10px; }
+      .paperCard .pcBar { height: 12px; margin-top: 20px; border-radius: 6px; background: #E3DCD2; }
+      .folder { position: absolute; padding: 26px 50px; border-radius: 10px 30px 18px 18px; background: #E8612C; color: #fff; font-weight: 900; font-size: 40px; letter-spacing: .06em; box-shadow: 0 16px 28px rgba(0,0,0,.25); }
+      .lvComplete { position: absolute; left: 50%; top: 850px; width: 520px; margin-left: -260px; padding: 18px 0; border-radius: 999px; background: #E8612C; color: #fff; text-align: center; font-weight: 900; font-size: 36px; letter-spacing: .14em; box-shadow: 0 0 40px rgba(232,97,44,.5); }
+      .polRow { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 50px; }
+      .pol { position: relative; width: 420px; height: 460px; padding: 40px 30px; background: #FBF8F3; box-shadow: 0 30px 50px rgba(0,0,0,.45); display: flex; flex-direction: column; align-items: center; text-align: center; }
+      .polM { font-weight: 900; font-size: 150px; line-height: 1.1; } .polH { font-weight: 800; font-size: 22px; letter-spacing: .18em; color: #756E66; margin-top: 10px; } .polV { font-weight: 900; font-size: 46px; margin-top: 14px; line-height: 1.1; }
+      .cmBox { position: absolute; width: 800px; padding: 30px 36px; border-radius: 22px; background: #FBF8F3; border: 3px solid #D2C9BC; font-weight: 700; font-size: 36px; display: flex; align-items: center; gap: 20px; box-shadow: 0 16px 30px rgba(0,0,0,.12); }
+      .cmQ { width: 54px; height: 54px; border-radius: 50%; background: #E8612C; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 34px; }
+      .subBtn { position: absolute; padding: 24px 48px; border-radius: 999px; background: #E8612C; color: #fff; font-weight: 900; font-size: 38px; letter-spacing: .06em; box-shadow: 0 0 50px rgba(232,97,44,.45); white-space: nowrap; }
+      .hud { position: absolute; right: 50px; top: 40px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; z-index: 20; }
+      .hudLab { font-weight: 700; font-size: 14px; letter-spacing: .3em; color: #756E66; }
+      .locks { display: flex; gap: 6px; }
+      .lk { position: relative; width: 34px; height: 34px; border-radius: 7px; border: 2px solid #756E66; background: rgba(251,248,243,.85); transform-origin: 50% 50%; }
+      .lk span { position: absolute; left: 8px; top: 6px; width: 16px; } .lk svg { display: block; width: 100%; } .lk .lkO { opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="218.352" data-width="1920" data-height="1080">
+      <div id="sc0" class="clip layer night" data-start="0" data-duration="8.92" data-track-index="2">
+        <div class="bg"></div><div id="sc0-st" class="layer">
+        <div class="spot"></div>
+        <div id="cnA" class="abs" style="left:860px;top:140px;width:200px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="120" cy="128" r="104" fill="#C24E20"/><circle cx="120" cy="118" r="104" fill="#E8612C"/><circle cx="120" cy="118" r="84" fill="none" stroke="#F59A6C" stroke-width="6"/>
+  <text x="120" y="160" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="120" fill="#FFF4EC">$</text></svg></div>
+        <div id="cnL" class="lab" style="left:1090px;top:220px;color:#CFC8BE">DOLLAR MEIN KAMAAI</div>
+        <div id="hA" class="abs" style="left:820px;top:480px;width:280px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#3A3546"/><circle cx="106" cy="78" r="58" fill="#3A3546"/><path d="M80 66 l12 6 M120 72 l12 -6" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><circle cx="86" cy="80" r="6" fill="#EDE6DC"/><circle cx="126" cy="80" r="6" fill="#EDE6DC"/><path d="M90 104 q8 -8 16 0 t16 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        <div id="tmA" class="big light" style="left:0;right:0;top:70px;text-align:center;font-size:110px;opacity:0"><span id="clk" class="odo"><span class="dg"><span id="clk-0" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="sep">:</span><span class="dg"><span id="clk-2" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="clk-3" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span style="font-size:.62em"> AM</span></div>
+        <div id="nnA" class="lab" style="left:0;right:0;top:200px;text-align:center;color:#9B958E;opacity:0">NEEND UDNE SE PEHLE…</div>
+        <div id="dtA" class="date" style="left:1350px;top:470px"><div class="dM">OCT</div><div class="dD">7</div><div class="dY">RBI NE KYA KAHA?</div></div></div>
+      </div>
+      <div id="sc1" class="clip layer cream" data-start="8.62" data-duration="2.91" data-track-index="3">
+        <div class="bg"></div><div id="sc1-st" class="layer">
+        
+        <div id="shB" class="shot" style="left:980px;top:170px;width:760px;transform:rotate(3deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/adsense_start.jpg"></div>
+          <div class="shCap">adsense.google.com</div><div class="real">REAL</div>
+        </div>
+        <div id="lbB" class="lab" style="left:160px;top:300px">TUMHARI ADSENSE EARNING</div>
+        <div id="nB" class="big" style="left:150px;top:340px;font-size:150px"><span id="adB" class="odo"><span class="sep">$</span><span class="dg"><span id="adB-1" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="sep">,</span><span class="dg"><span id="adB-3" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="adB-4" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="adB-5" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span></div>
+        <div id="qB" class="big or" style="left:160px;top:540px;font-size:96px">PE ASAR?</div></div>
+      </div>
+      <div id="zoomCoin" class="clip abs" data-start="8.37" data-duration="0.85" data-track-index="8" style="left:810px;top:390px;width:300px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="120" cy="128" r="104" fill="#C24E20"/><circle cx="120" cy="118" r="104" fill="#E8612C"/><circle cx="120" cy="118" r="84" fill="none" stroke="#F59A6C" stroke-width="6"/>
+  <text x="120" y="160" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="120" fill="#FFF4EC">₹</text></svg></div>
+      <div id="sc2" class="clip layer cream" data-start="11.23" data-duration="10.26" data-track-index="2">
+        <div class="bg"></div><div id="sc2-st" class="layer">
+        <div id="agL" class="lab" style="left:0;right:0;top:250px;text-align:center">AAJ KA PLAN</div>
+        <div id="agR" class="agRow" style="top:330px"><div id="ag0" class="agBox"><div class="agN">1</div><div class="agLock"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></div><div class="agT">RULE KYA HAI</div></div><div id="ag1" class="agBox"><div class="agN">2</div><div class="agLock"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></div><div class="agT">DARR KYUN</div></div><div id="ag2" class="agBox"><div class="agN">3</div><div class="agLock"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></div><div class="agT">RBI NE KYA CLEAR KIYA</div></div><div id="ag3" class="agBox"><div class="agN">4</div><div class="agLock"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></div><div class="agT">TUMHARI HAR INCOME</div></div></div></div>
+      </div>
+      <div id="sc3" class="clip layer night" data-start="21.19" data-duration="1.5" data-track-index="3">
+        <div class="bg"></div><div id="sc3-st" class="layer">
+        <div id="lv1a" class="lab" style="left:0;right:0;top:390px;text-align:center;color:#E8612C">LEVEL 1</div>
+        <div id="lv1b" class="big light" style="left:0;right:0;top:430px;text-align:center;font-size:150px">RULE</div>
+        <div class="lvBar" style="top:640px"><div id="lv1c" class="lvFill"></div></div>
+        <div id="lv1d" class="lab" style="left:0;right:0;top:690px;text-align:center;color:#9B958E">PEHLE, RULE.</div></div>
+      </div>
+      <div id="sc4" class="clip layer cream" data-start="22.39" data-duration="8.59" data-track-index="2">
+        <div class="bg"></div><div id="sc4-st" class="layer">
+        <div id="dtC" class="date big2" style="left:180px;top:200px"><div class="dM">OCT 2026</div><div class="dD">1</div><div class="dY">LAGU</div></div>
+        <div id="feL" class="lab" style="left:560px;top:250px">FEMA KE</div>
+        <div id="feB" class="big " style="left:550px;top:280px;font-size:96px">NAYE REGULATIONS</div>
+        <div id="svC" class="flow" style="left:560px;top:470px"><span class="chip">SERVICES EXPORT</span><span class="arr">→</span><span class="chip or">EDF FRAMEWORK</span></div>
+        
+        <div id="shC" class="shot" style="left:1180px;top:560px;width:560px;transform:rotate(-3deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/taxmann_fema.jpg"></div>
+          <div class="shCap">taxmann.com</div><div class="real">REAL</div>
+        </div></div>
+      </div>
+      <div id="sc5" class="clip layer cream" data-start="30.68" data-duration="5.62" data-track-index="3">
+        <div class="bg"></div><div id="sc5-st" class="layer">
+        <div id="acr" class="acro" style="left:150px;top:180px"><div><b>E</b>XPORT</div><div><b>D</b>ECLARATION</div><div><b>F</b>ORM</div></div>
+        <div id="ssW" class="seesaw" style="left:1080px;top:600px"><div id="ssBeam" class="beam"><div class="pan l"><span class="chip">GOODS</span></div><div class="pan r"><span id="ssSv" class="chip or">+ SERVICES</span></div></div><div class="fulcrum"></div></div>
+        <div id="ssL" class="lab" style="left:1130px;top:420px">PEHLE: ZYADA TAR GOODS</div><div id="ssL2" class="lab" style="left:1130px;top:460px;color:#E8612C">AB: SERVICES BHI</div></div>
+      </div>
+      <div id="sc6" class="clip layer cream" data-start="36" data-duration="11.48" data-track-index="2">
+        <div class="bg"></div><div id="sc6-st" class="layer">
+        <div id="hC" class="abs" style="left:150px;top:420px;width:200px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div><div id="hCl" class="lab" style="left:160px;top:820px">AAP · INDIA</div>
+        <div id="glC" class="abs" style="left:780px;top:300px;width:180px"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="86" fill="none" stroke="#1E1B1A" stroke-width="10"/><ellipse cx="100" cy="100" rx="40" ry="86" fill="none" stroke="#1E1B1A" stroke-width="8"/><path d="M18 74 H182 M18 126 H182" stroke="#1E1B1A" stroke-width="8"/></svg></div><div id="cl2" class="abs" style="left:1000px;top:420px;width:200px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#5B5550"/><circle cx="106" cy="78" r="58" fill="#5B5550"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/></svg></div><div id="clL" class="lab" style="left:860px;top:820px">VIDESHI CLIENT</div>
+        <div id="svArr" class="dash" style="left:380px;top:560px;width:560px"></div><div id="svL" class="lab" style="left:560px;top:520px">SERVICE →</div>
+        <div id="cnD" class="abs" style="left:860px;top:600px;width:110px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="120" cy="128" r="104" fill="#C24E20"/><circle cx="120" cy="118" r="104" fill="#E8612C"/><circle cx="120" cy="118" r="84" fill="none" stroke="#F59A6C" stroke-width="6"/>
+  <text x="120" y="160" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="120" fill="#FFF4EC">$</text></svg></div>
+        <div id="bkD" class="abs" style="left:1460px;top:380px;width:260px"><svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg"><path d="M20 70 L130 14 L240 70 Z" fill="#1E1B1A"/><rect x="28" y="70" width="204" height="14" fill="#1E1B1A"/><rect x="44" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="94" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="144" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="194" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="20" y="186" width="220" height="20" fill="#1E1B1A"/><circle cx="130" cy="48" r="12" fill="#E8612C"/></svg></div><div id="bkL" class="lab" style="left:1500px;top:620px">BANK</div>
+        <div id="fmD" class="abs" style="left:1560px;top:650px;width:150px"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div>
+        <div id="skD" class="stamp" style="left:1300px;top:130px;transform:rotate(-6deg)">HO SAKTA HAI</div></div>
+      </div>
+      <div id="sc7" class="clip layer night" data-start="47.18" data-duration="1.9" data-track-index="3">
+        <div class="bg"></div><div id="sc7-st" class="layer">
+        <div id="lv2a" class="lab" style="left:0;right:0;top:390px;text-align:center;color:#E8612C">LEVEL 2</div>
+        <div id="lv2b" class="big light" style="left:0;right:0;top:430px;text-align:center;font-size:150px">DARR</div>
+        <div class="lvBar" style="top:640px"><div id="lv2c" class="lvFill"></div></div>
+        <div id="lv2d" class="lab" style="left:0;right:0;top:690px;text-align:center;color:#9B958E">AB SOCHO EK YOUTUBER KI LIFE</div></div>
+      </div>
+      <div id="sc8" class="clip layer night" data-start="48.78" data-duration="6.67" data-track-index="2">
+        <div class="bg"></div><div id="sc8-st" class="layer">
+        <div class="spot"></div>
+        <div id="hE" class="abs" style="left:380px;top:470px;width:230px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#3A3546"/><circle cx="106" cy="78" r="58" fill="#3A3546"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M88 96 q18 18 36 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        
+        <div id="phE" class="phone" style="left:1040px;top:140px"><div class="notch"></div><div class="phT">INBOX · PAYMENTS</div><div id="phE-r0" class="phRow"><b>Google AdSense</b><span class="amt">+ $412</span><i>HAR MAHINE</i></div><div id="phE-r1" class="phRow"><b>Google AdSense</b><span class="amt">+ $388</span><i>PICHLA MAHINA</i></div><div id="phE-r2" class="phRow"><b>Foreign brand</b><span class="amt or">+ $800</span><i>SPONSORSHIP</i></div></div></div>
+      </div>
+      <div id="sc9" class="clip layer cream" data-start="55.15" data-duration="4.86" data-track-index="3">
+        <div class="bg"></div><div id="sc9-st" class="layer">
+        <div id="hF" class="abs" style="left:260px;top:420px;width:220px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><path d="M80 66 l12 6 M120 72 l12 -6" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><circle cx="86" cy="80" r="6" fill="#EDE6DC"/><circle cx="126" cy="80" r="6" fill="#EDE6DC"/><path d="M90 104 q8 -8 16 0 t16 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        <div id="bbF" class="bubble" style="left:470px;top:300px">Har payment pe bank form?!</div>
+        <div id="fF0" class="abs" style="left:1100px;top:220px;width:150px;transform:rotate(-5deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div><div id="fF1" class="abs" style="left:1270px;top:220px;width:150px;transform:rotate(2deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div><div id="fF2" class="abs" style="left:1440px;top:220px;width:150px;transform:rotate(-2deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div><div id="fF3" class="abs" style="left:1100px;top:510px;width:150px;transform:rotate(5deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div><div id="fF4" class="abs" style="left:1270px;top:510px;width:150px;transform:rotate(1deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div><div id="fF5" class="abs" style="left:1440px;top:510px;width:150px;transform:rotate(-3deg)"><svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="8" width="184" height="244" rx="10" fill="#fff" stroke="#1E1B1A" stroke-width="6"/><rect x="8" y="8" width="184" height="46" rx="10" fill="#E8612C"/><text x="100" y="42" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="#fff">EDF</text><rect x="30" y="80" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="112" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="144" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="176" width="140" height="12" rx="6" fill="#E3DCD2"/><rect x="30" y="208" width="140" height="12" rx="6" fill="#E3DCD2"/></svg></div>
+        <div id="cntL" class="lab" style="left:1150px;top:860px">FORMS / SAAL</div><div id="cntF" class="big or" style="left:1430px;top:820px;font-size:80px"><span id="frm" class="odo"><span class="dg"><span id="frm-0" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="frm-1" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span></div></div>
+      </div>
+      <div id="sc10" class="clip layer cream" data-start="59.71" data-duration="8.56" data-track-index="2">
+        <div class="bg"></div><div id="sc10-st" class="layer">
+        <div id="mnL" class="lab" style="left:160px;top:220px">MINIMUM AMOUNT KI CHHOOT</div>
+        <div id="mnN" class="big or" style="left:150px;top:250px;font-size:170px"><span id="mn" class="odo"><span class="sep">₹</span><span class="dg"><span id="mn-1" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="mn-2" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="sep">,</span><span class="dg"><span id="mn-4" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="mn-5" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="dg"><span id="mn-6" class="dcol"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span></div>
+        <div id="mn0" class="big or" style="left:150px;top:250px;font-size:170px">₹0</div>
+        <div id="hG" class="abs" style="left:1180px;top:360px;width:210px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><path d="M80 66 l12 6 M120 72 l12 -6" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><circle cx="86" cy="80" r="6" fill="#EDE6DC"/><circle cx="126" cy="80" r="6" fill="#EDE6DC"/><path d="M90 104 q8 -8 16 0 t16 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        <div id="crG" class="chipRow " style="left:1080px;top:830px"><span id="crG-0" class="chip">CA ✗</span><span id="crG-1" class="chip">ACCOUNTANT ✗</span></div>
+        <div id="smL" class="lab" style="left:1100px;top:300px;color:#E8612C">CHHOTE CREATORS · SABSE ZYADA DARE</div></div>
+      </div>
+      <div id="sc11" class="clip layer dark" data-start="67.97" data-duration="5.64" data-track-index="3">
+        <div class="bg"></div><div id="sc11-st" class="layer">
+        <div id="qL" class="lab" style="left:0;right:0;top:330px;text-align:center;color:#9B958E">BUSINESS NEWS · EXPERTS KA REACTION</div>
+        <div id="qT" class="big light quote" style="left:0;right:0;top:400px;text-align:center;font-size:76px">“Fill a form for<br>just being alive.”</div>
+        <div id="qS" class="lab" style="left:0;right:0;top:640px;text-align:center;color:#E8612C">— EK BUSINESS NEWS REPORT</div></div>
+      </div>
+      <div id="sc12" class="clip layer night" data-start="73.31" data-duration="0.97" data-track-index="2">
+        <div class="bg"></div><div id="sc12-st" class="layer">
+        <div id="lv3a" class="lab" style="left:0;right:0;top:390px;text-align:center;color:#E8612C">LEVEL 3</div>
+        <div id="lv3b" class="big light" style="left:0;right:0;top:430px;text-align:center;font-size:150px">PAR RUKO.</div>
+        <div class="lvBar" style="top:640px"><div id="lv3c" class="lvFill"></div></div>
+        <div id="lv3d" class="lab" style="left:0;right:0;top:690px;text-align:center;color:#9B958E">SIRF 6 DIN BAAD…</div></div>
+      </div>
+      <div id="sc13" class="clip layer cream" data-start="73.98" data-duration="10.79" data-track-index="3">
+        <div class="bg"></div><div id="sc13-st" class="layer">
+        <div id="dyL" class="lab" style="left:0;right:0;top:200px;text-align:center">OCTOBER 2026</div>
+        <div id="dyR" class="dayRow" style="top:250px"><div id="dy1" class="day"><span>1</span></div><div id="dy2" class="day"><span>2</span></div><div id="dy3" class="day"><span>3</span></div><div id="dy4" class="day"><span>4</span></div><div id="dy5" class="day"><span>5</span></div><div id="dy6" class="day"><span>6</span></div><div id="dy7" class="day"><span>7</span></div></div>
+        <div id="dyB" class="big or" style="left:0;right:0;top:470px;text-align:center;font-size:120px">6 DIN BAAD</div>
+        <div id="dyP" class="lab" style="left:0;right:0;top:640px;text-align:center">RBI NE PICTURE BADAL DI</div>
+        <div id="twT" class="twist" style="left:560px;top:740px">TWIST: <b>TUMHARI INCOME KA TYPE</b></div></div>
+      </div>
+      <div id="sc14" class="clip layer cream" data-start="84.47" data-duration="12.21" data-track-index="2">
+        <div class="bg"></div><div id="sc14-st" class="layer">
+        
+        <div id="shH" class="shot" style="left:120px;top:200px;width:620px;transform:rotate(-3deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/fueler_clarify.jpg"></div>
+          <div class="shCap">RBI clarification · secondary report</div><div class="real">REAL</div>
+        </div>
+        <div id="gvH" class="abs" style="left:1010px;top:330px;width:230px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><g fill="none" stroke="#EDE6DC" stroke-width="5"><circle cx="86" cy="76" r="16"/><circle cx="126" cy="76" r="16"/><path d="M102 76 h8"/></g><path d="M106 150 l-12 14 l12 70 l12 -70 Z" fill="#E8612C"/></svg></div><div id="gvL" class="lab" style="left:990px;top:760px">RBI · GOVERNOR</div>
+        <div id="bbH" class="bubble" style="left:1240px;top:210px;width:560px">Personal nature ke contracts: <b>individuals shaamil nahi.</b></div>
+        <div id="exH" class="chipRow col" style="left:1260px;top:560px"><span id="exH-0" class="chip">✓ TUITION PADHANA</span><span id="exH-1" class="chip">✓ CHHOTA SOFTWARE KAAM</span></div></div>
+      </div>
+      <div id="sc15" class="clip layer night" data-start="96.38" data-duration="7.59" data-track-index="3">
+        <div class="bg"></div><div id="sc15-st" class="layer">
+        <div class="spot"></div>
+        <div id="hI" class="abs" style="left:360px;top:420px;width:240px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#3A3546"/><circle cx="106" cy="78" r="58" fill="#3A3546"/><path d="M80 66 l12 6 M120 72 l12 -6" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><circle cx="86" cy="80" r="6" fill="#EDE6DC"/><circle cx="126" cy="80" r="6" fill="#EDE6DC"/><path d="M90 104 q8 -8 16 0 t16 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div><div id="hI2" class="abs" style="left:360px;top:420px;width:240px;opacity:0"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#3A3546"/><circle cx="106" cy="78" r="58" fill="#3A3546"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M88 96 q18 18 36 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        <div id="mtL" class="lab" style="left:900px;top:380px;color:#CFC8BE">EDF WALI TENSION</div>
+        <div class="meter" style="left:900px;top:420px"><div id="mtF" class="mFill"></div></div>
+        <div id="mtS" class="lab" style="left:900px;top:500px;color:#9B958E">ABHI KE STATEMENT KE HISAAB SE</div>
+        <div id="mtB" class="big or" style="left:900px;top:560px;font-size:110px">KAAFI KAM</div>
+        <div id="icL" class="lab" style="left:360px;top:860px;color:#CFC8BE">INDIVIDUAL CREATOR</div></div>
+      </div>
+      <div id="sc16" class="clip layer night" data-start="103.67" data-duration="1.18" data-track-index="2">
+        <div class="bg"></div><div id="sc16-st" class="layer">
+        <div id="lv4a" class="lab" style="left:0;right:0;top:390px;text-align:center;color:#E8612C">LEVEL 4</div>
+        <div id="lv4b" class="big light" style="left:0;right:0;top:430px;text-align:center;font-size:150px">3 HISSE</div>
+        <div class="lvBar" style="top:640px"><div id="lv4c" class="lvFill"></div></div>
+        <div id="lv4d" class="lab" style="left:0;right:0;top:690px;text-align:center;color:#9B958E">AB TWIST · TUMHARI YOUTUBE INCOME</div></div>
+      </div>
+      <div id="sc17" class="clip layer cream" data-start="104.55" data-duration="18.76" data-track-index="3">
+        <div class="bg"></div><div id="sc17-st" class="layer">
+        <div id="pie0" class="abs" style="left:140px;top:230px;width:300px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><path d="M120 120 L120.0 10.0 A110 110 0 0 1 215.3 175.0 Z" fill="#E8612C"/><path d="M120 120 L215.3 175.0 A110 110 0 0 1 24.7 175.0 Z" fill="#8E877F"/><path d="M120 120 L24.7 175.0 A110 110 0 0 1 120.0 10.0 Z" fill="#D9D1C6"/><circle cx="120" cy="120" r="44" fill="#F1ECE4"/></svg></div><div class="pieKey" style="left:150px;top:570px"><div class="on">1. ADSENSE / YOUTUBE</div><div class="">2. FOREIGN BRANDS</div><div class="">3. INDIAN BRANDS</div></div>
+        <div id="p1L" class="lab" style="left:620px;top:200px">1 · ADSENSE AUR YOUTUBE SE</div>
+        <div id="p1C" class="chipRow " style="left:610px;top:240px"><span id="p1C-0" class="chip">ADS</span><span id="p1C-1" class="chip">MEMBERSHIPS</span><span id="p1C-2" class="chip">SUPER CHAT</span></div>
+        <div id="p1Q" class="big " style="left:610px;top:380px;font-size:74px">AD REVENUE =<br>SERVICE EXPORT?</div>
+        <div id="p1S" class="seesaw sm" style="left:640px;top:740px"><div id="p1Beam" class="beam"><div class="pan l"><span class="chip">HAAN</span></div><div class="pan r"><span class="chip">NAHI</span></div></div><div class="fulcrum"></div></div>
+        <div id="p1E" class="lab" style="left:640px;top:620px">EXPERTS KI RAAY ALAG</div>
+        <div id="p1X" class="stamp" style="left:1080px;top:690px;transform:rotate(-5deg)">ABHI CLEAR NAHI</div>
+        
+        <div id="shP1" class="shot" style="left:1290px;top:170px;width:520px;transform:rotate(4deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/yt_monetization.jpg"></div>
+          <div class="shCap">youtube.com/creators</div>
+        </div></div>
+      </div>
+      <div id="sc18" class="clip layer cream" data-start="123.01" data-duration="11.23" data-track-index="2">
+        <div class="bg"></div><div id="sc18-st" class="layer">
+        <div id="pie1" class="abs" style="left:140px;top:230px;width:300px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><path d="M120 120 L120.0 10.0 A110 110 0 0 1 215.3 175.0 Z" fill="#3D3734"/><path d="M120 120 L215.3 175.0 A110 110 0 0 1 24.7 175.0 Z" fill="#E8612C"/><path d="M120 120 L24.7 175.0 A110 110 0 0 1 120.0 10.0 Z" fill="#D9D1C6"/><circle cx="120" cy="120" r="44" fill="#F1ECE4"/></svg></div><div class="pieKey" style="left:150px;top:570px"><div class="">1. ADSENSE / YOUTUBE</div><div class="on">2. FOREIGN BRANDS</div><div class="">3. INDIAN BRANDS</div></div>
+        <div id="p2L" class="lab" style="left:620px;top:200px">2 · FOREIGN BRAND DEALS</div>
+        <div id="glK" class="abs" style="left:640px;top:300px;width:150px"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="86" fill="none" stroke="#1E1B1A" stroke-width="10"/><ellipse cx="100" cy="100" rx="40" ry="86" fill="none" stroke="#1E1B1A" stroke-width="8"/><path d="M18 74 H182 M18 126 H182" stroke="#1E1B1A" stroke-width="8"/></svg></div><div id="glL" class="lab" style="left:620px;top:470px">VIDESHI BRAND</div>
+        <div id="p2A" class="dash" style="left:820px;top:380px;width:420px"></div><div id="cnK" class="abs" style="left:820px;top:330px;width:100px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="120" cy="128" r="104" fill="#C24E20"/><circle cx="120" cy="118" r="104" fill="#E8612C"/><circle cx="120" cy="118" r="84" fill="none" stroke="#F59A6C" stroke-width="6"/>
+  <text x="120" y="160" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="120" fill="#FFF4EC">$</text></svg></div>
+        <div id="hK" class="abs" style="left:1290px;top:260px;width:170px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M88 96 q18 18 36 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div><div id="hKl" class="lab" style="left:1290px;top:600px">SEEDHA AAPKO</div>
+        <div id="p2S" class="verdict" style="left:620px;top:680px"><span class="vLab">KAI EXPERTS</span><span class="vBig">= SERVICE EXPORT</span></div>
+        <div id="p2W" class="big or" style="left:1500px;top:640px;font-size:130px">!</div><div id="p2D" class="lab" style="left:1450px;top:820px;color:#E8612C">DHYAN DO</div></div>
+      </div>
+      <div id="sc19" class="clip layer cream" data-start="133.94" data-duration="9.66" data-track-index="3">
+        <div class="bg"></div><div id="sc19-st" class="layer">
+        <div id="pie2" class="abs" style="left:140px;top:230px;width:300px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><path d="M120 120 L120.0 10.0 A110 110 0 0 1 215.3 175.0 Z" fill="#3D3734"/><path d="M120 120 L215.3 175.0 A110 110 0 0 1 24.7 175.0 Z" fill="#8E877F"/><path d="M120 120 L24.7 175.0 A110 110 0 0 1 120.0 10.0 Z" fill="#E8612C"/><circle cx="120" cy="120" r="44" fill="#F1ECE4"/></svg></div><div class="pieKey" style="left:150px;top:570px"><div class="">1. ADSENSE / YOUTUBE</div><div class="">2. FOREIGN BRANDS</div><div class="on">3. INDIAN BRANDS</div></div>
+        <div id="p3L" class="lab" style="left:620px;top:200px">3 · INDIAN BRAND DEALS</div>
+        <div id="ibK" class="abs" style="left:640px;top:270px;width:170px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#5B5550"/><circle cx="106" cy="78" r="58" fill="#5B5550"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/></svg></div><div id="ibL" class="lab" style="left:640px;top:620px">INDIAN BRAND</div>
+        <div id="p3A" class="dash" style="left:860px;top:420px;width:400px"></div><div id="cnL3" class="abs" style="left:860px;top:370px;width:100px"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><circle cx="120" cy="128" r="104" fill="#C24E20"/><circle cx="120" cy="118" r="104" fill="#E8612C"/><circle cx="120" cy="118" r="84" fill="none" stroke="#F59A6C" stroke-width="6"/>
+  <text x="120" y="160" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="120" fill="#FFF4EC">₹</text></svg></div>
+        <div id="hL" class="abs" style="left:1300px;top:270px;width:170px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M88 96 q18 18 36 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div><div id="hLl" class="lab" style="left:1310px;top:620px">AAP · INDIA</div>
+        <div id="p3X" class="stamp" style="left:700px;top:720px;transform:rotate(-4deg)">EXPORT HI NAHI ✓</div>
+        <div id="p3N" class="lab" style="left:1180px;top:760px">IS RULE SE LENA DENA NAHI</div></div>
+      </div>
+      <div id="sc20" class="clip layer cream" data-start="143.3" data-duration="16.63" data-track-index="2">
+        <div class="bg"></div><div id="sc20-st" class="layer">
+        <div id="ebL" class="lab" style="left:160px;top:170px">AUR EK BAAT</div>
+        <div id="bzR" class="bizRow" style="left:150px;top:220px"><div id="bz0" class="biz"><div class="bzIco"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="10" width="80" height="100" fill="#1E1B1A"/><rect x="36" y="24" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="24" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="46" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="46" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="68" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="68" width="16" height="12" fill="#F1ECE4"/></svg></div>COMPANY</div><div id="bz1" class="biz"><div class="bzIco"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="34" width="80" height="76" fill="#1E1B1A"/><rect x="36" y="48" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="48" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="70" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="70" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="92" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="92" width="16" height="12" fill="#F1ECE4"/></svg></div>LLP</div><div id="bz2" class="biz"><div class="bzIco"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="34" width="80" height="76" fill="#1E1B1A"/><rect x="36" y="48" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="48" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="70" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="70" width="16" height="12" fill="#F1ECE4"/><rect x="36" y="92" width="16" height="12" fill="#F1ECE4"/><rect x="68" y="92" width="16" height="12" fill="#F1ECE4"/></svg></div>FIRM</div></div>
+        <div id="bzX" class="stamp" style="left:260px;top:520px;transform:rotate(-5deg)">ABHI BHI COVER HO SAKTE</div>
+        <div id="gsC" class="card" style="left:1060px;top:220px;width:700px"><div class="lab" style="position:static">GST WALE SOLE PROPRIETORS</div><div class="cBig">FINAL JAWAB:<br><span class="or">RBI FAQs</span></div><div class="cSub"><span id="spn" class="spinner"></span>abhi aane baaki hain</div></div>
+        
+        <div id="shM" class="shot" style="left:1110px;top:620px;width:460px;transform:rotate(-3deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/rbi_faq.jpg"></div>
+          <div class="shCap">rbi.org.in · FAQs</div>
+        </div></div>
+      </div>
+      <div id="sc21" class="clip layer night" data-start="159.63" data-duration="3.36" data-track-index="3">
+        <div class="bg"></div><div id="sc21-st" class="layer">
+        <div id="lv5a" class="lab" style="left:0;right:0;top:390px;text-align:center;color:#E8612C">LEVEL 5</div>
+        <div id="lv5b" class="big light" style="left:0;right:0;top:430px;text-align:center;font-size:150px">4 STEPS</div>
+        <div class="lvBar" style="top:640px"><div id="lv5c" class="lvFill"></div></div>
+        <div id="lv5d" class="lab" style="left:0;right:0;top:690px;text-align:center;color:#9B958E">TOH YOUTUBERS KO ABHI KYA KARNA CHAHIYE?</div></div>
+      </div>
+      <div id="sc22" class="clip layer cream" data-start="162.69" data-duration="5.48" data-track-index="2">
+        <div class="bg"></div><div id="sc22-st" class="layer">
+        <div class="stepBar"><div class="sb now">1</div><div class="sb ">2</div><div class="sb ">3</div><div class="sb ">4</div></div>
+        <div id="s1T" class="big " style="left:160px;top:300px;font-size:120px">PANIC<br>MAT KARO.</div>
+        <div id="hS1" class="abs" style="left:1180px;top:330px;width:240px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M88 96 q18 18 36 0" fill="none" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M48 84 Q46 22 106 20 Q166 22 164 84" fill="none" stroke="#E8612C" stroke-width="12"/><rect x="36" y="66" width="24" height="44" rx="10" fill="#E8612C"/><rect x="152" y="66" width="24" height="44" rx="10" fill="#E8612C"/></svg></div>
+        <div id="s1R" class="stamp" style="left:1050px;top:760px;transform:rotate(-5deg)">RAAHAT ✓</div>
+        <div id="s1L" class="lab" style="left:170px;top:620px">INDIVIDUAL CREATORS · RBI KA STATEMENT</div></div>
+      </div>
+      <div id="sc23" class="clip layer cream" data-start="167.87" data-duration="8.27" data-track-index="3">
+        <div class="bg"></div><div id="sc23-st" class="layer">
+        <div class="stepBar"><div class="sb done">1</div><div class="sb now">2</div><div class="sb ">3</div><div class="sb ">4</div></div>
+        <div id="s2T" class="big " style="left:160px;top:200px;font-size:110px">RECORDS<br>RAKHO.</div>
+        
+        <div id="sh2a" class="shot" style="left:820px;top:230px;width:360px;transform:rotate(-4deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/adsense_payments.jpg"></div>
+          <div class="shCap">AdSense payment statement</div>
+        </div>
+        <div id="inv" class="paperCard" style="left:1230px;top:250px;transform:rotate(3deg)"><div class="pin"></div><div class="pcT">INVOICE</div><div class="pcL">Brand deal · $800</div><div class="pcL">Due: 30 days</div><div class="pcBar"></div></div>
+        <div id="fira" class="paperCard" style="left:1520px;top:300px;transform:rotate(-2deg)"><div class="pin"></div><div class="pcT">FIRA</div><div class="pcL">Foreign inward remittance</div><div class="pcBar"></div></div>
+        <div id="fld" class="folder" style="left:980px;top:650px">SAB SAMBHAL KE</div></div>
+      </div>
+      <div id="sc24" class="clip layer cream" data-start="175.84" data-duration="8.09" data-track-index="2">
+        <div class="bg"></div><div id="sc24-st" class="layer">
+        <div class="stepBar"><div class="sb done">1</div><div class="sb done">2</div><div class="sb now">3</div><div class="sb ">4</div></div>
+        <div id="s3T" class="big " style="left:160px;top:200px;font-size:110px">BANK SE<br>POOCHO.</div>
+        <div id="bk3" class="abs" style="left:820px;top:330px;width:300px"><svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg"><path d="M20 70 L130 14 L240 70 Z" fill="#1E1B1A"/><rect x="28" y="70" width="204" height="14" fill="#1E1B1A"/><rect x="44" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="94" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="144" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="194" y="94" width="22" height="88" fill="#1E1B1A"/><rect x="20" y="186" width="220" height="20" fill="#1E1B1A"/><circle cx="130" cy="48" r="12" fill="#E8612C"/></svg></div><div id="bkr" class="abs" style="left:1180px;top:360px;width:200px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><path d="M50 52 Q106 10 162 52 L170 60 H42 Z" fill="#E8612C"/></svg></div>
+        <div id="bb3" class="bubble" style="left:1300px;top:220px;width:520px">AdSense ya brand payment ke liye <b>kya chahiye</b> — main bataunga.</div>
+        <div id="s3L" class="lab" style="left:170px;top:520px">EDF BANK KE THROUGH JAATA HAI</div>
+        
+        <div id="sh3" class="shot" style="left:260px;top:620px;width:440px;transform:rotate(-3deg)">
+          <div class="pin"></div><div class="shImg"><img src="assets/shots/razorpay_edf.jpg"></div>
+          <div class="shCap">razorpay.com/blog</div>
+        </div></div>
+      </div>
+      <div id="sc25" class="clip layer cream" data-start="183.63" data-duration="7.72" data-track-index="3">
+        <div class="bg"></div><div id="sc25-st" class="layer">
+        <div class="stepBar"><div class="sb done">1</div><div class="sb done">2</div><div class="sb done">3</div><div class="sb now">4</div></div>
+        <div id="s4T" class="big " style="left:160px;top:200px;font-size:110px">CA SE<br>BAAT KARO.</div>
+        <div id="ca4" class="abs" style="left:1350px;top:300px;width:230px"><svg viewBox="0 0 212 380" xmlns="http://www.w3.org/2000/svg"><ellipse cx="106" cy="370" rx="70" ry="10" fill="rgba(0,0,0,.18)"/><rect x="50" y="138" width="112" height="232" rx="56" fill="#2B2726"/><circle cx="106" cy="78" r="58" fill="#2B2726"/><circle cx="86" cy="76" r="6.5" fill="#EDE6DC"/><circle cx="126" cy="76" r="6.5" fill="#EDE6DC"/><path d="M92 100 h28" stroke="#EDE6DC" stroke-width="6" stroke-linecap="round"/><g fill="none" stroke="#EDE6DC" stroke-width="5"><rect x="70" y="62" width="32" height="26" rx="6"/><rect x="110" y="62" width="32" height="26" rx="6"/></g><rect x="128" y="190" width="58" height="76" rx="6" fill="#EDE6DC"/><rect x="146" y="184" width="22" height="12" rx="3" fill="#E8612C"/></svg></div>
+        <div id="s4C" class="chipRow col" style="left:160px;top:560px"><span id="s4C-0" class="chip">COMPANY / REGISTERED BUSINESS</span><span id="s4C-1" class="chip">BADI FOREIGN BRAND DEALS</span></div>
+        <div id="lvc" class="lvComplete">LEVEL COMPLETE</div></div>
+      </div>
+      <div id="sc26" class="clip layer night" data-start="191.05" data-duration="12" data-track-index="2">
+        <div class="bg"></div><div id="sc26-st" class="layer">
+        <div id="smL" class="lab" style="left:0;right:0;top:150px;text-align:center;color:#E8612C">SUMMARY</div>
+        <div class="polRow" style="top:230px"><div id="pl0" class="pol" style="transform:rotate(-3deg)"><div class="pin"></div><div class="polM ">✓</div><div class="polH">INDIVIDUAL YOUTUBERS</div><div class="polV">TENSION KAM</div></div><div id="pl1" class="pol" style="transform:rotate(2deg)"><div class="pin"></div><div class="polM or">!</div><div class="polH">FOREIGN BRAND DEALS</div><div class="polV">DHYAN DO</div></div><div id="pl2" class="pol" style="transform:rotate(-1deg)"><div class="pin"></div><div class="polM ">…</div><div class="polH">ADSENSE</div><div class="polV">RBI FAQs KA WAIT</div></div></div>
+        <div id="upd" class="twist dk" style="left:610px;top:800px">FAQs AATE HI · <b>UPDATE VIDEO</b></div></div>
+      </div>
+      <div id="sc27" class="clip layer dark" data-start="202.75" data-duration="5.8" data-track-index="3">
+        <div class="bg"></div><div id="sc27-st" class="layer">
+        <div id="dcL" class="lab" style="left:0;right:0;top:360px;text-align:center;color:#E8612C">DISCLAIMER</div>
+        <div id="dcT" class="big light" style="left:0;right:0;top:410px;text-align:center;font-size:96px">LEGAL YA TAX<br>ADVICE NAHI.</div>
+        <div id="dcS" class="lab" style="left:0;right:0;top:660px;text-align:center;color:#CFC8BE">APNE CASE KE LIYE BANK YA CA SE CONFIRM KAREIN</div></div>
+      </div>
+      <div id="sc28" class="clip layer cream" data-start="208.25" data-duration="10.1" data-track-index="2">
+        <div class="bg"></div><div id="sc28-st" class="layer">
+        <div id="cmL" class="lab" style="left:0;right:0;top:170px;text-align:center">COMMENT KARO</div>
+        <div id="cmT" class="big " style="left:0;right:0;top:210px;text-align:center;font-size:84px">TUMHARI SABSE ZYADA KAMAAI?</div>
+        <div id="cmR" class="chipRow cen" style="left:0;right:0;top:380px"><span id="cm0" class="chip lg">ADSENSE</span><span id="cm1" class="chip lg">FOREIGN BRANDS</span><span id="cm2" class="chip lg">INDIAN BRANDS</span></div>
+        <div id="cmBox" class="cmBox" style="left:560px;top:530px"><span class="cmQ">?</span>Meri sabse zyada kamaai: ______</div>
+        <div id="sub" class="subBtn" style="left:760px;top:760px"><b>▶</b> SUBSCRIBE · NAMASTETECHY</div></div>
+      </div>
+      
+      <div id="hud" class="hud"><div class="hudLab">EDF PLAN</div><div class="locks"><div id="lk0" class="lk"><span class="lkC"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></span><span class="lkO"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 " fill="none" stroke="#fff" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#fff"/></svg></span></div><div id="lk1" class="lk"><span class="lkC"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></span><span class="lkO"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 " fill="none" stroke="#fff" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#fff"/></svg></span></div><div id="lk2" class="lk"><span class="lkC"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></span><span class="lkO"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 " fill="none" stroke="#fff" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#fff"/></svg></span></div><div id="lk3" class="lk"><span class="lkC"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></span><span class="lkO"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 " fill="none" stroke="#fff" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#fff"/></svg></span></div><div id="lk4" class="lk"><span class="lkC"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 V22" fill="none" stroke="#1E1B1A" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#1E1B1A"/></svg></span><span class="lkO"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 V14 a10 10 0 0 1 20 0 " fill="none" stroke="#fff" stroke-width="4"/><rect x="4" y="22" width="32" height="24" rx="5" fill="#fff"/></svg></span></div></div></div>
+    </div>
+    <audio id="vo" src="assets/audio/voiceover.mp3" data-start="0" data-duration="218.352" data-track-index="9" data-volume="1"></audio>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#lk0", { backgroundColor: "#E8612C", borderColor: "#E8612C" }, 21.49);
+      tl.set("#lk0 .lkC", { opacity: 0 }, 21.49); tl.set("#lk0 .lkO", { opacity: 1 }, 21.49);
+      tl.fromTo("#lk0", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 21.49);
+      tl.set("#lk1", { backgroundColor: "#E8612C", borderColor: "#E8612C" }, 47.48);
+      tl.set("#lk1 .lkC", { opacity: 0 }, 47.48); tl.set("#lk1 .lkO", { opacity: 1 }, 47.48);
+      tl.fromTo("#lk1", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 47.48);
+      tl.set("#lk2", { backgroundColor: "#E8612C", borderColor: "#E8612C" }, 73.61);
+      tl.set("#lk2 .lkC", { opacity: 0 }, 73.61); tl.set("#lk2 .lkO", { opacity: 1 }, 73.61);
+      tl.fromTo("#lk2", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 73.61);
+      tl.set("#lk3", { backgroundColor: "#E8612C", borderColor: "#E8612C" }, 103.97);
+      tl.set("#lk3 .lkC", { opacity: 0 }, 103.97); tl.set("#lk3 .lkO", { opacity: 1 }, 103.97);
+      tl.fromTo("#lk3", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 103.97);
+      tl.set("#lk4", { backgroundColor: "#E8612C", borderColor: "#E8612C" }, 159.93);
+      tl.set("#lk4 .lkC", { opacity: 0 }, 159.93); tl.set("#lk4 .lkO", { opacity: 1 }, 159.93);
+      tl.fromTo("#lk4", { scale: 1.5 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 159.93);
+      tl.fromTo("#sc0-st", { scale: 1 }, { scale: 1.025, duration: 8.92, ease: "none" }, 0);
+      tl.fromTo("#cnA", { opacity: 0, y: -260, rotation: -8 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 0.15);
+      tl.fromTo("#cnL", { opacity: 0, y: 10, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 1.19);
+      tl.fromTo("#hA", { opacity: 0, y: 40, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 0.4);
+      tl.to("#cnA, #cnL", { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power1.in" }, 2.57);
+      tl.to("#tmA", { opacity: 1, duration: 0.3 }, 2.77); tl.to("#nnA", { opacity: 1, duration: 0.3 }, 4.48);
+      tl.set("#clk-0", { yPercent: -70 }, 2.76);
+      tl.set("#clk-2", { yPercent: -83.33 }, 2.76);
+      tl.set("#clk-3", { yPercent: -96.67 }, 2.76);
+      tl.fromTo("#clk-0", { yPercent: -3.33 }, { yPercent: -40, duration: 2.6, ease: "power3.out" }, 2.97);
+      tl.fromTo("#clk-2", { yPercent: -16.67 }, { yPercent: -70, duration: 2.7, ease: "power3.out" }, 2.97);
+      tl.fromTo("#clk-3", { yPercent: -30 }, { yPercent: -76.67, duration: 2.75, ease: "power3.out" }, 2.97);
+      tl.fromTo("#dtA", { opacity: 0, scale: 0.5, rotation: 0 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.45, ease: "back.out(1.8)" }, 7.02);
+      tl.fromTo("#sc1", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 8.62);
+      tl.fromTo("#sc1-st", { scale: 1 }, { scale: 1.025, duration: 2.91, ease: "none" }, 8.62);
+      tl.fromTo("#lbB", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 9.02);
+      tl.set("#adB-1", { yPercent: -70 }, 8.92);
+      tl.set("#adB-3", { yPercent: -73.33 }, 8.92);
+      tl.set("#adB-4", { yPercent: -80 }, 8.92);
+      tl.set("#adB-5", { yPercent: -66.67 }, 8.92);
+      tl.fromTo("#nB", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 9.02);
+      tl.fromTo("#qB", { opacity: 0, scale: 0.6, rotation: -9 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.45, ease: "back.out(1.8)" }, 10.62);
+      tl.fromTo("#shB", { opacity: 0, y: -260, rotation: -5 }, { opacity: 1, y: 0, rotation: 3, duration: 0.6, ease: "bounce.out" }, 9.32);
+      tl.fromTo("#adB-1", { yPercent: -3.33 }, { yPercent: -36.67, duration: 1.45, ease: "power3.out" }, 10.62);
+      tl.fromTo("#adB-3", { yPercent: -6.67 }, { yPercent: -73.33, duration: 1.55, ease: "power3.out" }, 10.62);
+      tl.fromTo("#adB-4", { yPercent: -13.33 }, { yPercent: -80, duration: 1.6, ease: "power3.out" }, 10.62);
+      tl.fromTo("#adB-5", { yPercent: 0 }, { yPercent: -66.67, duration: 1.65, ease: "power3.out" }, 10.62);
+      tl.fromTo("#zoomCoin", { scale: 0.2, opacity: 0 }, { keyframes: [{ scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)" }, { scale: 14, duration: 0.45, ease: "power3.in" }, { opacity: 0, duration: 0.15 }] }, 8.37);
+      tl.fromTo("#sc2", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 11.23);
+      tl.fromTo("#sc2-st", { scale: 1 }, { scale: 1.025, duration: 10.26, ease: "none" }, 11.23);
+      tl.fromTo("#agL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 11.58);
+      tl.fromTo("#agR .agBox", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.08 }, 11.68);
+      tl.to("#ag0", { backgroundColor: "#E8612C", borderColor: "#E8612C", color: "#fff", duration: 0.2 }, 13.27);
+      tl.fromTo("#ag0", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "back.out(3)", immediateRender: false }, 13.27);
+      tl.to("#ag1", { backgroundColor: "#E8612C", borderColor: "#E8612C", color: "#fff", duration: 0.2 }, 14.07);
+      tl.fromTo("#ag1", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "back.out(3)", immediateRender: false }, 14.07);
+      tl.to("#ag2", { backgroundColor: "#E8612C", borderColor: "#E8612C", color: "#fff", duration: 0.2 }, 15.96);
+      tl.fromTo("#ag2", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "back.out(3)", immediateRender: false }, 15.96);
+      tl.to("#ag3", { backgroundColor: "#E8612C", borderColor: "#E8612C", color: "#fff", duration: 0.2 }, 18.2);
+      tl.fromTo("#ag3", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "back.out(3)", immediateRender: false }, 18.2);
+      tl.fromTo("#sc3", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 21.19);
+      tl.fromTo("#sc3-st", { scale: 1 }, { scale: 1.025, duration: 1.5, ease: "none" }, 21.19);
+      tl.fromTo("#lv1a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 21.54);
+      tl.fromTo("#lv1b", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 21.64);
+      tl.fromTo("#lv1c", { scaleX: 0 }, { scaleX: 0.20, duration: 0.8, ease: "power2.out" }, 21.79);
+      tl.fromTo("#lv1d", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 21.99);
+      tl.fromTo("#sc4", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 22.39);
+      tl.fromTo("#sc4-st", { scale: 1 }, { scale: 1.025, duration: 8.59, ease: "none" }, 22.39);
+      tl.fromTo("#dtC", { opacity: 0, scale: 0.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.45, ease: "back.out(1.8)" }, 22.74);
+      tl.fromTo("#feL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 24.59);
+      tl.fromTo("#feB", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 25.07);
+      tl.fromTo("#svC > *", { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.15 }, 27.6);
+      tl.fromTo("#shC", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 29.06);
+      tl.fromTo("#sc5", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 30.68);
+      tl.fromTo("#sc5-st", { scale: 1 }, { scale: 1.025, duration: 5.62, ease: "none" }, 30.68);
+      tl.fromTo("#acr > div", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.25 }, 31.73);
+      tl.fromTo("#ssW", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 34.37);
+      tl.fromTo("#ssL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 34.57);
+      tl.fromTo("#ssBeam", { rotation: -10 }, { rotation: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" }, 34.99);
+      tl.fromTo("#ssSv", { opacity: 0, scale: 0.5, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 34.89);
+      tl.fromTo("#ssL2", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 34.99);
+      tl.fromTo("#sc6", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 36);
+      tl.fromTo("#sc6-st", { scale: 1 }, { scale: 1.025, duration: 11.48, ease: "none" }, 36);
+      tl.fromTo("#hC, #hCl", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 36.35);
+      tl.fromTo("#glC, #cl2, #clL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 37.8);
+      tl.fromTo("#svArr", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 39.02);
+      tl.fromTo("#svL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 39.02);
+      tl.fromTo("#cnD", { x: 0, y: 0, opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.15 }, { x: -620, y: -30, duration: 0.9, ease: "power2.inOut" }] }, 40.53);
+      tl.fromTo("#skD", { opacity: 0, scale: 1.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.45, ease: "back.out(1.8)" }, 43.85);
+      tl.fromTo("#bkD, #bkL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 45.5);
+      tl.fromTo("#fmD", { opacity: 0, y: -260, rotation: -2 }, { opacity: 1, y: 0, rotation: 6, duration: 0.6, ease: "bounce.out" }, 45.91);
+      tl.fromTo("#sc7", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 47.18);
+      tl.fromTo("#sc7-st", { scale: 1 }, { scale: 1.025, duration: 1.9, ease: "none" }, 47.18);
+      tl.fromTo("#lv2a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 47.53);
+      tl.fromTo("#lv2b", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 47.63);
+      tl.fromTo("#lv2c", { scaleX: 0 }, { scaleX: 0.40, duration: 0.8, ease: "power2.out" }, 47.78);
+      tl.fromTo("#lv2d", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 47.98);
+      tl.fromTo("#sc8", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 48.78);
+      tl.fromTo("#sc8-st", { scale: 1 }, { scale: 1.025, duration: 6.67, ease: "none" }, 48.78);
+      tl.fromTo("#hE", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 49.08);
+      tl.fromTo("#phE", { opacity: 0, y: 40, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 49.18);
+      tl.fromTo("#phE-r0", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 50.17);
+      tl.fromTo("#phE-r1", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 50.71);
+      tl.fromTo("#phE-r2", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 52.91);
+      tl.fromTo("#sc9", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 55.15);
+      tl.fromTo("#sc9-st", { scale: 1 }, { scale: 1.025, duration: 4.86, ease: "none" }, 55.15);
+      tl.fromTo("#hF", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 55.45);
+      tl.fromTo("#bbF", { opacity: 0, scale: 0.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 57.01);
+      tl.fromTo("#fF0", { opacity: 0, y: -260, rotation: -13 }, { opacity: 1, y: 0, rotation: -5, duration: 0.6, ease: "bounce.out" }, 57.56);
+      tl.fromTo("#fF1", { opacity: 0, y: -260, rotation: -6 }, { opacity: 1, y: 0, rotation: 2, duration: 0.6, ease: "bounce.out" }, 57.68);
+      tl.fromTo("#fF2", { opacity: 0, y: -260, rotation: -10 }, { opacity: 1, y: 0, rotation: -2, duration: 0.6, ease: "bounce.out" }, 57.8);
+      tl.fromTo("#fF3", { opacity: 0, y: -260, rotation: -3 }, { opacity: 1, y: 0, rotation: 5, duration: 0.6, ease: "bounce.out" }, 57.92);
+      tl.fromTo("#fF4", { opacity: 0, y: -260, rotation: -7 }, { opacity: 1, y: 0, rotation: 1, duration: 0.6, ease: "bounce.out" }, 58.04);
+      tl.fromTo("#fF5", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 58.16);
+      tl.set("#frm-0", { yPercent: -66.67 }, 55.45);
+      tl.set("#frm-1", { yPercent: -70 }, 55.45);
+      tl.fromTo("#frm-0", { yPercent: 0 }, { yPercent: -70, duration: 1.2, ease: "power3.out" }, 57.56);
+      tl.fromTo("#frm-1", { yPercent: -3.33 }, { yPercent: -73.33, duration: 1.25, ease: "power3.out" }, 57.56);
+      tl.fromTo("#cntL, #cntF", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 57.56);
+      tl.fromTo("#sc10", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 59.71);
+      tl.fromTo("#sc10-st", { scale: 1 }, { scale: 1.025, duration: 8.56, ease: "none" }, 59.71);
+      tl.fromTo("#mnL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 60.06);
+      tl.set("#mn-1", { yPercent: -83.33 }, 60.01);
+      tl.set("#mn-2", { yPercent: -66.67 }, 60.01);
+      tl.set("#mn-4", { yPercent: -66.67 }, 60.01);
+      tl.set("#mn-5", { yPercent: -66.67 }, 60.01);
+      tl.set("#mn-6", { yPercent: -66.67 }, 60.01);
+      tl.fromTo("#mnN", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 60.06);
+      tl.fromTo("#mn-1", { yPercent: -16.67 }, { yPercent: -33.33, duration: 1.35, ease: "power3.out" }, 62.25);
+      tl.fromTo("#mn-2", { yPercent: 0 }, { yPercent: -33.33, duration: 1.4, ease: "power3.out" }, 62.25);
+      tl.fromTo("#mn-4", { yPercent: 0 }, { yPercent: -66.67, duration: 1.5, ease: "power3.out" }, 62.25);
+      tl.fromTo("#mn-5", { yPercent: 0 }, { yPercent: -66.67, duration: 1.55, ease: "power3.out" }, 62.25);
+      tl.fromTo("#mn-6", { yPercent: 0 }, { yPercent: -66.67, duration: 1.6, ease: "power3.out" }, 62.25);
+      tl.to("#mnN", { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power1.in" }, 63.75);
+      tl.fromTo("#mn0", { opacity: 0, scale: 1.4, rotation: -9 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.45, ease: "back.out(1.8)" }, 63.85);
+      tl.fromTo("#hG", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 63.61);
+      tl.fromTo("#smL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 66.94);
+      tl.fromTo("#crG .chip", { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.4 }, 65.57);
+      tl.fromTo("#hG", { x: 0 }, { keyframes: [{ x: 10 }, { x: -10 }, { x: 8 }, { x: -6 }, { x: 0 }], duration: 0.5, immediateRender: false }, 67.72);
+      tl.fromTo("#sc11", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 67.97);
+      tl.fromTo("#sc11-st", { scale: 1 }, { scale: 1.025, duration: 5.64, ease: "none" }, 67.97);
+      tl.fromTo("#qL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 68.37);
+      tl.fromTo("#qT", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 71.21);
+      tl.fromTo("#qS", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 72.11);
+      tl.fromTo("#sc12", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 73.31);
+      tl.fromTo("#sc12-st", { scale: 1 }, { scale: 1.025, duration: 0.97, ease: "none" }, 73.31);
+      tl.fromTo("#lv3a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 73.66);
+      tl.fromTo("#lv3b", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 73.76);
+      tl.fromTo("#lv3c", { scaleX: 0 }, { scaleX: 0.60, duration: 0.8, ease: "power2.out" }, 73.91);
+      tl.fromTo("#lv3d", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 74.11);
+      tl.fromTo("#sc13", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 73.98);
+      tl.fromTo("#sc13-st", { scale: 1 }, { scale: 1.025, duration: 10.79, ease: "none" }, 73.98);
+      tl.fromTo("#dyL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 74.28);
+      tl.fromTo("#dyR .day", { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.05 }, 74.33);
+      tl.set("#dy1", { backgroundColor: "#1E1B1A", color: "#fff" }, 74.58);
+      tl.set("#dy2", { backgroundColor: "#D9D1C6", color: "#1E1B1A" }, 74.92);
+      tl.set("#dy3", { backgroundColor: "#D9D1C6", color: "#1E1B1A" }, 75.04);
+      tl.set("#dy4", { backgroundColor: "#D9D1C6", color: "#1E1B1A" }, 75.16);
+      tl.set("#dy5", { backgroundColor: "#D9D1C6", color: "#1E1B1A" }, 75.28);
+      tl.set("#dy6", { backgroundColor: "#D9D1C6", color: "#1E1B1A" }, 75.4);
+      tl.set("#dy7", { backgroundColor: "#E8612C", color: "#fff" }, 75.52);
+      tl.fromTo("#dyB", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.45, ease: "back.out(1.8)" }, 74.6);
+      tl.fromTo("#dyP", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 79.54);
+      tl.fromTo("#twT", { opacity: 0, scale: 0.7, rotation: -7 }, { opacity: 1, scale: 1, rotation: -1, duration: 0.45, ease: "back.out(1.8)" }, 81.41);
+      tl.fromTo("#sc14", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 84.47);
+      tl.fromTo("#sc14-st", { scale: 1 }, { scale: 1.025, duration: 12.21, ease: "none" }, 84.47);
+      tl.fromTo("#shH", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 84.87);
+      tl.fromTo("#gvH, #gvL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 86.78);
+      tl.fromTo("#bbH", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 87.82);
+      tl.fromTo("#exH .chip", { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.5 }, 94.06);
+      tl.fromTo("#sc15", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 96.38);
+      tl.fromTo("#sc15-st", { scale: 1 }, { scale: 1.025, duration: 7.59, ease: "none" }, 96.38);
+      tl.fromTo("#hI, #icL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 96.73);
+      tl.fromTo("#mtL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 96.88);
+      tl.fromTo("#mtS", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 99.95);
+      tl.fromTo("#mtF", { scaleX: 1 }, { scaleX: 0.18, duration: 1.4, ease: "power2.inOut" }, 102.49);
+      tl.fromTo("#mtB", { opacity: 0, scale: 0.7, rotation: -8 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.45, ease: "back.out(1.8)" }, 102.95);
+      tl.to("#hI", { opacity: 0, duration: 0.3 }, 103.3); tl.to("#hI2", { opacity: 1, duration: 0.3 }, 103.3);
+      tl.fromTo("#sc16", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 103.67);
+      tl.fromTo("#sc16-st", { scale: 1 }, { scale: 1.025, duration: 1.18, ease: "none" }, 103.67);
+      tl.fromTo("#lv4a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 104.02);
+      tl.fromTo("#lv4b", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 104.12);
+      tl.fromTo("#lv4c", { scaleX: 0 }, { scaleX: 0.80, duration: 0.8, ease: "power2.out" }, 104.27);
+      tl.fromTo("#lv4d", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 104.47);
+      tl.fromTo("#sc17", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 104.55);
+      tl.fromTo("#sc17-st", { scale: 1 }, { scale: 1.025, duration: 18.76, ease: "none" }, 104.55);
+      tl.fromTo("#pie0", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 104.9);
+      tl.fromTo(".pieKey div", { opacity: 0, y: 10, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.08 }, 105.05);
+      tl.fromTo("#p1L", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 104.95);
+      tl.fromTo("#p1C .chip", { opacity: 0, y: 16, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.35 }, 110.96);
+      tl.fromTo("#shP1", { opacity: 0, y: -260, rotation: -4 }, { opacity: 1, y: 0, rotation: 4, duration: 0.6, ease: "bounce.out" }, 112.17);
+      tl.fromTo("#p1Q", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 114.64);
+      tl.fromTo("#p1E, #p1S", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 117.6);
+      tl.fromTo("#p1Beam", { rotation: -8 }, { rotation: 8, duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 117.8);
+      tl.fromTo("#p1X", { opacity: 0, scale: 1.6, rotation: -11 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.45, ease: "back.out(1.8)" }, 121.9);
+      tl.fromTo("#sc18", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 123.01);
+      tl.fromTo("#sc18-st", { scale: 1 }, { scale: 1.025, duration: 11.23, ease: "none" }, 123.01);
+      tl.fromTo("#pie1", { opacity: 0, scale: 0.85, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 123.36);
+      tl.fromTo(".pieKey div", { opacity: 0, y: 10, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.05 }, 123.41);
+      tl.fromTo("#p2L", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 123.41);
+      tl.fromTo("#glK, #glL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 125.92);
+      tl.fromTo("#p2A", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 126.69);
+      tl.fromTo("#hK, #hKl", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 127.08);
+      tl.fromTo("#cnK", { x: 0, opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.1 }, { x: 420, duration: 0.8, ease: "power2.inOut" }] }, 128.47);
+      tl.fromTo("#p2S", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 129.62);
+      tl.fromTo("#p2W", { opacity: 0, scale: 1.8, rotation: 2 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.45, ease: "back.out(1.8)" }, 132.54);
+      tl.fromTo("#p2D", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 132.74);
+      tl.fromTo("#sc19", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 133.94);
+      tl.fromTo("#sc19-st", { scale: 1 }, { scale: 1.025, duration: 9.66, ease: "none" }, 133.94);
+      tl.fromTo("#pie2", { opacity: 0, scale: 0.85, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 134.29);
+      tl.fromTo(".pieKey div", { opacity: 0, y: 10, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.05 }, 134.34);
+      tl.fromTo("#p3L", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 134.34);
+      tl.fromTo("#ibK, #ibL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 136.49);
+      tl.fromTo("#p3A", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 137.83);
+      tl.fromTo("#hL, #hLl", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 138.81);
+      tl.fromTo("#cnL3", { x: 0, opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.1 }, { x: 400, duration: 0.8, ease: "power2.inOut" }] }, 138.18);
+      tl.fromTo("#p3X", { opacity: 0, scale: 1.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.45, ease: "back.out(1.8)" }, 140.06);
+      tl.fromTo("#p3N", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 141.51);
+      tl.fromTo("#sc20", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 143.3);
+      tl.fromTo("#sc20-st", { scale: 1 }, { scale: 1.025, duration: 16.63, ease: "none" }, 143.3);
+      tl.fromTo("#ebL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 143.6);
+      tl.fromTo("#bzR .biz", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.35 }, 145.19);
+      tl.fromTo("#bzX", { opacity: 0, scale: 1.6, rotation: -11 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.45, ease: "back.out(1.8)" }, 149.72);
+      tl.fromTo("#gsC", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 153.55);
+      tl.fromTo("#shM", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 156.92);
+      tl.fromTo("#spn", { rotation: 0 }, { rotation: 2297, duration: 6.38, ease: "none" }, 153.55);
+      tl.fromTo("#sc21", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 159.63);
+      tl.fromTo("#sc21-st", { scale: 1 }, { scale: 1.025, duration: 3.36, ease: "none" }, 159.63);
+      tl.fromTo("#lv5a", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 159.98);
+      tl.fromTo("#lv5b", { opacity: 0, scale: 0.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 160.08);
+      tl.fromTo("#lv5c", { scaleX: 0 }, { scaleX: 1.00, duration: 0.8, ease: "power2.out" }, 160.23);
+      tl.fromTo("#lv5d", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 160.43);
+      tl.fromTo("#sc22", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 162.69);
+      tl.fromTo("#sc22-st", { scale: 1 }, { scale: 1.025, duration: 5.48, ease: "none" }, 162.69);
+      tl.fromTo("#s1T", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 163.04);
+      tl.fromTo("#hS1", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 163.19);
+      tl.fromTo("#s1L", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 164.52);
+      tl.fromTo("#s1R", { opacity: 0, scale: 1.6, rotation: -11 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.45, ease: "back.out(1.8)" }, 167.06);
+      tl.fromTo("#sc23", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 167.87);
+      tl.fromTo("#sc23-st", { scale: 1 }, { scale: 1.025, duration: 8.27, ease: "none" }, 167.87);
+      tl.fromTo("#s2T", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 168.22);
+      tl.fromTo("#sh2a", { opacity: 0, y: -260, rotation: -12 }, { opacity: 1, y: 0, rotation: -4, duration: 0.6, ease: "bounce.out" }, 169.7);
+      tl.fromTo("#inv", { opacity: 0, y: -260, rotation: -5 }, { opacity: 1, y: 0, rotation: 3, duration: 0.6, ease: "bounce.out" }, 171.79);
+      tl.fromTo("#fira", { opacity: 0, y: -260, rotation: -10 }, { opacity: 1, y: 0, rotation: -2, duration: 0.6, ease: "bounce.out" }, 173.77);
+      tl.fromTo("#fld", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 175.09);
+      tl.fromTo("#sc24", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 175.84);
+      tl.fromTo("#sc24-st", { scale: 1 }, { scale: 1.025, duration: 8.09, ease: "none" }, 175.84);
+      tl.fromTo("#s3T", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 176.19);
+      tl.fromTo("#s3L", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 177.98);
+      tl.fromTo("#bk3", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 178.19);
+      tl.fromTo("#bkr", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 179.88);
+      tl.fromTo("#bb3", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 180.32);
+      tl.fromTo("#sh3", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 178.58);
+      tl.fromTo("#sc25", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 183.63);
+      tl.fromTo("#sc25-st", { scale: 1 }, { scale: 1.025, duration: 7.72, ease: "none" }, 183.63);
+      tl.fromTo("#s4T", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 183.98);
+      tl.fromTo("#ca4", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 189.73);
+      tl.fromTo("#s4C .chip", { opacity: 0, y: 16, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.9 }, 184.23);
+      tl.fromTo("#lvc", { opacity: 0, scale: 0.5, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 190.45);
+      tl.fromTo("#sc26", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 191.05);
+      tl.fromTo("#sc26-st", { scale: 1 }, { scale: 1.025, duration: 12, ease: "none" }, 191.05);
+      tl.fromTo("#smL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 191.35);
+      tl.fromTo("#pl0", { opacity: 0, y: -260, rotation: -11 }, { opacity: 1, y: 0, rotation: -3, duration: 0.6, ease: "bounce.out" }, 191.8);
+      tl.fromTo("#pl1", { opacity: 0, y: -260, rotation: -6 }, { opacity: 1, y: 0, rotation: 2, duration: 0.6, ease: "bounce.out" }, 194.71);
+      tl.fromTo("#pl2", { opacity: 0, y: -260, rotation: -9 }, { opacity: 1, y: 0, rotation: -1, duration: 0.6, ease: "bounce.out" }, 196.47);
+      tl.fromTo("#upd", { opacity: 0, scale: 0.7, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 199.93);
+      tl.fromTo("#sc27", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 202.75);
+      tl.fromTo("#sc27-st", { scale: 1 }, { scale: 1.025, duration: 5.8, ease: "none" }, 202.75);
+      tl.fromTo("#dcL", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 203.05);
+      tl.fromTo("#dcT", { opacity: 0, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 203.15);
+      tl.fromTo("#dcS", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 205.68);
+      tl.fromTo("#sc28", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 208.25);
+      tl.fromTo("#sc28-st", { scale: 1 }, { scale: 1.025, duration: 10.1, ease: "none" }, 208.25);
+      tl.fromTo("#cmL, #cmT", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 208.6);
+      tl.fromTo("#cmR .chip", { opacity: 0, y: 16, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out", stagger: 0.6 }, 211.04);
+      tl.fromTo("#cmBox", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 213.75);
+      tl.fromTo("#sub", { opacity: 0, scale: 0.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 216.49);
+      tl.fromTo("#sub", { scale: 1 }, { scale: 0.93, duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, 217.44);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+[
+ {"name":"rbi_home","url":"https://www.rbi.org.in/","scroll":900,"step":10},
+ {"name":"bt_edf","url":"https://www.businesstoday.in/latest/economy/story/rbi-export-rules-edf-filing-to-become-mandatory-for-service-exporters-from-october-1-559913-2026-10-06","scroll":1600,"step":10},
+ {"name":"taxmann_fema","url":"https://www.taxmann.com/post/blog/rbi-notifies-fem-export-and-import-regulations-2026","scroll":1400,"step":10},
+ {"name":"scc_fema","url":"https://www.scconline.com/blog/post/2026/09/29/rbi-amends-fema-export-import-goods-services-regulations-2026/","scroll":1400,"step":10},
+ {"name":"studycafe_edf","url":"https://studycafe.in/rbi-introduces-new-edf-filing-rule-for-freelancers-influencers-and-other-service-exporters-effective-october-1-2026-427290.html","scroll":1400,"step":10},
+ {"name":"fueler_clarify","url":"https://fueler.io/blog/rbi-clarifies-edf-rule-individuals-and-freelancers-not-covered-what-it-actually-means-2026","scroll":1600,"step":10},
+ {"name":"winvesta_fema","url":"https://www.winvesta.in/blog/businesses/fema-2026-what-indian-service-exporters-must-do-now","scroll":1400,"step":10},
+ {"name":"adsense_start","url":"https://adsense.google.com/start/","scroll":1600,"step":10},
+ {"name":"adsense_payments","url":"https://support.google.com/adsense/answer/7164703?hl=en","scroll":1200,"step":10},
+ {"name":"yt_monetization","url":"https://www.youtube.com/creators/how-things-work/video-monetization/","scroll":2200,"step":12},
+ {"name":"yt_ypp","url":"https://support.google.com/youtube/answer/72857?hl=en","scroll":1400,"step":10},
+ {"name":"razorpay_edf","url":"https://razorpay.com/blog/?p=27875","scroll":1400,"step":10},
+ {"name":"rbi_faq","url":"https://www.rbi.org.in/Scripts/FAQDisplay.aspx","scroll":800,"step":10}
+]
