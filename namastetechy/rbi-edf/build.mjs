@@ -41,7 +41,7 @@ const scene = (name, at, end, cls, inner, track = 2) => {
 };
 // poster frame on the right; each media item plays from `from` to `to`. A capture shorter than its slot
 // holds on that site's hero still for the remainder.
-const FR = { x: 790, y: 120, w: 1060, h: 596 };
+const FR = { x: 900, y: 140, w: 940, h: 529 };
 const frame = (media, label = "") => {
   const items = [];
   media.forEach((m) => {
@@ -84,9 +84,9 @@ const T0 = (t) => t + 1.15; // first entrance after a title slam
   const s = "s-hook", a = 0, b = L(3);
   scene(s, a, b, "", `
         ${eyebrow("hE", 110, 130, "YouTubers · dollar earnings")}
-        ${masked("h1", 106, 170, 96, "Aap YouTuber ho?")}
-        ${disp("h2", 100, 300, 128, "$ mein kamaai?", "red")}
-        ${tagline("h3", 110, 500, 600, "RBI ka <b>naya EDF rule</b> — neend udne se pehle…")}
+        ${masked("h1", 106, 170, 70, "Aap YouTuber ho?")}
+        ${disp("h2", 100, 290, 84, "$ mein kamaai?", "red")}
+        ${tagline("h3", 110, 470, 640, "RBI ka <b>naya EDF rule</b> — neend udne se pehle…")}
         <div id="hDate" class="dateCard" style="left:110px;top:650px"><div class="dM">OCT</div><div class="dD">7</div></div>
         ${tagline("h4", 300, 680, 420, "RBI ne kya kaha?")}
         ${frame([{ src: "yt_monetization", from: a, to: L(1) }, { src: "rbi_home", from: L(1), to: b }], "youtube.com · rbi.org.in")}`);
@@ -97,7 +97,7 @@ const T0 = (t) => t + 1.15; // first entrance after a title slam
   const s = "s-ads", a = L(3), b = L(4);
   scene(s, a, b, "", `
         ${eyebrow("aE", 110, 200, "Sabse bada sawaal")}
-        ${masked("a1", 106, 240, 110, "AdSense earning")}
+        ${masked("a1", 106, 240, 80, "AdSense earning")}
         ${disp("a2", 100, 400, 150, "pe asar?", "red")}
         ${frame([{ src: "adsense_start", from: a, to: b }], "adsense.google.com")}`);
   wipe("#aE", a); rise("#a1", wt(3, "adsense")); popIn("#a2", wt(3, "asar"), 1.8, -5);
@@ -120,9 +120,9 @@ titleSlam(1, "Pehle, rule.", L(7));
   const s = "r-fema", a = L(7), b = L(10), t = T0(a);
   scene(s, a, b, "", `
         ${eyebrow("fE", 110, 140, "Lagu · FEMA regulations")}
-        ${disp("f1", 100, 180, 150, "1 Oct 2026", "red shadow")}
-        ${masked("f2", 106, 380, 70, "naye FEMA regulations")}
-        <div id="fChain" class="chain" style="left:110px;top:560px"><div class="box">Services export</div><div class="arr">→</div><div class="box red">EDF framework</div></div>
+        ${disp("f1", 100, 180, 112, "1 Oct 2026", "red shadow")}
+        ${masked("f2", 106, 360, 54, "naye FEMA regulations")}
+        <div id="fChain" class="chain sm" style="left:110px;top:520px"><div class="box">Services export</div><div class="arr">→</div><div class="box red">EDF framework</div></div>
         ${frame([{ src: "taxmann_fema", from: a, to: L(9) }, { src: "scc_fema", from: L(9), to: b }], "taxmann.com · scconline.com")}`);
   wipe("#fE", t); popIn("#f1", Math.max(t, wt(8, "1")), 1.8, -4); rise("#f2", wt(8, "fema"));
   fadeUp("#fChain .box, #fChain .arr", wt(9, "services"), 0.12);
@@ -142,12 +142,12 @@ titleSlam(1, "Pehle, rule.", L(7));
   const s = "r-idea", a = L(12), b = L(16);
   scene(s, a, b, "", `
         ${eyebrow("iE", 120, 120, "Idea yeh hai")}
-        <div id="iChain" class="chain" style="left:120px;top:190px">
+        <div id="iChain" class="chain sm" style="left:120px;top:190px">
           <div class="box">Aap · India</div><div class="arr">→</div><div class="box">service</div><div class="arr">→</div><div class="box">videshi client</div></div>
-        <div id="iBack" class="chain" style="left:120px;top:330px"><div class="box red">$ paisa bahar se</div><div class="arr">→</div><div class="box">= service export?</div></div>
-        <div id="iBank" class="chain" style="left:120px;top:470px"><div class="box">Bank</div><div class="arr">→</div><div class="box red">EDF jaankari</div></div>
+        <div id="iBack" class="chain sm" style="left:120px;top:320px"><div class="box red">$ paisa bahar se</div><div class="arr">→</div><div class="box">= service export?</div></div>
+        <div id="iBank" class="chain sm" style="left:120px;top:450px"><div class="box">Bank</div><div class="arr">→</div><div class="box red">EDF jaankari</div></div>
         ${tagline("iNote", 120, 640, 640, "ho <b>sakta</b> hai · deni pad <b>sakti</b> hai")}
-        ${frame([{ src: "bt_edf", from: wt(13, "paisa"), to: b }], "businesstoday.in · 6 Oct")}`);
+        ${frame([{ src: "razorpay_edf", from: a, to: b }], "razorpay.com/blog")}`);
   wipe("#iE", a); fadeUp("#iChain > *", wt(12, "india"), 0.12);
   fadeUp("#iBack > *", wt(13, "paisa"), 0.15); fadeUp("#iBank > *", wt(15, "bank"), 0.15); wipe("#iNote", wt(15, "sakti") - 0.4, 0.6);
 }
@@ -181,7 +181,7 @@ titleSlam(2, "YouTubers ka darr", L(16));
         <div id="sMin" class="nums" style="left:120px;top:160px"><span>Minimum chhoot</span><span class="q">₹0</span></div>
         <div id="sSmall" class="vsCard" style="left:120px;top:330px;width:620px"><div class="tag">Sabse zyada dare</div><div class="lab">Chhote creators</div><div class="lab2"><s>CA</s> &nbsp; <s>accountant</s></div></div>
         <div id="sQuote" class="quote" style="left:120px;top:620px;width:620px">“Fill a form for just being alive.”<div class="qSrc">— experts, via a business news report</div></div>
-        ${frame([{ src: "studycafe_edf", from: a, to: b }], "studycafe.in")}`);
+        ${frame([{ src: "bt_edf", from: a, to: b }], "businesstoday.in · 6 Oct")}`);
   wipe("#sE", a); fadeUp("#sMin span", wt(21, "minimum"), 0.15); fadeUp("#sSmall", L(22)); wipe("#sQuote", L(24), 0.9);
 }
 
@@ -218,7 +218,7 @@ titleSlam(3, "Par ruko!", L(25));
         ${disp("m2", 110, 380, 170, "kaafi kam", "red shadow")}
         ${tagline("m3", 120, 640, 640, "abhi ke statement ke hisaab se")}
         <div id="mMeter" class="meter" style="left:1240px;top:180px"><div class="mLab">tension</div><div id="mFill" class="mFill"></div></div>`);
-  wipe("#mE", a); rise("#m1", wt(36, "edf")); popIn("#m2", wt(36, "kaafi"), 1.8, -4); wipe("#m3", wt(35, "statement"));
+  wipe("#mE", a); rise("#m1", a + 0.3); popIn("#m2", wt(36, "kaafi"), 1.8, -4); wipe("#m3", wt(35, "statement"));
   tw(`tl.fromTo("#mFill", { scaleY: 1 }, { scaleY: 0.22, duration: 1.2, ease: "power2.inOut" }, ${r2(wt(36, "kam"))});`);
 }
 
@@ -229,9 +229,9 @@ const tracker = (k) => `<div class="tracker">${["AdSense / YouTube", "Foreign br
   const s = "i-ads", a = L(38), b = L(45), t = T0(L(37));
   scene(s, Math.max(a, L(37) + 1.1), b, "", `
         ${tracker(0)}
-        ${disp("j1", 110, 170, 120, "01 · AdSense", "red")}
-        ${chips(["Ads", "Memberships", "Super Chat"]).replace('class="chips "', 'id="jChips" class="chips big" style="left:120px;top:340px"')}
-        ${masked("j2", 116, 470, 62, "Ad revenue = service export?")}
+        ${disp("j1", 110, 170, 96, "01 · AdSense", "red")}
+        ${chips(["Ads", "Memberships", "Super Chat"]).replace('class="chips "', 'id="jChips" class="chips" style="left:120px;top:330px"')}
+        ${masked("j2", 116, 440, 44, "Ad revenue = service export?")}
         <div id="jStat" class="vsCard" style="left:120px;top:590px;width:620px"><div class="tag">Status</div><div class="lab">Abhi clear nahi</div><div class="lab2">experts ki raay alag · RBI ne alag se kuch nahi kaha</div></div>
         ${frame([{ src: "yt_monetization", from: Math.max(a, L(37) + 1.1), to: b }], "youtube.com/creators")}`);
   popIn("#j1", t, 1.6, -3); fadeUp("#jChips span", wt(39, "ads", 1), 0.35);
@@ -262,7 +262,7 @@ const tracker = (k) => `<div class="tracker">${["AdSense / YouTube", "Foreign br
   scene(s, a, b, "", `
         ${eyebrow("zE", 120, 120, "Aur ek baat")}
         ${chips(["Company", "LLP", "Firm"]).replace('class="chips "', 'id="zChips" class="chips big" style="left:120px;top:170px"')}
-        ${masked("z1", 116, 290, 70, "abhi bhi cover ho sakte")}
+        ${masked("z1", 116, 290, 52, "abhi bhi cover ho sakte")}
         <div id="zGst" class="vsCard" style="left:120px;top:450px;width:620px"><div class="tag ink">GST wale sole proprietors</div><div class="lab">Final jawab: RBI FAQs</div><div class="lab2">jo abhi aane baaki hain</div></div>
         ${frame([{ src: "winvesta_fema", from: a, to: L(56) }, { src: "rbi_faq", from: L(56), to: b }], "winvesta.in · rbi.org.in")}`);
   wipe("#zE", a); fadeUp("#zChips span", wt(54, "company"), 0.3); rise("#z1", wt(55, "businesses")); fadeUp("#zGst", L(56));
@@ -320,8 +320,8 @@ const stepList = (on) => `<div class="steps">${steps.map(([h, sub], i) => `<div 
         ${eyebrow("eE2", 120, 140, "Comment mein batao")}
         ${masked("e1", 116, 180, 84, "Sabse zyada kamaai?")}
         <div id="ePoll" class="poll" style="left:120px;top:340px"><div>A · AdSense</div><div>B · Foreign brands</div><div>C · Indian brands</div></div>
-        <div id="eSub" class="brandCard" style="left:1120px;top:260px;width:640px">
-          <div class="eyebrow static">Creator updates ke liye</div><div class="disp" style="font-size:96px">NamasteTechy</div>
+        <div id="eSub" class="brandCard" style="left:1080px;top:260px">
+          <div class="eyebrow static">Creator updates ke liye</div><div class="disp" style="font-size:80px;padding:0 40px">NamasteTechy</div>
           <div id="eBtn" class="subBtn">SUBSCRIBE</div></div>`);
   wipe("#eE2", L(78)); rise("#e1", a + 0.05); fadeUp("#ePoll > div", wt(77, "adsense"), 0.45);
   fadeUp("#eSub", wt(79, "namastetechy")); popIn("#eBtn", wt(79, "subscribe"), 1.6, -3);
@@ -342,7 +342,7 @@ groups.forEach((g, k) => {
   const next = groups[k + 1];
   const at = g[0].start, end = next ? Math.min(next[0].start, g[g.length - 1].end + 0.6) : DURATION;
   parts.push(`
-      <div id="cap${k}" class="clip layer" data-start="${r2(at)}" data-duration="${r2(Math.max(0.3, end - at))}" data-track-index="5"><div class="capStage"><div class="capCard">${esc(g.map((w) => w.text).join(" "))}</div></div></div>`);
+      <div id="cap${k}" class="clip layer capClip" data-start="${r2(at)}" data-duration="${r2(Math.max(0.3, end - at))}" data-track-index="5"><div class="capStage"><div class="capCard">${esc(g.map((w) => w.text).join(" "))}</div></div></div>`);
 });
 
 // ---------- chapter footer + progress ----------
@@ -378,7 +378,8 @@ const html = `<!doctype html>
       .eyebrow.static { position: static; margin-bottom: 8px; }
       .eyebrow.light { color: ${C.bg}; font-size: 34px; letter-spacing: 6px; }
       .tagline { position: absolute; padding-left: 20px; border-left: 4px solid ${C.red}; font-size: 36px; line-height: 1.45; }
-      .redPanel { background: ${C.red}; }
+      .redPanel { background: ${C.red}; z-index: 3; }
+      .capClip { z-index: 4; }
       .frameOuter { position: absolute; border: 3px solid ${C.dark}; background: ${C.light}; }
       .frame { position: absolute; overflow: hidden; outline: 1.5px solid ${C.dark}; background: ${C.bg}; }
       .mwin { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -388,7 +389,7 @@ const html = `<!doctype html>
       .list .li, .steps .st { display: flex; align-items: baseline; gap: 26px; font-family: "Shrikhand", serif; font-size: 56px; border-left: 4px solid ${C.red}; padding-left: 22px; white-space: nowrap; }
       .list .n, .steps .n { color: ${C.red}; font-size: 44px; }
       .steps { display: flex; flex-direction: column; gap: 30px; }
-      .steps .st .sub { font-family: "Libre Baskerville", serif; font-size: 28px; color: #5a504a; margin-top: 4px; }
+      .steps .st .sub { white-space: normal; max-width: 620px; font-family: "Libre Baskerville", serif; font-size: 28px; color: #5a504a; margin-top: 4px; }
       .steps .st.done { opacity: .35; }
       .steps.small .st { font-size: 50px; }
       .tag { align-self: flex-start; padding: 6px 16px 8px; background: ${C.red}; color: ${C.bg}; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; }
@@ -403,6 +404,7 @@ const html = `<!doctype html>
       .chain .box { padding: 16px 22px 20px; border: 3px solid ${C.dark}; font-family: "Shrikhand", serif; font-size: 40px; white-space: nowrap; background: ${C.bg}; }
       .chain .box.red { background: ${C.red}; color: ${C.bg}; border-color: ${C.red}; }
       .chain .arr { font-family: "Shrikhand", serif; font-size: 48px; color: ${C.red}; }
+      .chain.sm { gap: 10px; } .chain.sm .box { font-size: 30px; padding: 12px 16px 16px; } .chain.sm .arr { font-size: 36px; }
       .chips { position: absolute; display: flex; gap: 14px; }
       .chips span { padding: 8px 20px 12px; border: 3px solid ${C.dark}; font-family: "Shrikhand", serif; font-size: 34px; }
       .chips span:first-child { background: ${C.red}; color: ${C.bg}; border-color: ${C.red}; }
@@ -423,7 +425,7 @@ const html = `<!doctype html>
       .meter .mFill { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: ${C.red}; transform-origin: 50% 100%; }
       .meter .mLab { position: absolute; left: 0; right: 0; top: -54px; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; }
       .tracker { position: absolute; left: 120px; top: 90px; display: flex; gap: 10px; }
-      .tracker span { padding: 4px 14px 6px; border: 2px solid ${C.dark}; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: #8a807a; }
+      .tracker span { padding: 4px 14px 6px; border: 2px solid ${C.dark}; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: #5e5650; }
       .tracker span.on { background: ${C.dark}; color: ${C.bg}; }
       .stackWrap { position: absolute; width: 470px; height: 620px; }
       .sheet { position: absolute; inset: 0; width: 100%; height: 100%; background: ${C.bg}; border: 3px solid ${C.dark}; }

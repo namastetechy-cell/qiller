@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Shrikhand"; font-weight: 400; src: url("assets/fonts/shrikhand-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Libre Baskerville"; font-weight: 400; src: url("assets/fonts/libre-baskerville-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Space Grotesk"; font-weight: 600; src: url("assets/fonts/space-grotesk-latin-600-normal.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #FFFFFF; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FFFFFF; color: #1C1410; font-family: "Libre Baskerville", serif; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .center { display: flex; align-items: center; justify-content: center; }
+      .col { display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 120px; }
+      .disp { font-family: "Shrikhand", serif; font-weight: 400; line-height: 1.1; white-space: nowrap; color: #1C1410; }
+      .disp.red, .red { color: #D8000F; } .disp.white { color: #FFFFFF; } .shadow { text-shadow: 0.03em 0.03em 0 rgba(28,20,16,.25), 0.06em 0.06em 0 rgba(28,20,16,.2), 0.09em 0.09em 0 rgba(28,20,16,.15); }
+      .mask { position: absolute; overflow: hidden; padding-bottom: 6px; }
+      .mask > div { display: block; }
+      .eyebrow { position: absolute; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 26px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; white-space: nowrap; }
+      .eyebrow.static { position: static; margin-bottom: 8px; }
+      .eyebrow.light { color: #FFFFFF; font-size: 34px; letter-spacing: 6px; }
+      .tagline { position: absolute; padding-left: 20px; border-left: 4px solid #D8000F; font-size: 36px; line-height: 1.45; }
+      .redPanel { background: #D8000F; z-index: 3; }
+      .capClip { z-index: 4; }
+      .frameOuter { position: absolute; border: 3px solid #1C1410; background: #F5F2EF; }
+      .frame { position: absolute; overflow: hidden; outline: 1.5px solid #1C1410; background: #FFFFFF; }
+      .mwin { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .mfill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+      .frameLabel { position: absolute; left: 900px; top: 693px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; color: #1C1410; }
+      .list { position: absolute; display: flex; flex-direction: column; gap: 24px; }
+      .list .li, .steps .st { display: flex; align-items: baseline; gap: 26px; font-family: "Shrikhand", serif; font-size: 56px; border-left: 4px solid #D8000F; padding-left: 22px; white-space: nowrap; }
+      .list .n, .steps .n { color: #D8000F; font-size: 44px; }
+      .steps { display: flex; flex-direction: column; gap: 30px; }
+      .steps .st .sub { white-space: normal; max-width: 620px; font-family: "Libre Baskerville", serif; font-size: 28px; color: #5a504a; margin-top: 4px; }
+      .steps .st.done { opacity: .35; }
+      .steps.small .st { font-size: 50px; }
+      .tag { align-self: flex-start; padding: 6px 16px 8px; background: #D8000F; color: #FFFFFF; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 3px; text-transform: uppercase; }
+      .tag.ink { background: #1C1410; }
+      .vsCard { position: absolute; width: 560px; padding: 24px 32px 28px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 6px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px; }
+      .lab { font-family: "Shrikhand", serif; font-size: 52px; line-height: 1.15; }
+      .lab2 { font-size: 28px; line-height: 1.4; }
+      .lab2 s { text-decoration-color: #D8000F; text-decoration-thickness: 4px; }
+      .acro { position: absolute; font-family: "Shrikhand", serif; font-size: 130px; line-height: 1.12; }
+      .acro .red { color: #D8000F; }
+      .chain { position: absolute; display: flex; align-items: center; gap: 14px; }
+      .chain .box { padding: 16px 22px 20px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 40px; white-space: nowrap; background: #FFFFFF; }
+      .chain .box.red { background: #D8000F; color: #FFFFFF; border-color: #D8000F; }
+      .chain .arr { font-family: "Shrikhand", serif; font-size: 48px; color: #D8000F; }
+      .chain.sm { gap: 10px; } .chain.sm .box { font-size: 30px; padding: 12px 16px 16px; } .chain.sm .arr { font-size: 36px; }
+      .chips { position: absolute; display: flex; gap: 14px; }
+      .chips span { padding: 8px 20px 12px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 34px; }
+      .chips span:first-child { background: #D8000F; color: #FFFFFF; border-color: #D8000F; }
+      .chips.big span { font-size: 46px; padding: 10px 26px 16px; }
+      .nums { position: absolute; display: flex; gap: 18px; align-items: center; }
+      .nums span { padding: 10px 26px 16px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 56px; }
+      .nums span.q { background: #D8000F; color: #FFFFFF; border-color: #D8000F; font-size: 72px; }
+      .quote { position: absolute; font-family: "Libre Baskerville", serif; font-size: 36px; line-height: 1.45; padding: 22px 28px; border: 3px solid #1C1410; border-left: 8px solid #D8000F; background: #F5F2EF; }
+      .quote .qSrc { margin-top: 10px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: #6c625c; }
+      .dateCard { position: absolute; width: 150px; border: 3px solid #1C1410; background: #FFFFFF; text-align: center; }
+      .dateCard .dM { background: #D8000F; color: #FFFFFF; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 28px; letter-spacing: 4px; padding: 6px 0 8px; }
+      .dateCard .dD { font-family: "Shrikhand", serif; font-size: 96px; line-height: 1.2; }
+      .dates { position: absolute; display: flex; align-items: center; gap: 30px; }
+      .dates .dateCard { position: static; width: 220px; } .dates .dateCard .dD { font-size: 150px; }
+      .dates .dateCard.red { border-color: #D8000F; outline: 3px solid #D8000F; outline-offset: 6px; }
+      .dates .arr { font-family: "Shrikhand", serif; font-size: 90px; color: #D8000F; }
+      .meter { position: absolute; width: 220px; height: 600px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 6px; background: #F5F2EF; }
+      .meter .mFill { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: #D8000F; transform-origin: 50% 100%; }
+      .meter .mLab { position: absolute; left: 0; right: 0; top: -54px; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; }
+      .tracker { position: absolute; left: 120px; top: 90px; display: flex; gap: 10px; }
+      .tracker span { padding: 4px 14px 6px; border: 2px solid #1C1410; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: #5e5650; }
+      .tracker span.on { background: #1C1410; color: #FFFFFF; }
+      .stackWrap { position: absolute; width: 470px; height: 620px; }
+      .sheet { position: absolute; inset: 0; width: 100%; height: 100%; background: #FFFFFF; border: 3px solid #1C1410; }
+      .sheet.top { padding: 90px 44px 0; }
+      .sheet .ln { height: 14px; margin: 0 0 28px; background: #F5F2EF; border: 1.5px solid #d9d2cc; }
+      .pdfTag { position: absolute; right: 36px; top: 24px; padding: 4px 14px 8px; background: #D8000F; color: #FFFFFF; font-family: "Shrikhand", serif; font-size: 32px; }
+      .docs { position: absolute; display: flex; flex-direction: column; gap: 26px; width: 620px; }
+      .docs .doc { display: flex; align-items: center; gap: 22px; padding: 22px 26px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 36px; background: #FFFFFF; }
+      .docs .doc .tag { align-self: center; }
+      .sumGrid { position: absolute; display: flex; flex-direction: column; border: 3px solid #1C1410; width: 1680px; }
+      .sumGrid .row { display: grid; grid-template-columns: 120px 1fr 1fr; align-items: center; border: 1.5px solid #1C1410; min-height: 140px; font-family: "Shrikhand", serif; font-size: 56px; }
+      .sumGrid .mk { text-align: center; font-size: 70px; } .sumGrid .v { padding-right: 30px; }
+      .poll { position: absolute; display: flex; flex-direction: column; gap: 22px; }
+      .poll div { width: 760px; padding: 18px 30px 24px; border: 3px solid #1C1410; font-family: "Shrikhand", serif; font-size: 52px; }
+      .poll div:first-child { border-left: 12px solid #D8000F; }
+      .brandCard { position: absolute; padding: 36px 0 44px; border: 3px solid #1C1410; outline: 1.5px solid #1C1410; outline-offset: 8px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .subBtn { padding: 16px 50px 22px; background: #D8000F; color: #FFFFFF; font-family: "Shrikhand", serif; font-size: 54px; }
+      .capStage { position: absolute; left: 0; right: 0; top: 896px; height: 112px; display: flex; align-items: center; justify-content: center; }
+      .capCard { max-width: 1560px; padding: 10px 34px 14px; background: #FFFFFF; border: 1.5px solid #1C1410; border-left: 4px solid #D8000F; font-family: "Shrikhand", serif; font-size: 36px; line-height: 1.25; text-align: center; color: #1C1410; }
+      #footer { position: absolute; left: 60px; right: 60px; top: 1030px; height: 30px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #1C1410; }
+      #footer .brand { position: absolute; left: 0; top: 0; }
+      .chap { position: absolute; right: 60px; top: 1030px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #D8000F; }
+      #progressTrack { position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: #F5F2EF; }
+      #progress { position: absolute; left: 0; bottom: 0; width: 100%; height: 10px; background: #D8000F; transform-origin: 0 50%; }
+      .tick { position: absolute; bottom: 0; width: 4px; height: 18px; background: #1C1410; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="218.352" data-width="1920" data-height="1080">
+      <div id="footer"><span class="brand">Namaste Techy</span></div><div id="chap0" class="clip chap" data-start="0" data-duration="21.49" data-track-index="6">Intro</div><div id="chap1" class="clip chap" data-start="21.49" data-duration="25.99" data-track-index="6">Part 01 · Pehle, rule</div><div id="chap2" class="clip chap" data-start="47.48" data-duration="26.13" data-track-index="6">Part 02 · YouTubers ka darr</div><div id="chap3" class="clip chap" data-start="73.61" data-duration="30.36" data-track-index="6">Part 03 · Par ruko</div><div id="chap4" class="clip chap" data-start="103.97" data-duration="55.96" data-track-index="6">Part 04 · Income ke 3 hisse</div><div id="chap5" class="clip chap" data-start="159.93" data-duration="31.42" data-track-index="6">Part 05 · Ab kya karein</div><div id="chap6" class="clip chap" data-start="191.35" data-duration="27" data-track-index="6">Summary</div>
+      <div id="s-hook" class="clip layer " data-start="0" data-duration="8.92" data-track-index="2">
+        <div id="hE" class="eyebrow" style="left:110px;top:130px">YouTubers · dollar earnings</div>
+        <div class="mask" style="left:106px;top:170px"><div id="h1" class="disp " style="font-size:70px">Aap YouTuber ho?</div></div>
+        <div id="h2" class="disp red" style="position:absolute;left:100px;top:290px;font-size:84px;transform-origin:20% 60%">$ mein kamaai?</div>
+        <div id="h3" class="tagline" style="left:110px;top:470px;width:640px">RBI ka <b>naya EDF rule</b> — neend udne se pehle…</div>
+        <div id="hDate" class="dateCard" style="left:110px;top:650px"><div class="dM">OCT</div><div class="dD">7</div></div>
+        <div id="h4" class="tagline" style="left:300px;top:680px;width:420px">RBI ne kya kaha?</div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v0" class="clip mfill" src="assets/broll/yt_monetization.mp4" muted playsinline data-start="0" data-duration="2.77" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v1" class="clip mfill" src="assets/broll/rbi_home.mp4" muted playsinline data-start="2.77" data-duration="6.15" data-track-index="1"></video></div>
+        </div><div class="frameLabel">youtube.com · rbi.org.in</div>
+      </div>
+      <div id="s-ads" class="clip layer " data-start="8.92" data-duration="2.61" data-track-index="2">
+        <div id="aE" class="eyebrow" style="left:110px;top:200px">Sabse bada sawaal</div>
+        <div class="mask" style="left:106px;top:240px"><div id="a1" class="disp " style="font-size:80px">AdSense earning</div></div>
+        <div id="a2" class="disp red" style="position:absolute;left:100px;top:400px;font-size:150px;transform-origin:20% 60%">pe asar?</div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v2" class="clip mfill" src="assets/broll/adsense_start.mp4" muted playsinline data-start="8.92" data-duration="2.61" data-track-index="1"></video></div>
+        </div><div class="frameLabel">adsense.google.com</div>
+      </div>
+      <div id="s-agenda" class="clip layer " data-start="11.53" data-duration="9.96" data-track-index="2">
+        <div id="gE" class="eyebrow" style="left:120px;top:140px">Aaj main bataunga</div>
+        <div id="gList" class="list" style="left:120px;top:200px"><div class="li"><span class="n">01</span><span>Rule hai kya</span></div><div class="li"><span class="n">02</span><span>YouTubers itna dare kyun</span></div><div class="li"><span class="n">03</span><span>RBI ne baad mein kya clear kiya</span></div><div class="li"><span class="n">04</span><span>Aapki har YouTube income ka scene</span></div></div>
+        <div id="g4" class="disp red shadow" style="position:absolute;left:1250px;top:560px;font-size:230px;transform-origin:20% 60%">4</div><div id="g5" class="tagline" style="left:1430px;top:640px;width:360px">sawaal, seedhe jawab</div>
+      </div>
+      <div id="title3" class="clip layer redPanel center" data-start="21.49" data-duration="1.3" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Part 01</div>
+          <div id="title3t" class="disp white shadow" style="font-size:150px;line-height:1.05">Pehle, rule.</div></div>
+      </div>
+      <div id="r-fema" class="clip layer " data-start="21.49" data-duration="9.49" data-track-index="2">
+        <div id="fE" class="eyebrow" style="left:110px;top:140px">Lagu · FEMA regulations</div>
+        <div id="f1" class="disp red shadow" style="position:absolute;left:100px;top:180px;font-size:112px;transform-origin:20% 60%">1 Oct 2026</div>
+        <div class="mask" style="left:106px;top:360px"><div id="f2" class="disp " style="font-size:54px">naye FEMA regulations</div></div>
+        <div id="fChain" class="chain sm" style="left:110px;top:520px"><div class="box">Services export</div><div class="arr">→</div><div class="box red">EDF framework</div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v4" class="clip mfill" src="assets/broll/taxmann_fema.mp4" muted playsinline data-start="21.49" data-duration="5.35" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v5" class="clip mfill" src="assets/broll/scc_fema.mp4" muted playsinline data-start="26.84" data-duration="4.14" data-track-index="1"></video></div>
+        </div><div class="frameLabel">taxmann.com · scconline.com</div>
+      </div>
+      <div id="r-edf" class="clip layer " data-start="30.98" data-duration="5.32" data-track-index="2">
+        <div id="eE" class="eyebrow" style="left:120px;top:130px">EDF matlab</div>
+        <div id="eStack" class="acro" style="left:120px;top:180px">
+          <div><span class="red">E</span>xport</div><div><span class="red">D</span>eclaration</div><div><span class="red">F</span>orm</div></div>
+        <div id="eGoods" class="vsCard" style="left:1150px;top:220px"><div class="tag ink">Pehle</div><div class="lab">Goods export</div><div class="lab2">zyada tar saamaan bhejne walon ke liye</div></div>
+        <div id="eSvc" class="vsCard" style="left:1150px;top:520px"><div class="tag">Ab</div><div class="lab">+ Services export</div><div class="lab2">freelancers, creators, consultants…</div></div>
+      </div>
+      <div id="r-idea" class="clip layer " data-start="36.3" data-duration="11.18" data-track-index="2">
+        <div id="iE" class="eyebrow" style="left:120px;top:120px">Idea yeh hai</div>
+        <div id="iChain" class="chain sm" style="left:120px;top:190px">
+          <div class="box">Aap · India</div><div class="arr">→</div><div class="box">service</div><div class="arr">→</div><div class="box">videshi client</div></div>
+        <div id="iBack" class="chain sm" style="left:120px;top:320px"><div class="box red">$ paisa bahar se</div><div class="arr">→</div><div class="box">= service export?</div></div>
+        <div id="iBank" class="chain sm" style="left:120px;top:450px"><div class="box">Bank</div><div class="arr">→</div><div class="box red">EDF jaankari</div></div>
+        <div id="iNote" class="tagline" style="left:120px;top:640px;width:640px">ho <b>sakta</b> hai · deni pad <b>sakti</b> hai</div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v6" class="clip mfill" src="assets/broll/razorpay_edf.mp4" muted playsinline data-start="36.3" data-duration="11.18" data-track-index="1"></video></div>
+        </div><div class="frameLabel">razorpay.com/blog</div>
+      </div>
+      <div id="title7" class="clip layer redPanel center" data-start="47.48" data-duration="1.3" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Part 02</div>
+          <div id="title7t" class="disp white shadow" style="font-size:150px;line-height:1.05">YouTubers ka darr</div></div>
+      </div>
+      <div id="d-life" class="clip layer " data-start="47.48" data-duration="7.97" data-track-index="2">
+        <div id="lE" class="eyebrow" style="left:120px;top:140px">Ab socho · ek YouTuber ki life</div>
+        <div id="lC1" class="vsCard" style="left:120px;top:200px;width:600px"><div class="tag">Har mahine</div><div class="lab">Google AdSense</div><div class="lab2">ads ka paisa, Google se</div></div>
+        <div id="lC2" class="vsCard" style="left:120px;top:470px;width:600px"><div class="tag ink">Kabhi kabhi</div><div class="lab">Foreign brand · $</div><div class="lab2">sponsorship ka paisa, seedha dollar mein</div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v8" class="clip mfill" src="assets/broll/adsense_payments.mp4" muted playsinline data-start="47.48" data-duration="7.97" data-track-index="1"></video></div>
+        </div><div class="frameLabel">support.google.com/adsense</div>
+      </div>
+      <div id="d-form" class="clip layer " data-start="55.45" data-duration="4.56" data-track-index="2">
+        <div id="qE" class="eyebrow" style="left:120px;top:200px">YouTubers ne socha</div>
+        <div class="mask" style="left:116px;top:240px"><div id="q1" class="disp " style="font-size:92px">Har payment pe</div></div>
+        <div id="q2" class="disp red shadow" style="position:absolute;left:110px;top:380px;font-size:130px;transform-origin:20% 60%">bank form?</div>
+        <div id="qStack" class="stackWrap" style="left:1220px;top:150px"><div class="sheet" style="transform:translate(0px,0px) rotate(-4deg)"></div><div class="sheet" style="transform:translate(16px,-16px) rotate(-2deg)"></div><div class="sheet" style="transform:translate(32px,-32px) rotate(0deg)"></div><div class="sheet" style="transform:translate(48px,-48px) rotate(2deg)"></div><div class="sheet" style="transform:translate(64px,-64px) rotate(4deg)"></div><div class="sheet top"><div class="pdfTag">EDF</div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div><div class='ln'></div></div></div>
+      </div>
+      <div id="d-scare" class="clip layer " data-start="60.01" data-duration="13.6" data-track-index="2">
+        <div id="sE" class="eyebrow" style="left:120px;top:120px">Kuch reports ke hisaab se</div>
+        <div id="sMin" class="nums" style="left:120px;top:160px"><span>Minimum chhoot</span><span class="q">₹0</span></div>
+        <div id="sSmall" class="vsCard" style="left:120px;top:330px;width:620px"><div class="tag">Sabse zyada dare</div><div class="lab">Chhote creators</div><div class="lab2"><s>CA</s> &nbsp; <s>accountant</s></div></div>
+        <div id="sQuote" class="quote" style="left:120px;top:620px;width:620px">“Fill a form for just being alive.”<div class="qSrc">— experts, via a business news report</div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v9" class="clip mfill" src="assets/broll/bt_edf.mp4" muted playsinline data-start="60.01" data-duration="11.95" data-track-index="1"></video></div>
+          <div id="m10" class="clip mwin" data-start="71.96" data-duration="1.65" data-track-index="1"><img src="assets/broll/bt_edf_end.jpg" class="mfill"></div>
+        </div><div class="frameLabel">businesstoday.in · 6 Oct</div>
+      </div>
+      <div id="title11" class="clip layer redPanel center" data-start="73.61" data-duration="1.3" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Part 03</div>
+          <div id="title11t" class="disp white shadow" style="font-size:150px;line-height:1.05">Par ruko!</div></div>
+      </div>
+      <div id="c-six" class="clip layer " data-start="73.61" data-duration="11.16" data-track-index="2">
+        <div id="xE" class="eyebrow" style="left:120px;top:140px">Sirf</div>
+        <div id="x6" class="disp red shadow" style="position:absolute;left:110px;top:160px;font-size:260px;transform-origin:20% 60%">6 din</div>
+        <div class="mask" style="left:120px;top:470px"><div id="x2" class="disp " style="font-size:64px">baad, RBI ne picture badal di</div></div>
+        <div id="xDates" class="dates" style="left:1060px;top:230px">
+          <div class="dateCard"><div class="dM">OCT</div><div class="dD">1</div></div><div class="arr">→</div>
+          <div class="dateCard red"><div class="dM">OCT</div><div class="dD">7</div></div></div>
+        <div id="xTwist" class="vsCard" style="left:1060px;top:560px;width:640px"><div class="tag">Twist</div><div class="lab">Aapki income ka type</div></div>
+      </div>
+      <div id="c-bt" class="clip layer " data-start="84.77" data-duration="11.91" data-track-index="2">
+        <div id="bE" class="eyebrow" style="left:120px;top:120px">Business Today ke mutabik · RBI</div>
+        <div id="bQ" class="quote" style="left:120px;top:170px;width:620px">Personal nature ke contracts: <b>individuals</b> is reporting mein <span class="red">shaamil nahi</span>.</div>
+        <div id="bG" class="eyebrow" style="left:120px;top:470px">Governor ka example</div>
+        <div id="bChips" class="chips big" style="left:120px;top:520px"><span>Tuition padhana</span><span>Chhota software kaam</span></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v12" class="clip mfill" src="assets/broll/fueler_clarify.mp4" muted playsinline data-start="84.77" data-duration="11.91" data-track-index="1"></video></div>
+        </div><div class="frameLabel">secondary report · fueler.io</div>
+      </div>
+      <div id="c-calm" class="clip layer " data-start="96.68" data-duration="7.29" data-track-index="2">
+        <div id="mE" class="eyebrow" style="left:120px;top:180px">Matlab · individual creator?</div>
+        <div class="mask" style="left:116px;top:220px"><div id="m1" class="disp " style="font-size:110px">EDF tension</div></div>
+        <div id="m2" class="disp red shadow" style="position:absolute;left:110px;top:380px;font-size:170px;transform-origin:20% 60%">kaafi kam</div>
+        <div id="m3" class="tagline" style="left:120px;top:640px;width:640px">abhi ke statement ke hisaab se</div>
+        <div id="mMeter" class="meter" style="left:1240px;top:180px"><div class="mLab">tension</div><div id="mFill" class="mFill"></div></div>
+      </div>
+      <div id="title13" class="clip layer redPanel center" data-start="103.97" data-duration="1.3" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Part 04</div>
+          <div id="title13t" class="disp white shadow" style="font-size:150px;line-height:1.05">Income ke 3 hisse</div></div>
+      </div>
+      <div id="i-ads" class="clip layer " data-start="105.07" data-duration="18.24" data-track-index="2">
+        <div class="tracker"><span class="on">01 · AdSense / YouTube</span><span class="">02 · Foreign brands</span><span class="">03 · Indian brands</span></div>
+        <div id="j1" class="disp red" style="position:absolute;left:110px;top:170px;font-size:96px;transform-origin:20% 60%">01 · AdSense</div>
+        <div id="jChips" class="chips" style="left:120px;top:330px"><span>Ads</span><span>Memberships</span><span>Super Chat</span></div>
+        <div class="mask" style="left:116px;top:440px"><div id="j2" class="disp " style="font-size:44px">Ad revenue = service export?</div></div>
+        <div id="jStat" class="vsCard" style="left:120px;top:590px;width:620px"><div class="tag">Status</div><div class="lab">Abhi clear nahi</div><div class="lab2">experts ki raay alag · RBI ne alag se kuch nahi kaha</div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v14" class="clip mfill" src="assets/broll/yt_monetization.mp4" muted playsinline data-start="105.07" data-duration="11.95" data-track-index="1"></video></div>
+          <div id="m15" class="clip mwin" data-start="117.02" data-duration="6.29" data-track-index="1"><img src="assets/broll/yt_monetization_end.jpg" class="mfill"></div>
+        </div><div class="frameLabel">youtube.com/creators</div>
+      </div>
+      <div id="i-foreign" class="clip layer " data-start="123.31" data-duration="10.93" data-track-index="2">
+        <div class="tracker"><span class="">01 · AdSense / YouTube</span><span class="on">02 · Foreign brands</span><span class="">03 · Indian brands</span></div>
+        <div id="k1" class="disp red" style="position:absolute;left:110px;top:170px;font-size:120px;transform-origin:20% 60%">02 · Foreign brands</div>
+        <div id="kChain" class="chain" style="left:120px;top:360px"><div class="box">Videshi brand</div><div class="arr">→</div><div class="box">$ seedha aapko</div><div class="arr">→</div><div class="box">sponsored video</div></div>
+        <div id="kStat" class="vsCard" style="left:120px;top:520px;width:760px"><div class="tag">Kai experts</div><div class="lab">= service export</div><div class="lab2">yahan dhyan dena zaroori hai</div></div>
+        <div id="kWarn" class="disp red shadow" style="position:absolute;left:1380px;top:430px;font-size:220px;transform-origin:20% 60%">!</div>
+      </div>
+      <div id="i-india" class="clip layer " data-start="134.24" data-duration="9.36" data-track-index="2">
+        <div class="tracker"><span class="">01 · AdSense / YouTube</span><span class="">02 · Foreign brands</span><span class="on">03 · Indian brands</span></div>
+        <div id="n1" class="disp red" style="position:absolute;left:110px;top:170px;font-size:120px;transform-origin:20% 60%">03 · Indian brands</div>
+        <div id="nChain" class="chain" style="left:120px;top:360px"><div class="box">Indian brand</div><div class="arr">→</div><div class="box">₹ India se</div><div class="arr">→</div><div class="box">aap · India</div></div>
+        <div id="nStat" class="vsCard" style="left:120px;top:520px;width:760px"><div class="tag ink">Export hi nahi</div><div class="lab">Is rule se lena dena nahi</div></div>
+        <div id="nOk" class="disp shadow" style="position:absolute;left:1360px;top:400px;font-size:220px;transform-origin:20% 60%">₹</div>
+      </div>
+      <div id="i-biz" class="clip layer " data-start="143.6" data-duration="16.33" data-track-index="2">
+        <div id="zE" class="eyebrow" style="left:120px;top:120px">Aur ek baat</div>
+        <div id="zChips" class="chips big" style="left:120px;top:170px"><span>Company</span><span>LLP</span><span>Firm</span></div>
+        <div class="mask" style="left:116px;top:290px"><div id="z1" class="disp " style="font-size:52px">abhi bhi cover ho sakte</div></div>
+        <div id="zGst" class="vsCard" style="left:120px;top:450px;width:620px"><div class="tag ink">GST wale sole proprietors</div><div class="lab">Final jawab: RBI FAQs</div><div class="lab2">jo abhi aane baaki hain</div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v16" class="clip mfill" src="assets/broll/winvesta_fema.mp4" muted playsinline data-start="143.6" data-duration="9.95" data-track-index="1"></video></div>
+          <div class="mwin"><video id="v17" class="clip mfill" src="assets/broll/rbi_faq.mp4" muted playsinline data-start="153.55" data-duration="6.38" data-track-index="1"></video></div>
+        </div><div class="frameLabel">winvesta.in · rbi.org.in</div>
+      </div>
+      <div id="title18" class="clip layer redPanel center" data-start="159.93" data-duration="1.3" data-track-index="4">
+        <div class="col"><div class="eyebrow static light">Part 05</div>
+          <div id="title18t" class="disp white shadow" style="font-size:150px;line-height:1.05">Ab kya karein?</div></div>
+      </div>
+      <div id="p-steps1" class="clip layer " data-start="159.93" data-duration="16.21" data-track-index="2">
+        <div id="pE" class="eyebrow" style="left:120px;top:110px">Chaar steps</div>
+        <div style="position:absolute;left:120px;top:160px"><div class="steps"><div id="st0_0" class="st "><span class="n">01</span><div><div>Panic mat karo</div><div class="sub">individual creators ke liye raahat</div></div></div><div id="st0_1" class="st "><span class="n">02</span><div><div>Records rakho</div><div class="sub">AdSense statements · invoices · FIRA docs</div></div></div><div id="st0_2" class="st "><span class="n">03</span><div><div>Bank se poocho</div><div class="sub">EDF bank ke through jaata hai</div></div></div><div id="st0_3" class="st "><span class="n">04</span><div><div>CA se baat karo</div><div class="sub">company / business / badi foreign deals</div></div></div></div></div>
+        <div id="pDocs" class="docs" style="left:1180px;top:200px">
+          <div class="doc"><div class="tag">PDF</div>AdSense payment statement</div>
+          <div class="doc"><div class="tag ink">INV</div>Brand deal invoice</div>
+          <div class="doc"><div class="tag">FIRA</div>Foreign inward remittance</div></div>
+      </div>
+      <div id="p-steps2" class="clip layer " data-start="176.14" data-duration="15.21" data-track-index="2">
+        <div style="position:absolute;left:120px;top:160px"><div class="steps small"><div id="st2_0" class="st done"><span class="n">01</span><div><div>Panic mat karo</div><div class="sub">individual creators ke liye raahat</div></div></div><div id="st2_1" class="st done"><span class="n">02</span><div><div>Records rakho</div><div class="sub">AdSense statements · invoices · FIRA docs</div></div></div><div id="st2_2" class="st "><span class="n">03</span><div><div>Bank se poocho</div><div class="sub">EDF bank ke through jaata hai</div></div></div><div id="st2_3" class="st "><span class="n">04</span><div><div>CA se baat karo</div><div class="sub">company / business / badi foreign deals</div></div></div></div></div>
+        
+        <div class="frameOuter" style="left:886px;top:126px;width:968px;height:557px"></div>
+        <div class="frame" style="left:900px;top:140px;width:940px;height:529px">
+          <div class="mwin"><video id="v19" class="clip mfill" src="assets/broll/razorpay_edf.mp4" muted playsinline data-start="176.14" data-duration="11.95" data-track-index="1"></video></div>
+          <div id="m20" class="clip mwin" data-start="188.09" data-duration="3.26" data-track-index="1"><img src="assets/broll/razorpay_edf_end.jpg" class="mfill"></div>
+        </div><div class="frameLabel">razorpay.com/blog</div>
+      </div>
+      <div id="o-sum" class="clip layer " data-start="191.35" data-duration="11.7" data-track-index="2">
+        <div id="uE" class="eyebrow" style="left:120px;top:130px">Summary</div>
+        <div id="uGrid" class="sumGrid" style="left:120px;top:180px">
+          <div class="row"><span class="mk">✓</span><span>Individual YouTubers</span><span class="v">tension kam</span></div>
+          <div class="row"><span class="mk red">!</span><span>Foreign brand deals</span><span class="v red">dhyan do</span></div>
+          <div class="row"><span class="mk">…</span><span>AdSense</span><span class="v">RBI FAQs ka wait</span></div></div>
+        <div id="uUp" class="tagline" style="left:120px;top:690px;width:900px">FAQs aate hi → <b>update video</b></div>
+      </div>
+      <div id="o-disc" class="clip layer redPanel center" data-start="203.05" data-duration="5.5" data-track-index="2">
+        <div class="col"><div class="eyebrow static light">Disclaimer</div>
+          <div id="dc1" class="disp white shadow" style="font-size:96px">Legal ya tax advice nahi</div>
+          <div id="dc2" class="disp white" style="font-size:60px;margin-top:24px">Bank ya CA se confirm karein</div></div>
+      </div>
+      <div id="o-end" class="clip layer " data-start="208.55" data-duration="9.8" data-track-index="2">
+        <div id="eE2" class="eyebrow" style="left:120px;top:140px">Comment mein batao</div>
+        <div class="mask" style="left:116px;top:180px"><div id="e1" class="disp " style="font-size:84px">Sabse zyada kamaai?</div></div>
+        <div id="ePoll" class="poll" style="left:120px;top:340px"><div>A · AdSense</div><div>B · Foreign brands</div><div>C · Indian brands</div></div>
+        <div id="eSub" class="brandCard" style="left:1080px;top:260px">
+          <div class="eyebrow static">Creator updates ke liye</div><div class="disp" style="font-size:80px;padding:0 40px">NamasteTechy</div>
+          <div id="eBtn" class="subBtn">SUBSCRIBE</div></div>
+      </div>
+      <div id="cap0" class="clip layer capClip" data-start="0" data-duration="2.77" data-track-index="5"><div class="capStage"><div class="capCard">Aap YouTuber ho aur dollar mein kamaate ho?</div></div></div>
+      <div id="cap1" class="clip layer capClip" data-start="2.77" data-duration="2.5" data-track-index="5"><div class="capStage"><div class="capCard">RBI ke naye EDF rule se neend udne</div></div></div>
+      <div id="cap2" class="clip layer capClip" data-start="5.27" data-duration="0.81" data-track-index="5"><div class="capStage"><div class="capCard">se pehle,</div></div></div>
+      <div id="cap3" class="clip layer capClip" data-start="6.08" data-duration="2.84" data-track-index="5"><div class="capStage"><div class="capCard">suniye RBI ne 7 October ko kya kaha.</div></div></div>
+      <div id="cap4" class="clip layer capClip" data-start="8.92" data-duration="2.61" data-track-index="5"><div class="capStage"><div class="capCard">Kya aapki AdSense earning pe asar padega?</div></div></div>
+      <div id="cap5" class="clip layer capClip" data-start="11.53" data-duration="1.49" data-track-index="5"><div class="capStage"><div class="capCard">Aaj main aapko bataunga:</div></div></div>
+      <div id="cap6" class="clip layer capClip" data-start="13.02" data-duration="1.05" data-track-index="5"><div class="capStage"><div class="capCard">yeh rule hai kya,</div></div></div>
+      <div id="cap7" class="clip layer capClip" data-start="14.07" data-duration="1.89" data-track-index="5"><div class="capStage"><div class="capCard">YouTubers itna dare kyun,</div></div></div>
+      <div id="cap8" class="clip layer capClip" data-start="15.96" data-duration="2.24" data-track-index="5"><div class="capStage"><div class="capCard">RBI ne baad mein kya clear kiya,</div></div></div>
+      <div id="cap9" class="clip layer capClip" data-start="18.2" data-duration="2.29" data-track-index="5"><div class="capStage"><div class="capCard">aur aapki har tarah ki YouTube income ka</div></div></div>
+      <div id="cap10" class="clip layer capClip" data-start="20.49" data-duration="1" data-track-index="5"><div class="capStage"><div class="capCard">kya scene hai.</div></div></div>
+      <div id="cap11" class="clip layer capClip" data-start="21.49" data-duration="1.2" data-track-index="5"><div class="capStage"><div class="capCard">Pehle, rule.</div></div></div>
+      <div id="cap12" class="clip layer capClip" data-start="22.69" data-duration="3.39" data-track-index="5"><div class="capStage"><div class="capCard">1 October 2026 se FEMA ke naye regulations</div></div></div>
+      <div id="cap13" class="clip layer capClip" data-start="26.08" data-duration="0.76" data-track-index="5"><div class="capStage"><div class="capCard">lagu hue.</div></div></div>
+      <div id="cap14" class="clip layer capClip" data-start="26.84" data-duration="2.47" data-track-index="5"><div class="capStage"><div class="capCard">Isme RBI ne services export ko bhi EDF</div></div></div>
+      <div id="cap15" class="clip layer capClip" data-start="29.31" data-duration="1.67" data-track-index="5"><div class="capStage"><div class="capCard">framework mein le liya.</div></div></div>
+      <div id="cap16" class="clip layer capClip" data-start="30.98" data-duration="2.61" data-track-index="5"><div class="capStage"><div class="capCard">EDF matlab Export Declaration Form.</div></div></div>
+      <div id="cap17" class="clip layer capClip" data-start="33.59" data-duration="2.06" data-track-index="5"><div class="capStage"><div class="capCard">Pehle yeh zyada tar goods export walon ke</div></div></div>
+      <div id="cap18" class="clip layer capClip" data-start="35.65" data-duration="0.65" data-track-index="5"><div class="capStage"><div class="capCard">liye tha.</div></div></div>
+      <div id="cap19" class="clip layer capClip" data-start="36.3" data-duration="1.38" data-track-index="5"><div class="capStage"><div class="capCard">Ab idea yeh hai ki agar aap India</div></div></div>
+      <div id="cap20" class="clip layer capClip" data-start="37.68" data-duration="0.58" data-track-index="5"><div class="capStage"><div class="capCard">se videshi</div></div></div>
+      <div id="cap21" class="clip layer capClip" data-start="38.26" data-duration="3.17" data-track-index="5"><div class="capStage"><div class="capCard">client ko service dete ho aur paisa bahar</div></div></div>
+      <div id="cap22" class="clip layer capClip" data-start="41.43" data-duration="1.16" data-track-index="5"><div class="capStage"><div class="capCard">se aata hai,</div></div></div>
+      <div id="cap23" class="clip layer capClip" data-start="42.59" data-duration="2" data-track-index="5"><div class="capStage"><div class="capCard">toh woh service export ho sakta hai,</div></div></div>
+      <div id="cap24" class="clip layer capClip" data-start="44.59" data-duration="2.17" data-track-index="5"><div class="capStage"><div class="capCard">aur uski jaankari bank ke through deni pad</div></div></div>
+      <div id="cap25" class="clip layer capClip" data-start="46.76" data-duration="0.72" data-track-index="5"><div class="capStage"><div class="capCard">sakti hai.</div></div></div>
+      <div id="cap26" class="clip layer capClip" data-start="47.48" data-duration="2.09" data-track-index="5"><div class="capStage"><div class="capCard">Ab socho ek YouTuber ki life.</div></div></div>
+      <div id="cap27" class="clip layer capClip" data-start="49.57" data-duration="2.33" data-track-index="5"><div class="capStage"><div class="capCard">Har mahine Google se AdSense ka paisa aata</div></div></div>
+      <div id="cap28" class="clip layer capClip" data-start="51.9" data-duration="0.52" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap29" class="clip layer capClip" data-start="52.42" data-duration="2.62" data-track-index="5"><div class="capStage"><div class="capCard">Kabhi koi foreign brand sponsorship ke dollar bhejta</div></div></div>
+      <div id="cap30" class="clip layer capClip" data-start="55.04" data-duration="0.41" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap31" class="clip layer capClip" data-start="55.45" data-duration="1.56" data-track-index="5"><div class="capStage"><div class="capCard">Toh YouTubers ne socha:</div></div></div>
+      <div id="cap32" class="clip layer capClip" data-start="57.01" data-duration="1.84" data-track-index="5"><div class="capStage"><div class="capCard">kya ab har payment ke liye bank mein</div></div></div>
+      <div id="cap33" class="clip layer capClip" data-start="58.85" data-duration="1.16" data-track-index="5"><div class="capStage"><div class="capCard">form bharna padega?</div></div></div>
+      <div id="cap34" class="clip layer capClip" data-start="60.01" data-duration="2.38" data-track-index="5"><div class="capStage"><div class="capCard">Kuch reports ke hisaab se koi minimum amount</div></div></div>
+      <div id="cap35" class="clip layer capClip" data-start="62.39" data-duration="1.22" data-track-index="5"><div class="capStage"><div class="capCard">ki chhoot nahi thi.</div></div></div>
+      <div id="cap36" class="clip layer capClip" data-start="63.61" data-duration="2.61" data-track-index="5"><div class="capStage"><div class="capCard">Chhote creators, jinke paas na CA hai na</div></div></div>
+      <div id="cap37" class="clip layer capClip" data-start="66.22" data-duration="2.05" data-track-index="5"><div class="capStage"><div class="capCard">accountant, sabse zyada dare.</div></div></div>
+      <div id="cap38" class="clip layer capClip" data-start="68.27" data-duration="2.51" data-track-index="5"><div class="capStage"><div class="capCard">Ek business news report ne experts ka reaction</div></div></div>
+      <div id="cap39" class="clip layer capClip" data-start="70.78" data-duration="0.53" data-track-index="5"><div class="capStage"><div class="capCard">likha:</div></div></div>
+      <div id="cap40" class="clip layer capClip" data-start="71.31" data-duration="2.3" data-track-index="5"><div class="capStage"><div class="capCard">&quot;Fill a form for just being alive.&quot;</div></div></div>
+      <div id="cap41" class="clip layer capClip" data-start="73.61" data-duration="0.67" data-track-index="5"><div class="capStage"><div class="capCard">Par ruko.</div></div></div>
+      <div id="cap42" class="clip layer capClip" data-start="74.28" data-duration="1.22" data-track-index="5"><div class="capStage"><div class="capCard">Sirf 6 din baad,</div></div></div>
+      <div id="cap43" class="clip layer capClip" data-start="75.5" data-duration="1.24" data-track-index="5"><div class="capStage"><div class="capCard">7 October ko,</div></div></div>
+      <div id="cap44" class="clip layer capClip" data-start="76.74" data-duration="2.49" data-track-index="5"><div class="capStage"><div class="capCard">RBI ne aisi baat boli jisne YouTubers ke</div></div></div>
+      <div id="cap45" class="clip layer capClip" data-start="79.23" data-duration="1.56" data-track-index="5"><div class="capStage"><div class="capCard">liye picture badal di.</div></div></div>
+      <div id="cap46" class="clip layer capClip" data-start="80.79" data-duration="1.36" data-track-index="5"><div class="capStage"><div class="capCard">Aur isme ek twist hai,</div></div></div>
+      <div id="cap47" class="clip layer capClip" data-start="82.15" data-duration="2.17" data-track-index="5"><div class="capStage"><div class="capCard">jo aapki income ke type pe depend karta</div></div></div>
+      <div id="cap48" class="clip layer capClip" data-start="84.32" data-duration="0.45" data-track-index="5"><div class="capStage"><div class="capCard">hai.</div></div></div>
+      <div id="cap49" class="clip layer capClip" data-start="84.77" data-duration="2.01" data-track-index="5"><div class="capStage"><div class="capCard">Business Today ki report ke mutabik,</div></div></div>
+      <div id="cap50" class="clip layer capClip" data-start="86.78" data-duration="3.16" data-track-index="5"><div class="capStage"><div class="capCard">RBI ne kaha ki personal nature ke contracts</div></div></div>
+      <div id="cap51" class="clip layer capClip" data-start="89.94" data-duration="2.19" data-track-index="5"><div class="capStage"><div class="capCard">ke liye individuals is reporting mein shaamil nahi</div></div></div>
+      <div id="cap52" class="clip layer capClip" data-start="92.13" data-duration="0.43" data-track-index="5"><div class="capStage"><div class="capCard">hain.</div></div></div>
+      <div id="cap53" class="clip layer capClip" data-start="92.56" data-duration="1.5" data-track-index="5"><div class="capStage"><div class="capCard">Governor ne example diya:</div></div></div>
+      <div id="cap54" class="clip layer capClip" data-start="94.06" data-duration="2.62" data-track-index="5"><div class="capStage"><div class="capCard">tuition padhana ya chhota software kaam.</div></div></div>
+      <div id="cap55" class="clip layer capClip" data-start="96.68" data-duration="2.63" data-track-index="5"><div class="capStage"><div class="capCard">Matlab, agar aap ek individual creator ho,</div></div></div>
+      <div id="cap56" class="clip layer capClip" data-start="99.31" data-duration="2.2" data-track-index="5"><div class="capStage"><div class="capCard">toh abhi ke statement ke hisaab se aap</div></div></div>
+      <div id="cap57" class="clip layer capClip" data-start="101.51" data-duration="2.46" data-track-index="5"><div class="capStage"><div class="capCard">par yeh EDF wali tension kaafi kam hai.</div></div></div>
+      <div id="cap58" class="clip layer capClip" data-start="103.97" data-duration="0.88" data-track-index="5"><div class="capStage"><div class="capCard">Ab twist.</div></div></div>
+      <div id="cap59" class="clip layer capClip" data-start="104.85" data-duration="3.13" data-track-index="5"><div class="capStage"><div class="capCard">Aapki YouTube income ko teen hisson mein samjho.</div></div></div>
+      <div id="cap60" class="clip layer capClip" data-start="107.98" data-duration="2.63" data-track-index="5"><div class="capStage"><div class="capCard">Pehla: AdSense aur YouTube se aane wala paisa,</div></div></div>
+      <div id="cap61" class="clip layer capClip" data-start="110.61" data-duration="0.71" data-track-index="5"><div class="capStage"><div class="capCard">jaise ads,</div></div></div>
+      <div id="cap62" class="clip layer capClip" data-start="111.32" data-duration="1.81" data-track-index="5"><div class="capStage"><div class="capCard">memberships ya Super Chat.</div></div></div>
+      <div id="cap63" class="clip layer capClip" data-start="113.13" data-duration="1.51" data-track-index="5"><div class="capStage"><div class="capCard">Yeh sabse bada sawaal hai.</div></div></div>
+      <div id="cap64" class="clip layer capClip" data-start="114.64" data-duration="2.96" data-track-index="5"><div class="capStage"><div class="capCard">Kya platform ka ad revenue service export hai?</div></div></div>
+      <div id="cap65" class="clip layer capClip" data-start="117.6" data-duration="1.57" data-track-index="5"><div class="capStage"><div class="capCard">Experts ki raay alag hai,</div></div></div>
+      <div id="cap66" class="clip layer capClip" data-start="119.17" data-duration="2.12" data-track-index="5"><div class="capStage"><div class="capCard">aur RBI ne ad revenue pe abhi tak</div></div></div>
+      <div id="cap67" class="clip layer capClip" data-start="121.29" data-duration="2.02" data-track-index="5"><div class="capStage"><div class="capCard">alag se kuch clear nahi kiya.</div></div></div>
+      <div id="cap68" class="clip layer capClip" data-start="123.31" data-duration="2.11" data-track-index="5"><div class="capStage"><div class="capCard">Doosra: foreign brand deals.</div></div></div>
+      <div id="cap69" class="clip layer capClip" data-start="125.42" data-duration="2.88" data-track-index="5"><div class="capStage"><div class="capCard">Agar koi videshi brand seedha aapko sponsored video</div></div></div>
+      <div id="cap70" class="clip layer capClip" data-start="128.3" data-duration="1.32" data-track-index="5"><div class="capStage"><div class="capCard">ke paise bhejta hai,</div></div></div>
+      <div id="cap71" class="clip layer capClip" data-start="129.62" data-duration="2.92" data-track-index="5"><div class="capStage"><div class="capCard">toh kai experts ise service export maante hain.</div></div></div>
+      <div id="cap72" class="clip layer capClip" data-start="132.54" data-duration="1.7" data-track-index="5"><div class="capStage"><div class="capCard">Yahan dhyan dena zaroori hai.</div></div></div>
+      <div id="cap73" class="clip layer capClip" data-start="134.24" data-duration="1.96" data-track-index="5"><div class="capStage"><div class="capCard">Teesra: Indian brand deals.</div></div></div>
+      <div id="cap74" class="clip layer capClip" data-start="136.2" data-duration="2.32" data-track-index="5"><div class="capStage"><div class="capCard">Agar brand India ka hai aur paisa rupay</div></div></div>
+      <div id="cap75" class="clip layer capClip" data-start="138.52" data-duration="1.54" data-track-index="5"><div class="capStage"><div class="capCard">mein India se aata hai,</div></div></div>
+      <div id="cap76" class="clip layer capClip" data-start="140.06" data-duration="1.45" data-track-index="5"><div class="capStage"><div class="capCard">toh yeh export hi nahi hai.</div></div></div>
+      <div id="cap77" class="clip layer capClip" data-start="141.51" data-duration="2.09" data-track-index="5"><div class="capStage"><div class="capCard">Is rule se iska lena dena nahi.</div></div></div>
+      <div id="cap78" class="clip layer capClip" data-start="143.6" data-duration="0.85" data-track-index="5"><div class="capStage"><div class="capCard">Aur ek baat.</div></div></div>
+      <div id="cap79" class="clip layer capClip" data-start="144.45" data-duration="0.99" data-track-index="5"><div class="capStage"><div class="capCard">Agar aapne apna channel company,</div></div></div>
+      <div id="cap80" class="clip layer capClip" data-start="145.44" data-duration="1.22" data-track-index="5"><div class="capStage"><div class="capCard">LLP ya firm ke naam pe chalaya hai,</div></div></div>
+      <div id="cap81" class="clip layer capClip" data-start="146.66" data-duration="4.04" data-track-index="5"><div class="capStage"><div class="capCard">toh RBI ke statement ke hisaab se businesses</div></div></div>
+      <div id="cap82" class="clip layer capClip" data-start="150.7" data-duration="2.85" data-track-index="5"><div class="capStage"><div class="capCard">abhi bhi cover ho sakte hain.</div></div></div>
+      <div id="cap83" class="clip layer capClip" data-start="153.55" data-duration="3.16" data-track-index="5"><div class="capStage"><div class="capCard">GST wale sole proprietors ka final jawab RBI</div></div></div>
+      <div id="cap84" class="clip layer capClip" data-start="156.71" data-duration="1.71" data-track-index="5"><div class="capStage"><div class="capCard">ke FAQs mein aayega,</div></div></div>
+      <div id="cap85" class="clip layer capClip" data-start="158.42" data-duration="1.51" data-track-index="5"><div class="capStage"><div class="capCard">jo abhi aane baaki hain.</div></div></div>
+      <div id="cap86" class="clip layer capClip" data-start="159.93" data-duration="2.17" data-track-index="5"><div class="capStage"><div class="capCard">Toh YouTubers ko abhi kya karna chahiye?</div></div></div>
+      <div id="cap87" class="clip layer capClip" data-start="162.1" data-duration="0.89" data-track-index="5"><div class="capStage"><div class="capCard">Chaar steps.</div></div></div>
+      <div id="cap88" class="clip layer capClip" data-start="162.99" data-duration="1.53" data-track-index="5"><div class="capStage"><div class="capCard">Ek: panic mat karo.</div></div></div>
+      <div id="cap89" class="clip layer capClip" data-start="164.52" data-duration="2.93" data-track-index="5"><div class="capStage"><div class="capCard">Individual creators ke liye RBI ka statement raahat</div></div></div>
+      <div id="cap90" class="clip layer capClip" data-start="167.45" data-duration="0.72" data-track-index="5"><div class="capStage"><div class="capCard">wala hai.</div></div></div>
+      <div id="cap91" class="clip layer capClip" data-start="168.17" data-duration="1.53" data-track-index="5"><div class="capStage"><div class="capCard">Do: records rakho.</div></div></div>
+      <div id="cap92" class="clip layer capClip" data-start="169.7" data-duration="2.58" data-track-index="5"><div class="capStage"><div class="capCard">AdSense payment statements, brand deal invoices,</div></div></div>
+      <div id="cap93" class="clip layer capClip" data-start="172.28" data-duration="2.81" data-track-index="5"><div class="capStage"><div class="capCard">aur bank ke foreign inward remittance documents,</div></div></div>
+      <div id="cap94" class="clip layer capClip" data-start="175.09" data-duration="1.05" data-track-index="5"><div class="capStage"><div class="capCard">sab sambhal ke.</div></div></div>
+      <div id="cap95" class="clip layer capClip" data-start="176.14" data-duration="1.84" data-track-index="5"><div class="capStage"><div class="capCard">Teen: apne bank se poocho.</div></div></div>
+      <div id="cap96" class="clip layer capClip" data-start="177.98" data-duration="1.69" data-track-index="5"><div class="capStage"><div class="capCard">EDF bank ke through jaata hai,</div></div></div>
+      <div id="cap97" class="clip layer capClip" data-start="179.67" data-duration="2.21" data-track-index="5"><div class="capStage"><div class="capCard">toh bank hi batayega ki aapke AdSense ya</div></div></div>
+      <div id="cap98" class="clip layer capClip" data-start="181.88" data-duration="2.05" data-track-index="5"><div class="capStage"><div class="capCard">brand payment ke liye kya chahiye.</div></div></div>
+      <div id="cap99" class="clip layer capClip" data-start="183.93" data-duration="2.69" data-track-index="5"><div class="capStage"><div class="capCard">Chaar: channel company ya registered business ke naam</div></div></div>
+      <div id="cap100" class="clip layer capClip" data-start="186.62" data-duration="0.61" data-track-index="5"><div class="capStage"><div class="capCard">pe hai,</div></div></div>
+      <div id="cap101" class="clip layer capClip" data-start="187.23" data-duration="2.26" data-track-index="5"><div class="capStage"><div class="capCard">ya badi foreign brand deals karte ho,</div></div></div>
+      <div id="cap102" class="clip layer capClip" data-start="189.49" data-duration="1.86" data-track-index="5"><div class="capStage"><div class="capCard">toh CA se zaroor baat karo.</div></div></div>
+      <div id="cap103" class="clip layer capClip" data-start="191.35" data-duration="3.36" data-track-index="5"><div class="capStage"><div class="capCard">Summary: individual YouTubers ke liye tension kam hai,</div></div></div>
+      <div id="cap104" class="clip layer capClip" data-start="194.71" data-duration="1.76" data-track-index="5"><div class="capStage"><div class="capCard">foreign brand deals pe dhyan do,</div></div></div>
+      <div id="cap105" class="clip layer capClip" data-start="196.47" data-duration="2.43" data-track-index="5"><div class="capStage"><div class="capCard">aur AdSense ke liye RBI ke FAQs ka</div></div></div>
+      <div id="cap106" class="clip layer capClip" data-start="198.9" data-duration="1.03" data-track-index="5"><div class="capStage"><div class="capCard">wait karo.</div></div></div>
+      <div id="cap107" class="clip layer capClip" data-start="199.93" data-duration="1.33" data-track-index="5"><div class="capStage"><div class="capCard">Jaise hi FAQs aayenge,</div></div></div>
+      <div id="cap108" class="clip layer capClip" data-start="201.26" data-duration="1.79" data-track-index="5"><div class="capStage"><div class="capCard">main update video laaunga.</div></div></div>
+      <div id="cap109" class="clip layer capClip" data-start="203.05" data-duration="2.63" data-track-index="5"><div class="capStage"><div class="capCard">Yeh video legal ya tax advice nahi hai.</div></div></div>
+      <div id="cap110" class="clip layer capClip" data-start="205.68" data-duration="1.81" data-track-index="5"><div class="capStage"><div class="capCard">Apne case ke liye bank ya CA se</div></div></div>
+      <div id="cap111" class="clip layer capClip" data-start="207.49" data-duration="1.06" data-track-index="5"><div class="capStage"><div class="capCard">confirm karein.</div></div></div>
+      <div id="cap112" class="clip layer capClip" data-start="208.55" data-duration="2.49" data-track-index="5"><div class="capStage"><div class="capCard">Aapki sabse zyada kamaai kahan se hoti hai?</div></div></div>
+      <div id="cap113" class="clip layer capClip" data-start="211.04" data-duration="2.71" data-track-index="5"><div class="capStage"><div class="capCard">AdSense, foreign brands ya Indian brands?</div></div></div>
+      <div id="cap114" class="clip layer capClip" data-start="213.75" data-duration="1" data-track-index="5"><div class="capStage"><div class="capCard">Comment mein batao.</div></div></div>
+      <div id="cap115" class="clip layer capClip" data-start="214.75" data-duration="2.59" data-track-index="5"><div class="capStage"><div class="capCard">Aur aise creator updates ke liye NamasteTechy ko</div></div></div>
+      <div id="cap116" class="clip layer capClip" data-start="217.34" data-duration="1.01" data-track-index="5"><div class="capStage"><div class="capCard">subscribe karo.</div></div></div>
+      <div id="progressTrack"></div><div id="progress"></div><div class="tick" style="left:9.84%"></div><div class="tick" style="left:21.74%"></div><div class="tick" style="left:33.71%"></div><div class="tick" style="left:47.62%"></div><div class="tick" style="left:73.24%"></div>
+    </div>
+
+    <audio id="vo" src="assets/audio/voiceover.mp3" data-start="0" data-duration="218.352" data-track-index="9" data-volume="1"></audio>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#hE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 0.05);
+      tl.fromTo("#h1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+      tl.fromTo("#h2", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 1.19);
+      tl.fromTo("#h3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 2.77);
+      tl.fromTo("#hDate", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 7.02);
+      tl.fromTo("#h4", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 8.1);
+      tl.fromTo("#aE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 8.92);
+      tl.fromTo("#a1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 9.51);
+      tl.fromTo("#a2", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 10.62);
+      tl.fromTo("#gE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 11.53);
+      tl.fromTo("#gList .li:nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 13.27);
+      tl.fromTo("#gList .li:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 14.07);
+      tl.fromTo("#gList .li:nth-child(3)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 15.96);
+      tl.fromTo("#gList .li:nth-child(4)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 18.2);
+      tl.fromTo("#g4", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 18.5);
+      tl.fromTo("#g5", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 18.8);
+      tl.fromTo("#title3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 21.49);
+      tl.fromTo("#title3t", { scale: 1.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 21.59);
+      tl.to("#title3", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 22.59);
+      tl.fromTo("#fE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 22.64);
+      tl.fromTo("#f1", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 22.69);
+      tl.fromTo("#f2", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 24.59);
+      tl.fromTo("#fChain .box, #fChain .arr", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.12 }, 27.6);
+      tl.fromTo("#eE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 30.98);
+      tl.fromTo("#eStack > div", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.28 }, 31.73);
+      tl.fromTo("#eGoods", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 34.57);
+      tl.fromTo("#eSvc", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 35.19);
+      tl.fromTo("#iE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 36.3);
+      tl.fromTo("#iChain > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.12 }, 37.44);
+      tl.fromTo("#iBack > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.15 }, 40.53);
+      tl.fromTo("#iBank > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.15 }, 45.5);
+      tl.fromTo("#iNote", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 46.36);
+      tl.fromTo("#title7", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 47.48);
+      tl.fromTo("#title7t", { scale: 1.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 47.58);
+      tl.to("#title7", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 48.58);
+      tl.fromTo("#lE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 48.63);
+      tl.fromTo("#lC1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 50.17);
+      tl.fromTo("#lC2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 52.91);
+      tl.fromTo("#qE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 55.45);
+      tl.fromTo("#q1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 57.36);
+      tl.fromTo("#q2", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 58.85);
+      tl.fromTo("#qStack .sheet", { y: -500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.08, ease: "power3.out" }, 57.56);
+      tl.fromTo("#sE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 60.01);
+      tl.fromTo("#sMin span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.15 }, 61.6);
+      tl.fromTo("#sSmall", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 63.61);
+      tl.fromTo("#sQuote", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.out" }, 71.31);
+      tl.fromTo("#title11", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 73.61);
+      tl.fromTo("#title11t", { scale: 1.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 73.71);
+      tl.to("#title11", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 74.71);
+      tl.fromTo("#xE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 74.76);
+      tl.fromTo("#x6", { scale: 1.8, opacity: 0, rotation: -13 }, { scale: 1, opacity: 1, rotation: -5, duration: 0.32, ease: "back.out(2)" }, 74.86);
+      tl.fromTo("#x2", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 76.74);
+      tl.fromTo("#xDates > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.12 }, 75.82);
+      tl.fromTo("#xTwist", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 81.41);
+      tl.fromTo("#bE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 84.77);
+      tl.fromTo("#bQ", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.out" }, 87.82);
+      tl.fromTo("#bG", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 92.56);
+      tl.fromTo("#bChips span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.4 }, 94.06);
+      tl.fromTo("#mE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 96.68);
+      tl.fromTo("#m1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 96.98);
+      tl.fromTo("#m2", { scale: 1.8, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 102.95);
+      tl.fromTo("#m3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 99.95);
+      tl.fromTo("#mFill", { scaleY: 1 }, { scaleY: 0.22, duration: 1.2, ease: "power2.inOut" }, 103.3);
+      tl.fromTo("#title13", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 103.97);
+      tl.fromTo("#title13t", { scale: 1.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 104.07);
+      tl.to("#title13", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 105.07);
+      tl.fromTo("#j1", { scale: 1.6, opacity: 0, rotation: -11 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.32, ease: "back.out(2)" }, 105.12);
+      tl.fromTo("#jChips span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.35 }, 110.96);
+      tl.fromTo("#j2", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 114.64);
+      tl.fromTo("#jStat", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 117.6);
+      tl.fromTo("#k1", { scale: 1.6, opacity: 0, rotation: -11 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.32, ease: "back.out(2)" }, 123.36);
+      tl.fromTo("#kChain > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.12 }, 125.92);
+      tl.fromTo("#kStat", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 129.62);
+      tl.fromTo("#kWarn", { scale: 2, opacity: 0, rotation: -16 }, { scale: 1, opacity: 1, rotation: -8, duration: 0.32, ease: "back.out(2)" }, 132.54);
+      tl.fromTo("#n1", { scale: 1.6, opacity: 0, rotation: -11 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.32, ease: "back.out(2)" }, 134.29);
+      tl.fromTo("#nChain > *", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.12 }, 136.49);
+      tl.fromTo("#nStat", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 140.06);
+      tl.fromTo("#nOk", { scale: 1.8, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.32, ease: "back.out(2)" }, 138.18);
+      tl.fromTo("#zE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 143.6);
+      tl.fromTo("#zChips span", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.3 }, 145.19);
+      tl.fromTo("#z1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 149.72);
+      tl.fromTo("#zGst", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 153.55);
+      tl.fromTo("#title18", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.2, ease: "power3.out" }, 159.93);
+      tl.fromTo("#title18t", { scale: 1.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.32, ease: "back.out(2)" }, 160.03);
+      tl.to("#title18", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.2, ease: "power3.in" }, 161.03);
+      tl.fromTo("#pE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 161.08);
+      tl.fromTo("#st0_0", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 162.99);
+      tl.fromTo("#st0_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 168.17);
+      tl.set("#st0_2, #st0_3", { opacity: 0 }, 159.93);
+      tl.fromTo("#pDocs .doc", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.6 }, 169.7);
+      tl.set("#st2_2, #st2_3", { opacity: 0 }, 176.14);
+      tl.fromTo("#st2_2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 176.19);
+      tl.fromTo("#st2_3", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 183.93);
+      tl.fromTo("#uE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 191.35);
+      tl.fromTo("#uGrid .row:nth-child(1)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 191.8);
+      tl.fromTo("#uGrid .row:nth-child(2)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 194.71);
+      tl.fromTo("#uGrid .row:nth-child(3)", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 196.47);
+      tl.fromTo("#uUp", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 199.93);
+      tl.fromTo("#dc1", { scale: 1.5, opacity: 0, rotation: -10 }, { scale: 1, opacity: 1, rotation: -2, duration: 0.32, ease: "back.out(2)" }, 203.1);
+      tl.fromTo("#dc2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.out" }, 205.68);
+      tl.fromTo("#eE2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 213.75);
+      tl.fromTo("#e1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, 208.6);
+      tl.fromTo("#ePoll > div", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.45 }, 211.04);
+      tl.fromTo("#eSub", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 216.49);
+      tl.fromTo("#eBtn", { scale: 1.6, opacity: 0, rotation: -11 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.32, ease: "back.out(2)" }, 217.34);
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 218.352, ease: "none" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
