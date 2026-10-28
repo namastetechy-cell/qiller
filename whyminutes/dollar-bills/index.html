@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter Tight"; font-weight: 500; src: url("assets/fonts/inter-tight-500.woff2") format("woff2"); }
+      @font-face { font-family: "Inter Tight"; font-weight: 700; src: url("assets/fonts/inter-tight-700.woff2") format("woff2"); }
+      @font-face { font-family: "Inter Tight"; font-weight: 800; src: url("assets/fonts/inter-tight-800.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #050505; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #050505; font-family: "Inter Tight", sans-serif; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .paper { background: #F7F3EE; } .dark { background: #050505; }
+      .dim { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+      .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,.045) 2px, transparent 2px), linear-gradient(90deg, rgba(0,0,0,.045) 2px, transparent 2px); background-size: 120px 120px; }
+      .arc { position: absolute; left: -520px; top: 260px; width: 1500px; height: 1500px; border-radius: 50%; border: 90px solid #C9C6C2; opacity: .55; }
+      .spot { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 45% at 50% 45%, rgba(255,255,255,.14), rgba(255,255,255,0) 70%); }
+      .barcode { position: absolute; right: 90px; top: 110px; height: 70px; display: flex; gap: 4px; } .barcode i { display: block; height: 100%; background: #161616; }
+      .foot { position: absolute; left: 0; right: 0; bottom: 120px; text-align: center; font-size: 26px; font-weight: 700; letter-spacing: .3em; color: #8C8984; }
+      .blk { position: absolute; color: #161616; line-height: 1.02; letter-spacing: -0.045em; font-weight: 500; }
+      .blk .ln { display: flex; flex-wrap: wrap; column-gap: .24em; }
+      .blk .wd { display: inline-block; transform-origin: 50% 70%; }
+      .blk .key { color: #E0192D; font-weight: 800; font-size: 1.32em; letter-spacing: -0.055em; }
+      .blk .key.gr { color: #1F8F4E; }
+      .onDark { color: #EDEDED; }
+      .onDark .key { color: #FF2A3D; text-shadow: 0 0 22px rgba(255,20,40,.85), 0 0 60px rgba(255,20,40,.5); }
+      .onDark .key.gr { color: #3BE07F; text-shadow: 0 0 22px rgba(40,220,120,.8), 0 0 60px rgba(40,220,120,.45); }
+      .emo { position: absolute; filter: drop-shadow(0 30px 30px rgba(0,0,0,.35)); transform-origin: 50% 60%; }
+      .dark .emo { filter: drop-shadow(0 0 40px rgba(255,255,255,.25)) drop-shadow(0 30px 30px rgba(0,0,0,.6)); }
+      .bill { position: absolute; filter: drop-shadow(0 26px 26px rgba(0,0,0,.28)); transform-origin: 50% 50%; }
+      .dark .bill { filter: drop-shadow(0 0 50px rgba(60,220,130,.25)) drop-shadow(0 26px 30px rgba(0,0,0,.7)); }
+      .ruler { position: absolute; left: 140px; top: 1700px; width: 800px; height: 6px; background: #E0192D; transform-origin: 50% 50%; }
+      .ruler::before, .ruler::after { content: ""; position: absolute; top: -22px; width: 6px; height: 50px; background: #E0192D; } .ruler::before { left: 0; } .ruler::after { right: 0; }
+      .orb { position: absolute; left: 190px; top: 400px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #fff, #E9E9E9 70%); box-shadow: 0 0 120px rgba(255,255,255,.35); }
+      .gcirc { position: absolute; left: 140px; top: 560px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #DDF3E5, #BFE6CC); transform-origin: 50% 50%; }
+      .flip { position: absolute; height: 298px; perspective: 1600px; }
+      .flip .face { position: absolute; inset: 0; backface-visibility: hidden; filter: drop-shadow(0 26px 26px rgba(0,0,0,.28)); }
+      .note { position: absolute; left: 230px; top: 700px; width: 620px; padding: 70px 50px 60px; background: #8D8B88; color: #fff; box-shadow: 0 40px 50px rgba(0,0,0,.3); transform-origin: 50% 0%; }
+      .note.tall { top: 640px; }
+      .note .pin { position: absolute; left: 50%; top: -26px; width: 52px; height: 52px; margin-left: -26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FF6B6B, #C40F1F 70%); box-shadow: 0 8px 10px rgba(0,0,0,.35); }
+      .note .nT { font-size: 104px; font-weight: 700; letter-spacing: -0.05em; border-bottom: 5px solid rgba(255,255,255,.75); padding-bottom: 18px; margin-bottom: 26px; }
+      .note .nL { font-size: 44px; font-weight: 500; opacity: .9; }
+      .note .li { display: flex; align-items: center; gap: 22px; font-size: 54px; font-weight: 500; letter-spacing: -0.03em; margin: 18px 0; }
+      .note .li img { width: 74px; }
+      .flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+      .tag { position: absolute; left: 0; right: 0; top: 1580px; text-align: center; font-size: 46px; font-weight: 700; color: #BDBDBD; letter-spacing: -0.02em; }
+      .bracket { position: absolute; left: 930px; top: 830px; width: 40px; height: 790px; border: 8px solid #E0192D; border-left: 0; transform-origin: 50% 0%; }
+      .sub { position: absolute; left: 240px; top: 820px; width: 600px; padding: 34px 0 40px; border-radius: 999px; background: #E0192D; color: #fff; text-align: center; font-size: 74px; font-weight: 800; letter-spacing: -0.03em; box-shadow: 0 0 60px rgba(255,20,40,.6); transform-origin: 50% 50%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="44.865" data-width="1080" data-height="1920">
+      <div id="sc0" class="clip layer paper" data-start="0" data-duration="4.08" data-track-index="1">
+        <div id="sc0-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="b1A" class="bill" data-layout-allow-overlap style="left:120px;top:1080px;width:820px;transform:rotate(-8deg)"><svg viewBox="0 0 1000 425" style="width:820px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <div id="b2A" class="bill" data-layout-allow-overlap style="left:160px;top:1180px;width:820px;transform:rotate(5deg)"><svg viewBox="0 0 1000 425" style="width:820px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE HUNDRED</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <div id="tA" class="blk " style="left:90px;top:330px;width:900px;font-size:92px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tA-w0-0" class="wd ">You've</span><span id="tA-w0-1" class="wd ">never</span><span id="tA-w0-2" class="wd ">noticed</span></div><div class="ln" style="justify-content:flex-start"><span id="tA-w1-0" class="wd ">that</span><span id="tA-w1-1" class="wd ">a</span><span id="tA-w1-2" class="wd key">$1</span><span id="tA-w1-3" class="wd ">bill</span></div><div class="ln" style="justify-content:flex-start"><span id="tA-w2-0" class="wd ">and</span><span id="tA-w2-1" class="wd ">a</span><span id="tA-w2-2" class="wd key">$100</span></div><div class="ln" style="justify-content:flex-start"><span id="tA-w3-0" class="wd ">are</span><span id="tA-w3-1" class="wd ">the</span><span id="tA-w3-2" class="wd key">exact</span><span id="tA-w3-3" class="wd key">same</span><span id="tA-w3-4" class="wd key">size.</span></div></div>
+        <div id="rlA" class="ruler"></div></div><div id="sc0-dim" class="dim"></div>
+      </div>
+      <div id="sc1" class="clip layer dark" data-start="4.08" data-duration="2.14" data-track-index="1">
+        <div id="sc1-st" class="layer"><div class="spot"></div>
+        <div id="orbB" class="orb"></div>
+        <div id="tB" class="blk " style="left:240px;top:560px;width:600px;font-size:68px;text-align:center"><div class="ln" style="justify-content:center"><span id="tB-w0-0" class="wd ">But</span><span id="tB-w0-1" class="wd ">why</span><span id="tB-w0-2" class="wd ">does</span></div><div class="ln" style="justify-content:center"><span id="tB-w1-0" class="wd ">every</span><span id="tB-w1-1" class="wd ">bill</span></div><div class="ln" style="justify-content:center"><span id="tB-w2-0" class="wd key">look</span><span id="tB-w2-1" class="wd key">the</span><span id="tB-w2-2" class="wd key">same?</span></div></div>
+        <img id="emB" class="emo" src="assets/emoji/face_with_raised_eyebrow_3d.png" style="left:330px;top:1150px;width:420px"></div><div id="sc1-dim" class="dim"></div>
+      </div>
+      <div id="sc2" class="clip layer paper" data-start="6.22" data-duration="1.34" data-track-index="1">
+        <div id="sc2-st" class="layer"><div class="grid"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="gcC" class="gcirc"></div>
+        <div id="tC" class="blk " style="left:90px;top:760px;width:900px;font-size:110px;text-align:center"><div class="ln" style="justify-content:center"><span id="tC-w0-0" class="wd ">Let's</span><span id="tC-w0-1" class="wd ">start</span></div><div class="ln" style="justify-content:center"><span id="tC-w1-0" class="wd ">with</span><span id="tC-w1-1" class="wd ">the</span><span id="tC-w1-2" class="wd key gr">green.</span></div></div>
+        <img id="emC" class="emo" src="assets/emoji/artist_palette_3d.png" style="left:640px;top:1240px;width:300px"></div><div id="sc2-dim" class="dim"></div>
+      </div>
+      <div id="sc3" class="clip layer dark" data-start="7.56" data-duration="3" data-track-index="1">
+        <div id="sc3-st" class="layer"><div class="spot"></div>
+        <div id="tD1" class="blk onDark" style="left:90px;top:300px;width:900px;font-size:170px;text-align:center"><div class="ln" style="justify-content:center"><span id="tD1-w0-0" class="wd ">In</span><span id="tD1-w0-1" class="wd key">1861,</span></div></div>
+        <div id="tD2" class="blk onDark" style="left:90px;top:700px;width:900px;font-size:84px;text-align:center"><div class="ln" style="justify-content:center"><span id="tD2-w0-0" class="wd ">the</span><span id="tD2-w0-1" class="wd ">Union</span></div><div class="ln" style="justify-content:center"><span id="tD2-w1-0" class="wd ">needed</span><span id="tD2-w1-1" class="wd key">cash</span></div><div class="ln" style="justify-content:center"><span id="tD2-w2-0" class="wd ">for</span><span id="tD2-w2-1" class="wd ">the</span><span id="tD2-w2-2" class="wd key">Civil</span><span id="tD2-w2-3" class="wd key">War</span></div></div>
+        <img id="emD1" class="emo" src="assets/emoji/crossed_swords_3d.png" style="left:170px;top:1230px;width:330px"><img id="emD2" class="emo" src="assets/emoji/military_helmet_3d.png" style="left:590px;top:1250px;width:330px">
+        <img id="emD3" class="emo" src="assets/emoji/money_bag_3d.png" style="left:430px;top:990px;width:220px"></div><div id="sc3-dim" class="dim"></div>
+      </div>
+      <div id="sc4" class="clip layer paper" data-start="10.56" data-duration="2.78" data-track-index="1">
+        <div id="sc4-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <img id="emE" class="emo" src="assets/emoji/printer_3d.png" style="left:120px;top:1180px;width:380px">
+        <div id="flE" class="flip" data-layout-allow-overlap style="left:200px;top:820px;width:700px">
+          <div id="flE-f" class="face"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">FIVE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="flE-b" class="face back"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#2E7D4F" stroke="#1C4F32" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#7FC59A" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="170" ry="130" fill="#3F9663" stroke="#BFE6CC" stroke-width="8"/>
+      <text data-layout-allow-overlap x="500" y="250" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="120" fill="#E3F4E8">5</text>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text></svg></div>
+        </div>
+        <div id="tE" class="blk " style="left:90px;top:260px;width:900px;font-size:88px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tE-w0-0" class="wd ">and</span><span id="tE-w0-1" class="wd ">printed</span></div><div class="ln" style="justify-content:flex-start"><span id="tE-w1-0" class="wd ">paper</span><span id="tE-w1-1" class="wd key">notes</span></div><div class="ln" style="justify-content:flex-start"><span id="tE-w2-0" class="wd ">with</span><span id="tE-w2-1" class="wd key gr">green</span><span id="tE-w2-2" class="wd key gr">ink</span></div><div class="ln" style="justify-content:flex-start"><span id="tE-w3-0" class="wd ">on</span><span id="tE-w3-1" class="wd ">the</span><span id="tE-w3-2" class="wd key">back.</span></div></div></div><div id="sc4-dim" class="dim"></div>
+      </div>
+      <div id="sc5" class="clip layer paper" data-start="13.34" data-duration="1.82" data-track-index="1">
+        <div id="sc5-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="cdF" class="note" data-layout-allow-overlap><div class="pin"></div><div class="nT">Greenbacks</div><div class="nL">nickname · 1860s</div></div>
+        <div id="bF" class="bill" data-layout-allow-overlap style="left:250px;top:1260px;width:580px;transform:rotate(-6deg)"><svg viewBox="0 0 1000 425" style="width:580px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#2E7D4F" stroke="#1C4F32" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#7FC59A" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="170" ry="130" fill="#3F9663" stroke="#BFE6CC" stroke-width="8"/>
+      <text data-layout-allow-overlap x="500" y="250" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="120" fill="#E3F4E8">5</text>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text></svg></div>
+        <div id="tF" class="blk " style="left:90px;top:300px;width:900px;font-size:80px;text-align:center"><div class="ln" style="justify-content:center"><span id="tF-w0-0" class="wd ">People</span><span id="tF-w0-1" class="wd ">called</span></div><div class="ln" style="justify-content:center"><span id="tF-w1-0" class="wd ">them</span></div></div></div><div id="sc5-dim" class="dim"></div>
+      </div>
+      <div id="sc6" class="clip layer dark" data-start="15.16" data-duration="0.8" data-track-index="1">
+        <div id="sc6-st" class="layer"><div class="spot"></div>
+        <div id="tG" class="blk onDark" style="left:90px;top:620px;width:900px;font-size:190px;text-align:center"><div class="ln" style="justify-content:center"><span id="tG-w0-0" class="wd ">Why</span></div><div class="ln" style="justify-content:center"><span id="tG-w1-0" class="wd key gr">green?</span></div></div>
+        <img id="emG" class="emo" src="assets/emoji/thinking_face_3d.png" style="left:340px;top:1180px;width:400px"></div><div id="sc6-dim" class="dim"></div>
+      </div>
+      <div id="sc7" class="clip layer paper" data-start="15.96" data-duration="4.38" data-track-index="1">
+        <div id="sc7-st" class="layer"><div class="grid"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <img id="emH" class="emo" src="assets/emoji/camera_with_flash_3d.png" style="left:-80px;top:1120px;width:640px;filter:grayscale(1) contrast(1.1)">
+        <div id="flH" class="flash"></div>
+        <div id="tH1" class="blk " style="left:90px;top:250px;width:900px;font-size:82px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tH1-w0-0" class="wd ">Cameras</span><span id="tH1-w0-1" class="wd ">back</span><span id="tH1-w0-2" class="wd ">then</span></div><div class="ln" style="justify-content:flex-start"><span id="tH1-w1-0" class="wd ">only</span><span id="tH1-w1-1" class="wd ">shot</span><span id="tH1-w1-2" class="wd ">in</span></div><div class="ln" style="justify-content:flex-start"><span id="tH1-w2-0" class="wd key">black</span><span id="tH1-w2-1" class="wd key">and</span><span id="tH1-w2-2" class="wd key">white,</span></div></div>
+        <div id="tH2" class="blk " style="left:90px;top:250px;width:900px;font-size:92px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tH2-w0-0" class="wd ">so</span><span id="tH2-w0-1" class="wd ">a</span><span id="tH2-w0-2" class="wd key gr">green</span><span id="tH2-w0-3" class="wd key gr">back</span></div><div class="ln" style="justify-content:flex-start"><span id="tH2-w1-0" class="wd ">was</span><span id="tH2-w1-1" class="wd key">harder</span></div><div class="ln" style="justify-content:flex-start"><span id="tH2-w2-0" class="wd key">to</span><span id="tH2-w2-1" class="wd key">copy.</span></div></div>
+        <div id="bH" class="bill" data-layout-allow-overlap style="left:520px;top:1180px;width:500px;transform:rotate(8deg)"><svg viewBox="0 0 1000 425" style="width:500px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#2E7D4F" stroke="#1C4F32" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#7FC59A" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="170" ry="130" fill="#3F9663" stroke="#BFE6CC" stroke-width="8"/>
+      <text data-layout-allow-overlap x="500" y="250" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="120" fill="#E3F4E8">5</text>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text></svg></div>
+        <div id="bH2" class="bill" data-layout-allow-overlap style="left:540px;top:1420px;width:500px;transform:rotate(-4deg);filter:grayscale(1) blur(2px) contrast(.6);opacity:.85"><svg viewBox="0 0 1000 425" style="width:500px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#2E7D4F" stroke="#1C4F32" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#7FC59A" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="170" ry="130" fill="#3F9663" stroke="#BFE6CC" stroke-width="8"/>
+      <text data-layout-allow-overlap x="500" y="250" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="120" fill="#E3F4E8">5</text>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#BFE6CC">5</text></svg></div>
+        <img id="xH" class="emo" src="assets/emoji/cross_mark_3d.png" style="left:860px;top:1460px;width:150px"></div><div id="sc7-dim" class="dim"></div>
+      </div>
+      <div id="sc8" class="clip layer paper" data-start="20.34" data-duration="4.12" data-track-index="1">
+        <div id="sc8-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="cdI" class="note tall"><div class="pin"></div><div class="nT">Green ink</div>
+          <div id="li1" class="li"><img src="assets/emoji/check_mark_button_3d.png">plentiful</div>
+          <div id="li2" class="li"><img src="assets/emoji/shield_3d.png">tough</div>
+          <div id="li3" class="li"><img src="assets/emoji/hourglass_not_done_3d.png">survives wear</div>
+          <div id="li4" class="li"><img src="assets/emoji/test_tube_3d.png">resists chemicals</div></div>
+        <div id="tI" class="blk " style="left:90px;top:240px;width:900px;font-size:78px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tI-w0-0" class="wd ">The</span><span id="tI-w0-1" class="wd ">ink</span><span id="tI-w0-2" class="wd ">was</span><span id="tI-w0-3" class="wd ">also</span></div><div class="ln" style="justify-content:flex-start"><span id="tI-w1-0" class="wd key">plentiful</span><span id="tI-w1-1" class="wd ">and</span><span id="tI-w1-2" class="wd key">tough,</span></div></div></div><div id="sc8-dim" class="dim"></div>
+      </div>
+      <div id="sc9" class="clip layer dark" data-start="24.46" data-duration="2.24" data-track-index="1">
+        <div id="sc9-st" class="layer"><div class="spot"></div>
+        <div id="tJ" class="blk onDark" style="left:90px;top:300px;width:900px;font-size:100px;text-align:center"><div class="ln" style="justify-content:center"><span id="tJ-w0-0" class="wd ">Then</span><span id="tJ-w0-1" class="wd ">the</span><span id="tJ-w0-2" class="wd key">size.</span></div><div class="ln" style="justify-content:center"><span id="tJ-w1-0" class="wd ">Bills</span><span id="tJ-w1-1" class="wd ">used</span></div><div class="ln" style="justify-content:center"><span id="tJ-w2-0" class="wd ">to</span><span id="tJ-w2-1" class="wd ">be</span><span id="tJ-w2-2" class="wd key">bigger.</span></div></div>
+        <div id="bJ" class="bill" data-layout-allow-overlap style="left:40px;top:1050px;width:1000px;transform:rotate(-4deg)"><svg viewBox="0 0 1000 425" style="width:1000px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <div id="lbJ" class="tag">pre-1929 · ~30% bigger</div></div><div id="sc9-dim" class="dim"></div>
+      </div>
+      <div id="sc10" class="clip layer paper" data-start="26.7" data-duration="3.34" data-track-index="1">
+        <div id="sc10-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="tK" class="blk " style="left:90px;top:230px;width:900px;font-size:86px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tK-w0-0" class="wd ">In</span><span id="tK-w0-1" class="wd key">1929,</span></div><div class="ln" style="justify-content:flex-start"><span id="tK-w1-0" class="wd ">the</span><span id="tK-w1-1" class="wd ">government</span></div><div class="ln" style="justify-content:flex-start"><span id="tK-w2-0" class="wd key">shrank</span><span id="tK-w2-1" class="wd ">them</span></div><div class="ln" style="justify-content:flex-start"><span id="tK-w3-0" class="wd ">to</span><span id="tK-w3-1" class="wd ">cut</span><span id="tK-w3-2" class="wd ">printing</span><span id="tK-w3-3" class="wd key">costs,</span></div></div>
+        <img id="emK1" class="emo" src="assets/emoji/classical_building_3d.png" style="left:700px;top:520px;width:280px">
+        <div id="bK" class="bill" data-layout-allow-overlap style="left:90px;top:1060px;width:900px;transform-origin:50% 50%"><svg viewBox="0 0 1000 425" style="width:900px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <img id="emK2" class="emo" src="assets/emoji/scissors_3d.png" style="left:720px;top:980px;width:260px"><img id="emK3" class="emo" src="assets/emoji/coin_3d.png" style="left:140px;top:1500px;width:200px"><img id="emK4" class="emo" src="assets/emoji/money_bag_3d.png" style="left:330px;top:1460px;width:240px"></div><div id="sc10-dim" class="dim"></div>
+      </div>
+      <div id="sc11" class="clip layer paper" data-start="30.04" data-duration="3.78" data-track-index="1">
+        <div id="sc11-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="tL" class="blk " style="left:90px;top:250px;width:900px;font-size:84px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tL-w0-0" class="wd ">and</span><span id="tL-w0-1" class="wd ">gave</span><span id="tL-w0-2" class="wd ">every</span><span id="tL-w0-3" class="wd ">bill</span></div><div class="ln" style="justify-content:flex-start"><span id="tL-w1-0" class="wd ">the</span><span id="tL-w1-1" class="wd key">same</span><span id="tL-w1-2" class="wd key">size</span></div><div class="ln" style="justify-content:flex-start"><span id="tL-w2-0" class="wd ">and</span><span id="tL-w2-1" class="wd ">a</span><span id="tL-w2-2" class="wd key">uniform</span><span id="tL-w2-3" class="wd key">design.</span></div></div>
+        <div id="bL0" class="bill" data-layout-allow-overlap style="left:190px;top:820px;width:700px"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bL1" class="bill" data-layout-allow-overlap style="left:190px;top:1030px;width:700px"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">FIVE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bL2" class="bill" data-layout-allow-overlap style="left:190px;top:1240px;width:700px"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">TWENTY</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bL3" class="bill" data-layout-allow-overlap style="left:190px;top:1450px;width:700px"><svg viewBox="0 0 1000 425" style="width:700px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE HUNDRED</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <div id="brL" class="bracket"></div></div><div id="sc11-dim" class="dim"></div>
+      </div>
+      <div id="sc12" class="clip layer dark" data-start="33.82" data-duration="1.76" data-track-index="1">
+        <div id="sc12-st" class="layer"><div class="spot"></div>
+        <div id="tM" class="blk onDark" style="left:90px;top:480px;width:900px;font-size:104px;text-align:center"><div class="ln" style="justify-content:center"><span id="tM-w0-0" class="wd ">And</span><span id="tM-w0-1" class="wd ">they</span><span id="tM-w0-2" class="wd ">kept</span></div><div class="ln" style="justify-content:center"><span id="tM-w1-0" class="wd ">the</span><span id="tM-w1-1" class="wd key gr">classic</span><span id="tM-w1-2" class="wd key gr">green.</span></div></div>
+        <div id="bM" class="bill" data-layout-allow-overlap style="left:140px;top:1020px;width:800px;transform:rotate(-5deg)"><svg viewBox="0 0 1000 425" style="width:800px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#2E7D4F" stroke="#1C4F32" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#7FC59A" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="170" ry="130" fill="#3F9663" stroke="#BFE6CC" stroke-width="8"/>
+      <text data-layout-allow-overlap x="500" y="250" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="120" fill="#E3F4E8">100</text>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#BFE6CC">100</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#BFE6CC">100</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#BFE6CC">100</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#BFE6CC">100</text></svg></div></div><div id="sc12-dim" class="dim"></div>
+      </div>
+      <div id="sc13" class="clip layer paper" data-start="35.58" data-duration="2.76" data-track-index="1">
+        <div id="sc13-st" class="layer"><div class="grid"></div><div class="arc"></div>
+          <div class="barcode"><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i><i style="width:3px"></i><i style="width:6px"></i><i style="width:2px"></i><i style="width:4px"></i><i style="width:8px"></i></div>
+          <div class="foot">◐ WHY MINUTES DAILY · VOL. 01</div>
+        <div id="tN" class="blk " style="left:90px;top:240px;width:900px;font-size:92px;text-align:left"><div class="ln" style="justify-content:flex-start"><span id="tN-w0-0" class="wd ">So</span><span id="tN-w0-1" class="wd ">your</span><span id="tN-w0-2" class="wd ">wallet</span></div><div class="ln" style="justify-content:flex-start"><span id="tN-w1-0" class="wd ">looks</span><span id="tN-w1-1" class="wd ">like</span><span id="tN-w1-2" class="wd ">a</span></div><div class="ln" style="justify-content:flex-start"><span id="tN-w2-0" class="wd ">stack</span><span id="tN-w2-1" class="wd ">of</span><span id="tN-w2-2" class="wd key">twins</span></div><div class="ln" style="justify-content:flex-start"><span id="tN-w3-0" class="wd ">on</span><span id="tN-w3-1" class="wd key">purpose.</span></div></div>
+        <div id="bN0" class="bill" data-layout-allow-overlap style="left:260px;top:1160px;width:640px;transform:rotate(-12deg)"><svg viewBox="0 0 1000 425" style="width:640px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bN1" class="bill" data-layout-allow-overlap style="left:260px;top:1134px;width:640px;transform:rotate(-6deg)"><svg viewBox="0 0 1000 425" style="width:640px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="64" fill="#4E5E48">100</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE HUNDRED</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bN2" class="bill" data-layout-allow-overlap style="left:260px;top:1108px;width:640px;transform:rotate(0deg)"><svg viewBox="0 0 1000 425" style="width:640px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">20</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">TWENTY</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bN3" class="bill" data-layout-allow-overlap style="left:260px;top:1082px;width:640px;transform:rotate(6deg)"><svg viewBox="0 0 1000 425" style="width:640px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">5</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">FIVE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div><div id="bN4" class="bill" data-layout-allow-overlap style="left:260px;top:1056px;width:640px;transform:rotate(12deg)"><svg viewBox="0 0 1000 425" style="width:640px;display:block">
+      <rect x="6" y="6" width="988" height="413" rx="14" fill="#E3E8DA" stroke="#6E7F67" stroke-width="6"/>
+      <rect x="34" y="34" width="932" height="357" rx="8" fill="none" stroke="#8FA087" stroke-width="10" stroke-dasharray="2 6"/>
+      <ellipse cx="500" cy="212" rx="128" ry="150" fill="#D2DAC6" stroke="#5F7058" stroke-width="8"/>
+      <path d="M430 330 Q440 250 500 245 Q560 250 570 330 Z M500 160 m-46 0 a46 52 0 1 0 92 0 a46 52 0 1 0 -92 0" fill="#7D8C74"/>
+      <text data-layout-allow-overlap x="90" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="100" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="90" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text><text data-layout-allow-overlap x="910" y="360" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="84" fill="#4E5E48">1</text>
+      <text data-layout-allow-overlap x="500" y="404" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="34" letter-spacing="6" fill="#4E5E48">ONE</text>
+      <circle cx="790" cy="212" r="56" fill="none" stroke="#2F6F48" stroke-width="8"/><circle cx="210" cy="212" r="56" fill="none" stroke="#5F7058" stroke-width="8"/></svg></div>
+        <img id="emN1" class="emo" src="assets/emoji/purse_3d.png" style="left:70px;top:1380px;width:300px"><img id="emN2" class="emo" src="assets/emoji/smiling_face_with_sunglasses_3d.png" style="left:760px;top:1360px;width:240px"></div><div id="sc13-dim" class="dim"></div>
+      </div>
+      <div id="sc14" class="clip layer dark" data-start="38.34" data-duration="1.92" data-track-index="1">
+        <div id="sc14-st" class="layer"><div class="spot"></div>
+        <div id="tO" class="blk onDark" style="left:20px;top:640px;width:1040px;font-size:92px;text-align:center"><div class="ln" style="justify-content:center"><span id="tO-w0-0" class="wd key">Cheaper</span><span id="tO-w0-1" class="wd ">to</span><span id="tO-w0-2" class="wd ">print,</span></div><div class="ln" style="justify-content:center"><span id="tO-w1-0" class="wd key">harder</span><span id="tO-w1-1" class="wd ">to</span><span id="tO-w1-2" class="wd ">fake.</span></div></div>
+        <img id="emO1" class="emo" src="assets/emoji/coin_3d.png" style="left:170px;top:1100px;width:280px"><img id="emO2" class="emo" src="assets/emoji/locked_3d.png" style="left:620px;top:1100px;width:290px"></div><div id="sc14-dim" class="dim"></div>
+      </div>
+      <div id="sc15" class="clip layer dark" data-start="40.26" data-duration="4.6" data-track-index="1">
+        <div id="sc15-st" class="layer"><div class="spot"></div>
+        <div id="tP1" class="blk onDark" style="left:90px;top:420px;width:900px;font-size:96px;text-align:center"><div class="ln" style="justify-content:center"><span id="tP1-w0-0" class="wd ">Subscribe</span><span id="tP1-w0-1" class="wd ">to</span></div><div class="ln" style="justify-content:center"><span id="tP1-w1-0" class="wd key">Why</span><span id="tP1-w1-1" class="wd key">Minutes</span><span id="tP1-w1-2" class="wd key">Daily.</span></div></div>
+        <div id="sbP" class="sub">SUBSCRIBE</div>
+        <div id="tP2" class="blk onDark" style="left:90px;top:1240px;width:900px;font-size:76px;text-align:center"><div class="ln" style="justify-content:center"><span id="tP2-w0-0" class="wd ">It</span><span id="tP2-w0-1" class="wd ">costs</span><span id="tP2-w0-2" class="wd ">less</span></div><div class="ln" style="justify-content:center"><span id="tP2-w1-0" class="wd ">than</span><span id="tP2-w1-1" class="wd ">a</span><span id="tP2-w1-2" class="wd key">$1</span><span id="tP2-w1-3" class="wd ">bill.</span></div></div>
+        <img id="emP" class="emo" src="assets/emoji/smiling_face_with_sunglasses_3d.png" style="left:400px;top:1520px;width:280px">
+        <img id="cuP" class="emo" src="assets/emoji/check_mark_button_3d.png" style="left:770px;top:840px;width:120px"></div><div id="sc15-dim" class="dim"></div>
+      </div>
+    </div>
+    <audio id="mix" src="assets/audio/mix.mp3" data-start="0" data-duration="44.865" data-track-index="9" data-volume="1"></audio>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#tA-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, -0.05);
+      tl.fromTo("#tA-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 0.21);
+      tl.fromTo("#tA-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 0.41);
+      tl.fromTo("#tA-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 0.81);
+      tl.fromTo("#tA-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 0.97);
+      tl.fromTo("#tA-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.08);
+      tl.fromTo("#tA-w1-3", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 1.41);
+      tl.fromTo("#tA-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 1.73);
+      tl.fromTo("#tA-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 1.85);
+      tl.fromTo("#tA-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.96);
+      tl.fromTo("#tA-w3-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 2.33);
+      tl.fromTo("#tA-w3-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 2.61);
+      tl.fromTo("#tA-w3-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.76);
+      tl.fromTo("#tA-w3-3", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.1);
+      tl.fromTo("#tA-w3-4", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.42);
+      tl.fromTo("#sc0-st", { scale: 1 }, { scale: 1.06, duration: 4.08, ease: "none" }, 0);
+      tl.fromTo("#sc0-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 3.94);
+      tl.fromTo("#b1A", { x: -900, rotation: -20 }, { x: 0, rotation: -8, duration: 0.6, ease: "power3.out" }, 1.02);
+      tl.fromTo("#b2A", { x: 900, rotation: 20 }, { x: 0, rotation: 5, duration: 0.6, ease: "power3.out" }, 1.9);
+      tl.to("#b1A", { x: 20, y: 60, rotation: 0, duration: 0.45, ease: "power2.inOut" }, 2.8);
+      tl.to("#b2A", { x: -20, y: -40, rotation: 0, duration: 0.45, ease: "power2.inOut" }, 2.8);
+      tl.fromTo("#rlA", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.4, ease: "power2.out" }, 3.36);
+      tl.fromTo("#tB-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 4.15);
+      tl.fromTo("#tB-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 4.25);
+      tl.fromTo("#tB-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 4.43);
+      tl.fromTo("#tB-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 4.65);
+      tl.fromTo("#tB-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 5.01);
+      tl.fromTo("#tB-w2-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 5.26);
+      tl.fromTo("#tB-w2-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 5.44);
+      tl.fromTo("#tB-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 5.62);
+      tl.fromTo("#sc1-st", { scale: 1 }, { scale: 1.06, duration: 2.14, ease: "none" }, 4.08);
+      tl.fromTo("#sc1-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 6.08);
+      tl.fromTo("#orbB", { opacity: 0, scale: 0.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 4.08);
+      tl.fromTo("#emB", { opacity: 0, scale: 0.4, rotation: -18 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.5, ease: "back.out(2)" }, 5.3);
+      tl.fromTo("#emB", { y: 0 }, { y: -10, duration: 1.1, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 5.8);
+      tl.fromTo("#tC-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 6.29);
+      tl.fromTo("#tC-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 6.57);
+      tl.fromTo("#tC-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 6.79);
+      tl.fromTo("#tC-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 6.97);
+      tl.fromTo("#tC-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 7.12);
+      tl.fromTo("#sc2-st", { scale: 1 }, { scale: 1.06, duration: 1.34, ease: "none" }, 6.22);
+      tl.fromTo("#sc2-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 7.42);
+      tl.fromTo("#gcC", { scale: 0 }, { scale: 1, duration: 0.5, ease: "power3.out" }, 7.21);
+      tl.fromTo("#emC", { opacity: 0, scale: 0.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2)" }, 6.42);
+      tl.fromTo("#tD1-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 7.63);
+      tl.fromTo("#tD1-w0-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 7.74);
+      tl.fromTo("#tD2-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 8.79);
+      tl.fromTo("#tD2-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 8.85);
+      tl.fromTo("#tD2-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 9.05);
+      tl.fromTo("#tD2-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 9.42);
+      tl.fromTo("#tD2-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 9.77);
+      tl.fromTo("#tD2-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 9.99);
+      tl.fromTo("#tD2-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 10.1);
+      tl.fromTo("#tD2-w2-3", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 10.28);
+      tl.fromTo("#sc3-st", { scale: 1 }, { scale: 1.06, duration: 3, ease: "none" }, 7.56);
+      tl.fromTo("#sc3-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 10.42);
+      tl.fromTo("#emD3", { opacity: 0, scale: 0.4, rotation: -2 }, { opacity: 1, scale: 1, rotation: 10, duration: 0.5, ease: "back.out(2)" }, 9.46);
+      tl.fromTo("#emD1", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(2)" }, 10.14);
+      tl.fromTo("#emD2", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.5, ease: "back.out(2)" }, 10.32);
+      tl.fromTo("#emD1, #emD2", { y: 0 }, { y: -8, duration: 1.1, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 10.72);
+      tl.fromTo("#tE-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 10.63);
+      tl.fromTo("#tE-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 10.93);
+      tl.fromTo("#tE-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 11.23);
+      tl.fromTo("#tE-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 11.54);
+      tl.fromTo("#tE-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 11.87);
+      tl.fromTo("#tE-w2-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 12.2);
+      tl.fromTo("#tE-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 12.48);
+      tl.fromTo("#tE-w3-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 12.73);
+      tl.fromTo("#tE-w3-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 12.93);
+      tl.fromTo("#tE-w3-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 13.04);
+      tl.fromTo("#sc4-st", { scale: 1 }, { scale: 1.06, duration: 2.78, ease: "none" }, 10.56);
+      tl.fromTo("#sc4-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 13.2);
+      tl.fromTo("#emE", { opacity: 0, scale: 0.5, rotation: -16 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.5, ease: "back.out(2)" }, 10.61);
+      tl.fromTo("#flE", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 11.48);
+      tl.to("#flE-f", { rotationY: -180, duration: 0.5, ease: "power2.inOut" }, 12.88);
+      tl.fromTo("#flE-b", { rotationY: 180 }, { rotationY: 0, duration: 0.5, ease: "power2.inOut" }, 12.88);
+      tl.fromTo("#tF-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 13.41);
+      tl.fromTo("#tF-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 13.65);
+      tl.fromTo("#tF-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 13.95);
+      tl.fromTo("#sc5-st", { scale: 1 }, { scale: 1.06, duration: 1.82, ease: "none" }, 13.34);
+      tl.fromTo("#sc5-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 15.02);
+      tl.fromTo("#cdF", { y: -600, rotation: -10 }, { y: 0, rotation: -3, duration: 0.55, ease: "back.out(1.4)" }, 14.07);
+      tl.fromTo("#bF", { opacity: 0, scale: 0.5, rotation: -18 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.5, ease: "back.out(2)" }, 14.42);
+      tl.fromTo("#tG-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 15.23);
+      tl.fromTo("#tG-w1-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 15.4);
+      tl.fromTo("#sc6-st", { scale: 1 }, { scale: 1.06, duration: 0.8, ease: "none" }, 15.16);
+      tl.fromTo("#sc6-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 15.82);
+      tl.fromTo("#emG", { opacity: 0, scale: 0.4, rotation: -18 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.5, ease: "back.out(2)" }, 15.26);
+      tl.fromTo("#tH1-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 16.03);
+      tl.fromTo("#tH1-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 16.31);
+      tl.fromTo("#tH1-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 16.59);
+      tl.fromTo("#tH1-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 16.81);
+      tl.fromTo("#tH1-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 17.13);
+      tl.fromTo("#tH1-w1-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 17.45);
+      tl.fromTo("#tH1-w2-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 17.62);
+      tl.fromTo("#tH1-w2-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 17.84);
+      tl.fromTo("#tH1-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 18.06);
+      tl.fromTo("#tH2-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 18.43);
+      tl.fromTo("#tH2-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 18.55);
+      tl.fromTo("#tH2-w0-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 18.72);
+      tl.fromTo("#tH2-w0-3", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 18.88);
+      tl.fromTo("#tH2-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 19.17);
+      tl.fromTo("#tH2-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 19.38);
+      tl.fromTo("#tH2-w2-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 19.66);
+      tl.fromTo("#tH2-w2-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 19.8);
+      tl.fromTo("#sc7-st", { scale: 1 }, { scale: 1.06, duration: 4.38, ease: "none" }, 15.96);
+      tl.fromTo("#sc7-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 20.2);
+      tl.fromTo("#emH", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.5, ease: "back.out(2)" }, 16.01);
+      tl.fromTo("#flH", { opacity: 0 }, { keyframes: [{ opacity: 0.95, duration: 0.05 }, { opacity: 0, duration: 0.35 }] }, 17.18);
+      tl.to("#tH1", { opacity: 0, filter: "blur(12px)", duration: 0.22, ease: "power2.in" }, 18.28);
+      tl.fromTo("#tH2", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.01, ease: "power2.out" }, 18.33);
+      tl.fromTo("#bH", { opacity: 0, scale: 0.5, rotation: -4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2)" }, 18.76);
+      tl.fromTo("#bH2", { opacity: 0, scale: 0.6, rotation: -16 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.5, ease: "back.out(2)" }, 19.59);
+      tl.fromTo("#xH", { opacity: 0, scale: 0.3, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 19.84);
+      tl.fromTo("#tI-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 20.41);
+      tl.fromTo("#tI-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 20.49);
+      tl.fromTo("#tI-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 20.73);
+      tl.fromTo("#tI-w0-3", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 20.89);
+      tl.fromTo("#tI-w1-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 21.18);
+      tl.fromTo("#tI-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 21.67);
+      tl.fromTo("#tI-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 21.88);
+      tl.fromTo("#sc8-st", { scale: 1 }, { scale: 1.06, duration: 4.12, ease: "none" }, 20.34);
+      tl.fromTo("#sc8-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 24.32);
+      tl.fromTo("#cdI", { y: 900, rotation: 8 }, { y: 0, rotation: -2, duration: 0.55, ease: "back.out(1.3)" }, 20.49);
+      tl.fromTo("#li1", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 21.17);
+      tl.fromTo("#li2", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 21.87);
+      tl.fromTo("#li3", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 23.05);
+      tl.fromTo("#li4", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 23.61);
+      tl.fromTo("#tJ-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 24.53);
+      tl.fromTo("#tJ-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 24.73);
+      tl.fromTo("#tJ-w0-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 24.86);
+      tl.fromTo("#tJ-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 25.51);
+      tl.fromTo("#tJ-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 25.71);
+      tl.fromTo("#tJ-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 25.99);
+      tl.fromTo("#tJ-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 26.15);
+      tl.fromTo("#tJ-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 26.28);
+      tl.fromTo("#sc9-st", { scale: 1 }, { scale: 1.06, duration: 2.24, ease: "none" }, 24.46);
+      tl.fromTo("#sc9-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 26.56);
+      tl.fromTo("#bJ", { scale: 0.62, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 26.22);
+      tl.fromTo("#lbJ", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 26.67);
+      tl.fromTo("#tK-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 26.77);
+      tl.fromTo("#tK-w0-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 26.88);
+      tl.fromTo("#tK-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 28.07);
+      tl.fromTo("#tK-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 28.11);
+      tl.fromTo("#tK-w2-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 28.36);
+      tl.fromTo("#tK-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 28.75);
+      tl.fromTo("#tK-w3-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 28.99);
+      tl.fromTo("#tK-w3-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 29.13);
+      tl.fromTo("#tK-w3-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 29.37);
+      tl.fromTo("#tK-w3-3", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 29.7);
+      tl.fromTo("#sc10-st", { scale: 1 }, { scale: 1.06, duration: 3.34, ease: "none" }, 26.7);
+      tl.fromTo("#sc10-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 29.9);
+      tl.fromTo("#emK1", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.5, ease: "back.out(2)" }, 28.16);
+      tl.fromTo("#bK", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 27);
+      tl.fromTo("#emK2", { opacity: 0, scale: 0.4, rotation: -32 }, { opacity: 1, scale: 1, rotation: -20, duration: 0.5, ease: "back.out(2)" }, 28.25);
+      tl.fromTo("#emK2", { x: 0 }, { x: -620, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 28.55);
+      tl.to("#bK", { scale: 0.74, duration: 0.5, ease: "back.out(1.6)" }, 28.85);
+      tl.to("#emK2", { opacity: 0, filter: "blur(12px)", duration: 0.22, ease: "power2.in" }, 29.1);
+      tl.fromTo("#emK3", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(2)" }, 29.74);
+      tl.fromTo("#emK4", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.5, ease: "back.out(2)" }, 29.86);
+      tl.fromTo("#tL-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 30.11);
+      tl.fromTo("#tL-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 30.45);
+      tl.fromTo("#tL-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 30.65);
+      tl.fromTo("#tL-w0-3", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 31.03);
+      tl.fromTo("#tL-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 31.27);
+      tl.fromTo("#tL-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 31.46);
+      tl.fromTo("#tL-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 31.74);
+      tl.fromTo("#tL-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 32.17);
+      tl.fromTo("#tL-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 32.43);
+      tl.fromTo("#tL-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 32.54);
+      tl.fromTo("#tL-w2-3", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 32.94);
+      tl.fromTo("#sc11-st", { scale: 1 }, { scale: 1.06, duration: 3.78, ease: "none" }, 30.04);
+      tl.fromTo("#sc11-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 33.68);
+      tl.fromTo("#bL0", { x: -900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 30.7);
+      tl.fromTo("#bL1", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 30.88);
+      tl.fromTo("#bL2", { x: -900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 31.06);
+      tl.fromTo("#bL3", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 31.24);
+      tl.fromTo("#brL", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.4, ease: "power2.out" }, 31.5);
+      tl.fromTo("#tM-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 33.89);
+      tl.fromTo("#tM-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 34.01);
+      tl.fromTo("#tM-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 34.11);
+      tl.fromTo("#tM-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 34.33);
+      tl.fromTo("#tM-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 34.5);
+      tl.fromTo("#tM-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 34.8);
+      tl.fromTo("#sc12-st", { scale: 1 }, { scale: 1.06, duration: 1.76, ease: "none" }, 33.82);
+      tl.fromTo("#sc12-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 35.44);
+      tl.fromTo("#bM", { y: 200, opacity: 0, rotation: 6 }, { y: 0, opacity: 1, rotation: -5, duration: 0.6, ease: "power3.out" }, 34.54);
+      tl.fromTo("#bM", { y: 0 }, { y: -10, duration: 1.1, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 35.14);
+      tl.fromTo("#tN-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 35.65);
+      tl.fromTo("#tN-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 35.79);
+      tl.fromTo("#tN-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 35.91);
+      tl.fromTo("#tN-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 36.25);
+      tl.fromTo("#tN-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 36.49);
+      tl.fromTo("#tN-w1-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 36.71);
+      tl.fromTo("#tN-w2-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 36.83);
+      tl.fromTo("#tN-w2-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 37.01);
+      tl.fromTo("#tN-w2-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 37.18);
+      tl.fromTo("#tN-w3-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 37.45);
+      tl.fromTo("#tN-w3-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 37.72);
+      tl.fromTo("#sc13-st", { scale: 1 }, { scale: 1.06, duration: 2.76, ease: "none" }, 35.58);
+      tl.fromTo("#sc13-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.14, ease: "power1.in", immediateRender: false }, 38.2);
+      tl.fromTo("#emN1", { opacity: 0, scale: 0.4, rotation: -18 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.5, ease: "back.out(2)" }, 35.96);
+      tl.fromTo("#bN0", { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 36.88);
+      tl.fromTo("#bN1", { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 36.95);
+      tl.fromTo("#bN2", { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 37.02);
+      tl.fromTo("#bN3", { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 37.09);
+      tl.fromTo("#bN4", { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 37.16);
+      tl.fromTo("#emN2", { opacity: 0, scale: 0.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2)" }, 37.76);
+      tl.fromTo("#tO-w0-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 38.42);
+      tl.fromTo("#tO-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 38.67);
+      tl.fromTo("#tO-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 38.83);
+      tl.fromTo("#tO-w1-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 39.3);
+      tl.fromTo("#tO-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 39.47);
+      tl.fromTo("#tO-w1-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 39.61);
+      tl.fromTo("#sc14-st", { scale: 1 }, { scale: 1.06, duration: 1.92, ease: "none" }, 38.34);
+      tl.fromTo("#sc14-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 40.12);
+      tl.fromTo("#emO1", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(2)" }, 38.46);
+      tl.fromTo("#emO2", { opacity: 0, scale: 0.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2)" }, 39.34);
+      tl.fromTo("#tP1-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 40.33);
+      tl.fromTo("#tP1-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 40.73);
+      tl.fromTo("#tP1-w1-0", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 41.04);
+      tl.fromTo("#tP1-w1-1", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 41.26);
+      tl.fromTo("#tP1-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 41.56);
+      tl.fromTo("#tP2-w0-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 42.11);
+      tl.fromTo("#tP2-w0-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 42.21);
+      tl.fromTo("#tP2-w0-2", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 42.45);
+      tl.fromTo("#tP2-w1-0", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 42.73);
+      tl.fromTo("#tP2-w1-1", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 42.97);
+      tl.fromTo("#tP2-w1-2", { opacity: 0, scale: 1.45, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 43.08);
+      tl.fromTo("#tP2-w1-3", { opacity: 0, y: 16, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, 43.49);
+      tl.fromTo("#sc15-st", { scale: 1 }, { scale: 1.06, duration: 4.6, ease: "none" }, 40.26);
+      tl.fromTo("#sc15-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.14, ease: "power1.in", immediateRender: false }, 44.73);
+      tl.fromTo("#sbP", { opacity: 0, scale: 0.5, rotation: -14 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.5, ease: "back.out(2)" }, 40.48);
+      tl.fromTo("#sbP", { scale: 1 }, { scale: 0.9, duration: 0.09, yoyo: true, repeat: 1, ease: "power2.inOut", immediateRender: false }, 41.7);
+      tl.fromTo("#cuP", { opacity: 0, scale: 0.3, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 41.8);
+      tl.fromTo("#emP", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.5, ease: "back.out(2)" }, 43.74);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
