@@ -27,6 +27,7 @@ for (const job of jobs) {
     await page.waitForLoadState("networkidle", { timeout: 20000 }).catch(() => {});
     await page.waitForTimeout(job.wait ?? 2500);
     await dismiss(page);
+    for (const label of job.click ?? []) { const b = page.getByText(label, { exact: true }); if (await b.count().catch(() => 0)) { await b.first().click({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(job.clickWait ?? 2500); } }
     if (job.css) await page.addStyleTag({ content: job.css });
     await page.screenshot({ path: `${dir}/hero.png` });
     const total = Math.min(job.scroll ?? 1800, await page.evaluate(() => document.scrollingElement.scrollHeight - innerHeight));

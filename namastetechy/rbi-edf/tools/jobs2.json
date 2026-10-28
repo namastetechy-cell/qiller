@@ -1,0 +1,5 @@
+[
+ {"name":"rbi_home","url":"https://www.rbi.org.in/","scroll":900,"step":10,"click":["English"]},
+ {"name":"rbi_faq","url":"https://www.rbi.org.in/Scripts/FAQDisplay.aspx","scroll":800,"step":10,"click":["English"]},
+ {"name":"adsense_start","url":"https://adsense.google.com/start/","scroll":1600,"step":10,"click":["OK, got it"]}
+]

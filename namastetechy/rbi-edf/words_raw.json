@@ -1,0 +1,4559 @@
+{
+ "lines": [
+  "Aap YouTuber ho aur dollar mein kamaate ho?",
+  "RBI ke naye EDF rule se neend udne se pehle,",
+  "suniye RBI ne 7 October ko kya kaha.",
+  "Kya aapki AdSense earning pe asar padega?",
+  "Aaj main aapko bataunga: yeh rule hai kya, YouTubers itna dare kyun,",
+  "RBI ne baad mein kya clear kiya,",
+  "aur aapki har tarah ki YouTube income ka kya scene hai.",
+  "Pehle, rule.",
+  "1 October 2026 se FEMA ke naye regulations lagu hue.",
+  "Isme RBI ne services export ko bhi EDF framework mein le liya.",
+  "EDF matlab Export Declaration Form.",
+  "Pehle yeh zyada tar goods export walon ke liye tha.",
+  "Ab idea yeh hai ki agar aap India se videshi",
+  "client ko service dete ho aur paisa bahar se aata hai,",
+  "toh woh service export ho sakta hai,",
+  "aur uski jaankari bank ke through deni pad sakti hai.",
+  "Ab socho ek YouTuber ki life.",
+  "Har mahine Google se AdSense ka paisa aata hai.",
+  "Kabhi koi foreign brand sponsorship ke dollar bhejta hai.",
+  "Toh YouTubers ne socha:",
+  "kya ab har payment ke liye bank mein form bharna padega?",
+  "Kuch reports ke hisaab se koi minimum amount ki chhoot nahi thi.",
+  "Chhote creators, jinke paas na CA hai na accountant, sabse zyada dare.",
+  "Ek business news report ne experts ka reaction likha:",
+  "\"Fill a form for just being alive.\"",
+  "Par ruko.",
+  "Sirf 6 din baad, 7 October ko,",
+  "RBI ne aisi baat boli jisne YouTubers ke liye picture badal di.",
+  "Aur isme ek twist hai,",
+  "jo aapki income ke type pe depend karta hai.",
+  "Business Today ki report ke mutabik,",
+  "RBI ne kaha ki personal nature ke contracts",
+  "ke liye individuals is reporting mein shaamil nahi hain.",
+  "Governor ne example diya: tuition padhana ya chhota software kaam.",
+  "Matlab, agar aap ek individual creator ho,",
+  "toh abhi ke statement ke hisaab se aap",
+  "par yeh EDF wali tension kaafi kam hai.",
+  "Ab twist.",
+  "Aapki YouTube income ko teen hisson mein samjho.",
+  "Pehla: AdSense aur YouTube se aane wala paisa, jaise ads,",
+  "memberships ya Super Chat.",
+  "Yeh sabse bada sawaal hai.",
+  "Kya platform ka ad revenue service export hai?",
+  "Experts ki raay alag hai,",
+  "aur RBI ne ad revenue pe abhi tak alag se kuch clear nahi kiya.",
+  "Doosra: foreign brand deals.",
+  "Agar koi videshi brand seedha aapko sponsored video ke paise bhejta hai,",
+  "toh kai experts ise service export maante hain.",
+  "Yahan dhyan dena zaroori hai.",
+  "Teesra: Indian brand deals.",
+  "Agar brand India ka hai aur paisa rupay mein India se aata hai,",
+  "toh yeh export hi nahi hai.",
+  "Is rule se iska lena dena nahi.",
+  "Aur ek baat.",
+  "Agar aapne apna channel company, LLP ya firm ke naam pe chalaya hai,",
+  "toh RBI ke statement ke hisaab se businesses abhi bhi cover ho sakte hain.",
+  "GST wale sole proprietors ka final jawab RBI ke FAQs mein aayega,",
+  "jo abhi aane baaki hain.",
+  "Toh YouTubers ko abhi kya karna chahiye?",
+  "Chaar steps.",
+  "Ek: panic mat karo.",
+  "Individual creators ke liye RBI ka statement raahat wala hai.",
+  "Do: records rakho.",
+  "AdSense payment statements, brand deal invoices, aur bank ke foreign inward remittance documents,",
+  "sab sambhal ke.",
+  "Teen: apne bank se poocho.",
+  "EDF bank ke through jaata hai,",
+  "toh bank hi batayega ki aapke AdSense ya brand payment ke liye kya chahiye.",
+  "Chaar: channel company ya registered business ke naam pe hai,",
+  "ya badi foreign brand deals karte ho, toh CA se zaroor baat karo.",
+  "Summary: individual YouTubers ke liye tension kam hai,",
+  "foreign brand deals pe dhyan do,",
+  "aur AdSense ke liye RBI ke FAQs ka wait karo.",
+  "Jaise hi FAQs aayenge, main update video laaunga.",
+  "Yeh video legal ya tax advice nahi hai.",
+  "Apne case ke liye bank ya CA se confirm karein.",
+  "Aapki sabse zyada kamaai kahan se hoti hai?",
+  "AdSense, foreign brands ya Indian brands?",
+  "Comment mein batao.",
+  "Aur aise creator updates ke liye NamasteTechy ko subscribe karo."
+ ],
+ "words": [
+  {
+   "text": "Aap",
+   "line": 0,
+   "start": 0.0,
+   "end": 0.26,
+   "sim": 1.0
+  },
+  {
+   "text": "YouTuber",
+   "line": 0,
+   "start": 0.26,
+   "end": 0.86,
+   "sim": 1.0
+  },
+  {
+   "text": "ho",
+   "line": 0,
+   "start": 0.86,
+   "end": 1.06,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 0,
+   "start": 1.06,
+   "end": 1.44,
+   "sim": 1.0
+  },
+  {
+   "text": "dollar",
+   "line": 0,
+   "start": 1.44,
+   "end": 1.9,
+   "sim": 0.86
+  },
+  {
+   "text": "mein",
+   "line": 0,
+   "start": 1.9,
+   "end": 2.04,
+   "sim": 1.0
+  },
+  {
+   "text": "kamaate",
+   "line": 0,
+   "start": 2.04,
+   "end": 2.4,
+   "sim": 1.0
+  },
+  {
+   "text": "ho?",
+   "line": 0,
+   "start": 2.4,
+   "end": 2.46,
+   "sim": 1.0
+  },
+  {
+   "text": "RBI",
+   "line": 1,
+   "start": 2.46,
+   "end": 2.463,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 1,
+   "start": 2.463,
+   "end": 2.466,
+   "sim": 0.0
+  },
+  {
+   "text": "naye",
+   "line": 1,
+   "start": 2.466,
+   "end": 2.469,
+   "sim": 0.0
+  },
+  {
+   "text": "EDF",
+   "line": 1,
+   "start": 2.469,
+   "end": 2.473,
+   "sim": 0.0
+  },
+  {
+   "text": "rule",
+   "line": 1,
+   "start": 2.473,
+   "end": 2.476,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 1,
+   "start": 2.476,
+   "end": 2.479,
+   "sim": 0.0
+  },
+  {
+   "text": "neend",
+   "line": 1,
+   "start": 2.479,
+   "end": 2.482,
+   "sim": 0.0
+  },
+  {
+   "text": "udne",
+   "line": 1,
+   "start": 2.482,
+   "end": 2.485,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 1,
+   "start": 2.485,
+   "end": 2.488,
+   "sim": 0.0
+  },
+  {
+   "text": "pehle,",
+   "line": 1,
+   "start": 2.488,
+   "end": 2.492,
+   "sim": 0.0
+  },
+  {
+   "text": "suniye",
+   "line": 2,
+   "start": 2.492,
+   "end": 2.495,
+   "sim": 0.0
+  },
+  {
+   "text": "RBI",
+   "line": 2,
+   "start": 2.495,
+   "end": 2.498,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 2,
+   "start": 2.498,
+   "end": 2.501,
+   "sim": 0.0
+  },
+  {
+   "text": "7",
+   "line": 2,
+   "start": 2.501,
+   "end": 2.504,
+   "sim": 0.0
+  },
+  {
+   "text": "October",
+   "line": 2,
+   "start": 2.504,
+   "end": 2.507,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 2,
+   "start": 2.507,
+   "end": 2.511,
+   "sim": 0.0
+  },
+  {
+   "text": "kya",
+   "line": 2,
+   "start": 2.511,
+   "end": 2.514,
+   "sim": 0.0
+  },
+  {
+   "text": "kaha.",
+   "line": 2,
+   "start": 2.514,
+   "end": 2.517,
+   "sim": 0.0
+  },
+  {
+   "text": "Kya",
+   "line": 3,
+   "start": 2.517,
+   "end": 2.52,
+   "sim": 0.0
+  },
+  {
+   "text": "aapki",
+   "line": 3,
+   "start": 2.52,
+   "end": 4.67,
+   "sim": 0.8
+  },
+  {
+   "text": "AdSense",
+   "line": 3,
+   "start": 4.67,
+   "end": 5.745,
+   "sim": 0.0
+  },
+  {
+   "text": "earning",
+   "line": 3,
+   "start": 5.745,
+   "end": 6.82,
+   "sim": 0.0
+  },
+  {
+   "text": "pe",
+   "line": 3,
+   "start": 6.82,
+   "end": 9.56,
+   "sim": 0.67
+  },
+  {
+   "text": "asar",
+   "line": 3,
+   "start": 10.0,
+   "end": 10.89,
+   "sim": 0.67
+  },
+  {
+   "text": "padega?",
+   "line": 3,
+   "start": 10.89,
+   "end": 11.187,
+   "sim": 0.0
+  },
+  {
+   "text": "Aaj",
+   "line": 4,
+   "start": 11.187,
+   "end": 11.483,
+   "sim": 0.0
+  },
+  {
+   "text": "main",
+   "line": 4,
+   "start": 11.483,
+   "end": 11.78,
+   "sim": 0.0
+  },
+  {
+   "text": "aapko",
+   "line": 4,
+   "start": 11.78,
+   "end": 11.9,
+   "sim": 0.8
+  },
+  {
+   "text": "bataunga:",
+   "line": 4,
+   "start": 11.9,
+   "end": 12.5,
+   "sim": 0.5
+  },
+  {
+   "text": "yeh",
+   "line": 4,
+   "start": 12.5,
+   "end": 12.98,
+   "sim": 1.0
+  },
+  {
+   "text": "rule",
+   "line": 4,
+   "start": 12.98,
+   "end": 13.26,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 4,
+   "start": 13.26,
+   "end": 13.52,
+   "sim": 1.0
+  },
+  {
+   "text": "kya,",
+   "line": 4,
+   "start": 13.52,
+   "end": 13.82,
+   "sim": 1.0
+  },
+  {
+   "text": "YouTubers",
+   "line": 4,
+   "start": 13.82,
+   "end": 14.66,
+   "sim": 1.0
+  },
+  {
+   "text": "itna",
+   "line": 4,
+   "start": 14.66,
+   "end": 15.04,
+   "sim": 1.0
+  },
+  {
+   "text": "dare",
+   "line": 4,
+   "start": 15.04,
+   "end": 15.34,
+   "sim": 1.0
+  },
+  {
+   "text": "kyun,",
+   "line": 4,
+   "start": 15.34,
+   "end": 15.82,
+   "sim": 1.0
+  },
+  {
+   "text": "RBI",
+   "line": 5,
+   "start": 15.82,
+   "end": 16.09,
+   "sim": 0.8
+  },
+  {
+   "text": "ne",
+   "line": 5,
+   "start": 16.09,
+   "end": 16.4,
+   "sim": 0.0
+  },
+  {
+   "text": "baad",
+   "line": 5,
+   "start": 16.4,
+   "end": 16.82,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 5,
+   "start": 16.82,
+   "end": 17.06,
+   "sim": 1.0
+  },
+  {
+   "text": "kya",
+   "line": 5,
+   "start": 17.06,
+   "end": 17.32,
+   "sim": 1.0
+  },
+  {
+   "text": "clear",
+   "line": 5,
+   "start": 17.32,
+   "end": 17.6,
+   "sim": 0.67
+  },
+  {
+   "text": "kiya,",
+   "line": 5,
+   "start": 17.6,
+   "end": 17.9,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 6,
+   "start": 17.9,
+   "end": 18.36,
+   "sim": 1.0
+  },
+  {
+   "text": "aapki",
+   "line": 6,
+   "start": 18.36,
+   "end": 18.78,
+   "sim": 1.0
+  },
+  {
+   "text": "har",
+   "line": 6,
+   "start": 18.78,
+   "end": 19.06,
+   "sim": 1.0
+  },
+  {
+   "text": "tarah",
+   "line": 6,
+   "start": 19.06,
+   "end": 19.3,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 6,
+   "start": 19.3,
+   "end": 19.54,
+   "sim": 1.0
+  },
+  {
+   "text": "YouTube",
+   "line": 6,
+   "start": 19.54,
+   "end": 19.74,
+   "sim": 1.0
+  },
+  {
+   "text": "income",
+   "line": 6,
+   "start": 19.74,
+   "end": 19.746,
+   "sim": 0.0
+  },
+  {
+   "text": "ka",
+   "line": 6,
+   "start": 19.746,
+   "end": 19.751,
+   "sim": 0.0
+  },
+  {
+   "text": "kya",
+   "line": 6,
+   "start": 19.751,
+   "end": 19.757,
+   "sim": 0.0
+  },
+  {
+   "text": "scene",
+   "line": 6,
+   "start": 19.757,
+   "end": 19.763,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 6,
+   "start": 19.763,
+   "end": 19.769,
+   "sim": 0.0
+  },
+  {
+   "text": "Pehle,",
+   "line": 7,
+   "start": 19.769,
+   "end": 19.774,
+   "sim": 0.0
+  },
+  {
+   "text": "rule.",
+   "line": 7,
+   "start": 19.774,
+   "end": 19.78,
+   "sim": 0.0
+  },
+  {
+   "text": "1",
+   "line": 8,
+   "start": 19.78,
+   "end": 19.786,
+   "sim": 0.0
+  },
+  {
+   "text": "October",
+   "line": 8,
+   "start": 19.786,
+   "end": 19.791,
+   "sim": 0.0
+  },
+  {
+   "text": "2026",
+   "line": 8,
+   "start": 19.791,
+   "end": 19.797,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 8,
+   "start": 19.797,
+   "end": 19.803,
+   "sim": 0.0
+  },
+  {
+   "text": "FEMA",
+   "line": 8,
+   "start": 19.803,
+   "end": 19.809,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 8,
+   "start": 19.809,
+   "end": 19.814,
+   "sim": 0.0
+  },
+  {
+   "text": "naye",
+   "line": 8,
+   "start": 19.814,
+   "end": 19.82,
+   "sim": 0.0
+  },
+  {
+   "text": "regulations",
+   "line": 8,
+   "start": 19.82,
+   "end": 19.826,
+   "sim": 0.0
+  },
+  {
+   "text": "lagu",
+   "line": 8,
+   "start": 19.826,
+   "end": 19.831,
+   "sim": 0.0
+  },
+  {
+   "text": "hue.",
+   "line": 8,
+   "start": 19.831,
+   "end": 19.837,
+   "sim": 0.0
+  },
+  {
+   "text": "Isme",
+   "line": 9,
+   "start": 19.837,
+   "end": 19.843,
+   "sim": 0.0
+  },
+  {
+   "text": "RBI",
+   "line": 9,
+   "start": 19.843,
+   "end": 19.849,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 9,
+   "start": 19.849,
+   "end": 19.854,
+   "sim": 0.0
+  },
+  {
+   "text": "services",
+   "line": 9,
+   "start": 19.854,
+   "end": 19.86,
+   "sim": 0.0
+  },
+  {
+   "text": "export",
+   "line": 9,
+   "start": 19.86,
+   "end": 19.866,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 9,
+   "start": 19.866,
+   "end": 19.871,
+   "sim": 0.0
+  },
+  {
+   "text": "bhi",
+   "line": 9,
+   "start": 19.871,
+   "end": 19.877,
+   "sim": 0.0
+  },
+  {
+   "text": "EDF",
+   "line": 9,
+   "start": 19.877,
+   "end": 19.883,
+   "sim": 0.0
+  },
+  {
+   "text": "framework",
+   "line": 9,
+   "start": 19.883,
+   "end": 19.889,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 9,
+   "start": 19.889,
+   "end": 19.894,
+   "sim": 0.0
+  },
+  {
+   "text": "le",
+   "line": 9,
+   "start": 19.894,
+   "end": 19.9,
+   "sim": 0.0
+  },
+  {
+   "text": "liya.",
+   "line": 9,
+   "start": 19.9,
+   "end": 19.906,
+   "sim": 0.0
+  },
+  {
+   "text": "EDF",
+   "line": 10,
+   "start": 19.906,
+   "end": 19.911,
+   "sim": 0.0
+  },
+  {
+   "text": "matlab",
+   "line": 10,
+   "start": 19.911,
+   "end": 19.917,
+   "sim": 0.0
+  },
+  {
+   "text": "Export",
+   "line": 10,
+   "start": 19.917,
+   "end": 19.923,
+   "sim": 0.0
+  },
+  {
+   "text": "Declaration",
+   "line": 10,
+   "start": 19.923,
+   "end": 19.929,
+   "sim": 0.0
+  },
+  {
+   "text": "Form.",
+   "line": 10,
+   "start": 19.929,
+   "end": 19.934,
+   "sim": 0.0
+  },
+  {
+   "text": "Pehle",
+   "line": 11,
+   "start": 19.934,
+   "end": 19.94,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 11,
+   "start": 19.94,
+   "end": 20.02,
+   "sim": 1.0
+  },
+  {
+   "text": "zyada",
+   "line": 11,
+   "start": 20.02,
+   "end": 20.047,
+   "sim": 0.0
+  },
+  {
+   "text": "tar",
+   "line": 11,
+   "start": 20.047,
+   "end": 20.073,
+   "sim": 0.0
+  },
+  {
+   "text": "goods",
+   "line": 11,
+   "start": 20.073,
+   "end": 20.1,
+   "sim": 0.0
+  },
+  {
+   "text": "export",
+   "line": 11,
+   "start": 20.1,
+   "end": 20.41,
+   "sim": 0.44
+  },
+  {
+   "text": "walon",
+   "line": 11,
+   "start": 20.41,
+   "end": 20.488,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 11,
+   "start": 20.488,
+   "end": 20.565,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 11,
+   "start": 20.565,
+   "end": 20.642,
+   "sim": 0.0
+  },
+  {
+   "text": "tha.",
+   "line": 11,
+   "start": 20.642,
+   "end": 20.72,
+   "sim": 0.0
+  },
+  {
+   "text": "Ab",
+   "line": 12,
+   "start": 20.72,
+   "end": 21.41,
+   "sim": 0.5
+  },
+  {
+   "text": "idea",
+   "line": 12,
+   "start": 21.41,
+   "end": 21.582,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 12,
+   "start": 21.582,
+   "end": 21.755,
+   "sim": 0.0
+  },
+  {
+   "text": "hai",
+   "line": 12,
+   "start": 21.755,
+   "end": 21.928,
+   "sim": 0.0
+  },
+  {
+   "text": "ki",
+   "line": 12,
+   "start": 21.928,
+   "end": 22.1,
+   "sim": 0.0
+  },
+  {
+   "text": "agar",
+   "line": 12,
+   "start": 22.1,
+   "end": 25.48,
+   "sim": 0.4
+  },
+  {
+   "text": "aap",
+   "line": 12,
+   "start": 25.48,
+   "end": 25.74,
+   "sim": 1.0
+  },
+  {
+   "text": "India",
+   "line": 12,
+   "start": 25.74,
+   "end": 25.773,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 12,
+   "start": 25.773,
+   "end": 25.805,
+   "sim": 0.0
+  },
+  {
+   "text": "videshi",
+   "line": 12,
+   "start": 25.805,
+   "end": 25.838,
+   "sim": 0.0
+  },
+  {
+   "text": "client",
+   "line": 13,
+   "start": 25.838,
+   "end": 25.87,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 13,
+   "start": 25.87,
+   "end": 25.902,
+   "sim": 0.0
+  },
+  {
+   "text": "service",
+   "line": 13,
+   "start": 25.902,
+   "end": 25.935,
+   "sim": 0.0
+  },
+  {
+   "text": "dete",
+   "line": 13,
+   "start": 25.935,
+   "end": 25.968,
+   "sim": 0.0
+  },
+  {
+   "text": "ho",
+   "line": 13,
+   "start": 25.968,
+   "end": 26.0,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 13,
+   "start": 26.0,
+   "end": 29.68,
+   "sim": 0.5
+  },
+  {
+   "text": "paisa",
+   "line": 13,
+   "start": 29.72,
+   "end": 29.83,
+   "sim": 0.5
+  },
+  {
+   "text": "bahar",
+   "line": 13,
+   "start": 29.83,
+   "end": 29.885,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 13,
+   "start": 29.885,
+   "end": 29.94,
+   "sim": 0.0
+  },
+  {
+   "text": "aata",
+   "line": 13,
+   "start": 29.94,
+   "end": 29.96,
+   "sim": 0.5
+  },
+  {
+   "text": "hai,",
+   "line": 13,
+   "start": 29.96,
+   "end": 29.963,
+   "sim": 0.0
+  },
+  {
+   "text": "toh",
+   "line": 14,
+   "start": 29.963,
+   "end": 29.965,
+   "sim": 0.0
+  },
+  {
+   "text": "woh",
+   "line": 14,
+   "start": 29.965,
+   "end": 29.968,
+   "sim": 0.0
+  },
+  {
+   "text": "service",
+   "line": 14,
+   "start": 29.968,
+   "end": 29.97,
+   "sim": 0.0
+  },
+  {
+   "text": "export",
+   "line": 14,
+   "start": 29.97,
+   "end": 29.973,
+   "sim": 0.0
+  },
+  {
+   "text": "ho",
+   "line": 14,
+   "start": 29.973,
+   "end": 29.975,
+   "sim": 0.0
+  },
+  {
+   "text": "sakta",
+   "line": 14,
+   "start": 29.975,
+   "end": 29.977,
+   "sim": 0.0
+  },
+  {
+   "text": "hai,",
+   "line": 14,
+   "start": 29.977,
+   "end": 29.98,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 15,
+   "start": 29.98,
+   "end": 30.28,
+   "sim": 0.67
+  },
+  {
+   "text": "uski",
+   "line": 15,
+   "start": 30.28,
+   "end": 32.212,
+   "sim": 0.0
+  },
+  {
+   "text": "jaankari",
+   "line": 15,
+   "start": 32.212,
+   "end": 34.144,
+   "sim": 0.0
+  },
+  {
+   "text": "bank",
+   "line": 15,
+   "start": 34.144,
+   "end": 36.076,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 15,
+   "start": 36.076,
+   "end": 38.008,
+   "sim": 0.0
+  },
+  {
+   "text": "through",
+   "line": 15,
+   "start": 38.008,
+   "end": 39.94,
+   "sim": 0.0
+  },
+  {
+   "text": "deni",
+   "line": 15,
+   "start": 39.94,
+   "end": 39.98,
+   "sim": 0.4
+  },
+  {
+   "text": "pad",
+   "line": 15,
+   "start": 39.98,
+   "end": 40.28,
+   "sim": 0.5
+  },
+  {
+   "text": "sakti",
+   "line": 15,
+   "start": 40.28,
+   "end": 43.75,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 15,
+   "start": 43.75,
+   "end": 47.22,
+   "sim": 0.0
+  },
+  {
+   "text": "Ab",
+   "line": 16,
+   "start": 47.22,
+   "end": 47.6,
+   "sim": 0.5
+  },
+  {
+   "text": "socho",
+   "line": 16,
+   "start": 47.6,
+   "end": 48.04,
+   "sim": 1.0
+  },
+  {
+   "text": "ek",
+   "line": 16,
+   "start": 48.04,
+   "end": 48.28,
+   "sim": 1.0
+  },
+  {
+   "text": "YouTuber",
+   "line": 16,
+   "start": 48.28,
+   "end": 48.8,
+   "sim": 0.89
+  },
+  {
+   "text": "ki",
+   "line": 16,
+   "start": 48.8,
+   "end": 48.96,
+   "sim": 1.0
+  },
+  {
+   "text": "life.",
+   "line": 16,
+   "start": 48.96,
+   "end": 49.24,
+   "sim": 0.5
+  },
+  {
+   "text": "Har",
+   "line": 17,
+   "start": 49.24,
+   "end": 50.0,
+   "sim": 0.67
+  },
+  {
+   "text": "mahine",
+   "line": 17,
+   "start": 50.0,
+   "end": 53.884,
+   "sim": 0.0
+  },
+  {
+   "text": "Google",
+   "line": 17,
+   "start": 53.884,
+   "end": 57.768,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 17,
+   "start": 57.768,
+   "end": 61.652,
+   "sim": 0.0
+  },
+  {
+   "text": "AdSense",
+   "line": 17,
+   "start": 61.652,
+   "end": 65.536,
+   "sim": 0.0
+  },
+  {
+   "text": "ka",
+   "line": 17,
+   "start": 65.536,
+   "end": 69.42,
+   "sim": 0.0
+  },
+  {
+   "text": "paisa",
+   "line": 17,
+   "start": 69.42,
+   "end": 69.68,
+   "sim": 0.5
+  },
+  {
+   "text": "aata",
+   "line": 17,
+   "start": 69.68,
+   "end": 69.81,
+   "sim": 0.5
+  },
+  {
+   "text": "hai.",
+   "line": 17,
+   "start": 69.81,
+   "end": 69.819,
+   "sim": 0.0
+  },
+  {
+   "text": "Kabhi",
+   "line": 18,
+   "start": 69.819,
+   "end": 69.827,
+   "sim": 0.0
+  },
+  {
+   "text": "koi",
+   "line": 18,
+   "start": 69.827,
+   "end": 69.836,
+   "sim": 0.0
+  },
+  {
+   "text": "foreign",
+   "line": 18,
+   "start": 69.836,
+   "end": 69.845,
+   "sim": 0.0
+  },
+  {
+   "text": "brand",
+   "line": 18,
+   "start": 69.845,
+   "end": 69.853,
+   "sim": 0.0
+  },
+  {
+   "text": "sponsorship",
+   "line": 18,
+   "start": 69.853,
+   "end": 69.862,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 18,
+   "start": 69.862,
+   "end": 69.871,
+   "sim": 0.0
+  },
+  {
+   "text": "dollar",
+   "line": 18,
+   "start": 69.871,
+   "end": 69.879,
+   "sim": 0.0
+  },
+  {
+   "text": "bhejta",
+   "line": 18,
+   "start": 69.879,
+   "end": 69.888,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 18,
+   "start": 69.888,
+   "end": 69.897,
+   "sim": 0.0
+  },
+  {
+   "text": "Toh",
+   "line": 19,
+   "start": 69.897,
+   "end": 69.905,
+   "sim": 0.0
+  },
+  {
+   "text": "YouTubers",
+   "line": 19,
+   "start": 69.905,
+   "end": 69.914,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 19,
+   "start": 69.914,
+   "end": 69.923,
+   "sim": 0.0
+  },
+  {
+   "text": "socha:",
+   "line": 19,
+   "start": 69.923,
+   "end": 69.931,
+   "sim": 0.0
+  },
+  {
+   "text": "kya",
+   "line": 20,
+   "start": 69.931,
+   "end": 69.94,
+   "sim": 0.0
+  },
+  {
+   "text": "ab",
+   "line": 20,
+   "start": 69.94,
+   "end": 69.96,
+   "sim": 0.67
+  },
+  {
+   "text": "har",
+   "line": 20,
+   "start": 69.96,
+   "end": 69.96,
+   "sim": 0.0
+  },
+  {
+   "text": "payment",
+   "line": 20,
+   "start": 69.96,
+   "end": 69.961,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 20,
+   "start": 69.961,
+   "end": 69.961,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 20,
+   "start": 69.961,
+   "end": 69.962,
+   "sim": 0.0
+  },
+  {
+   "text": "bank",
+   "line": 20,
+   "start": 69.962,
+   "end": 69.962,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 20,
+   "start": 69.962,
+   "end": 69.963,
+   "sim": 0.0
+  },
+  {
+   "text": "form",
+   "line": 20,
+   "start": 69.963,
+   "end": 69.963,
+   "sim": 0.0
+  },
+  {
+   "text": "bharna",
+   "line": 20,
+   "start": 69.963,
+   "end": 69.964,
+   "sim": 0.0
+  },
+  {
+   "text": "padega?",
+   "line": 20,
+   "start": 69.964,
+   "end": 69.964,
+   "sim": 0.0
+  },
+  {
+   "text": "Kuch",
+   "line": 21,
+   "start": 69.964,
+   "end": 69.965,
+   "sim": 0.0
+  },
+  {
+   "text": "reports",
+   "line": 21,
+   "start": 69.965,
+   "end": 69.965,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 21,
+   "start": 69.965,
+   "end": 69.966,
+   "sim": 0.0
+  },
+  {
+   "text": "hisaab",
+   "line": 21,
+   "start": 69.966,
+   "end": 69.966,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 21,
+   "start": 69.966,
+   "end": 69.967,
+   "sim": 0.0
+  },
+  {
+   "text": "koi",
+   "line": 21,
+   "start": 69.967,
+   "end": 69.967,
+   "sim": 0.0
+  },
+  {
+   "text": "minimum",
+   "line": 21,
+   "start": 69.967,
+   "end": 69.967,
+   "sim": 0.0
+  },
+  {
+   "text": "amount",
+   "line": 21,
+   "start": 69.967,
+   "end": 69.968,
+   "sim": 0.0
+  },
+  {
+   "text": "ki",
+   "line": 21,
+   "start": 69.968,
+   "end": 69.968,
+   "sim": 0.0
+  },
+  {
+   "text": "chhoot",
+   "line": 21,
+   "start": 69.968,
+   "end": 69.969,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi",
+   "line": 21,
+   "start": 69.969,
+   "end": 69.969,
+   "sim": 0.0
+  },
+  {
+   "text": "thi.",
+   "line": 21,
+   "start": 69.969,
+   "end": 69.97,
+   "sim": 0.0
+  },
+  {
+   "text": "Chhote",
+   "line": 22,
+   "start": 69.97,
+   "end": 69.97,
+   "sim": 0.0
+  },
+  {
+   "text": "creators,",
+   "line": 22,
+   "start": 69.97,
+   "end": 69.971,
+   "sim": 0.0
+  },
+  {
+   "text": "jinke",
+   "line": 22,
+   "start": 69.971,
+   "end": 69.971,
+   "sim": 0.0
+  },
+  {
+   "text": "paas",
+   "line": 22,
+   "start": 69.971,
+   "end": 69.972,
+   "sim": 0.0
+  },
+  {
+   "text": "na",
+   "line": 22,
+   "start": 69.972,
+   "end": 69.972,
+   "sim": 0.0
+  },
+  {
+   "text": "CA",
+   "line": 22,
+   "start": 69.972,
+   "end": 69.973,
+   "sim": 0.0
+  },
+  {
+   "text": "hai",
+   "line": 22,
+   "start": 69.973,
+   "end": 69.973,
+   "sim": 0.0
+  },
+  {
+   "text": "na",
+   "line": 22,
+   "start": 69.973,
+   "end": 69.973,
+   "sim": 0.0
+  },
+  {
+   "text": "accountant,",
+   "line": 22,
+   "start": 69.973,
+   "end": 69.974,
+   "sim": 0.0
+  },
+  {
+   "text": "sabse",
+   "line": 22,
+   "start": 69.974,
+   "end": 69.974,
+   "sim": 0.0
+  },
+  {
+   "text": "zyada",
+   "line": 22,
+   "start": 69.974,
+   "end": 69.975,
+   "sim": 0.0
+  },
+  {
+   "text": "dare.",
+   "line": 22,
+   "start": 69.975,
+   "end": 69.975,
+   "sim": 0.0
+  },
+  {
+   "text": "Ek",
+   "line": 23,
+   "start": 69.975,
+   "end": 69.976,
+   "sim": 0.0
+  },
+  {
+   "text": "business",
+   "line": 23,
+   "start": 69.976,
+   "end": 69.976,
+   "sim": 0.0
+  },
+  {
+   "text": "news",
+   "line": 23,
+   "start": 69.976,
+   "end": 69.977,
+   "sim": 0.0
+  },
+  {
+   "text": "report",
+   "line": 23,
+   "start": 69.977,
+   "end": 69.977,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 23,
+   "start": 69.977,
+   "end": 69.978,
+   "sim": 0.0
+  },
+  {
+   "text": "experts",
+   "line": 23,
+   "start": 69.978,
+   "end": 69.978,
+   "sim": 0.0
+  },
+  {
+   "text": "ka",
+   "line": 23,
+   "start": 69.978,
+   "end": 69.979,
+   "sim": 0.0
+  },
+  {
+   "text": "reaction",
+   "line": 23,
+   "start": 69.979,
+   "end": 69.979,
+   "sim": 0.0
+  },
+  {
+   "text": "likha:",
+   "line": 23,
+   "start": 69.979,
+   "end": 69.98,
+   "sim": 0.0
+  },
+  {
+   "text": "\"Fill",
+   "line": 24,
+   "start": 69.98,
+   "end": 69.98,
+   "sim": 0.0
+  },
+  {
+   "text": "a",
+   "line": 24,
+   "start": 69.98,
+   "end": 70.28,
+   "sim": 1.0
+  },
+  {
+   "text": "form",
+   "line": 24,
+   "start": 70.28,
+   "end": 72.224,
+   "sim": 0.0
+  },
+  {
+   "text": "for",
+   "line": 24,
+   "start": 72.224,
+   "end": 74.168,
+   "sim": 0.0
+  },
+  {
+   "text": "just",
+   "line": 24,
+   "start": 74.168,
+   "end": 76.112,
+   "sim": 0.0
+  },
+  {
+   "text": "being",
+   "line": 24,
+   "start": 76.112,
+   "end": 78.056,
+   "sim": 0.0
+  },
+  {
+   "text": "alive.\"",
+   "line": 24,
+   "start": 78.056,
+   "end": 80.0,
+   "sim": 0.0
+  },
+  {
+   "text": "Par",
+   "line": 25,
+   "start": 80.0,
+   "end": 80.71,
+   "sim": 0.5
+  },
+  {
+   "text": "ruko.",
+   "line": 25,
+   "start": 80.71,
+   "end": 80.737,
+   "sim": 0.0
+  },
+  {
+   "text": "Sirf",
+   "line": 26,
+   "start": 80.737,
+   "end": 80.765,
+   "sim": 0.0
+  },
+  {
+   "text": "6",
+   "line": 26,
+   "start": 80.765,
+   "end": 80.792,
+   "sim": 0.0
+  },
+  {
+   "text": "din",
+   "line": 26,
+   "start": 80.792,
+   "end": 80.819,
+   "sim": 0.0
+  },
+  {
+   "text": "baad,",
+   "line": 26,
+   "start": 80.819,
+   "end": 80.847,
+   "sim": 0.0
+  },
+  {
+   "text": "7",
+   "line": 26,
+   "start": 80.847,
+   "end": 80.874,
+   "sim": 0.0
+  },
+  {
+   "text": "October",
+   "line": 26,
+   "start": 80.874,
+   "end": 80.901,
+   "sim": 0.0
+  },
+  {
+   "text": "ko,",
+   "line": 26,
+   "start": 80.901,
+   "end": 80.928,
+   "sim": 0.0
+  },
+  {
+   "text": "RBI",
+   "line": 27,
+   "start": 80.928,
+   "end": 80.956,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 27,
+   "start": 80.956,
+   "end": 80.983,
+   "sim": 0.0
+  },
+  {
+   "text": "aisi",
+   "line": 27,
+   "start": 80.983,
+   "end": 81.01,
+   "sim": 0.0
+  },
+  {
+   "text": "baat",
+   "line": 27,
+   "start": 81.01,
+   "end": 81.038,
+   "sim": 0.0
+  },
+  {
+   "text": "boli",
+   "line": 27,
+   "start": 81.038,
+   "end": 81.065,
+   "sim": 0.0
+  },
+  {
+   "text": "jisne",
+   "line": 27,
+   "start": 81.065,
+   "end": 81.092,
+   "sim": 0.0
+  },
+  {
+   "text": "YouTubers",
+   "line": 27,
+   "start": 81.092,
+   "end": 81.12,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 27,
+   "start": 81.12,
+   "end": 81.147,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 27,
+   "start": 81.147,
+   "end": 81.174,
+   "sim": 0.0
+  },
+  {
+   "text": "picture",
+   "line": 27,
+   "start": 81.174,
+   "end": 81.202,
+   "sim": 0.0
+  },
+  {
+   "text": "badal",
+   "line": 27,
+   "start": 81.202,
+   "end": 81.229,
+   "sim": 0.0
+  },
+  {
+   "text": "di.",
+   "line": 27,
+   "start": 81.229,
+   "end": 81.256,
+   "sim": 0.0
+  },
+  {
+   "text": "Aur",
+   "line": 28,
+   "start": 81.256,
+   "end": 81.283,
+   "sim": 0.0
+  },
+  {
+   "text": "isme",
+   "line": 28,
+   "start": 81.283,
+   "end": 81.311,
+   "sim": 0.0
+  },
+  {
+   "text": "ek",
+   "line": 28,
+   "start": 81.311,
+   "end": 81.338,
+   "sim": 0.0
+  },
+  {
+   "text": "twist",
+   "line": 28,
+   "start": 81.338,
+   "end": 81.365,
+   "sim": 0.0
+  },
+  {
+   "text": "hai,",
+   "line": 28,
+   "start": 81.365,
+   "end": 81.393,
+   "sim": 0.0
+  },
+  {
+   "text": "jo",
+   "line": 29,
+   "start": 81.393,
+   "end": 81.42,
+   "sim": 0.0
+  },
+  {
+   "text": "aapki",
+   "line": 29,
+   "start": 81.42,
+   "end": 82.48,
+   "sim": 0.8
+  },
+  {
+   "text": "income",
+   "line": 29,
+   "start": 82.48,
+   "end": 83.1,
+   "sim": 0.75
+  },
+  {
+   "text": "ke",
+   "line": 29,
+   "start": 83.1,
+   "end": 83.28,
+   "sim": 1.0
+  },
+  {
+   "text": "type",
+   "line": 29,
+   "start": 83.28,
+   "end": 83.64,
+   "sim": 1.0
+  },
+  {
+   "text": "pe",
+   "line": 29,
+   "start": 83.64,
+   "end": 83.78,
+   "sim": 0.5
+  },
+  {
+   "text": "depend",
+   "line": 29,
+   "start": 83.78,
+   "end": 84.08,
+   "sim": 0.75
+  },
+  {
+   "text": "karta",
+   "line": 29,
+   "start": 84.08,
+   "end": 84.38,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 29,
+   "start": 84.38,
+   "end": 84.54,
+   "sim": 1.0
+  },
+  {
+   "text": "Business",
+   "line": 30,
+   "start": 84.54,
+   "end": 85.2,
+   "sim": 0.8
+  },
+  {
+   "text": "Today",
+   "line": 30,
+   "start": 85.2,
+   "end": 85.5,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 30,
+   "start": 85.5,
+   "end": 85.58,
+   "sim": 1.0
+  },
+  {
+   "text": "report",
+   "line": 30,
+   "start": 85.58,
+   "end": 85.92,
+   "sim": 0.86
+  },
+  {
+   "text": "ke",
+   "line": 30,
+   "start": 85.92,
+   "end": 86.04,
+   "sim": 1.0
+  },
+  {
+   "text": "mutabik,",
+   "line": 30,
+   "start": 86.04,
+   "end": 86.6,
+   "sim": 1.0
+  },
+  {
+   "text": "RBI",
+   "line": 31,
+   "start": 86.6,
+   "end": 87.12,
+   "sim": 0.8
+  },
+  {
+   "text": "ne",
+   "line": 31,
+   "start": 87.22,
+   "end": 87.36,
+   "sim": 1.0
+  },
+  {
+   "text": "kaha",
+   "line": 31,
+   "start": 87.36,
+   "end": 87.64,
+   "sim": 1.0
+  },
+  {
+   "text": "ki",
+   "line": 31,
+   "start": 87.76,
+   "end": 87.86,
+   "sim": 1.0
+  },
+  {
+   "text": "personal",
+   "line": 31,
+   "start": 87.86,
+   "end": 88.42,
+   "sim": 0.91
+  },
+  {
+   "text": "nature",
+   "line": 31,
+   "start": 88.42,
+   "end": 88.72,
+   "sim": 0.67
+  },
+  {
+   "text": "ke",
+   "line": 31,
+   "start": 88.72,
+   "end": 88.88,
+   "sim": 1.0
+  },
+  {
+   "text": "contracts",
+   "line": 31,
+   "start": 88.88,
+   "end": 89.253,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 32,
+   "start": 89.253,
+   "end": 89.627,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 32,
+   "start": 89.627,
+   "end": 90.0,
+   "sim": 0.0
+  },
+  {
+   "text": "individuals",
+   "line": 32,
+   "start": 90.0,
+   "end": 90.64,
+   "sim": 0.62
+  },
+  {
+   "text": "is",
+   "line": 32,
+   "start": 90.64,
+   "end": 90.86,
+   "sim": 1.0
+  },
+  {
+   "text": "reporting",
+   "line": 32,
+   "start": 90.86,
+   "end": 91.3,
+   "sim": 0.8
+  },
+  {
+   "text": "mein",
+   "line": 32,
+   "start": 91.3,
+   "end": 91.46,
+   "sim": 1.0
+  },
+  {
+   "text": "shaamil",
+   "line": 32,
+   "start": 91.46,
+   "end": 91.84,
+   "sim": 1.0
+  },
+  {
+   "text": "nahi",
+   "line": 32,
+   "start": 91.84,
+   "end": 92.18,
+   "sim": 0.67
+  },
+  {
+   "text": "hain.",
+   "line": 32,
+   "start": 92.18,
+   "end": 92.48,
+   "sim": 1.0
+  },
+  {
+   "text": "Governor",
+   "line": 33,
+   "start": 92.48,
+   "end": 93.0,
+   "sim": 0.67
+  },
+  {
+   "text": "ne",
+   "line": 33,
+   "start": 93.0,
+   "end": 93.16,
+   "sim": 1.0
+  },
+  {
+   "text": "example",
+   "line": 33,
+   "start": 93.16,
+   "end": 93.68,
+   "sim": 0.83
+  },
+  {
+   "text": "diya:",
+   "line": 33,
+   "start": 93.68,
+   "end": 93.94,
+   "sim": 1.0
+  },
+  {
+   "text": "tuition",
+   "line": 33,
+   "start": 93.94,
+   "end": 94.58,
+   "sim": 0.67
+  },
+  {
+   "text": "padhana",
+   "line": 33,
+   "start": 94.58,
+   "end": 95.06,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 33,
+   "start": 95.06,
+   "end": 95.32,
+   "sim": 1.0
+  },
+  {
+   "text": "chhota",
+   "line": 33,
+   "start": 95.32,
+   "end": 95.72,
+   "sim": 1.0
+  },
+  {
+   "text": "software",
+   "line": 33,
+   "start": 95.72,
+   "end": 96.18,
+   "sim": 1.0
+  },
+  {
+   "text": "kaam.",
+   "line": 33,
+   "start": 96.18,
+   "end": 96.44,
+   "sim": 1.0
+  },
+  {
+   "text": "Matlab,",
+   "line": 34,
+   "start": 96.44,
+   "end": 97.06,
+   "sim": 1.0
+  },
+  {
+   "text": "agar",
+   "line": 34,
+   "start": 97.06,
+   "end": 97.52,
+   "sim": 1.0
+  },
+  {
+   "text": "aap",
+   "line": 34,
+   "start": 97.52,
+   "end": 97.68,
+   "sim": 1.0
+  },
+  {
+   "text": "ek",
+   "line": 34,
+   "start": 97.68,
+   "end": 97.82,
+   "sim": 1.0
+  },
+  {
+   "text": "individual",
+   "line": 34,
+   "start": 97.98,
+   "end": 98.44,
+   "sim": 0.83
+  },
+  {
+   "text": "creator",
+   "line": 34,
+   "start": 98.44,
+   "end": 98.9,
+   "sim": 0.75
+  },
+  {
+   "text": "ho,",
+   "line": 34,
+   "start": 98.9,
+   "end": 99.08,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 35,
+   "start": 99.08,
+   "end": 99.42,
+   "sim": 1.0
+  },
+  {
+   "text": "abhi",
+   "line": 35,
+   "start": 99.42,
+   "end": 99.66,
+   "sim": 0.8
+  },
+  {
+   "text": "ke",
+   "line": 35,
+   "start": 99.66,
+   "end": 99.72,
+   "sim": 0.0
+  },
+  {
+   "text": "statement",
+   "line": 35,
+   "start": 99.72,
+   "end": 99.78,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 35,
+   "start": 99.78,
+   "end": 99.84,
+   "sim": 0.0
+  },
+  {
+   "text": "hisaab",
+   "line": 35,
+   "start": 99.84,
+   "end": 99.9,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 35,
+   "start": 99.9,
+   "end": 100.04,
+   "sim": 0.67
+  },
+  {
+   "text": "aap",
+   "line": 35,
+   "start": 100.04,
+   "end": 101.84,
+   "sim": 0.33
+  },
+  {
+   "text": "par",
+   "line": 36,
+   "start": 101.84,
+   "end": 103.04,
+   "sim": 0.67
+  },
+  {
+   "text": "yeh",
+   "line": 36,
+   "start": 103.04,
+   "end": 103.318,
+   "sim": 0.0
+  },
+  {
+   "text": "EDF",
+   "line": 36,
+   "start": 103.318,
+   "end": 103.597,
+   "sim": 0.0
+  },
+  {
+   "text": "wali",
+   "line": 36,
+   "start": 103.597,
+   "end": 103.875,
+   "sim": 0.0
+  },
+  {
+   "text": "tension",
+   "line": 36,
+   "start": 103.875,
+   "end": 104.154,
+   "sim": 0.0
+  },
+  {
+   "text": "kaafi",
+   "line": 36,
+   "start": 104.154,
+   "end": 104.432,
+   "sim": 0.0
+  },
+  {
+   "text": "kam",
+   "line": 36,
+   "start": 104.432,
+   "end": 104.71,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 36,
+   "start": 104.71,
+   "end": 104.989,
+   "sim": 0.0
+  },
+  {
+   "text": "Ab",
+   "line": 37,
+   "start": 104.989,
+   "end": 105.267,
+   "sim": 0.0
+  },
+  {
+   "text": "twist.",
+   "line": 37,
+   "start": 105.267,
+   "end": 105.546,
+   "sim": 0.0
+  },
+  {
+   "text": "Aapki",
+   "line": 38,
+   "start": 105.546,
+   "end": 105.824,
+   "sim": 0.0
+  },
+  {
+   "text": "YouTube",
+   "line": 38,
+   "start": 105.824,
+   "end": 106.102,
+   "sim": 0.0
+  },
+  {
+   "text": "income",
+   "line": 38,
+   "start": 106.102,
+   "end": 106.381,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 38,
+   "start": 106.381,
+   "end": 106.659,
+   "sim": 0.0
+  },
+  {
+   "text": "teen",
+   "line": 38,
+   "start": 106.659,
+   "end": 106.938,
+   "sim": 0.33
+  },
+  {
+   "text": "hisson",
+   "line": 38,
+   "start": 106.938,
+   "end": 107.216,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 38,
+   "start": 107.216,
+   "end": 107.494,
+   "sim": 0.33
+  },
+  {
+   "text": "samjho.",
+   "line": 38,
+   "start": 107.494,
+   "end": 107.773,
+   "sim": 0.0
+  },
+  {
+   "text": "Pehla:",
+   "line": 39,
+   "start": 107.773,
+   "end": 108.051,
+   "sim": 0.33
+  },
+  {
+   "text": "AdSense",
+   "line": 39,
+   "start": 108.051,
+   "end": 108.33,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 39,
+   "start": 108.33,
+   "end": 108.608,
+   "sim": 0.33
+  },
+  {
+   "text": "YouTube",
+   "line": 39,
+   "start": 108.608,
+   "end": 108.886,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 39,
+   "start": 108.886,
+   "end": 109.165,
+   "sim": 0.0
+  },
+  {
+   "text": "aane",
+   "line": 39,
+   "start": 109.165,
+   "end": 109.443,
+   "sim": 0.0
+  },
+  {
+   "text": "wala",
+   "line": 39,
+   "start": 109.443,
+   "end": 109.722,
+   "sim": 0.0
+  },
+  {
+   "text": "paisa,",
+   "line": 39,
+   "start": 109.722,
+   "end": 110.0,
+   "sim": 0.0
+  },
+  {
+   "text": "jaise",
+   "line": 39,
+   "start": 110.0,
+   "end": 110.66,
+   "sim": 1.0
+  },
+  {
+   "text": "ads,",
+   "line": 39,
+   "start": 110.66,
+   "end": 111.22,
+   "sim": 1.0
+  },
+  {
+   "text": "memberships",
+   "line": 40,
+   "start": 111.36,
+   "end": 111.96,
+   "sim": 0.77
+  },
+  {
+   "text": "ya",
+   "line": 40,
+   "start": 111.96,
+   "end": 112.04,
+   "sim": 1.0
+  },
+  {
+   "text": "Super",
+   "line": 40,
+   "start": 112.04,
+   "end": 112.12,
+   "sim": 0.0
+  },
+  {
+   "text": "Chat.",
+   "line": 40,
+   "start": 112.12,
+   "end": 112.8,
+   "sim": 0.57
+  },
+  {
+   "text": "Yeh",
+   "line": 41,
+   "start": 112.8,
+   "end": 113.28,
+   "sim": 1.0
+  },
+  {
+   "text": "sabse",
+   "line": 41,
+   "start": 113.28,
+   "end": 113.56,
+   "sim": 0.8
+  },
+  {
+   "text": "bada",
+   "line": 41,
+   "start": 113.72,
+   "end": 113.96,
+   "sim": 1.0
+  },
+  {
+   "text": "sawaal",
+   "line": 41,
+   "start": 113.96,
+   "end": 114.28,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 41,
+   "start": 114.28,
+   "end": 114.42,
+   "sim": 1.0
+  },
+  {
+   "text": "Kya",
+   "line": 42,
+   "start": 114.42,
+   "end": 114.78,
+   "sim": 1.0
+  },
+  {
+   "text": "platform",
+   "line": 42,
+   "start": 114.78,
+   "end": 115.36,
+   "sim": 0.91
+  },
+  {
+   "text": "ka",
+   "line": 42,
+   "start": 115.36,
+   "end": 115.54,
+   "sim": 1.0
+  },
+  {
+   "text": "ad",
+   "line": 42,
+   "start": 115.54,
+   "end": 115.86,
+   "sim": 1.0
+  },
+  {
+   "text": "revenue",
+   "line": 42,
+   "start": 115.86,
+   "end": 116.24,
+   "sim": 1.0
+  },
+  {
+   "text": "service",
+   "line": 42,
+   "start": 116.24,
+   "end": 116.76,
+   "sim": 0.75
+  },
+  {
+   "text": "export",
+   "line": 42,
+   "start": 116.76,
+   "end": 117.2,
+   "sim": 0.2
+  },
+  {
+   "text": "hai?",
+   "line": 42,
+   "start": 117.2,
+   "end": 117.36,
+   "sim": 1.0
+  },
+  {
+   "text": "Experts",
+   "line": 43,
+   "start": 117.36,
+   "end": 117.653,
+   "sim": 0.22
+  },
+  {
+   "text": "ki",
+   "line": 43,
+   "start": 117.653,
+   "end": 117.947,
+   "sim": 0.0
+  },
+  {
+   "text": "raay",
+   "line": 43,
+   "start": 117.947,
+   "end": 118.24,
+   "sim": 0.0
+  },
+  {
+   "text": "alag",
+   "line": 43,
+   "start": 118.24,
+   "end": 118.27,
+   "sim": 0.4
+  },
+  {
+   "text": "hai,",
+   "line": 43,
+   "start": 118.27,
+   "end": 118.3,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 44,
+   "start": 118.3,
+   "end": 118.47,
+   "sim": 0.5
+  },
+  {
+   "text": "RBI",
+   "line": 44,
+   "start": 118.47,
+   "end": 118.555,
+   "sim": 0.0
+  },
+  {
+   "text": "ne",
+   "line": 44,
+   "start": 118.555,
+   "end": 118.64,
+   "sim": 0.0
+  },
+  {
+   "text": "ad",
+   "line": 44,
+   "start": 118.64,
+   "end": 118.66,
+   "sim": 1.0
+  },
+  {
+   "text": "revenue",
+   "line": 44,
+   "start": 118.66,
+   "end": 118.68,
+   "sim": 0.0
+  },
+  {
+   "text": "pe",
+   "line": 44,
+   "start": 118.68,
+   "end": 119.66,
+   "sim": 0.67
+  },
+  {
+   "text": "abhi",
+   "line": 44,
+   "start": 119.66,
+   "end": 119.72,
+   "sim": 0.5
+  },
+  {
+   "text": "tak",
+   "line": 44,
+   "start": 119.72,
+   "end": 119.78,
+   "sim": 0.0
+  },
+  {
+   "text": "alag",
+   "line": 44,
+   "start": 119.78,
+   "end": 119.81,
+   "sim": 0.4
+  },
+  {
+   "text": "se",
+   "line": 44,
+   "start": 119.81,
+   "end": 119.831,
+   "sim": 0.0
+  },
+  {
+   "text": "kuch",
+   "line": 44,
+   "start": 119.831,
+   "end": 119.852,
+   "sim": 0.0
+  },
+  {
+   "text": "clear",
+   "line": 44,
+   "start": 119.852,
+   "end": 119.873,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi",
+   "line": 44,
+   "start": 119.873,
+   "end": 119.894,
+   "sim": 0.0
+  },
+  {
+   "text": "kiya.",
+   "line": 44,
+   "start": 119.894,
+   "end": 119.916,
+   "sim": 0.0
+  },
+  {
+   "text": "Doosra:",
+   "line": 45,
+   "start": 119.916,
+   "end": 119.937,
+   "sim": 0.0
+  },
+  {
+   "text": "foreign",
+   "line": 45,
+   "start": 119.937,
+   "end": 119.958,
+   "sim": 0.0
+  },
+  {
+   "text": "brand",
+   "line": 45,
+   "start": 119.958,
+   "end": 119.979,
+   "sim": 0.0
+  },
+  {
+   "text": "deals.",
+   "line": 45,
+   "start": 119.979,
+   "end": 120.0,
+   "sim": 0.0
+  },
+  {
+   "text": "Agar",
+   "line": 46,
+   "start": 120.0,
+   "end": 125.62,
+   "sim": 1.0
+  },
+  {
+   "text": "koi",
+   "line": 46,
+   "start": 125.62,
+   "end": 125.82,
+   "sim": 1.0
+  },
+  {
+   "text": "videshi",
+   "line": 46,
+   "start": 125.82,
+   "end": 126.32,
+   "sim": 1.0
+  },
+  {
+   "text": "brand",
+   "line": 46,
+   "start": 126.32,
+   "end": 126.64,
+   "sim": 0.75
+  },
+  {
+   "text": "seedha",
+   "line": 46,
+   "start": 126.64,
+   "end": 127.1,
+   "sim": 1.0
+  },
+  {
+   "text": "aapko",
+   "line": 46,
+   "start": 127.1,
+   "end": 127.48,
+   "sim": 1.0
+  },
+  {
+   "text": "sponsored",
+   "line": 46,
+   "start": 127.48,
+   "end": 128.02,
+   "sim": 0.83
+  },
+  {
+   "text": "video",
+   "line": 46,
+   "start": 128.02,
+   "end": 128.32,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 46,
+   "start": 128.32,
+   "end": 128.44,
+   "sim": 1.0
+  },
+  {
+   "text": "paise",
+   "line": 46,
+   "start": 128.44,
+   "end": 128.8,
+   "sim": 1.0
+  },
+  {
+   "text": "bhejta",
+   "line": 46,
+   "start": 128.8,
+   "end": 129.22,
+   "sim": 0.67
+  },
+  {
+   "text": "hai,",
+   "line": 46,
+   "start": 129.22,
+   "end": 129.4,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 47,
+   "start": 129.4,
+   "end": 129.7,
+   "sim": 1.0
+  },
+  {
+   "text": "kai",
+   "line": 47,
+   "start": 129.7,
+   "end": 129.94,
+   "sim": 1.0
+  },
+  {
+   "text": "experts",
+   "line": 47,
+   "start": 129.94,
+   "end": 130.263,
+   "sim": 0.2
+  },
+  {
+   "text": "ise",
+   "line": 47,
+   "start": 130.263,
+   "end": 130.586,
+   "sim": 0.0
+  },
+  {
+   "text": "service",
+   "line": 47,
+   "start": 130.586,
+   "end": 130.909,
+   "sim": 0.0
+  },
+  {
+   "text": "export",
+   "line": 47,
+   "start": 130.909,
+   "end": 131.231,
+   "sim": 0.22
+  },
+  {
+   "text": "maante",
+   "line": 47,
+   "start": 131.231,
+   "end": 131.554,
+   "sim": 0.0
+  },
+  {
+   "text": "hain.",
+   "line": 47,
+   "start": 131.554,
+   "end": 131.877,
+   "sim": 0.0
+  },
+  {
+   "text": "Yahan",
+   "line": 48,
+   "start": 131.877,
+   "end": 132.2,
+   "sim": 0.0
+  },
+  {
+   "text": "dhyan",
+   "line": 48,
+   "start": 132.2,
+   "end": 132.78,
+   "sim": 0.8
+  },
+  {
+   "text": "dena",
+   "line": 48,
+   "start": 132.78,
+   "end": 133.4,
+   "sim": 1.0
+  },
+  {
+   "text": "zaroori",
+   "line": 48,
+   "start": 133.4,
+   "end": 133.86,
+   "sim": 1.0
+  },
+  {
+   "text": "hai.",
+   "line": 48,
+   "start": 133.86,
+   "end": 134.02,
+   "sim": 1.0
+  },
+  {
+   "text": "Teesra:",
+   "line": 49,
+   "start": 134.02,
+   "end": 134.66,
+   "sim": 1.0
+  },
+  {
+   "text": "Indian",
+   "line": 49,
+   "start": 134.66,
+   "end": 135.24,
+   "sim": 0.57
+  },
+  {
+   "text": "brand",
+   "line": 49,
+   "start": 135.24,
+   "end": 135.57,
+   "sim": 0.8
+  },
+  {
+   "text": "deals.",
+   "line": 49,
+   "start": 135.57,
+   "end": 135.9,
+   "sim": 0.0
+  },
+  {
+   "text": "Agar",
+   "line": 50,
+   "start": 135.9,
+   "end": 136.42,
+   "sim": 1.0
+  },
+  {
+   "text": "brand",
+   "line": 50,
+   "start": 136.42,
+   "end": 136.76,
+   "sim": 1.0
+  },
+  {
+   "text": "India",
+   "line": 50,
+   "start": 136.76,
+   "end": 137.18,
+   "sim": 0.4
+  },
+  {
+   "text": "ka",
+   "line": 50,
+   "start": 137.18,
+   "end": 137.36,
+   "sim": 1.0
+  },
+  {
+   "text": "hai",
+   "line": 50,
+   "start": 137.36,
+   "end": 137.6,
+   "sim": 1.0
+  },
+  {
+   "text": "aur",
+   "line": 50,
+   "start": 137.6,
+   "end": 137.82,
+   "sim": 1.0
+  },
+  {
+   "text": "paisa",
+   "line": 50,
+   "start": 137.82,
+   "end": 138.18,
+   "sim": 1.0
+  },
+  {
+   "text": "rupay",
+   "line": 50,
+   "start": 138.18,
+   "end": 138.54,
+   "sim": 1.0
+  },
+  {
+   "text": "mein",
+   "line": 50,
+   "start": 138.54,
+   "end": 138.82,
+   "sim": 1.0
+  },
+  {
+   "text": "India",
+   "line": 50,
+   "start": 138.82,
+   "end": 139.22,
+   "sim": 0.4
+  },
+  {
+   "text": "se",
+   "line": 50,
+   "start": 139.22,
+   "end": 139.38,
+   "sim": 1.0
+  },
+  {
+   "text": "aata",
+   "line": 50,
+   "start": 139.38,
+   "end": 139.66,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 50,
+   "start": 139.66,
+   "end": 139.74,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 51,
+   "start": 139.74,
+   "end": 139.756,
+   "sim": 0.0
+  },
+  {
+   "text": "yeh",
+   "line": 51,
+   "start": 139.756,
+   "end": 139.773,
+   "sim": 0.0
+  },
+  {
+   "text": "export",
+   "line": 51,
+   "start": 139.773,
+   "end": 139.789,
+   "sim": 0.0
+  },
+  {
+   "text": "hi",
+   "line": 51,
+   "start": 139.789,
+   "end": 139.805,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi",
+   "line": 51,
+   "start": 139.805,
+   "end": 139.821,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 51,
+   "start": 139.821,
+   "end": 139.838,
+   "sim": 0.0
+  },
+  {
+   "text": "Is",
+   "line": 52,
+   "start": 139.838,
+   "end": 139.854,
+   "sim": 0.0
+  },
+  {
+   "text": "rule",
+   "line": 52,
+   "start": 139.854,
+   "end": 139.87,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 52,
+   "start": 139.87,
+   "end": 139.886,
+   "sim": 0.0
+  },
+  {
+   "text": "iska",
+   "line": 52,
+   "start": 139.886,
+   "end": 139.903,
+   "sim": 0.0
+  },
+  {
+   "text": "lena",
+   "line": 52,
+   "start": 139.903,
+   "end": 139.919,
+   "sim": 0.0
+  },
+  {
+   "text": "dena",
+   "line": 52,
+   "start": 139.919,
+   "end": 139.935,
+   "sim": 0.0
+  },
+  {
+   "text": "nahi.",
+   "line": 52,
+   "start": 139.935,
+   "end": 139.951,
+   "sim": 0.0
+  },
+  {
+   "text": "Aur",
+   "line": 53,
+   "start": 139.951,
+   "end": 139.968,
+   "sim": 0.0
+  },
+  {
+   "text": "ek",
+   "line": 53,
+   "start": 139.968,
+   "end": 139.984,
+   "sim": 0.0
+  },
+  {
+   "text": "baat.",
+   "line": 53,
+   "start": 139.984,
+   "end": 140.0,
+   "sim": 0.0
+  },
+  {
+   "text": "Agar",
+   "line": 54,
+   "start": 140.0,
+   "end": 144.18,
+   "sim": 1.0
+  },
+  {
+   "text": "aapne",
+   "line": 54,
+   "start": 144.18,
+   "end": 145.14,
+   "sim": 1.0
+  },
+  {
+   "text": "apna",
+   "line": 54,
+   "start": 145.14,
+   "end": 145.5,
+   "sim": 1.0
+  },
+  {
+   "text": "channel",
+   "line": 54,
+   "start": 145.5,
+   "end": 145.86,
+   "sim": 0.86
+  },
+  {
+   "text": "company,",
+   "line": 54,
+   "start": 145.86,
+   "end": 146.46,
+   "sim": 0.75
+  },
+  {
+   "text": "LLP",
+   "line": 54,
+   "start": 146.46,
+   "end": 147.26,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 54,
+   "start": 147.26,
+   "end": 147.44,
+   "sim": 1.0
+  },
+  {
+   "text": "firm",
+   "line": 54,
+   "start": 147.44,
+   "end": 147.78,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 54,
+   "start": 147.78,
+   "end": 147.94,
+   "sim": 1.0
+  },
+  {
+   "text": "naam",
+   "line": 54,
+   "start": 147.94,
+   "end": 148.12,
+   "sim": 1.0
+  },
+  {
+   "text": "pe",
+   "line": 54,
+   "start": 148.12,
+   "end": 148.28,
+   "sim": 1.0
+  },
+  {
+   "text": "chalaya",
+   "line": 54,
+   "start": 148.28,
+   "end": 148.68,
+   "sim": 1.0
+  },
+  {
+   "text": "hai,",
+   "line": 54,
+   "start": 148.68,
+   "end": 148.84,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 55,
+   "start": 148.84,
+   "end": 149.18,
+   "sim": 1.0
+  },
+  {
+   "text": "RBI",
+   "line": 55,
+   "start": 149.18,
+   "end": 149.6,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 55,
+   "start": 149.6,
+   "end": 149.72,
+   "sim": 1.0
+  },
+  {
+   "text": "statement",
+   "line": 55,
+   "start": 149.72,
+   "end": 149.733,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 55,
+   "start": 149.733,
+   "end": 149.747,
+   "sim": 0.0
+  },
+  {
+   "text": "hisaab",
+   "line": 55,
+   "start": 149.747,
+   "end": 149.76,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 55,
+   "start": 149.76,
+   "end": 149.773,
+   "sim": 0.0
+  },
+  {
+   "text": "businesses",
+   "line": 55,
+   "start": 149.773,
+   "end": 149.787,
+   "sim": 0.0
+  },
+  {
+   "text": "abhi",
+   "line": 55,
+   "start": 149.787,
+   "end": 149.8,
+   "sim": 0.0
+  },
+  {
+   "text": "bhi",
+   "line": 55,
+   "start": 149.8,
+   "end": 149.813,
+   "sim": 0.0
+  },
+  {
+   "text": "cover",
+   "line": 55,
+   "start": 149.813,
+   "end": 149.827,
+   "sim": 0.0
+  },
+  {
+   "text": "ho",
+   "line": 55,
+   "start": 149.827,
+   "end": 149.84,
+   "sim": 0.0
+  },
+  {
+   "text": "sakte",
+   "line": 55,
+   "start": 149.84,
+   "end": 150.02,
+   "sim": 0.8
+  },
+  {
+   "text": "hain.",
+   "line": 55,
+   "start": 150.02,
+   "end": 151.8,
+   "sim": 0.4
+  },
+  {
+   "text": "GST",
+   "line": 56,
+   "start": 153.3,
+   "end": 154.06,
+   "sim": 0.67
+  },
+  {
+   "text": "wale",
+   "line": 56,
+   "start": 154.06,
+   "end": 154.28,
+   "sim": 1.0
+  },
+  {
+   "text": "sole",
+   "line": 56,
+   "start": 154.28,
+   "end": 154.54,
+   "sim": 1.0
+  },
+  {
+   "text": "proprietors",
+   "line": 56,
+   "start": 154.54,
+   "end": 155.1,
+   "sim": 0.93
+  },
+  {
+   "text": "ka",
+   "line": 56,
+   "start": 155.1,
+   "end": 155.32,
+   "sim": 1.0
+  },
+  {
+   "text": "final",
+   "line": 56,
+   "start": 155.32,
+   "end": 155.68,
+   "sim": 1.0
+  },
+  {
+   "text": "jawab",
+   "line": 56,
+   "start": 155.68,
+   "end": 156.1,
+   "sim": 0.67
+  },
+  {
+   "text": "RBI",
+   "line": 56,
+   "start": 156.1,
+   "end": 156.64,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 56,
+   "start": 156.64,
+   "end": 157.04,
+   "sim": 0.67
+  },
+  {
+   "text": "FAQs",
+   "line": 56,
+   "start": 157.04,
+   "end": 157.2,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 56,
+   "start": 157.2,
+   "end": 157.36,
+   "sim": 0.0
+  },
+  {
+   "text": "aayega,",
+   "line": 56,
+   "start": 157.36,
+   "end": 157.4,
+   "sim": 0.5
+  },
+  {
+   "text": "jo",
+   "line": 57,
+   "start": 157.4,
+   "end": 157.5,
+   "sim": 0.0
+  },
+  {
+   "text": "abhi",
+   "line": 57,
+   "start": 157.5,
+   "end": 157.98,
+   "sim": 0.5
+  },
+  {
+   "text": "aane",
+   "line": 57,
+   "start": 157.98,
+   "end": 158.44,
+   "sim": 0.5
+  },
+  {
+   "text": "baaki",
+   "line": 57,
+   "start": 158.44,
+   "end": 158.96,
+   "sim": 0.0
+  },
+  {
+   "text": "hain.",
+   "line": 57,
+   "start": 158.96,
+   "end": 159.48,
+   "sim": 0.0
+  },
+  {
+   "text": "Toh",
+   "line": 58,
+   "start": 159.48,
+   "end": 160.0,
+   "sim": 0.0
+  },
+  {
+   "text": "YouTubers",
+   "line": 58,
+   "start": 160.0,
+   "end": 160.62,
+   "sim": 1.0
+  },
+  {
+   "text": "ko",
+   "line": 58,
+   "start": 160.62,
+   "end": 160.8,
+   "sim": 1.0
+  },
+  {
+   "text": "abhi",
+   "line": 58,
+   "start": 160.8,
+   "end": 161.12,
+   "sim": 1.0
+  },
+  {
+   "text": "kya",
+   "line": 58,
+   "start": 161.12,
+   "end": 161.28,
+   "sim": 1.0
+  },
+  {
+   "text": "karna",
+   "line": 58,
+   "start": 161.28,
+   "end": 161.54,
+   "sim": 1.0
+  },
+  {
+   "text": "chahiye?",
+   "line": 58,
+   "start": 161.54,
+   "end": 161.66,
+   "sim": 1.0
+  },
+  {
+   "text": "Chaar",
+   "line": 59,
+   "start": 161.66,
+   "end": 161.86,
+   "sim": 0.0
+  },
+  {
+   "text": "steps.",
+   "line": 59,
+   "start": 161.86,
+   "end": 162.76,
+   "sim": 0.73
+  },
+  {
+   "text": "Ek:",
+   "line": 60,
+   "start": 162.76,
+   "end": 163.32,
+   "sim": 0.0
+  },
+  {
+   "text": "panic",
+   "line": 60,
+   "start": 163.32,
+   "end": 163.76,
+   "sim": 0.67
+  },
+  {
+   "text": "mat",
+   "line": 60,
+   "start": 163.76,
+   "end": 163.98,
+   "sim": 1.0
+  },
+  {
+   "text": "karo.",
+   "line": 60,
+   "start": 163.98,
+   "end": 164.3,
+   "sim": 1.0
+  },
+  {
+   "text": "Individual",
+   "line": 61,
+   "start": 164.3,
+   "end": 164.607,
+   "sim": 0.2
+  },
+  {
+   "text": "creators",
+   "line": 61,
+   "start": 164.607,
+   "end": 164.913,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 61,
+   "start": 164.913,
+   "end": 165.22,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 61,
+   "start": 165.22,
+   "end": 165.78,
+   "sim": 1.0
+  },
+  {
+   "text": "RBI",
+   "line": 61,
+   "start": 165.78,
+   "end": 166.117,
+   "sim": 0.0
+  },
+  {
+   "text": "ka",
+   "line": 61,
+   "start": 166.117,
+   "end": 166.453,
+   "sim": 0.0
+  },
+  {
+   "text": "statement",
+   "line": 61,
+   "start": 166.453,
+   "end": 166.79,
+   "sim": 0.2
+  },
+  {
+   "text": "raahat",
+   "line": 61,
+   "start": 166.79,
+   "end": 167.127,
+   "sim": 0.0
+  },
+  {
+   "text": "wala",
+   "line": 61,
+   "start": 167.127,
+   "end": 167.463,
+   "sim": 0.0
+  },
+  {
+   "text": "hai.",
+   "line": 61,
+   "start": 167.463,
+   "end": 167.8,
+   "sim": 0.0
+  },
+  {
+   "text": "Do:",
+   "line": 62,
+   "start": 167.8,
+   "end": 169.16,
+   "sim": 0.4
+  },
+  {
+   "text": "records",
+   "line": 62,
+   "start": 169.16,
+   "end": 169.58,
+   "sim": 0.22
+  },
+  {
+   "text": "rakho.",
+   "line": 62,
+   "start": 169.58,
+   "end": 170.0,
+   "sim": 0.0
+  },
+  {
+   "text": "AdSense",
+   "line": 63,
+   "start": 170.0,
+   "end": 170.16,
+   "sim": 0.73
+  },
+  {
+   "text": "payment",
+   "line": 63,
+   "start": 170.16,
+   "end": 170.48,
+   "sim": 1.0
+  },
+  {
+   "text": "statements,",
+   "line": 63,
+   "start": 170.48,
+   "end": 171.06,
+   "sim": 0.77
+  },
+  {
+   "text": "brand",
+   "line": 63,
+   "start": 171.18,
+   "end": 171.44,
+   "sim": 0.89
+  },
+  {
+   "text": "deal",
+   "line": 63,
+   "start": 171.44,
+   "end": 171.7,
+   "sim": 0.0
+  },
+  {
+   "text": "invoices,",
+   "line": 63,
+   "start": 171.7,
+   "end": 172.32,
+   "sim": 0.8
+  },
+  {
+   "text": "aur",
+   "line": 63,
+   "start": 172.32,
+   "end": 172.6,
+   "sim": 1.0
+  },
+  {
+   "text": "bank",
+   "line": 63,
+   "start": 172.6,
+   "end": 172.96,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 63,
+   "start": 172.96,
+   "end": 173.1,
+   "sim": 1.0
+  },
+  {
+   "text": "foreign",
+   "line": 63,
+   "start": 173.1,
+   "end": 173.52,
+   "sim": 0.75
+  },
+  {
+   "text": "inward",
+   "line": 63,
+   "start": 173.52,
+   "end": 173.94,
+   "sim": 0.67
+  },
+  {
+   "text": "remittance",
+   "line": 63,
+   "start": 173.94,
+   "end": 174.36,
+   "sim": 0.73
+  },
+  {
+   "text": "documents,",
+   "line": 63,
+   "start": 174.36,
+   "end": 174.98,
+   "sim": 0.83
+  },
+  {
+   "text": "sab",
+   "line": 64,
+   "start": 174.98,
+   "end": 175.38,
+   "sim": 1.0
+  },
+  {
+   "text": "sambhal",
+   "line": 64,
+   "start": 175.38,
+   "end": 175.65,
+   "sim": 0.89
+  },
+  {
+   "text": "ke.",
+   "line": 64,
+   "start": 175.65,
+   "end": 175.92,
+   "sim": 0.0
+  },
+  {
+   "text": "Teen:",
+   "line": 65,
+   "start": 175.92,
+   "end": 176.4,
+   "sim": 1.0
+  },
+  {
+   "text": "apne",
+   "line": 65,
+   "start": 176.4,
+   "end": 176.94,
+   "sim": 1.0
+  },
+  {
+   "text": "bank",
+   "line": 65,
+   "start": 176.94,
+   "end": 177.26,
+   "sim": 1.0
+  },
+  {
+   "text": "se",
+   "line": 65,
+   "start": 177.26,
+   "end": 177.4,
+   "sim": 1.0
+  },
+  {
+   "text": "poocho.",
+   "line": 65,
+   "start": 177.4,
+   "end": 177.74,
+   "sim": 1.0
+  },
+  {
+   "text": "EDF",
+   "line": 66,
+   "start": 177.74,
+   "end": 178.34,
+   "sim": 0.67
+  },
+  {
+   "text": "bank",
+   "line": 66,
+   "start": 178.34,
+   "end": 178.64,
+   "sim": 1.0
+  },
+  {
+   "text": "ke",
+   "line": 66,
+   "start": 178.64,
+   "end": 178.71,
+   "sim": 1.0
+  },
+  {
+   "text": "through",
+   "line": 66,
+   "start": 178.71,
+   "end": 178.78,
+   "sim": 0.0
+  },
+  {
+   "text": "jaata",
+   "line": 66,
+   "start": 178.78,
+   "end": 179.32,
+   "sim": 0.8
+  },
+  {
+   "text": "hai,",
+   "line": 66,
+   "start": 179.32,
+   "end": 179.46,
+   "sim": 1.0
+  },
+  {
+   "text": "toh",
+   "line": 67,
+   "start": 179.46,
+   "end": 179.74,
+   "sim": 1.0
+  },
+  {
+   "text": "bank",
+   "line": 67,
+   "start": 179.74,
+   "end": 180.04,
+   "sim": 1.0
+  },
+  {
+   "text": "hi",
+   "line": 67,
+   "start": 180.04,
+   "end": 182.53,
+   "sim": 0.0
+  },
+  {
+   "text": "batayega",
+   "line": 67,
+   "start": 182.53,
+   "end": 185.02,
+   "sim": 0.0
+  },
+  {
+   "text": "ki",
+   "line": 67,
+   "start": 185.02,
+   "end": 187.51,
+   "sim": 0.0
+  },
+  {
+   "text": "aapke",
+   "line": 67,
+   "start": 187.51,
+   "end": 190.0,
+   "sim": 0.0
+  },
+  {
+   "text": "AdSense",
+   "line": 67,
+   "start": 190.0,
+   "end": 193.57,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 67,
+   "start": 193.57,
+   "end": 194.76,
+   "sim": 0.0
+  },
+  {
+   "text": "brand",
+   "line": 67,
+   "start": 194.76,
+   "end": 195.95,
+   "sim": 0.0
+  },
+  {
+   "text": "payment",
+   "line": 67,
+   "start": 195.95,
+   "end": 197.14,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 67,
+   "start": 197.14,
+   "end": 197.3,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 67,
+   "start": 197.3,
+   "end": 197.38,
+   "sim": 1.0
+  },
+  {
+   "text": "kya",
+   "line": 67,
+   "start": 197.38,
+   "end": 197.42,
+   "sim": 0.0
+  },
+  {
+   "text": "chahiye.",
+   "line": 67,
+   "start": 197.42,
+   "end": 197.46,
+   "sim": 0.0
+  },
+  {
+   "text": "Chaar:",
+   "line": 68,
+   "start": 197.46,
+   "end": 197.72,
+   "sim": 0.4
+  },
+  {
+   "text": "channel",
+   "line": 68,
+   "start": 197.72,
+   "end": 197.772,
+   "sim": 0.0
+  },
+  {
+   "text": "company",
+   "line": 68,
+   "start": 197.772,
+   "end": 197.824,
+   "sim": 0.0
+  },
+  {
+   "text": "ya",
+   "line": 68,
+   "start": 197.824,
+   "end": 197.876,
+   "sim": 0.0
+  },
+  {
+   "text": "registered",
+   "line": 68,
+   "start": 197.876,
+   "end": 197.928,
+   "sim": 0.0
+  },
+  {
+   "text": "business",
+   "line": 68,
+   "start": 197.928,
+   "end": 197.98,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 68,
+   "start": 197.98,
+   "end": 198.17,
+   "sim": 0.67
+  },
+  {
+   "text": "naam",
+   "line": 68,
+   "start": 198.17,
+   "end": 198.36,
+   "sim": 0.0
+  },
+  {
+   "text": "pe",
+   "line": 68,
+   "start": 198.36,
+   "end": 198.53,
+   "sim": 0.4
+  },
+  {
+   "text": "hai,",
+   "line": 68,
+   "start": 198.53,
+   "end": 198.535,
+   "sim": 0.0
+  },
+  {
+   "text": "ya",
+   "line": 69,
+   "start": 198.535,
+   "end": 198.54,
+   "sim": 0.0
+  },
+  {
+   "text": "badi",
+   "line": 69,
+   "start": 198.54,
+   "end": 198.545,
+   "sim": 0.0
+  },
+  {
+   "text": "foreign",
+   "line": 69,
+   "start": 198.545,
+   "end": 198.55,
+   "sim": 0.0
+  },
+  {
+   "text": "brand",
+   "line": 69,
+   "start": 198.55,
+   "end": 198.555,
+   "sim": 0.0
+  },
+  {
+   "text": "deals",
+   "line": 69,
+   "start": 198.555,
+   "end": 198.56,
+   "sim": 0.0
+  },
+  {
+   "text": "karte",
+   "line": 69,
+   "start": 198.56,
+   "end": 198.565,
+   "sim": 0.0
+  },
+  {
+   "text": "ho,",
+   "line": 69,
+   "start": 198.565,
+   "end": 198.57,
+   "sim": 0.0
+  },
+  {
+   "text": "toh",
+   "line": 69,
+   "start": 198.57,
+   "end": 198.575,
+   "sim": 0.0
+  },
+  {
+   "text": "CA",
+   "line": 69,
+   "start": 198.575,
+   "end": 198.58,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 69,
+   "start": 198.58,
+   "end": 198.585,
+   "sim": 0.0
+  },
+  {
+   "text": "zaroor",
+   "line": 69,
+   "start": 198.585,
+   "end": 198.59,
+   "sim": 0.0
+  },
+  {
+   "text": "baat",
+   "line": 69,
+   "start": 198.59,
+   "end": 198.595,
+   "sim": 0.0
+  },
+  {
+   "text": "karo.",
+   "line": 69,
+   "start": 198.595,
+   "end": 198.6,
+   "sim": 0.0
+  },
+  {
+   "text": "Summary:",
+   "line": 70,
+   "start": 198.6,
+   "end": 198.605,
+   "sim": 0.0
+  },
+  {
+   "text": "individual",
+   "line": 70,
+   "start": 198.605,
+   "end": 198.61,
+   "sim": 0.0
+  },
+  {
+   "text": "YouTubers",
+   "line": 70,
+   "start": 198.61,
+   "end": 198.615,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 70,
+   "start": 198.615,
+   "end": 198.62,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 70,
+   "start": 198.62,
+   "end": 198.625,
+   "sim": 0.0
+  },
+  {
+   "text": "tension",
+   "line": 70,
+   "start": 198.625,
+   "end": 198.63,
+   "sim": 0.0
+  },
+  {
+   "text": "kam",
+   "line": 70,
+   "start": 198.63,
+   "end": 198.635,
+   "sim": 0.0
+  },
+  {
+   "text": "hai,",
+   "line": 70,
+   "start": 198.635,
+   "end": 198.64,
+   "sim": 0.0
+  },
+  {
+   "text": "foreign",
+   "line": 71,
+   "start": 198.64,
+   "end": 198.645,
+   "sim": 0.0
+  },
+  {
+   "text": "brand",
+   "line": 71,
+   "start": 198.645,
+   "end": 198.65,
+   "sim": 0.0
+  },
+  {
+   "text": "deals",
+   "line": 71,
+   "start": 198.65,
+   "end": 198.655,
+   "sim": 0.0
+  },
+  {
+   "text": "pe",
+   "line": 71,
+   "start": 198.655,
+   "end": 198.66,
+   "sim": 0.0
+  },
+  {
+   "text": "dhyan",
+   "line": 71,
+   "start": 198.66,
+   "end": 198.665,
+   "sim": 0.0
+  },
+  {
+   "text": "do,",
+   "line": 71,
+   "start": 198.665,
+   "end": 198.67,
+   "sim": 0.0
+  },
+  {
+   "text": "aur",
+   "line": 72,
+   "start": 198.67,
+   "end": 198.675,
+   "sim": 0.0
+  },
+  {
+   "text": "AdSense",
+   "line": 72,
+   "start": 198.675,
+   "end": 198.68,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 72,
+   "start": 198.68,
+   "end": 198.685,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 72,
+   "start": 198.685,
+   "end": 198.69,
+   "sim": 0.0
+  },
+  {
+   "text": "RBI",
+   "line": 72,
+   "start": 198.69,
+   "end": 198.695,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 72,
+   "start": 198.695,
+   "end": 198.7,
+   "sim": 0.0
+  },
+  {
+   "text": "FAQs",
+   "line": 72,
+   "start": 198.7,
+   "end": 198.9,
+   "sim": 0.8
+  },
+  {
+   "text": "ka",
+   "line": 72,
+   "start": 198.9,
+   "end": 199.04,
+   "sim": 1.0
+  },
+  {
+   "text": "wait",
+   "line": 72,
+   "start": 199.04,
+   "end": 199.32,
+   "sim": 1.0
+  },
+  {
+   "text": "karo.",
+   "line": 72,
+   "start": 199.32,
+   "end": 199.6,
+   "sim": 1.0
+  },
+  {
+   "text": "Jaise",
+   "line": 73,
+   "start": 200.0,
+   "end": 200.28,
+   "sim": 1.0
+  },
+  {
+   "text": "hi",
+   "line": 73,
+   "start": 200.28,
+   "end": 200.44,
+   "sim": 1.0
+  },
+  {
+   "text": "FAQs",
+   "line": 73,
+   "start": 200.44,
+   "end": 200.96,
+   "sim": 0.33
+  },
+  {
+   "text": "aayenge,",
+   "line": 73,
+   "start": 200.96,
+   "end": 201.44,
+   "sim": 1.0
+  },
+  {
+   "text": "main",
+   "line": 73,
+   "start": 201.44,
+   "end": 201.86,
+   "sim": 1.0
+  },
+  {
+   "text": "update",
+   "line": 73,
+   "start": 201.86,
+   "end": 202.22,
+   "sim": 0.5
+  },
+  {
+   "text": "video",
+   "line": 73,
+   "start": 202.22,
+   "end": 202.4,
+   "sim": 0.4
+  },
+  {
+   "text": "laaunga.",
+   "line": 73,
+   "start": 202.46,
+   "end": 202.84,
+   "sim": 1.0
+  },
+  {
+   "text": "Yeh",
+   "line": 74,
+   "start": 202.84,
+   "end": 203.22,
+   "sim": 1.0
+  },
+  {
+   "text": "video",
+   "line": 74,
+   "start": 203.22,
+   "end": 203.5,
+   "sim": 0.4
+  },
+  {
+   "text": "legal",
+   "line": 74,
+   "start": 203.5,
+   "end": 204.0,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 74,
+   "start": 204.0,
+   "end": 204.14,
+   "sim": 1.0
+  },
+  {
+   "text": "tax",
+   "line": 74,
+   "start": 204.14,
+   "end": 204.5,
+   "sim": 1.0
+  },
+  {
+   "text": "advice",
+   "line": 74,
+   "start": 204.5,
+   "end": 204.88,
+   "sim": 0.75
+  },
+  {
+   "text": "nahi",
+   "line": 74,
+   "start": 204.88,
+   "end": 205.22,
+   "sim": 0.67
+  },
+  {
+   "text": "hai.",
+   "line": 74,
+   "start": 205.22,
+   "end": 205.36,
+   "sim": 1.0
+  },
+  {
+   "text": "Apne",
+   "line": 75,
+   "start": 205.36,
+   "end": 205.96,
+   "sim": 1.0
+  },
+  {
+   "text": "case",
+   "line": 75,
+   "start": 205.96,
+   "end": 206.2,
+   "sim": 0.5
+  },
+  {
+   "text": "ke",
+   "line": 75,
+   "start": 206.2,
+   "end": 206.36,
+   "sim": 1.0
+  },
+  {
+   "text": "liye",
+   "line": 75,
+   "start": 206.36,
+   "end": 206.54,
+   "sim": 1.0
+  },
+  {
+   "text": "bank",
+   "line": 75,
+   "start": 206.54,
+   "end": 206.98,
+   "sim": 1.0
+  },
+  {
+   "text": "ya",
+   "line": 75,
+   "start": 206.98,
+   "end": 207.07,
+   "sim": 1.0
+  },
+  {
+   "text": "CA",
+   "line": 75,
+   "start": 207.07,
+   "end": 207.16,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 75,
+   "start": 207.16,
+   "end": 207.4,
+   "sim": 1.0
+  },
+  {
+   "text": "confirm",
+   "line": 75,
+   "start": 207.68,
+   "end": 208.1,
+   "sim": 0.8
+  },
+  {
+   "text": "karein.",
+   "line": 75,
+   "start": 208.1,
+   "end": 208.38,
+   "sim": 1.0
+  },
+  {
+   "text": "Aapki",
+   "line": 76,
+   "start": 208.38,
+   "end": 208.72,
+   "sim": 0.8
+  },
+  {
+   "text": "sabse",
+   "line": 76,
+   "start": 208.82,
+   "end": 209.12,
+   "sim": 0.8
+  },
+  {
+   "text": "zyada",
+   "line": 76,
+   "start": 209.24,
+   "end": 209.52,
+   "sim": 1.0
+  },
+  {
+   "text": "kamaai",
+   "line": 76,
+   "start": 209.52,
+   "end": 209.67,
+   "sim": 1.0
+  },
+  {
+   "text": "kahan",
+   "line": 76,
+   "start": 209.67,
+   "end": 209.752,
+   "sim": 0.0
+  },
+  {
+   "text": "se",
+   "line": 76,
+   "start": 209.752,
+   "end": 209.835,
+   "sim": 0.0
+  },
+  {
+   "text": "hoti",
+   "line": 76,
+   "start": 209.835,
+   "end": 209.918,
+   "sim": 0.0
+  },
+  {
+   "text": "hai?",
+   "line": 76,
+   "start": 209.918,
+   "end": 210.0,
+   "sim": 0.0
+  },
+  {
+   "text": "AdSense,",
+   "line": 77,
+   "start": 210.0,
+   "end": 211.62,
+   "sim": 1.0
+  },
+  {
+   "text": "foreign",
+   "line": 77,
+   "start": 211.82,
+   "end": 212.1,
+   "sim": 0.86
+  },
+  {
+   "text": "brands",
+   "line": 77,
+   "start": 212.1,
+   "end": 212.4,
+   "sim": 0.04
+  },
+  {
+   "text": "ya",
+   "line": 77,
+   "start": 212.4,
+   "end": 212.7,
+   "sim": 0.0
+  },
+  {
+   "text": "Indian",
+   "line": 77,
+   "start": 212.7,
+   "end": 213.0,
+   "sim": 0.0
+  },
+  {
+   "text": "brands?",
+   "line": 77,
+   "start": 213.0,
+   "end": 213.3,
+   "sim": 0.0
+  },
+  {
+   "text": "Comment",
+   "line": 78,
+   "start": 213.3,
+   "end": 213.6,
+   "sim": 0.0
+  },
+  {
+   "text": "mein",
+   "line": 78,
+   "start": 213.6,
+   "end": 213.9,
+   "sim": 0.0
+  },
+  {
+   "text": "batao.",
+   "line": 78,
+   "start": 213.9,
+   "end": 214.2,
+   "sim": 0.0
+  },
+  {
+   "text": "Aur",
+   "line": 79,
+   "start": 214.2,
+   "end": 214.5,
+   "sim": 0.0
+  },
+  {
+   "text": "aise",
+   "line": 79,
+   "start": 214.5,
+   "end": 214.8,
+   "sim": 0.0
+  },
+  {
+   "text": "creator",
+   "line": 79,
+   "start": 214.8,
+   "end": 215.1,
+   "sim": 0.0
+  },
+  {
+   "text": "updates",
+   "line": 79,
+   "start": 215.1,
+   "end": 215.4,
+   "sim": 0.0
+  },
+  {
+   "text": "ke",
+   "line": 79,
+   "start": 215.4,
+   "end": 215.7,
+   "sim": 0.0
+  },
+  {
+   "text": "liye",
+   "line": 79,
+   "start": 215.7,
+   "end": 216.0,
+   "sim": 0.0
+  },
+  {
+   "text": "NamasteTechy",
+   "line": 79,
+   "start": 216.0,
+   "end": 216.3,
+   "sim": 0.0
+  },
+  {
+   "text": "ko",
+   "line": 79,
+   "start": 216.3,
+   "end": 216.6,
+   "sim": 0.0
+  },
+  {
+   "text": "subscribe",
+   "line": 79,
+   "start": 216.6,
+   "end": 216.9,
+   "sim": 0.0
+  },
+  {
+   "text": "karo.",
+   "line": 79,
+   "start": 216.9,
+   "end": 217.2,
+   "sim": 0.0
+  }
+ ]
+}
