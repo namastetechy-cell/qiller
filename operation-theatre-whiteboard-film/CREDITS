@@ -1,0 +1,18 @@
+Operation theatre mein doctor green ya blue kyun? — Whiteboard Explainer, the channel's own narration with pauses removed (9:16, ~44.5 s)
+Script and narration: provided by the channel (Whysplained); captions verbatim, timed to the cleaned recording.
+Red dot image: provided by the channel (red_dot.png, cut from the supplied picture).
+All other pictures are drawn by code (engine/wb.js, adapted from the Lemo-Opuscar whiteboard style engine). No generated
+images, no stock footage, no third-party artwork.
+Lettering (on the board)
+  EMS Tech — SIL Open Font License 1.1. Single-line font by Sheldon B. Michaels, derived from "Architects Daughter"
+  by Kimberly Geswein; SVG conversion by Windell H. Oskay (Evil Mad Scientist). Via the npm package "hersheytext" (MIT).
+Subtitles
+  Architects Daughter — Kimberly Geswein, SIL Open Font License 1.1 (fonts/OFL-ArchitectsDaughter.txt),
+  from github.com/google/fonts.
+Music samples (CC0 1.0)
+  VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios).
+  Instruments: marimba, glockenspiel, vibraphone, harp, woodblock, cellos_pizz, contrabass_pizz.
+Score, foley and sound design
+  Original, synthesized in music.py and mix.py.
+Voice
+  The channel's own recording (operation_theatire.mp3), pauses removed; one 6 s stare pause kept (voice_no_pauses.wav).
