@@ -1,0 +1,66 @@
+[
+ {
+  "id": "l1",
+  "pose": "surprised",
+  "sub": "Ever feel like you're not that smart? Here are five signs you're selling yourself short.",
+  "text": "Ever feel like you're not that smart? Here are five signs you're selling yourself short.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l2",
+  "pose": "sad",
+  "sub": "One. You doubt yourself. Research suggests skilled people often underestimate how good they are.",
+  "text": "One. You doubt yourself. Research suggests skilled people often underestimate how good they are.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l3",
+  "pose": "happy",
+  "sub": "Two. You're curious. A mind that keeps asking why tends to keep learning.",
+  "text": "Two. You're curious. A mind that keeps asking why tends to keep learning.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l4",
+  "pose": "surprised",
+  "sub": "Three. You talk to yourself. Saying a word out loud can help you focus, and find things faster.",
+  "text": "Three. You talk to yourself. Saying a word out loud can help you focus, and find things faster.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l5",
+  "pose": "happy",
+  "sub": "Four. You can say, I don't know. Intellectual humility goes hand in hand with learning.",
+  "text": "Four. You can say, I don't know. Intellectual humility goes hand in hand with learning.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l6",
+  "pose": "cool",
+  "sub": "Five. You're funny. Studies link quick humor to verbal intelligence.",
+  "text": "Five. You're funny. Studies link quick humor to verbal intelligence.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l7",
+  "pose": "angry",
+  "sub": "Mad there's no sixth sign? That's your curious brain wanting more.",
+  "text": "Mad there's no sixth sign? That's your curious brain wanting more.",
+  "voice": "am_michael",
+  "speed": 1.08
+ },
+ {
+  "id": "l8",
+  "pose": "love",
+  "sub": "Subscribe to Mojo Mike Lessons. You're smarter than you think.",
+  "text": "Subscribe to Mojo Mike Lessons. You're smarter than you think.",
+  "voice": "am_michael",
+  "speed": 1.08
+ }
+]
