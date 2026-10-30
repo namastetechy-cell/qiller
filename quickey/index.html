@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter Display"; font-weight: 500; src: url("assets/fonts/InterDisplay-Medium.otf") format("opentype"); }
+      @font-face { font-family: "Inter Display"; font-weight: 600; src: url("assets/fonts/InterDisplay-SemiBold.otf") format("opentype"); }
+      @font-face { font-family: "Inter Display"; font-weight: 700; src: url("assets/fonts/InterDisplay-Bold.otf") format("opentype"); }
+      @font-face { font-family: "Inter Display"; font-weight: 800; src: url("assets/fonts/InterDisplay-ExtraBold.otf") format("opentype"); }
+      @font-face { font-family: "Inter Display"; font-weight: 900; src: url("assets/fonts/InterDisplay-Black.otf") format("opentype"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F5F5F7; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #F5F5F7; font-family: "Inter Display", sans-serif; color: #1D1D1F; }
+      .layer { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+      .cam, .zoom { position: absolute; inset: 0; width: 100%; height: 100%; transform-origin: 50% 50%; }
+      .line { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: baseline; gap: 0.24em; font-weight: 900; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+      .w { display: inline-block; padding: 0.06em 0.02em; }
+      .grad { background: linear-gradient(100deg, #2F6BFF, #7B4DFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .red { color: #E5322D; } .blue { color: #2B65D9; } .mute { color: #86868B; }
+
+      /* key / icon */
+      .key { position: absolute; }
+      .keybase { position: absolute; left: 0; right: 0; bottom: 0; height: 93.5%; border-radius: var(--r); background: linear-gradient(#d4d4da, #c4c4cc); box-shadow: 0 30px 60px rgba(29,29,31,.16), 0 8px 18px rgba(29,29,31,.08); }
+      .keytop { position: absolute; left: 0; right: 0; top: 0; height: 93.5%; border-radius: var(--r); background: linear-gradient(160deg, #ffffff, #eeeef2); box-shadow: inset 0 -3px 0 rgba(0,0,0,.05), inset 0 2px 0 #fff; overflow: hidden; }
+      .keyfill { position: absolute; inset: 0; background: radial-gradient(120% 90% at 25% 15%, #5b8cff 0%, #2F6BFF 40%, #7B4DFF 100%); }
+      .keyq { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; letter-spacing: -0.04em; }
+      .ring { position: absolute; border-radius: 50%; border: 10px solid #2F6BFF; }
+
+      /* docs */
+      .doc { position: absolute; background: #FFFFFF; border-radius: 26px; box-shadow: 0 40px 80px rgba(29,29,31,.12), 0 6px 16px rgba(29,29,31,.06); overflow: hidden; }
+      .badge { position: absolute; left: 30px; top: 30px; padding: 8px 18px; border-radius: 12px; color: #fff; font-weight: 800; font-size: 30px; letter-spacing: 0.02em; }
+      .lines { position: absolute; left: 30px; right: 30px; top: 116px; display: flex; flex-direction: column; gap: 18px; }
+      .lines i { display: block; height: 14px; border-radius: 7px; background: #e6e6ea; }
+
+      /* tiles */
+      .tile { position: absolute; width: 190px; height: 240px; background: #fff; border-radius: 22px; box-shadow: 0 24px 50px rgba(29,29,31,.13); padding: 0 22px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+      .tband { margin: 0 -22px 10px; height: 70px; display: flex; align-items: center; padding-left: 22px; color: #fff; font-weight: 800; font-size: 32px; letter-spacing: -0.01em; }
+      .tile i { display: block; height: 12px; border-radius: 6px; background: #e8e8ec; }
+      #plate { position: absolute; left: 460px; top: 455px; width: 1000px; height: 190px; border-radius: 40px; background: rgba(255,255,255,.9); box-shadow: 0 30px 70px rgba(29,29,31,.14); }
+
+      /* feature cuts */
+      .feat { position: absolute; top: 0; height: 100%; display: flex; align-items: center; font-weight: 900; font-size: 250px; letter-spacing: -0.05em; line-height: 1; }
+      .sweep { position: absolute; top: -10%; left: 0; width: 40%; height: 120%; background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(255,255,255,0)); }
+      .pill { position: absolute; left: 760px; top: 862px; width: 400px; height: 92px; border-radius: 46px; background: #1D1D1F; color: #fff; font-weight: 700; font-size: 36px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .shine { position: absolute; top: 0; left: 0; width: 30%; height: 100%; background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0)); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="13" data-width="1920" data-height="1080">
+      <div id="s1" class="clip layer" data-start="0" data-duration="1" data-track-index="1" style="background:#F5F5F7"><div class="cam"><div class="line" style="top:405px;font-size:270px"><span id="h1-0" class="w ">Due</span><span id="h1-1" class="w ">at</span><span id="h1-2" class="w red">5&nbsp;PM.</span></div></div></div>
+      <div id="s2" class="clip layer" data-start="1" data-duration="1" data-track-index="1" style="background:#F5F5F7"><div class="cam"><div id="t0" class="tile" style="left:155px;top:120px"><div class="tband" style="background:#2B65D9">.docx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t1" class="tile" style="left:465px;top:50px"><div class="tband" style="background:#1E8E4E">.xlsx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t2" class="tile" style="left:805px;top:30px"><div class="tband" style="background:#D9541E">.pptx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t3" class="tile" style="left:1145px;top:70px"><div class="tband" style="background:#8E5BD9">.jpg</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t4" class="tile" style="left:1485px;top:110px"><div class="tband" style="background:#0FA3B1">.png</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t5" class="tile" style="left:1665px;top:440px"><div class="tband" style="background:#6E6E73">.txt</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t6" class="tile" style="left:1405px;top:740px"><div class="tband" style="background:#F29D0C">.pages</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t7" class="tile" style="left:1055px;top:780px"><div class="tband" style="background:#2B65D9">.docx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t8" class="tile" style="left:705px;top:760px"><div class="tband" style="background:#1E8E4E">.csv</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t9" class="tile" style="left:335px;top:740px"><div class="tband" style="background:#8E5BD9">.heic</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t10" class="tile" style="left:85px;top:480px"><div class="tband" style="background:#D9541E">.pptx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t11" class="tile" style="left:605px;top:400px"><div class="tband" style="background:#2B8BD9">.odt</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t12" class="tile" style="left:1155px;top:440px"><div class="tband" style="background:#6E6E73">.rtf</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="t13" class="tile" style="left:865px;top:480px"><div class="tband" style="background:#1E8E4E">.xlsx</div><i></i><i></i><i style="width:60%"></i><i></i></div><div id="plate"></div><div class="line" style="top:470px;font-size:150px"><span id="h2-0" class="w ">Wrong</span><span id="h2-1" class="w ">format.</span></div></div></div>
+      <div id="s3" class="clip layer" data-start="2" data-duration="1" data-track-index="1" style="background:#FFFFFF"><div class="cam"><div class="line mute" style="top:330px;font-size:170px;font-weight:700"><span id="h3a-0" class="w ">There's</span><span id="h3a-1" class="w ">a</span><span id="h3a-2" class="w ">key</span></div>
+        <div id="h3b" class="line" style="top:540px;font-size:170px;font-weight:700;color:#86868B"><span id="h3b-0" class="w ">for</span><span id="h3b-1" class="w ">that.</span></div></div></div>
+      <div id="s4" class="clip layer" data-start="3" data-duration="1.5" data-track-index="1" style="background:#F5F5F7"><div class="cam"><div id="ring4" class="ring" style="left:810px;top:390px;width:300px;height:300px"></div>
+        <div id="ring4b" class="ring" style="left:810px;top:390px;width:300px;height:300px;border-color:#7B4DFF;border-width:4px"></div>
+        <div style="position:absolute;left:820px;top:400px">
+  <div id="k4" class="key" style="width:280px;height:299.6px;--r:64.4px">
+    <div class="keybase"></div>
+    <div id="k4-top" class="keytop">
+      <div id="k4-fill" class="keyfill" style="opacity:0"></div>
+      <div id="k4-q" class="keyq" style="font-size:156.8px;color:#1D1D1F">Q</div>
+    </div>
+  </div></div>
+        <div style="position:absolute;left:760px;top:445px;height:230px;overflow:hidden;display:flex;font-size:200px;font-weight:800;letter-spacing:-0.05em;line-height:1.1"><span id="wm-0" class="w" style="padding:0">Q</span><span id="wm-1" class="w" style="padding:0">u</span><span id="wm-2" class="w" style="padding:0">i</span><span id="wm-3" class="w" style="padding:0">c</span><span id="wm-4" class="w" style="padding:0">k</span><span id="wm-5" class="w" style="padding:0">e</span><span id="wm-6" class="w" style="padding:0">y</span></div></div></div>
+      <div id="s5" class="clip layer" data-start="4.5" data-duration="2.5" data-track-index="1" style="background:#F5F5F7"><div class="cam"><div class="zoom">
+        <div class="line" style="top:90px;font-size:150px"><span id="h5-0" class="w blue">DOCX</span><span id="h5-1" class="w mute">→</span><span id="h5-2" class="w red">PDF.</span></div>
+        <div style="position:absolute;left:0;top:0;width:100%;height:100%;perspective:1600px">
+          <div id="d5" class="doc" style="left:330px;top:330px;width:340px;height:440px">
+            <div class="badge b-docx" style="background:#2B65D9">DOCX</div>
+            <div class="badge b-pdf" style="background:#E5322D;opacity:0">PDF</div>
+            <div class="lines"><i style="width:62%;height:22px;background:#2a2a2d;margin-bottom:20px"></i><i style="width:92%;"></i><i style="width:78%;"></i><i style="width:86%;"></i><i style="width:60%;"></i><i style="width:88%;"></i><i style="width:72%;"></i><i style="width:50%;"></i></div>
+            <div class="sweep"></div>
+          </div>
+        </div>
+        <div id="ring5" class="ring" style="left:860px;top:450px;width:200px;height:200px"></div>
+        <div style="position:absolute;left:860px;top:445px">
+  <div id="k5" class="key" style="width:200px;height:214px;--r:46px">
+    <div class="keybase"></div>
+    <div id="k5-top" class="keytop">
+      <div id="k5-fill" class="keyfill" style="opacity:1"></div>
+      <div id="k5-q" class="keyq" style="font-size:112.00000000000001px;color:#fff">Q</div>
+    </div>
+  </div></div>
+        <div id="chk5" style="position:absolute;left:1520px;top:300px;width:96px;height:96px;border-radius:50%;background:#34C759;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(52,199,89,.35)">
+          <svg width="52" height="52" viewBox="0 0 52 52"><path d="M12 27 L22 37 L41 16" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="line" style="top:860px;font-size:100px;font-weight:800"><span id="h5b-0" class="w mute">One</span><span id="h5b-1" class="w mute">press.</span><span id="h5b-2" class="w ">Perfect</span><span id="h5b-3" class="w grad">PDF.</span></div>
+      </div></div></div>
+      <div id="s6a" class="clip layer" data-start="7" data-duration="0.5" data-track-index="1" style="background:#EAF1FF"><div class="cam"><div class="zoom"><div id="f1" class="feat" style="left:170px">Merge.</div>
+        <div id="m1" class="doc" style="left:1180px;top:330px;width:300px;height:400px;background:#fff"><div class="badge" style="background:#2B65D9">1</div></div>
+        <div id="m3" class="doc" style="left:1180px;top:330px;width:300px;height:400px"><div class="badge" style="background:#7B4DFF">3</div></div>
+        
+  <div id="m2" class="doc" style="width:300px;height:400px;left:1180px;top:330px">
+    <div class="badge" style="background:#E5322D">PDF</div>
+    <div class="lines"><i style="width:92%;height:22px;background:#2a2a2d;width:62%;margin-bottom:22px"></i><i style="width:78%;"></i><i style="width:86%;"></i><i style="width:60%;"></i><i style="width:88%;"></i><i style="width:72%;"></i><i style="width:50%;"></i></div>
+  </div></div></div></div>
+      <div id="s6b" class="clip layer" data-start="7.5" data-duration="0.5" data-track-index="1" style="background:#EAF8EF"><div class="cam"><div class="zoom">
+  <div id="cp" class="doc" style="width:320px;height:420px;left:170px;top:300px;transform-origin:50% 100%">
+    <div class="badge" style="background:#E5322D">PDF</div>
+    <div class="lines"><i style="width:92%;height:22px;background:#2a2a2d;width:62%;margin-bottom:22px"></i><i style="width:78%;"></i><i style="width:86%;"></i><i style="width:60%;"></i><i style="width:88%;"></i><i style="width:72%;"></i><i style="width:50%;"></i></div>
+  </div>
+        <div id="mb" style="position:absolute;left:110px;top:760px;width:440px;text-align:center;font-weight:800;font-size:72px;letter-spacing:-0.03em;color:#1E8E4E">24 MB</div>
+        <div id="f2" class="feat" style="right:130px;font-size:230px">Compress.</div></div></div></div>
+      <div id="s6c" class="clip layer" data-start="8" data-duration="0.5" data-track-index="1" style="background:#FFF3E6"><div class="cam"><div class="zoom"><div id="f3" class="feat" style="left:170px">Sign.</div>
+        
+  <div id="sg" class="doc" style="width:520px;height:600px;left:1100px;top:240px">
+    <div class="badge" style="background:#E5322D">PDF</div>
+    <div class="lines"><i style="width:92%;height:22px;background:#2a2a2d;width:62%;margin-bottom:22px"></i><i style="width:78%;"></i><i style="width:86%;"></i><i style="width:60%;"></i><i style="width:88%;"></i><i style="width:72%;"></i><i style="width:50%;"></i></div>
+  </div>
+        <svg style="position:absolute;left:1130px;top:600px" width="460" height="200" viewBox="0 0 460 200">
+          <line x1="20" y1="170" x2="440" y2="170" stroke="#d0d0d6" stroke-width="4" stroke-dasharray="12 10"/>
+          <path id="sig" d="M30 140 C 60 40, 90 40, 80 120 C 74 170, 120 60, 150 70 C 175 78, 150 150, 185 130 C 215 112, 230 60, 250 90 C 268 118, 240 150, 280 120 C 310 98, 330 80, 350 110 C 365 132, 400 120, 430 90" fill="none" stroke="#1D1D1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1200" stroke-dashoffset="1200"/>
+        </svg></div></div></div>
+      <div id="s6d" class="clip layer" data-start="8.5" data-duration="0.5" data-track-index="1" style="background:#F1ECFF"><div class="cam"><div class="zoom">
+        <div class="doc" style="left:380px;top:300px;width:360px;height:470px">
+          <div id="scanmask" style="position:absolute;inset:0;transform-origin:50% 0;background:linear-gradient(rgba(123,77,255,.10),rgba(47,107,255,.14))"></div>
+          <div class="badge" style="background:#7B4DFF">SCAN</div>
+          <div class="lines"><i style="width:62%;height:22px;background:#2a2a2d;margin-bottom:20px"></i><i style="width:92%;"></i><i style="width:78%;"></i><i style="width:86%;"></i><i style="width:60%;"></i><i style="width:88%;"></i><i style="width:72%;"></i></div>
+          <div id="scan" style="position:absolute;left:-10px;right:-10px;top:10px;height:8px;border-radius:4px;background:#2F6BFF;box-shadow:0 0 30px 8px rgba(47,107,255,.55)"></div>
+        </div>
+        <div id="f4" class="feat" style="right:220px">Scan.</div></div></div></div>
+      <div id="s7" class="clip layer" data-start="9" data-duration="1.25" data-track-index="1" style="background:#FFFFFF"><div class="cam"><div id="num" class="line grad" style="top:210px;font-size:420px;letter-spacing:-0.02em;gap:0.03em"><span id="numv" class="w">0.0</span><span class="w" style="font-size:240px">s</span></div>
+        <div class="line" style="top:720px;font-size:72px;font-weight:600;letter-spacing:-0.02em"><span id="h7-0" class="w mute">DOCX&nbsp;to&nbsp;PDF.</span><span id="h7-1" class="w ">On&nbsp;device.</span></div></div></div>
+      <div id="s8" class="clip layer" data-start="10.25" data-duration="2.75" data-track-index="1" style="background:#F5F5F7"><div class="cam"><div style="position:absolute;left:870px;top:120px">
+  <div id="k8" class="key" style="width:180px;height:192.6px;--r:41.4px">
+    <div class="keybase"></div>
+    <div id="k8-top" class="keytop">
+      <div id="k8-fill" class="keyfill" style="opacity:1"></div>
+      <div id="k8-q" class="keyq" style="font-size:100.80000000000001px;color:#fff">Q</div>
+    </div>
+  </div></div>
+        <div id="wm8" class="line" style="top:340px;font-size:56px;font-weight:700;letter-spacing:-0.02em">Quickey</div>
+        <div class="line" style="top:470px;font-size:190px"><span id="h8-0" class="w ">Paperwork,</span><span id="h8-1" class="w grad">done.</span></div>
+        <div id="plat" class="line mute" style="top:740px;font-size:44px;font-weight:600;letter-spacing:-0.01em">Mac · Windows · iPhone</div>
+        <div id="pill" class="pill">Download free<div class="shine"></div></div></div></div>
+    </div>
+    <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="13" data-track-index="9" data-volume="1"></audio>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const P = { mb: { v: 24 }, num: { v: 0 } };
+      tl.fromTo("#t0", { x: 1400, y: 0, rotation: -56, opacity: 1 }, { x: 0, y: 0, rotation: -14, duration: 0.42, ease: "back.out(1.3)" }, 1);
+      tl.fromTo("#t1", { x: -1032.188, y: 675.59, rotation: 36, opacity: 1 }, { x: 0, y: 0, rotation: 9, duration: 0.42, ease: "back.out(1.3)" }, 1.03);
+      tl.fromTo("#t2", { x: 122.018, y: -996.195, rotation: -24, opacity: 1 }, { x: 0, y: 0, rotation: -6, duration: 0.42, ease: "back.out(1.3)" }, 1.06);
+      tl.fromTo("#t3", { x: 852.266, y: 793.353, rotation: 48, opacity: 1 }, { x: 0, y: 0, rotation: 12, duration: 0.42, ease: "back.out(1.3)" }, 1.09);
+      tl.fromTo("#t4", { x: -1378.731, y: -173.648, rotation: -36, opacity: 1 }, { x: 0, y: 0, rotation: -9, duration: 0.42, ease: "back.out(1.3)" }, 1.12);
+      tl.fromTo("#t5", { x: 1180.748, y: -537.3, rotation: 64, opacity: 1 }, { x: 0, y: 0, rotation: 16, duration: 0.42, ease: "back.out(1.3)" }, 1.15);
+      tl.fromTo("#t6", { x: -362.347, y: 965.926, rotation: -48, opacity: 1 }, { x: 0, y: 0, rotation: -12, duration: 0.42, ease: "back.out(1.3)" }, 1.18);
+      tl.fromTo("#t7", { x: -646.448, y: -887.011, rotation: 28, opacity: 1 }, { x: 0, y: 0, rotation: 7, duration: 0.42, ease: "back.out(1.3)" }, 1.21);
+      tl.fromTo("#t8", { x: 1315.57, y: 342.02, rotation: -40, opacity: 1 }, { x: 0, y: 0, rotation: -10, duration: 0.42, ease: "back.out(1.3)" }, 1.24);
+      tl.fromTo("#t9", { x: -1293.431, y: 382.683, rotation: 56, opacity: 1 }, { x: 0, y: 0, rotation: 14, duration: 0.42, ease: "back.out(1.3)" }, 1.27);
+      tl.fromTo("#t10", { x: 591.666, y: -906.308, rotation: -32, opacity: 1 }, { x: 0, y: 0, rotation: -8, duration: 0.42, ease: "back.out(1.3)" }, 1.3);
+      tl.fromTo("#t11", { x: 420.988, y: 953.717, rotation: 72, opacity: 1 }, { x: 0, y: 0, rotation: 18, duration: 0.42, ease: "back.out(1.3)" }, 1.33);
+      tl.fromTo("#t12", { x: -1212.436, y: -500, rotation: -64, opacity: 1 }, { x: 0, y: 0, rotation: -16, duration: 0.42, ease: "back.out(1.3)" }, 1.36);
+      tl.fromTo("#t13", { x: 1366.814, y: -216.44, rotation: 16, opacity: 1 }, { x: 0, y: 0, rotation: 4, duration: 0.42, ease: "back.out(1.3)" }, 1.39);
+      tl.fromTo("#h1-0", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 0);
+      tl.fromTo("#h1-1", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 0.25);
+      tl.fromTo("#h1-2", { opacity: 0, scale: 1.6, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.36, ease: "expo.out" }, 0.5);
+      tl.fromTo("#s1 .cam", { scale: 1 }, { scale: 1.08, duration: 1, ease: "none" }, 0);
+      tl.fromTo("#s2 .cam", { x: 0 }, { x: -14, duration: 0.05, repeat: 5, yoyo: true, ease: "none" }, 1.5);
+      tl.fromTo("#s2 .cam", { scale: 1 }, { scale: 1.06, duration: 1, ease: "none" }, 1);
+      tl.fromTo("#plate", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.25, ease: "expo.out" }, 1.42);
+      tl.fromTo("#h2-0", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 1.45);
+      tl.fromTo("#h2-1", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 1.62);
+      tl.fromTo("#h3a-0", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 2.08);
+      tl.fromTo("#h3a-1", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 2.24);
+      tl.fromTo("#h3a-2", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 2.4);
+      tl.fromTo("#h3b-0", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 2.6);
+      tl.fromTo("#h3b-1", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 2.74);
+      tl.fromTo("#h3b", { color: "#86868B" }, { color: "#1D1D1F", duration: 0.3, ease: "power2.out" }, 2.72);
+      tl.fromTo("#s3 .cam", { scale: 1 }, { scale: 1.04, duration: 1, ease: "none" }, 2);
+      tl.fromTo("#k4", { scale: 4.2, filter: "blur(30px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.42, ease: "expo.out" }, 3.0);
+      tl.fromTo("#k4-top", { y: 0 }, { y: 20, duration: 0.07, ease: "power2.in" }, 3.48);
+      tl.to("#k4-top", { y: 0, duration: 0.25, ease: "back.out(3)" }, 3.56);
+      tl.fromTo("#k4-fill", { opacity: 0 }, { opacity: 1, duration: 0.18, ease: "power2.out" }, 3.52);
+      tl.fromTo("#k4-q", { color: "#1D1D1F" }, { color: "#ffffff", duration: 0.18, ease: "power2.out" }, 3.52);
+      tl.fromTo("#ring4", { scale: 0.6, opacity: 0.9 }, { scale: 3.4, opacity: 0, duration: 0.7, ease: "expo.out" }, 3.52);
+      tl.fromTo("#ring4b", { scale: 0.6, opacity: 0.5 }, { scale: 5, opacity: 0, duration: 0.9, ease: "expo.out" }, 3.56);
+      tl.fromTo("#k4", { x: 0 }, { x: -390, duration: 0.5, ease: "expo.inOut", immediateRender: false }, 3.78);
+      tl.fromTo("#wm-0", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 3.98);
+      tl.fromTo("#wm-1", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.015);
+      tl.fromTo("#wm-2", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.05);
+      tl.fromTo("#wm-3", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.085);
+      tl.fromTo("#wm-4", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.12);
+      tl.fromTo("#wm-5", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.155);
+      tl.fromTo("#wm-6", { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.19);
+      tl.fromTo("#s4 .cam", { scale: 1 }, { scale: 1.05, duration: 1.5, ease: "none" }, 3);
+      tl.fromTo("#h5-0", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 4.52);
+      tl.fromTo("#h5-1", { opacity: 0, scale: 0.4, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 4.66);
+      tl.fromTo("#h5-2", { opacity: 0, scale: 1.5, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 4.8);
+      tl.fromTo("#d5", { x: -500, rotation: -8, opacity: 0 }, { x: 0, rotation: -3, opacity: 1, duration: 0.45, ease: "expo.out" }, 4.5);
+      tl.fromTo("#k5", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 4.62);
+      tl.fromTo("#k5-top", { y: 0 }, { y: 16, duration: 0.06, ease: "power2.in" }, 4.98);
+      tl.to("#k5-top", { y: 0, duration: 0.22, ease: "back.out(3)" }, 5.05);
+      tl.fromTo("#ring5", { scale: 0.7, opacity: 0.8 }, { scale: 2.6, opacity: 0, duration: 0.5, ease: "expo.out" }, 5.02);
+      tl.to("#d5", { keyframes: { x: [0, 460, 920], y: [0, -70, 0] }, rotation: 3, duration: 0.5, ease: "power3.inOut" }, 5.04);
+      tl.fromTo("#d5", { rotationY: 0 }, { rotationY: 360, duration: 0.5, ease: "power3.inOut", immediateRender: false }, 5.04);
+      tl.fromTo("#d5 .b-docx", { opacity: 1 }, { opacity: 0, duration: 0.06, ease: "none" }, 5.28);
+      tl.fromTo("#d5 .b-pdf", { opacity: 0 }, { opacity: 1, duration: 0.06, ease: "none" }, 5.28);
+      tl.fromTo("#d5 .sweep", { xPercent: -160 }, { xPercent: 260, duration: 0.45, ease: "power2.inOut" }, 5.3);
+      tl.fromTo("#chk5", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)" }, 5.55);
+      tl.fromTo("#h5b-0", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 5.75);
+      tl.fromTo("#h5b-1", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 5.9);
+      tl.fromTo("#h5b-2", { opacity: 0, scale: 1.4, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 6.15);
+      tl.fromTo("#h5b-3", { opacity: 0, scale: 1.4, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 6.3);
+      tl.fromTo("#s5 .zoom", { scale: 1 }, { scale: 1.05, duration: 2.25, ease: "none" }, 4.5);
+      tl.fromTo("#s5 .cam", { x: 0, filter: "blur(0px)" }, { x: -1500, filter: "blur(26px)", duration: 0.25, ease: "power3.in" }, 6.75);
+      tl.fromTo("#s6a .cam", { x: 900, filter: "blur(26px)" }, { x: 0, filter: "blur(0px)", duration: 0.22, ease: "power3.out" }, 7.0);
+      tl.fromTo("#f1", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 7.04);
+      tl.fromTo("#m1", { x: -260, rotation: -14 }, { x: 0, rotation: 0, duration: 0.3, ease: "expo.out" }, 7.12);
+      tl.fromTo("#m3", { x: 260, rotation: 14 }, { x: 0, rotation: 0, duration: 0.3, ease: "expo.out" }, 7.12);
+      tl.fromTo("#m2", { scale: 1 }, { scale: 1.08, duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out" }, 7.36);
+      tl.fromTo("#s6a .zoom", { scale: 1 }, { scale: 1.05, duration: 0.5, ease: "none" }, 7);
+      tl.fromTo("#f2", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 7.52);
+      tl.fromTo("#cp", { scaleX: 1, scaleY: 1 }, { scaleX: 0.82, scaleY: 0.5, duration: 0.3, ease: "expo.inOut" }, 7.6);
+      tl.fromTo(P.mb, { v: 24 }, { v: 2, duration: 0.3, ease: "expo.inOut", onUpdate: function () { document.getElementById("mb").textContent = Math.round(this.targets()[0].v) + " MB"; } }, 7.6);
+      tl.fromTo("#s6b .zoom", { scale: 1 }, { scale: 1.05, duration: 0.5, ease: "none" }, 7.5);
+      tl.fromTo("#f3", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 8.02);
+      tl.fromTo("#sig", { strokeDashoffset: 1200 }, { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, 8.06);
+      tl.fromTo("#s6c .zoom", { scale: 1 }, { scale: 1.05, duration: 0.5, ease: "none" }, 8);
+      tl.fromTo("#f4", { opacity: 0, scale: 1.35, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 8.52);
+      tl.fromTo("#scan", { y: 0 }, { y: 440, duration: 0.42, ease: "power1.inOut" }, 8.55);
+      tl.fromTo("#scanmask", { scaleY: 0 }, { scaleY: 1, duration: 0.42, ease: "power1.inOut" }, 8.55);
+      tl.fromTo("#s6d .zoom", { scale: 1 }, { scale: 1.05, duration: 0.5, ease: "none" }, 8.5);
+      tl.fromTo("#num", { opacity: 0, scale: 1.3, filter: "blur(20px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 9.0);
+      tl.fromTo(P.num, { v: 0 }, { v: 0.8, duration: 0.5, ease: "power3.out", onUpdate: function () { document.getElementById("numv").textContent = this.targets()[0].v.toFixed(1); } }, 9.04);
+      tl.fromTo("#h7-0", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 9.5);
+      tl.fromTo("#h7-1", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 9.68);
+      tl.fromTo("#s7 .cam", { scale: 1 }, { scale: 1.06, duration: 1.25, ease: "none" }, 9);
+      tl.fromTo("#k8", { scale: 0.5, opacity: 0, y: -60 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.8)" }, 10.28);
+      tl.fromTo("#wm8", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 10.45);
+      tl.fromTo("#h8-0", { opacity: 0, scale: 1.3, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 10.62);
+      tl.fromTo("#h8-1", { opacity: 0, scale: 1.5, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 10.9);
+      tl.fromTo("#plat", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 11.45);
+      tl.fromTo("#pill", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 11.7);
+      tl.fromTo("#pill .shine", { xPercent: -150 }, { xPercent: 350, duration: 0.7, ease: "power2.inOut" }, 12.1);
+      tl.fromTo("#s8 .cam", { scale: 1 }, { scale: 1.04, duration: 2.75, ease: "none" }, 10.25);
+      tl.set({}, {}, 13);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
