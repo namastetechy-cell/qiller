@@ -1,0 +1,7 @@
+India's Deepest Metro Station: 122 Feet Neeche Kyun? — 16-bit Pixel RPG (9:16, ~56 s)
+Script: provided by the channel (Whysplained), used verbatim in the subtitles.
+All pictures are drawn by code (main.js; px.js / font.js / ui.js adapted from the Lemo-Opuscar pixel-rpg style engine):
+original sprites, portrait, pixel font and UI. No generated images, no third-party artwork.
+Palette: ENDESGA-32 (free palette).
+Voice: Kokoro-82M (Apache 2.0) via kokoro-onnx, voice hm_omega, lang hi (reading a Devanagari copy of the script).
+Music and sound effects: original, synthesised in music.py and mix.py (no samples).

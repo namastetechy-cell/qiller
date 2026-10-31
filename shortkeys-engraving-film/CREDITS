@@ -1,0 +1,13 @@
+Windows 11 ki 5 shortkeys — Copperplate Engraving, no voice (9:16, ~35 s)
+Script: provided by the channel (namastetechy), used verbatim as captions (only spacing/capitalisation tidied, "window + L" written as "Windows + L").
+All pictures are engraved by code (engine/ from the Lemo-Opuscar copperplate-engraving style: burin.js, plate.js, wash.js).
+No generated images, no stock footage, no logos or third-party artwork; keys are drawn as plain labelled keycaps.
+
+Lettering
+  Bodoni Moda (roman capitals, italics; plus a static low-contrast instance "Bodoni Text" made with fontTools for captions
+  and key labels) and Pinyon Script (script notes) — SIL Open Font License 1.1, from github.com/google/fonts.
+Music samples (CC0 1.0)
+  Versilian Community Sample Library / VS Chamber Orchestra: Community Edition (Versilian Studios).
+  Instruments: harpsichord, violins_pizz, cellos_pizz, contrabass_pizz.
+Score, foley and sound design
+  Original, synthesized in music.py and mix.py.

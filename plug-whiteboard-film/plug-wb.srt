@@ -1,0 +1,55 @@
+1
+00:00:00,400 --> 00:00:03,070
+Plug ka ek pin baaki do se mota aur lamba kyun hai?
+
+2
+00:00:03,090 --> 00:00:05,000
+Mtlb ye akela gym jaata hai kya?
+
+3
+00:00:05,020 --> 00:00:07,250
+Log sochte hain ye zyada bijli leta hai.
+
+4
+00:00:07,270 --> 00:00:09,580
+Ulta, isme normally current behta hi nahi.
+
+5
+00:00:09,600 --> 00:00:11,180
+Ye hai earth pin.
+
+6
+00:00:11,200 --> 00:00:14,230
+Baaki do — live aur neutral — bijli laate aur le jaate hain.
+
+7
+00:00:14,250 --> 00:00:16,920
+Earth pin ka kaam sirf ek hai — aapki jaan bachana.
+
+8
+00:00:16,940 --> 00:00:20,650
+Socho, washing machine ki body mein current aa jaaye... aur aap use chhoo lo!
+
+9
+00:00:20,670 --> 00:00:23,780
+Earth pin us current ko aapki jagah zameen mein bhej deta hai.
+
+10
+00:00:23,800 --> 00:00:26,790
+Ab lamba kyun? Taaki plug lagao toh earth sabse pehle lage,
+
+11
+00:00:26,810 --> 00:00:28,920
+aur nikalo toh sabse baad mein nikle.
+
+12
+00:00:28,940 --> 00:00:33,210
+Aur mota kyun? Taaki iski pehchan alag se ho aur galti se bhi plug me kahi aur na lag jaye.
+
+13
+00:00:33,230 --> 00:00:35,700
+Aapke ghar mein kaun hai jo ye nahi janta tha?
+
+14
+00:00:35,720 --> 00:00:38,550
+Share karo use sath! Aur subscribe karo Whysplained ko!

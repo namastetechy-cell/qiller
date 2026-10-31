@@ -1,0 +1,18 @@
+Why do some dentists hand out candy on Halloween? — Whiteboard Explainer, soft narrator (9:16, ~45 s)
+Script: written for this film (no script was supplied) for The Why Minute; voice and captions use it verbatim.
+All pictures are drawn by code (engine/wb.js, adapted from the Lemo-Opuscar whiteboard style engine). No generated
+images, no stock footage, no third-party artwork.
+
+Lettering (on the board)
+  EMS Tech — SIL Open Font License 1.1. Single-line font by Sheldon B. Michaels, derived from "Architects Daughter"
+  by Kimberly Geswein; SVG conversion by Windell H. Oskay (Evil Mad Scientist). Via the npm package "hersheytext" (MIT).
+Subtitles
+  Architects Daughter — Kimberly Geswein, SIL Open Font License 1.1 (fonts/OFL-ArchitectsDaughter.txt),
+  from github.com/google/fonts.
+Music samples (CC0 1.0)
+  VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios).
+  Instruments: marimba, glockenspiel, vibraphone, harp, woodblock, cellos_pizz, contrabass_pizz.
+Score, foley and sound design
+  Original, synthesized in music.py and mix.py.
+Voice
+  Kokoro-82M (Apache 2.0) via kokoro-onnx, voice am_michael, lang en-us.
